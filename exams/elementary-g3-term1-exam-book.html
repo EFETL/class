@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>國小三年級 上學期 第一次段考 跨版本綜合題本</title>
+<style>
+:root{--ink:#22201d;--ink2:#5b544c;--line:#d9d0c2;--paper:#fdfaf4;--band:#1f5f6b;--band2:#c8663a;--soft:#f4efe5;--acc:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;background:#e8e3d9;color:var(--ink);
+ font-family:"Noto Sans TC","PingFang TC","Heiti TC",system-ui,sans-serif;font-size:16px;line-height:1.9}
+.book{max-width:820px;margin:0 auto;padding:24px 12px 80px}
+.sheet{background:var(--paper);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08);
+ padding:38px 40px 46px;margin:0 0 26px}
+h2.h-page{font-size:24px;margin:0 0 18px;padding-bottom:10px;border-bottom:3px solid var(--band)}
+.pf{margin:.5em 0;color:var(--ink2);font-size:15px}
+/* 封面 */
+.cover{text-align:center;padding:64px 40px 54px;background:linear-gradient(180deg,#fffdf8,#f6efe2)}
+.cv-band{display:inline-block;background:var(--band);color:#fff;padding:6px 20px;border-radius:999px;font-size:14px;letter-spacing:2px}
+.cv-title{font-size:40px;line-height:1.35;margin:22px 0 6px;letter-spacing:2px}
+.cv-sub{font-size:18px;color:var(--ink2)}
+.cv-line{width:96px;height:4px;background:var(--band2);margin:24px auto 28px;border-radius:2px}
+.cv-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;max-width:520px;margin:0 auto;text-align:left;font-size:15px}
+.cv-meta div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 14px}
+.cv-meta span{display:block;font-size:12px;color:var(--band);letter-spacing:1px}
+.cv-name{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:34px 0 8px;font-size:15px}
+.cv-foot{margin-top:26px;color:var(--ink2);font-size:13px}
+/* 對照表 */
+table.ref{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+table.ref th{background:var(--band);color:#fff;padding:8px 6px;border:1px solid #b9ab97}
+table.ref td{border:1px solid var(--line);padding:7px 8px;vertical-align:top}
+table.ref td.reg{background:var(--soft);font-weight:700;text-align:center;white-space:nowrap}
+/* 目錄 */
+ol.toc{list-style:none;margin:0;padding:0;counter-reset:none}
+ol.toc>li{margin:0 0 14px;border-bottom:1px dashed var(--line);padding-bottom:12px}
+ol.toc>li>a{display:grid;grid-template-columns:74px 1fr;gap:2px 10px;text-decoration:none;color:var(--ink)}
+.tc-n{color:var(--band2);font-weight:700}
+.tc-t{font-size:19px;font-weight:700}
+.tc-d{grid-column:2;color:var(--ink2);font-size:13px}
+ol.toc ul{list-style:none;margin:8px 0 0 74px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
+ol.toc ul a{color:var(--ink2);text-decoration:none;font-size:14px}
+ol.toc a:hover{color:var(--acc)}
+/* 章 */
+.chap-head{border-left:8px solid var(--band);padding:6px 0 6px 16px;margin-bottom:16px}
+.chap-n{color:var(--band2);font-weight:700;letter-spacing:2px}
+.chap-t{font-size:28px;margin:2px 0 4px}
+.chap-s{color:var(--ink2);font-size:14px}
+.chap-intro{background:var(--soft);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--ink2);margin-bottom:22px}
+.sec{margin:26px 0 34px}
+.sec-head{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--line);padding-bottom:8px}
+.pub{background:var(--band2);color:#fff;border-radius:6px;padding:2px 10px;font-size:13px;white-space:nowrap}
+.sec-t{font-size:19px;font-weight:700}
+.scope{font-size:13px;color:var(--ink2);margin:8px 0 16px}
+.scope b{color:var(--band);margin-right:6px}
+.scope b+b{margin-left:10px}
+/* 題目 */
+.q{margin:0 0 16px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;page-break-inside:avoid;break-inside:avoid}
+.q-h{display:flex;gap:9px}
+.q-n{flex:0 0 auto;min-width:26px;height:26px;border-radius:50%;background:var(--band);color:#fff;
+ display:inline-flex;align-items:center;justify-content:center;font-size:13px;margin-top:3px}
+.q-t{flex:1}
+ol.opts{list-style:none;margin:8px 0 0 35px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}
+ol.opts li{font-size:15px}
+.ol{color:var(--band2);font-weight:700;margin-right:5px}
+.passage{background:var(--soft);border-left:5px solid var(--band);border-radius:8px;padding:12px 16px;margin:0 0 16px}
+.passage-t{font-weight:700;margin-bottom:6px}
+.passage-b{font-size:15px;line-height:2.1;white-space:pre-wrap}
+.ansline{margin:14px 0 4px 35px;border-bottom:1.5px solid var(--line);height:26px}
+.ansline.tall{height:52px;border-bottom:1.5px solid var(--line);
+ background:repeating-linear-gradient(transparent,transparent 25px,var(--line) 25px,var(--line) 26px)}
+.workbox{margin:10px 0 4px 35px;border:1.5px dashed var(--line);border-radius:8px;height:110px;position:relative}
+.wb-tag{position:absolute;top:6px;left:10px;font-size:12px;color:#b4a894}
+.exp-btn{margin:10px 0 0 35px;background:#fff;border:1.5px solid var(--acc);color:var(--acc);
+ border-radius:999px;padding:3px 15px;font-size:13px;cursor:pointer}
+.exp-btn:hover{background:var(--acc);color:#fff}
+.exp{display:none;margin:10px 0 0 35px;background:#f0f7f5;border-left:4px solid var(--acc);
+ border-radius:0 8px 8px 0;padding:10px 14px;font-size:14px}
+.exp.on{display:block}
+.exp b{color:var(--acc)}
+/* 解答本 */
+.key-ch{margin:22px 0 8px;font-size:20px;border-bottom:2px solid var(--line);padding-bottom:5px}
+.key-sec{margin:0 0 14px}
+.key-t{font-size:14px;color:var(--band);font-weight:700;margin-bottom:4px}
+ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px 12px;font-size:14px}
+/* 頁碼（螢幕不顯示，列印才出現） */
+.pagefoot{display:none}
+/* 工具列 */
+.bar{position:sticky;top:0;z-index:9;background:rgba(253,250,244,.96);backdrop-filter:blur(6px);
+ border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+ max-width:820px;margin:0 auto;border-radius:0 0 12px 12px}
+.bar b{font-size:14px;margin-right:4px}
+.bar button,.bar a{background:var(--band);color:#fff;border:0;border-radius:8px;padding:6px 13px;
+ font-size:13px;cursor:pointer;text-decoration:none}
+.bar button.ghost{background:#fff;color:var(--band);border:1.5px solid var(--band)}
+@media(max-width:640px){
+ .sheet{padding:24px 18px 30px}.cv-title{font-size:30px}
+ .cv-meta,ol.opts,ol.toc ul{grid-template-columns:1fr}
+ .ansline,.workbox,.exp,.exp-btn,ol.opts{margin-left:0}
+}
+/* 列印 */
+@media print{
+ @page{size:A4;margin:16mm 14mm 18mm}
+ body{background:#fff;font-size:12.5pt;line-height:1.75}
+ .book{max-width:none;padding:0}
+ .bar,.exp-btn,.no-print{display:none!important}
+ .exp{display:none!important}
+ .sheet{box-shadow:none;border-radius:0;padding:0;margin:0;background:#fff;break-after:page;page-break-after:always}
+ .sheet:last-child{break-after:auto;page-break-after:auto}
+ .cover{padding-top:40mm}
+ .q{border-color:#bbb}
+ .pagefoot{display:block;position:fixed;bottom:0;right:0;font-size:10pt;color:#555}
+ .pagefoot::after{counter-increment:page;content:"— " counter(page) " —"}
+}
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <b>國小三年級 上學期 第一次段考 跨版本綜合題本</b>
+  <button class="ghost" onclick="allExp(true)">顯示全部解析</button>
+  <button class="ghost" onclick="allExp(false)">收合全部解析</button>
+  <button onclick="window.print()">列印 / 存成 PDF</button>
+  <a href="#toc-top">回目錄</a>
+  <a href="../exams.html" style="background:#fff;color:var(--band);border:1.5px solid var(--band)">← 回題庫首頁</a>
+</div>
+<div class="book" id="toc-top">
+<section class="sheet cover">
+  <div class="cv-band">安親班自編・跨版本題本</div>
+  <h1 class="cv-title">國小三年級 上學期 第一次段考 跨版本綜合題本</h1>
+  <div class="cv-sub">國語・數學・自然・社會・英語　五科合訂本</div>
+  <div class="cv-line"></div>
+  <div class="cv-meta">
+    <div><span>適用年級</span>三年級（上學期）</div>
+    <div><span>適用版本</span>康軒・南一・翰林・何嘉仁</div>
+    <div><span>科目</span>國語／數學／自然／社會／英語</div>
+    <div><span>取材範圍</span>第一次段考（期中考）常見範圍</div>
+  </div>
+  <div class="cv-name">
+    <div>班級 ____________</div><div>座號 ________</div><div>姓名 ________________</div>
+  </div>
+  <div class="cv-foot">安親班自編教材　第 1 冊　©本題本題目全數自編，僅供班內教學使用</div>
+</section>
+<section class="sheet"><h2 class="h-page">編輯說明</h2>
+<p class="pf"><strong>一、這本書是什麼。</strong> 這是一本「合訂題本」，不是單張考卷。全書把國語、數學、自然、社會、英語五科放進同一本，每一科底下再依 <strong>康軒、南一、翰林、何嘉仁</strong> 分節出題，讓同一間安親班裡使用不同版本的孩子，可以各自翻到自己的那一節作答，老師只要備一本書。</p>
+<p class="pf"><strong>二、題目從哪裡來。</strong> 全書題目 <strong>100% 自編</strong>，沒有抄錄任何學校的段考原卷。我們以「中小學題庫網（tcool.cc）」上北、中、南共 9 所國小的段考卷紀錄，來確認 <strong>各年級各科目實際採用的版本、段考次數與命題範圍</strong>，再依照這個範圍與十二年國教課綱自行命題，避免版權問題。各校版本對照見下一頁。</p>
+<p class="pf"><strong>三、怎麼使用。</strong> 螢幕上點每一題下方的「解析」可展開答案與說明；按上方「列印 / 存成 PDF」時，<strong>解析會自動隱藏</strong>，印出來就是乾淨的作答題本，答案統一收在書末「解答本」。列印請用 Chrome 或 Edge，頁碼才會出現在頁尾。</p>
+<p class="pf"><strong>四、進度提醒。</strong> 各校教學進度不同，第一次段考的實際範圍請以任課老師公布為準。本書各節開頭都標明「對應單元」，若某節超出貴班進度，直接略過該節即可，不影響其他節。</p>
+<p class="pf"><strong>五、配分建議。</strong> 每一節可獨立當成一份小考（滿分 100 分）；若要組成一份完整段考卷，建議：國語 30 分＋數學 30 分＋自然 20 分＋社會 20 分，英語另外單獨計分。</p>
+</section>
+<section class="sheet"><h2 class="h-page">導讀：北、中、南九校版本對照表</h2>
+<p class="pf">資料來源：中小學題庫網（tcool.cc）各校段考卷之「學校／年級科目／出版社」欄位彙整（統計至 114 學年度）。<strong>本表只用來確認命題範圍與版本分布，題目仍為自編。</strong> 空白代表該站目前查無該校此科的段考紀錄，不代表學校沒教。</p>
+<table class="ref"><thead><tr><th>區域</th><th>縣市</th><th>學校</th><th>國語</th><th>數學</th><th>自然</th><th>社會</th><th>英語</th></tr></thead><tbody>
+<tr><td class="reg">北部</td><td>臺北市</td><td>民權國小</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒</td><td>康軒／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">北部</td><td>桃園市</td><td>大華國小</td><td>康軒／南一／翰林</td><td>康軒／翰林</td><td>南一／翰林</td><td>康軒／翰林</td><td>康軒／何嘉仁</td></tr>
+<tr><td class="reg">北部</td><td>基隆市</td><td>東光國小</td><td>康軒／翰林</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林</td></tr>
+<tr><td class="reg">中部</td><td>臺中市</td><td>大墩國小</td><td>康軒／南一／翰林</td><td>康軒／南一</td><td>康軒</td><td>康軒／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">中部</td><td>彰化縣</td><td>成功國小</td><td>康軒／南一</td><td>南一</td><td>南一／翰林</td><td>康軒／翰林</td><td>何嘉仁</td></tr>
+<tr><td class="reg">中部</td><td>南投縣</td><td>社寮國小</td><td>康軒／南一／翰林</td><td>康軒</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林</td></tr>
+<tr><td class="reg">南部</td><td>臺南市</td><td>和順國小</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">南部</td><td>高雄市</td><td>獅湖國小</td><td>康軒／翰林</td><td>康軒／南一</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td class="reg">南部</td><td>高雄市</td><td>永安國小</td><td>康軒／翰林</td><td>康軒／南一／翰林</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>統計</td><td>—</td><td>四家版本占比</td><td>康軒最高，南一、翰林次之</td><td>三家並用</td><td>康軒／翰林為主</td><td>康軒／翰林為主</td><td><strong>英語才會出現何嘉仁</strong></td></tr>
+</tbody></table></section>
+<section class="sheet"><h2 class="h-page">目錄</h2><ol class="toc">
+<li><a href="#ch1"><span class="tc-n">第 1 章</span><span class="tc-t">國語</span><span class="tc-d">字音字形・部首量詞・詞語運用・標點修辭・短文閱讀｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch1-s1">1-1　康軒版　第1~4課</a></li>
+<li><a href="#ch1-s2">1-2　南一版　第1~4課</a></li>
+<li><a href="#ch1-s3">1-3　翰林版　第1~4課</a></li>
+</ul></li>
+<li><a href="#ch2"><span class="tc-n">第 2 章</span><span class="tc-t">數學</span><span class="tc-d">一萬以內的數・加減直式・二位數乘法・生活應用｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch2-s1">2-1　康軒版　數・加減・乘法</a></li>
+<li><a href="#ch2-s2">2-2　南一版　數・加減・乘法</a></li>
+<li><a href="#ch2-s3">2-3　翰林版　數・加減・乘法</a></li>
+</ul></li>
+<li><a href="#ch3"><span class="tc-n">第 3 章</span><span class="tc-t">自然與生活科技</span><span class="tc-d">科學觀察方法・植物的身體與功能・校園植物比較｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch3-s1">3-1　康軒版　植物的身體</a></li>
+<li><a href="#ch3-s2">3-2　南一版　植物的身體</a></li>
+<li><a href="#ch3-s3">3-3　翰林版　植物的身體</a></li>
+</ul></li>
+<li><a href="#ch4"><span class="tc-n">第 4 章</span><span class="tc-t">社會</span><span class="tc-d">我的家庭・學校生活・校園平面圖與方位｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch4-s1">4-1　康軒版　家庭與學校</a></li>
+<li><a href="#ch4-s2">4-2　南一版　家庭與學校</a></li>
+<li><a href="#ch4-s3">4-3　翰林版　家庭與學校</a></li>
+</ul></li>
+<li><a href="#ch5"><span class="tc-n">第 5 章</span><span class="tc-t">英語 English</span><span class="tc-d">字母大小寫・自我介紹與問候・課室用語・自然發音入門｜康軒／南一／翰林／何嘉仁 四版分節</span></a><ul>
+<li><a href="#ch5-s1">5-1　康軒版　字母與問候</a></li>
+<li><a href="#ch5-s2">5-2　南一版　字母與數字</a></li>
+<li><a href="#ch5-s3">5-3　翰林版　字母與文具</a></li>
+<li><a href="#ch5-s4">5-4　何嘉仁版　字母音與問候</a></li>
+</ul></li>
+</ol></section>
+<section class="sheet chap" id="ch1">
+<div class="chap-head"><div class="chap-n">第 1 章</div><h2 class="chap-t">國語</h2><div class="chap-s">字音字形・部首量詞・詞語運用・標點修辭・短文閱讀｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題寫在橫線上；造句題請寫成完整的一句話（有句號）。三個版本的題型設計相同，只是取材的課文主題不同，老師可依班上學生使用的版本指定其中一節。</div>
+<div class="sec" id="ch1-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">1-1　國語（康軒版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一～四課；主題多為校園生活與自然觀察（字詞、量詞、標點、擬人修辭、短文閱讀）　<b>配分</b>選擇每題 8 分、填充每格 5 分、造句 10 分</div>
+<div class="q" id="ch1-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音完全正確的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>微風輕「拂」ㄈㄨˊ</li>
+<li><span class="ol">(B)</span>一片「稻」田 ㄊㄠˊ</li>
+<li><span class="ol">(C)</span>「攤」開地圖 ㄊㄢˇ</li>
+<li><span class="ol">(D)</span>一「盞」小燈 ㄓㄢˋ</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q1">解析</button><div class="exp" id="e-ch1-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>拂讀ㄈㄨˊ，正確。稻讀ㄉㄠˋ、攤讀ㄊㄢ（一聲）、盞讀ㄓㄢˇ（三聲），其餘三個都標錯了。</div>
+</div>
+<div class="q" id="ch1-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>完成心愿</li>
+<li><span class="ol">(B)</span>迫不急待</li>
+<li><span class="ol">(C)</span>興高采烈</li>
+<li><span class="ol">(D)</span>專心至志</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q2">解析</button><div class="exp" id="e-ch1-s1-q2"><b>答案：</b>(C)<br><b>解析：</b>「興高采烈」正確。心愿→心願；迫不急待→迫不及待（來不及等待）；專心至志→專心致志（致，把心力用到某處）。</div>
+</div>
+<div class="q" id="ch1-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：小明ㄗˇ　ㄒㄧˋ（　　）地ㄍㄨㄢ　ㄔㄚˊ（　　）葉子的形狀，還畫下來做紀錄。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s1-q3">解析</button><div class="exp" id="e-ch1-s1-q3"><b>答案：</b>仔細、觀察<br><b>解析：</b>ㄗˇㄒㄧˋ是「仔細」（仔的部首是人部）；ㄍㄨㄢㄔㄚˊ是「觀察」，注意「察」是宀部，不要寫成「查」。</div>
+</div>
+<div class="q" id="ch1-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列量詞使用<strong>正確</strong>的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>一「畝」稻田</li>
+<li><span class="ol">(B)</span>一「棵」小鳥</li>
+<li><span class="ol">(C)</span>一「條」教室</li>
+<li><span class="ol">(D)</span>一「片」故事書</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q4">解析</button><div class="exp" id="e-ch1-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>田地用「畝」。小鳥用「隻」、教室用「間」、故事書用「本」。</div>
+</div>
+<div class="q" id="ch1-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">「聞」這個字的部首是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>門</li>
+<li><span class="ol">(B)</span>耳</li>
+<li><span class="ol">(C)</span>日</li>
+<li><span class="ol">(D)</span>口</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q5">解析</button><div class="exp" id="e-ch1-s1-q5"><b>答案：</b>(B)<br><b>解析：</b>「聞」是用耳朵聽，部首取「耳」，門只是外框（聲符）。查字典時要先找耳部，再數 8 畫。</div>
+</div>
+<div class="q" id="ch1-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">「上課鐘響了，同學們（　　）地回到座位上。」括號中填入哪一個詞語最恰當？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>井然有序</li>
+<li><span class="ol">(B)</span>七手八腳</li>
+<li><span class="ol">(C)</span>無精打采</li>
+<li><span class="ol">(D)</span>自言自語</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q6">解析</button><div class="exp" id="e-ch1-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>井然有序＝很整齊、有秩序，最符合聽到鐘聲回座位的情形。七手八腳是慌亂、無精打采是沒有精神、自言自語是自己對自己說話，都不合句意。</div>
+</div>
+<div class="q" id="ch1-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請為這個句子加上正確的標點符號（寫出完整句子）：　媽媽問我　今天在學校過得好嗎</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s1-q7">解析</button><div class="exp" id="e-ch1-s1-q7"><b>答案：</b>媽媽問我：「今天在學校過得好嗎？」<br><b>解析：</b>說話的內容要先用冒號（：）再用引號（「」）框起來；句子在問人，所以引號裡用問號（？），問號要放在下引號的裡面。</div>
+</div>
+<div class="q" id="ch1-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">「小草在風中向我們招手。」這句話使用了什麼修辭法？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>譬喻</li>
+<li><span class="ol">(B)</span>擬人</li>
+<li><span class="ol">(C)</span>誇飾</li>
+<li><span class="ol">(D)</span>排比</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q8">解析</button><div class="exp" id="e-ch1-s1-q8"><b>答案：</b>(B)<br><b>解析：</b>「招手」是人的動作，作者把小草當成人來寫，所以是擬人。譬喻要有「像、好像、彷彿」等喻詞。</div>
+</div>
+<div class="q" id="ch1-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請用「一邊……一邊……」造一個完整的句子。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s1-q9">解析</button><div class="exp" id="e-ch1-s1-q9"><b>答案：</b>參考答案：妹妹一邊哼著歌，一邊幫忙擦桌子。<br><b>解析：</b>「一邊……一邊……」用來表示兩件事同時進行，前後要各接一個動作，句末別忘了加句號。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 9～10 題）</div><div class="passage-b">　　學校中庭有一棵老榕樹，它的鬍鬚長長地垂下來，像一位慈祥的老公公。下課鐘一響，我們就跑到樹下玩。有人在樹蔭裡看書，有人蹲著看螞蟻搬東西。<br>　　有一天，我發現榕樹的葉子上有一個小小的洞，仔細一看，原來是毛毛蟲把葉子當成午餐了。老師說：「這也是大自然的一部分喔！」從那天起，我每天下課都會去看看那隻毛毛蟲，看牠什麼時候會變成蝴蝶。</div></div>
+<div class="q" id="ch1-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">短文中把老榕樹比喻成什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>一位慈祥的老公公</li>
+<li><span class="ol">(B)</span>一把大雨傘</li>
+<li><span class="ol">(C)</span>一隻毛毛蟲</li>
+<li><span class="ol">(D)</span>一座小山</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q10">解析</button><div class="exp" id="e-ch1-s1-q10"><b>答案：</b>(A)<br><b>解析：</b>第一段寫「它的鬍鬚長長地垂下來，像一位慈祥的老公公」，有喻詞「像」，是譬喻修辭。</div>
+</div>
+<div class="q" id="ch1-s1-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">根據短文，葉子上的小洞是怎麼來的？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>被風吹破的</li>
+<li><span class="ol">(B)</span>毛毛蟲吃出來的</li>
+<li><span class="ol">(C)</span>同學不小心弄破的</li>
+<li><span class="ol">(D)</span>太陽晒出來的</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q11">解析</button><div class="exp" id="e-ch1-s1-q11"><b>答案：</b>(B)<br><b>解析：</b>第二段說「原來是毛毛蟲把葉子當成午餐了」，表示洞是毛毛蟲啃出來的。</div>
+</div>
+</div>
+<div class="sec" id="ch1-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">1-2　國語（南一版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一～四課；主題多為家庭生活與節慶（字音字形、反義詞、關聯詞、照樣寫句子、短文閱讀）　<b>配分</b>選擇每題 8 分、填充每格 5 分、造句 10 分</div>
+<div class="q" id="ch1-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音完全正確的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「著」急 ㄓㄠˊ</li>
+<li><span class="ol">(B)</span>「相」片 ㄒㄧㄤ</li>
+<li><span class="ol">(C)</span>「散」步 ㄙㄢˇ</li>
+<li><span class="ol">(D)</span>「重」新 ㄓㄨㄥˋ</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q1">解析</button><div class="exp" id="e-ch1-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>著急讀ㄓㄠˊ ㄐㄧˊ。相片的相讀ㄒㄧㄤˋ、散步的散讀ㄙㄢˋ、重新的重讀ㄔㄨㄥˊ，這三個都是常見的破音字。</div>
+</div>
+<div class="q" id="ch1-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>心情愉快</li>
+<li><span class="ol">(B)</span>一模一羊</li>
+<li><span class="ol">(C)</span>按步就班</li>
+<li><span class="ol">(D)</span>不知所錯</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q2">解析</button><div class="exp" id="e-ch1-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>一模一羊→一模一樣；按步就班→按部就班（部，次序）；不知所錯→不知所措（措，安排、處置）。</div>
+</div>
+<div class="q" id="ch1-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：比賽得到第一名時，大家ㄏㄨㄢ　ㄏㄨ（　　）；上台前，我的心情很ㄐㄧㄣˇ　ㄓㄤ（　　）。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s2-q3">解析</button><div class="exp" id="e-ch1-s2-q3"><b>答案：</b>歡呼、緊張<br><b>解析：</b>ㄏㄨㄢㄏㄨ是「歡呼」（呼是口部）；ㄐㄧㄣˇㄓㄤ是「緊張」，「緊」下面是「糸」，不要少寫一橫。</div>
+</div>
+<div class="q" id="ch1-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列量詞使用<strong>正確</strong>的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>一「艘」輪船</li>
+<li><span class="ol">(B)</span>一「頭」蝴蝶</li>
+<li><span class="ol">(C)</span>一「顆」道路</li>
+<li><span class="ol">(D)</span>一「支」玫瑰花</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q4">解析</button><div class="exp" id="e-ch1-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>船用「艘」。蝴蝶用「隻」、道路用「條」、花用「朵」。</div>
+</div>
+<div class="q" id="ch1-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">「照」這個字的部首是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>日</li>
+<li><span class="ol">(B)</span>火（灬）</li>
+<li><span class="ol">(C)</span>刀</li>
+<li><span class="ol">(D)</span>口</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q5">解析</button><div class="exp" id="e-ch1-s2-q5"><b>答案：</b>(B)<br><b>解析：</b>「照」下面的四點「灬」就是火部，和火有關（照亮）。上面的「昭」是聲符，不是部首。</div>
+</div>
+<div class="q" id="ch1-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">「炎熱」的相反詞是下列哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>寒冷</li>
+<li><span class="ol">(B)</span>溫暖</li>
+<li><span class="ol">(C)</span>潮溼</li>
+<li><span class="ol">(D)</span>悶熱</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q6">解析</button><div class="exp" id="e-ch1-s2-q6"><b>答案：</b>(A)<br><b>解析：</b>炎熱是很熱，相反是很冷，也就是「寒冷」。溫暖、悶熱都還是偏熱；潮溼講的是水氣，不是溫度。</div>
+</div>
+<div class="q" id="ch1-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請填入合適的關聯詞語，讓句子通順：（　　）今天下大雨，（　　）運動會延期舉行。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s2-q7">解析</button><div class="exp" id="e-ch1-s2-q7"><b>答案：</b>因為、所以<br><b>解析：</b>前面是原因（下大雨），後面是結果（延期），要用「因為……所以……」這組表示因果的關聯詞。</div>
+</div>
+<div class="q" id="ch1-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列句子中，<strong>沒有</strong>使用譬喻修辭的是哪一句？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>月亮像一艘小船。</li>
+<li><span class="ol">(B)</span>他的臉紅得像蘋果。</li>
+<li><span class="ol">(C)</span>天空飄著幾朵白雲。</li>
+<li><span class="ol">(D)</span>雪花好像棉絮一樣落下來。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q8">解析</button><div class="exp" id="e-ch1-s2-q8"><b>答案：</b>(C)<br><b>解析：</b>譬喻要有喻詞（像、好像、彷彿）並拿另一種事物來比。第三句只是單純描寫景物，沒有比喻。</div>
+</div>
+<div class="q" id="ch1-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">照樣寫句子：他高興得<strong>跳了起來</strong>。→ 弟弟餓得＿＿＿＿＿＿＿＿＿。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s2-q9">解析</button><div class="exp" id="e-ch1-s2-q9"><b>答案：</b>參考答案：弟弟餓得肚子咕嚕咕嚕叫。<br><b>解析：</b>「……得……」的句型，前面是狀態（餓），後面要補上被這個狀態引起的樣子或動作，句子才完整。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 9～10 題）</div><div class="passage-b">　　中秋節的晚上，我們全家在陽台上烤肉。爺爺一邊翻著香腸，一邊說起他小時候的中秋節：那時候沒有烤肉架，大家就搬張板凳坐在門口，吃著月餅、剝著文旦，抬頭看月亮。<br>　　我問爺爺：「那樣不會很無聊嗎？」爺爺笑著說：「不會啊，因為大家都在旁邊。」我抬頭看了看月亮，又看了看身邊的家人，好像有點懂了。</div></div>
+<div class="q" id="ch1-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">爺爺小時候過中秋節時，<strong>沒有</strong>做下面哪一件事？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>吃月餅</li>
+<li><span class="ol">(B)</span>剝文旦</li>
+<li><span class="ol">(C)</span>看月亮</li>
+<li><span class="ol">(D)</span>烤香腸</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q10">解析</button><div class="exp" id="e-ch1-s2-q10"><b>答案：</b>(D)<br><b>解析：</b>文中說爺爺小時候「沒有烤肉架」，烤香腸是現在全家在陽台上做的事，不是爺爺小時候的活動。</div>
+</div>
+<div class="q" id="ch1-s2-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">「我抬頭看了看月亮，又看了看身邊的家人，好像有點懂了。」作者懂了什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>月餅比文旦好吃</li>
+<li><span class="ol">(B)</span>中秋節重要的是家人在一起</li>
+<li><span class="ol">(C)</span>烤肉比看月亮好玩</li>
+<li><span class="ol">(D)</span>爺爺以前的生活很無聊</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q11">解析</button><div class="exp" id="e-ch1-s2-q11"><b>答案：</b>(B)<br><b>解析：</b>爺爺說「不會啊，因為大家都在旁邊」，重點在家人團聚，所以作者懂的是中秋節真正重要的是一家人在一起。</div>
+</div>
+</div>
+<div class="sec" id="ch1-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">1-3　國語（翰林版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一～四課；主題多為四季景物與生活體驗（字音字形、筆畫部首、成語、造句、短文閱讀）　<b>配分</b>選擇每題 8 分、填充每格 5 分、造句 10 分</div>
+<div class="q" id="ch1-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音完全正確的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「處」理事情 ㄔㄨˇ</li>
+<li><span class="ol">(B)</span>「解」開繩子 ㄐㄧㄝ</li>
+<li><span class="ol">(C)</span>「應」該 ㄧㄥˋ</li>
+<li><span class="ol">(D)</span>「量」體溫 ㄌㄧㄤˋ</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q1">解析</button><div class="exp" id="e-ch1-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>處理讀ㄔㄨˇ ㄌㄧˇ。解讀ㄐㄧㄝˇ、應該的應讀ㄧㄥ（一聲）、量體溫的量讀ㄌㄧㄤˊ（二聲），都是破音字要特別注意。</div>
+</div>
+<div class="q" id="ch1-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>座位安排</li>
+<li><span class="ol">(B)</span>隨心所慾</li>
+<li><span class="ol">(C)</span>再接再勵</li>
+<li><span class="ol">(D)</span>名列前矛</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q2">解析</button><div class="exp" id="e-ch1-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>隨心所慾→隨心所欲；再接再勵→再接再厲；名列前矛→名列前茅（茅是草字頭）。只有「座位安排」正確。</div>
+</div>
+<div class="q" id="ch1-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出「」中字的注音：秋天一到，楓葉「漸」漸變紅，山路上鋪滿了落葉，走起來沙沙作「響」。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s3-q3">解析</button><div class="exp" id="e-ch1-s3-q3"><b>答案：</b>漸ㄐㄧㄢˋ、響ㄒㄧㄤˇ<br><b>解析：</b>「漸」讀ㄐㄧㄢˋ（四聲），意思是慢慢地；「響」讀ㄒㄧㄤˇ（三聲），指發出聲音。</div>
+</div>
+<div class="q" id="ch1-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">「飛」這個字一共有幾畫？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>七畫</li>
+<li><span class="ol">(B)</span>八畫</li>
+<li><span class="ol">(C)</span>九畫</li>
+<li><span class="ol">(D)</span>十畫</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q4">解析</button><div class="exp" id="e-ch1-s3-q4"><b>答案：</b>(C)<br><b>解析：</b>「飛」共 9 畫，本身就是部首（飛部）。數筆畫時注意上面的「𠃌」和兩邊的羽狀筆畫都要分開數。</div>
+</div>
+<div class="q" id="ch1-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">「秋高氣爽」這個成語，最適合用來形容什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>秋天天氣晴朗涼爽</li>
+<li><span class="ol">(B)</span>秋天颱風很多</li>
+<li><span class="ol">(C)</span>秋天農作物歉收</li>
+<li><span class="ol">(D)</span>秋天日夜溫差大到生病</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q5">解析</button><div class="exp" id="e-ch1-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>秋高氣爽＝天空高遠、空氣清爽，形容秋天舒服的好天氣，常用來描寫適合出遊的日子。</div>
+</div>
+<div class="q" id="ch1-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">下列句子中，「的、得、地」用得<strong>正確</strong>的是哪一句？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>他跑得很快。</li>
+<li><span class="ol">(B)</span>他跑的很快。</li>
+<li><span class="ol">(C)</span>他跑地很快。</li>
+<li><span class="ol">(D)</span>他的跑很快。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q6">解析</button><div class="exp" id="e-ch1-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>動作後面接程度、狀態要用「得」（跑得很快）；「的」接名詞（我的書包）；「地」接在形容詞後修飾動作（慢慢地走）。</div>
+</div>
+<div class="q" id="ch1-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請各寫出一個語詞：「觀」＿＿、「趣」＿＿。（不可寫課本上的同一個詞兩次）</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s3-q7">解析</button><div class="exp" id="e-ch1-s3-q7"><b>答案：</b>參考答案：觀察／觀賞；趣味／興趣<br><b>解析：</b>這題考造詞。只要語詞通順、字寫對即可，例如觀光、參觀、樂趣、有趣等都算對。</div>
+</div>
+<div class="q" id="ch1-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列句子的標點符號，使用<strong>正確</strong>的是哪一句？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>哇！今天的月亮好圓啊！</li>
+<li><span class="ol">(B)</span>哇，今天的月亮好圓嗎。</li>
+<li><span class="ol">(C)</span>哇？今天的月亮好圓！</li>
+<li><span class="ol">(D)</span>哇。今天的月亮好圓，</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q8">解析</button><div class="exp" id="e-ch1-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>「哇」是感嘆，後面用驚嘆號（！）；整句在讚嘆月亮圓，句末也用驚嘆號。感嘆句不能用問號或句號收尾。</div>
+</div>
+<div class="q" id="ch1-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請用「雖然……但是……」造一個完整的句子。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s3-q9">解析</button><div class="exp" id="e-ch1-s3-q9"><b>答案：</b>參考答案：雖然外面下著大雨，但是我還是準時到學校了。<br><b>解析：</b>「雖然……但是……」表示前後意思相反（轉折）。前半句先說一個情況，後半句說出相反的結果。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 9～10 題）</div><div class="passage-b">　　放學回家的路上，我看到一位老奶奶提著兩大袋菜，走得很吃力。我猶豫了一下，還是跑上前問：「奶奶，我幫您提好嗎？」<br>　　奶奶愣了一下，笑著把其中一袋交給我。我們一起走了一小段路，她一直說謝謝。回到家，媽媽問我今天怎麼晚了十分鐘，我把事情說了一遍。媽媽沒有罵我，只摸摸我的頭說：「這十分鐘，花得很值得。」</div></div>
+<div class="q" id="ch1-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">「我」為什麼比平常晚十分鐘回家？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>在學校被老師留下來</li>
+<li><span class="ol">(B)</span>幫老奶奶提菜</li>
+<li><span class="ol">(C)</span>去便利商店買東西</li>
+<li><span class="ol">(D)</span>在路上跌倒了</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q10">解析</button><div class="exp" id="e-ch1-s3-q10"><b>答案：</b>(B)<br><b>解析：</b>文中寫「我」幫奶奶提了一袋菜、一起走了一小段路，所以才晚了十分鐘。</div>
+</div>
+<div class="q" id="ch1-s3-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">媽媽說「這十分鐘，花得很值得。」是什麼意思？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>媽媽覺得我浪費時間</li>
+<li><span class="ol">(B)</span>媽媽肯定我幫助別人的行為</li>
+<li><span class="ol">(C)</span>媽媽希望我以後走快一點</li>
+<li><span class="ol">(D)</span>媽媽要我以後別多管閒事</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q11">解析</button><div class="exp" id="e-ch1-s3-q11"><b>答案：</b>(B)<br><b>解析：</b>媽媽沒有責備，還摸摸頭稱讚，「值得」是肯定這十分鐘用在幫助人身上很有意義。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch2">
+<div class="chap-head"><div class="chap-n">第 2 章</div><h2 class="chap-t">數學</h2><div class="chap-s">一萬以內的數・加減直式・二位數乘法・生活應用｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：計算題請在虛線框內列出直式或算式，只寫答案不給分；應用題要先列式再算出答案，並記得寫單位。三個版本第一次段考的範圍幾乎相同（數的位值、加減、乘法），差別只在單元順序與題材。</div>
+<div class="sec" id="ch2-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">2-1　數學（康軒版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 一萬以內的數／第二單元 加法和減法／第三單元 乘法　<b>配分</b>選擇每題 8 分、填充每格 8 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">6058 這個數的<strong>百位</strong>數字是多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>6</li>
+<li><span class="ol">(B)</span>0</li>
+<li><span class="ol">(C)</span>5</li>
+<li><span class="ol">(D)</span>8</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q1">解析</button><div class="exp" id="e-ch2-s1-q1"><b>答案：</b>(B)<br><b>解析：</b>6058 由左而右是千位 6、百位 0、十位 5、個位 8，所以百位數字是 0。</div>
+</div>
+<div class="q" id="ch2-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">「三千零四十」寫成數字是＿＿＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q2">解析</button><div class="exp" id="e-ch2-s1-q2"><b>答案：</b>3040<br><b>解析：</b>三千是 3 在千位，四十是 4 在十位，百位和個位沒有數就補 0，寫成 3040。</div>
+</div>
+<div class="q" id="ch2-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">下列哪一個數<strong>最大</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>5990</li>
+<li><span class="ol">(B)</span>6010</li>
+<li><span class="ol">(C)</span>5909</li>
+<li><span class="ol">(D)</span>6001</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q3">解析</button><div class="exp" id="e-ch2-s1-q3"><b>答案：</b>(B)<br><b>解析：</b>先比千位：6010 和 6001 都是 6，比 5 開頭的大；再比百位，6010 是 0、6001 也是 0；比十位，1 大於 0，所以 6010 最大。</div>
+</div>
+<div class="q" id="ch2-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">用直式計算：3456 ＋ 2789 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q4">解析</button><div class="exp" id="e-ch2-s1-q4"><b>答案：</b>6245<br><b>解析：</b>個位 6+9=15 進 1；十位 5+8+1=14 進 1；百位 4+7+1=12 進 1；千位 3+2+1=6，答案 6245。</div>
+</div>
+<div class="q" id="ch2-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">用直式計算：7002 － 1568 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q5">解析</button><div class="exp" id="e-ch2-s1-q5"><b>答案：</b>5434<br><b>解析：</b>個位 2 不夠減 8，要向十位借；十位是 0，再向百位、千位連續借位。7002－1568＝5434。可用 5434+1568=7002 驗算。</div>
+</div>
+<div class="q" id="ch2-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">用直式計算：23 × 46 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q6">解析</button><div class="exp" id="e-ch2-s1-q6"><b>答案：</b>1058<br><b>解析：</b>23×6＝138；23×40＝920；138＋920＝1058。</div>
+</div>
+<div class="q" id="ch2-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">一盒餅乾有 24 片，15 盒一共有＿＿＿＿＿片。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q7">解析</button><div class="exp" id="e-ch2-s1-q7"><b>答案：</b>360 片<br><b>解析：</b>24×15＝360（片）。可拆成 24×10＝240、24×5＝120，240＋120＝360。</div>
+</div>
+<div class="q" id="ch2-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">書店原本有 4500 本書，上午賣出 1268 本，下午又進貨 750 本。現在書店有多少本書？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q8">解析</button><div class="exp" id="e-ch2-s1-q8"><b>答案：</b>3982 本<br><b>解析：</b>先算賣出後剩下：4500－1268＝3232；再加進貨：3232＋750＝3982（本）。</div>
+</div>
+<div class="q" id="ch2-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">3860 四捨五入到百位，大約是多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>3800</li>
+<li><span class="ol">(B)</span>3860</li>
+<li><span class="ol">(C)</span>3900</li>
+<li><span class="ol">(D)</span>4000</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q9">解析</button><div class="exp" id="e-ch2-s1-q9"><b>答案：</b>(C)<br><b>解析：</b>看百位的下一位（十位）是 6，6 比 5 大要進位，所以 3860 約等於 3900。</div>
+</div>
+<div class="q" id="ch2-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">阿明帶了 5000 元去書店，買了 3 本每本 268 元的書。他還剩下多少元？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q10">解析</button><div class="exp" id="e-ch2-s1-q10"><b>答案：</b>4196 元<br><b>解析：</b>先算花掉的錢：268×3＝804；再算剩下：5000－804＝4196（元）。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">2-2　數學（南一版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 一萬以內的數／第二單元 加與減／第三單元 乘法　<b>配分</b>選擇每題 8 分、填充每格 8 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">7304 這個數中，「3」表示多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>3</li>
+<li><span class="ol">(B)</span>30</li>
+<li><span class="ol">(C)</span>300</li>
+<li><span class="ol">(D)</span>3000</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q1">解析</button><div class="exp" id="e-ch2-s2-q1"><b>答案：</b>(C)<br><b>解析：</b>3 站在百位，所以表示 3 個百，也就是 300。</div>
+</div>
+<div class="q" id="ch2-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">由 5 個千、8 個十和 6 個一合起來的數是＿＿＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q2">解析</button><div class="exp" id="e-ch2-s2-q2"><b>答案：</b>5086<br><b>解析：</b>千位 5、百位沒有寫要補 0、十位 8、個位 6，合起來是 5086。</div>
+</div>
+<div class="q" id="ch2-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">把 4909、4990、4099、4919 由<strong>小到大</strong>排列，正確的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>4099 ＜ 4909 ＜ 4919 ＜ 4990</li>
+<li><span class="ol">(B)</span>4099 ＜ 4919 ＜ 4909 ＜ 4990</li>
+<li><span class="ol">(C)</span>4909 ＜ 4919 ＜ 4099 ＜ 4990</li>
+<li><span class="ol">(D)</span>4990 ＜ 4919 ＜ 4909 ＜ 4099</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q3">解析</button><div class="exp" id="e-ch2-s2-q3"><b>答案：</b>(A)<br><b>解析：</b>四個數千位都是 4，先比百位：4099 的百位是 0 最小；其餘三個百位都是 9，再比十位：0＜1＜9，所以是 4909＜4919＜4990。</div>
+</div>
+<div class="q" id="ch2-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">用直式計算：2648 ＋ 1375 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q4">解析</button><div class="exp" id="e-ch2-s2-q4"><b>答案：</b>4023<br><b>解析：</b>個位 8+5=13 進 1；十位 4+7+1=12 進 1；百位 6+3+1=10 進 1；千位 2+1+1=4，答案 4023。</div>
+</div>
+<div class="q" id="ch2-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">用直式計算：6003 － 2478 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q5">解析</button><div class="exp" id="e-ch2-s2-q5"><b>答案：</b>3525<br><b>解析：</b>個位 3 不夠減 8，十位是 0 要連續借位。6003－2478＝3525，可用 3525+2478=6003 驗算。</div>
+</div>
+<div class="q" id="ch2-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">用直式計算：37 × 28 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q6">解析</button><div class="exp" id="e-ch2-s2-q6"><b>答案：</b>1036<br><b>解析：</b>37×8＝296；37×20＝740；296＋740＝1036。</div>
+</div>
+<div class="q" id="ch2-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">每箱裝 18 瓶果汁，25 箱一共有＿＿＿＿＿瓶。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q7">解析</button><div class="exp" id="e-ch2-s2-q7"><b>答案：</b>450 瓶<br><b>解析：</b>18×25＝450（瓶）。也可以想成 18×25＝18×100÷4＝450。</div>
+</div>
+<div class="q" id="ch2-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">小美原本存了 2350 元，買禮物花掉 890 元，媽媽又給她 500 元。小美現在有多少元？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q8">解析</button><div class="exp" id="e-ch2-s2-q8"><b>答案：</b>1960 元<br><b>解析：</b>2350－890＝1460；1460＋500＝1960（元）。題目有兩個步驟，要按照事情發生的順序算。</div>
+</div>
+<div class="q" id="ch2-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">下列哪一個數<strong>最接近</strong> 5000？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>4870</li>
+<li><span class="ol">(B)</span>5120</li>
+<li><span class="ol">(C)</span>4990</li>
+<li><span class="ol">(D)</span>5030</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q9">解析</button><div class="exp" id="e-ch2-s2-q9"><b>答案：</b>(C)<br><b>解析：</b>分別和 5000 相差：4870 差 130、5120 差 120、4990 差 10、5030 差 30。差最小的是 4990。</div>
+</div>
+<div class="q" id="ch2-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">一箱飲料有 24 瓶，學校買了 12 箱，發給 5 個班級，每班 50 瓶。還剩下幾瓶？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q10">解析</button><div class="exp" id="e-ch2-s2-q10"><b>答案：</b>38 瓶<br><b>解析：</b>買進：24×12＝288（瓶）；發出：50×5＝250（瓶）；剩下：288－250＝38（瓶）。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">2-3　數學（翰林版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 10000 以內的數／第二單元 加減法／第三單元 乘法　<b>配分</b>選擇每題 8 分、填充每格 8 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">9070 讀作什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>九千七十</li>
+<li><span class="ol">(B)</span>九千零七十</li>
+<li><span class="ol">(C)</span>九百七十</li>
+<li><span class="ol">(D)</span>九千七百</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q1">解析</button><div class="exp" id="e-ch2-s3-q1"><b>答案：</b>(B)<br><b>解析：</b>百位是 0，讀的時候要把「零」讀出來，讀作「九千零七十」。</div>
+</div>
+<div class="q" id="ch2-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">在括號裡填入正確的數：8425 ＝ 8000 ＋（　　　）＋ 20 ＋ 5。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q2">解析</button><div class="exp" id="e-ch2-s3-q2"><b>答案：</b>400<br><b>解析：</b>8425 拆成位值：8 個千（8000）、4 個百（400）、2 個十（20）、5 個一（5）。</div>
+</div>
+<div class="q" id="ch2-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">3999 ○ 4001，○ 裡應該填入哪一個符號？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>＞</li>
+<li><span class="ol">(B)</span>＜</li>
+<li><span class="ol">(C)</span>＝</li>
+<li><span class="ol">(D)</span>不能比較</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q3">解析</button><div class="exp" id="e-ch2-s3-q3"><b>答案：</b>(B)<br><b>解析：</b>3999 是四位數但千位是 3，4001 的千位是 4，千位大的比較大，所以 3999 ＜ 4001。</div>
+</div>
+<div class="q" id="ch2-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">用直式計算：4728 ＋ 3596 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q4">解析</button><div class="exp" id="e-ch2-s3-q4"><b>答案：</b>8324<br><b>解析：</b>個位 8+6=14 進 1；十位 2+9+1=12 進 1；百位 7+5+1=13 進 1；千位 4+3+1=8，答案 8324。</div>
+</div>
+<div class="q" id="ch2-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">用直式計算：5010 － 2637 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q5">解析</button><div class="exp" id="e-ch2-s3-q5"><b>答案：</b>2373<br><b>解析：</b>個位 0 不夠減 7，向十位借；十位是 1，借完成 0 再向百位借。5010－2637＝2373。</div>
+</div>
+<div class="q" id="ch2-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">用直式計算：45 × 32 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q6">解析</button><div class="exp" id="e-ch2-s3-q6"><b>答案：</b>1440<br><b>解析：</b>45×2＝90；45×30＝1350；90＋1350＝1440。</div>
+</div>
+<div class="q" id="ch2-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">一支原子筆 26 元，買 14 支要付＿＿＿＿＿元。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q7">解析</button><div class="exp" id="e-ch2-s3-q7"><b>答案：</b>364 元<br><b>解析：</b>26×14＝364（元）。可拆成 26×10＝260、26×4＝104，260＋104＝364。</div>
+</div>
+<div class="q" id="ch2-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">果園今天早上採了 3200 顆水梨，賣掉 1450 顆，下午又採了 980 顆。現在果園有多少顆水梨？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q8">解析</button><div class="exp" id="e-ch2-s3-q8"><b>答案：</b>2730 顆<br><b>解析：</b>3200－1450＝1750；1750＋980＝2730（顆）。</div>
+</div>
+<div class="q" id="ch2-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">6480 四捨五入到千位，大約是多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>6000</li>
+<li><span class="ol">(B)</span>6400</li>
+<li><span class="ol">(C)</span>6500</li>
+<li><span class="ol">(D)</span>7000</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q9">解析</button><div class="exp" id="e-ch2-s3-q9"><b>答案：</b>(A)<br><b>解析：</b>看千位的下一位（百位）是 4，比 5 小要捨去，所以 6480 約等於 6000。</div>
+</div>
+<div class="q" id="ch2-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">一件 T 恤 185 元，媽媽買了 6 件，付了 1500 元，應該找回多少元？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q10">解析</button><div class="exp" id="e-ch2-s3-q10"><b>答案：</b>390 元<br><b>解析：</b>185×6＝1110（元）；1500－1110＝390（元）。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch3">
+<div class="chap-head"><div class="chap-n">第 3 章</div><h2 class="chap-t">自然與生活科技</h2><div class="chap-s">科學觀察方法・植物的身體與功能・校園植物比較｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題寫在橫線上；簡答題請用完整的句子回答，寫出「現象＋原因」會更完整。三個版本第一次段考多半停在「植物的身體」這一單元，只是切入的例子不同。</div>
+<div class="sec" id="ch3-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">3-1　自然（康軒版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 植物的身體（觀察工具與記錄、根莖葉花果實種子的功能）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">植物用來<strong>固定身體</strong>、並吸收水分和養分的部位是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>根</li>
+<li><span class="ol">(B)</span>莖</li>
+<li><span class="ol">(C)</span>葉</li>
+<li><span class="ol">(D)</span>花</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q1">解析</button><div class="exp" id="e-ch3-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>根長在土裡，一方面把植物固定住不被風吹倒，一方面吸收水分和溶在水裡的養分。</div>
+</div>
+<div class="q" id="ch3-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">使用放大鏡觀察小花小葉時，下列哪一個做法<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>把放大鏡拿去對著太陽看，比較亮</li>
+<li><span class="ol">(B)</span>放大鏡靠近眼睛，再移動要看的東西對焦</li>
+<li><span class="ol">(C)</span>用放大鏡壓在葉子上用力壓平</li>
+<li><span class="ol">(D)</span>放大鏡離眼睛愈遠看得愈清楚</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q2">解析</button><div class="exp" id="e-ch3-s1-q2"><b>答案：</b>(B)<br><b>解析：</b>正確用法是把放大鏡靠近眼睛，前後移動觀察物（或身體）直到看清楚。<strong>絕對不可以用放大鏡看太陽</strong>，會傷害眼睛。</div>
+</div>
+<div class="q" id="ch3-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">一片完整的葉子，可以分成葉身（葉片）、＿＿＿＿＿和葉脈三個部分。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s1-q3">解析</button><div class="exp" id="e-ch3-s1-q3"><b>答案：</b>葉柄<br><b>解析：</b>葉柄是連接葉身和莖的部分，水分和養分要經過葉柄進出葉子。</div>
+</div>
+<div class="q" id="ch3-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">我們平常吃的<strong>馬鈴薯</strong>，是植物的哪一個部位？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>根</li>
+<li><span class="ol">(B)</span>莖</li>
+<li><span class="ol">(C)</span>葉</li>
+<li><span class="ol">(D)</span>果實</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q4">解析</button><div class="exp" id="e-ch3-s1-q4"><b>答案：</b>(B)<br><b>解析：</b>馬鈴薯是長在地下、儲存養分的莖（塊莖），上面還會長出芽眼。胡蘿蔔、白蘿蔔才是吃根。</div>
+</div>
+<div class="q" id="ch3-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一種植物的葉脈是<strong>平行脈</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>榕樹葉</li>
+<li><span class="ol">(B)</span>玉米葉</li>
+<li><span class="ol">(C)</span>楓葉</li>
+<li><span class="ol">(D)</span>絲瓜葉</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q5">解析</button><div class="exp" id="e-ch3-s1-q5"><b>答案：</b>(B)<br><b>解析：</b>玉米、竹子、水稻的葉脈像線一樣平行排列，叫平行脈；榕樹、楓葉、絲瓜的葉脈交錯成網狀，叫網狀脈。</div>
+</div>
+<div class="q" id="ch3-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">做校園植物觀察紀錄時，除了畫圖和描述外，至少還要寫下觀察的＿＿＿＿＿和＿＿＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s1-q6">解析</button><div class="exp" id="e-ch3-s1-q6"><b>答案：</b>日期（時間）、地點<br><b>解析：</b>科學紀錄要能被別人重複驗證，所以日期、地點（也可以加上天氣）都要寫清楚，之後才能比較植物的變化。</div>
+</div>
+<div class="q" id="ch3-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">植物產生種子的順序，下列哪一個<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>種子→花→果實</li>
+<li><span class="ol">(B)</span>花→果實→種子</li>
+<li><span class="ol">(C)</span>果實→花→種子</li>
+<li><span class="ol">(D)</span>葉→花→種子</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q7">解析</button><div class="exp" id="e-ch3-s1-q7"><b>答案：</b>(B)<br><b>解析：</b>花授粉後會結成果實，種子包在果實裡面，所以順序是花→果實→種子。</div>
+</div>
+<div class="q" id="ch3-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">如果把一株小植物的<strong>葉子全部剪掉</strong>，最可能發生什麼事？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>長得更快，因為不用養葉子</li>
+<li><span class="ol">(B)</span>因為無法製造養分，慢慢枯萎</li>
+<li><span class="ol">(C)</span>立刻開花結果</li>
+<li><span class="ol">(D)</span>變得比較不怕蟲咬</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q8">解析</button><div class="exp" id="e-ch3-s1-q8"><b>答案：</b>(B)<br><b>解析：</b>葉子是植物製造養分的地方（行光合作用），葉子被剪光就沒辦法製造養分，植物會愈來愈虛弱甚至枯死。</div>
+</div>
+<div class="q" id="ch3-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請寫出植物的<strong>任兩個</strong>器官，並各說明它的一個功能。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s1-q9">解析</button><div class="exp" id="e-ch3-s1-q9"><b>答案：</b>參考答案：根—吸收水分和養分（並固定植物）；葉—製造植物需要的養分。<br><b>解析：</b>六大器官分別是根、莖、葉、花、果實、種子。莖負責支撐與運送水分養分，花負責繁殖，果實保護種子，種子可以長成新植物，任選兩個回答即可。</div>
+</div>
+<div class="q" id="ch3-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">觀察校園植物時，為什麼老師規定「只能看、不能隨便摘」？請寫出你的理由。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s1-q10">解析</button><div class="exp" id="e-ch3-s1-q10"><b>答案：</b>參考答案：因為摘下來植物會受傷、也可能死掉，別人就看不到了；而且有些植物有刺或汁液會讓皮膚過敏，摘取不安全。<br><b>解析：</b>這題考科學態度與安全。合理寫出「愛護生物／植物會受傷／不確定是否有毒有刺」等任一理由都算對。</div>
+</div>
+</div>
+<div class="sec" id="ch3-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">3-2　自然（南一版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 植物的身體（校園植物觀察、莖與葉的比較、分類）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一個<strong>不是</strong>植物的六大器官之一？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>根</li>
+<li><span class="ol">(B)</span>莖</li>
+<li><span class="ol">(C)</span>葉脈</li>
+<li><span class="ol">(D)</span>種子</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q1">解析</button><div class="exp" id="e-ch3-s2-q1"><b>答案：</b>(C)<br><b>解析：</b>六大器官是根、莖、葉、花、果實、種子。葉脈只是葉子裡面的構造，不算獨立的器官。</div>
+</div>
+<div class="q" id="ch3-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">甘蔗和竹子的莖上都有一節一節的構造，這個構造叫做什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>節</li>
+<li><span class="ol">(B)</span>刺</li>
+<li><span class="ol">(C)</span>葉柄</li>
+<li><span class="ol">(D)</span>根毛</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q2">解析</button><div class="exp" id="e-ch3-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>莖上一圈一圈的地方叫「節」，節上通常會長出葉子或芽。甘蔗、竹子都是有明顯節的莖。</div>
+</div>
+<div class="q" id="ch3-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">仙人掌生長在很乾的沙漠，它的<strong>莖</strong>又肥又厚，主要功能是＿＿＿＿＿＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s2-q3">解析</button><div class="exp" id="e-ch3-s2-q3"><b>答案：</b>儲存水分<br><b>解析：</b>仙人掌把葉子變成刺以減少水分散失，改用肥厚的莖儲水，並由莖代替葉子製造養分。</div>
+</div>
+<div class="q" id="ch3-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一組食物，我們吃的都是植物的<strong>葉</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>高麗菜、菠菜</li>
+<li><span class="ol">(B)</span>胡蘿蔔、白蘿蔔</li>
+<li><span class="ol">(C)</span>花椰菜、金針花</li>
+<li><span class="ol">(D)</span>蘋果、番茄</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q4">解析</button><div class="exp" id="e-ch3-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>高麗菜、菠菜吃的是葉；胡蘿蔔、白蘿蔔是根；花椰菜、金針花是花；蘋果、番茄是果實。</div>
+</div>
+<div class="q" id="ch3-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">想要比較兩片葉子的大小，最適合使用下列哪一種工具？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>放大鏡</li>
+<li><span class="ol">(B)</span>直尺</li>
+<li><span class="ol">(C)</span>溫度計</li>
+<li><span class="ol">(D)</span>磁鐵</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q5">解析</button><div class="exp" id="e-ch3-s2-q5"><b>答案：</b>(B)<br><b>解析：</b>比較大小要用能量長度的工具，也就是直尺（或方格紙）。放大鏡是看細節、溫度計量溫度，都不能量大小。</div>
+</div>
+<div class="q" id="ch3-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">把校園植物分成「葉緣有鋸齒」和「葉緣平滑」兩堆，這種依照特徵把東西分成幾類的方法，叫做＿＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s2-q6">解析</button><div class="exp" id="e-ch3-s2-q6"><b>答案：</b>分類<br><b>解析：</b>分類要先訂出一個大家都判斷得出來的標準（例如葉緣、葉脈、有沒有毛），同一個標準才能分得清楚。</div>
+</div>
+<div class="q" id="ch3-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列有關植物「花」的敘述，何者<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>花的主要功能是吸收水分</li>
+<li><span class="ol">(B)</span>花會發育成果實，裡面有種子</li>
+<li><span class="ol">(C)</span>所有的花都一定是紅色的</li>
+<li><span class="ol">(D)</span>花是植物用來支撐身體的部位</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q7">解析</button><div class="exp" id="e-ch3-s2-q7"><b>答案：</b>(B)<br><b>解析：</b>花是植物繁殖的器官，授粉後子房發育成果實，種子在果實裡。吸水靠根、支撐靠莖，花的顏色更是各式各樣。</div>
+</div>
+<div class="q" id="ch3-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">小明把一株鳳仙花插在紅色的水中，過一段時間後把莖橫切開來，最可能看到什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>莖裡面出現一點一點的紅色</li>
+<li><span class="ol">(B)</span>整條莖都變成黑色</li>
+<li><span class="ol">(C)</span>莖完全沒有變化</li>
+<li><span class="ol">(D)</span>莖裡面變成綠色</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q8">解析</button><div class="exp" id="e-ch3-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>莖裡有運送水分的管子，紅色的水被吸上來後會留在這些管子裡，橫切面就會看到紅色的小點，證明莖有運輸功能。</div>
+</div>
+<div class="q" id="ch3-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">為什麼下大雨過後，很多植物還是站得好好的，不會被沖走？請用「根」來說明。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s2-q9">解析</button><div class="exp" id="e-ch3-s2-q9"><b>答案：</b>參考答案：因為植物的根深入土中並向四周分開生長，能把植物牢牢固定在土裡，所以不容易被水沖走。<br><b>解析：</b>這題考根的「固定」功能。只要答出根抓住土壤／固定植物即可得分。</div>
+</div>
+<div class="q" id="ch3-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">觀察校園植物時，我們會用眼睛看、用手輕輕摸，還可以用鼻子聞。請寫出<strong>一項</strong>做這些觀察時要注意的安全事項。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s2-q10">解析</button><div class="exp" id="e-ch3-s2-q10"><b>答案：</b>參考答案：不可以隨便把植物放進嘴巴嘗，也不要摘不認識的植物來聞，觀察完要洗手；有刺或有汁液的植物不要直接用手摸。<br><b>解析：</b>科學觀察的安全守則：不嘗、不採、不揉眼睛、觀察後洗手。寫出其中一項並說得清楚即可。</div>
+</div>
+</div>
+<div class="sec" id="ch3-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">3-3　自然（翰林版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 植物的身體（觀察與記錄、根莖葉的功能、植物與環境）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">植物<strong>製造養分</strong>的主要部位是哪裡？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>根</li>
+<li><span class="ol">(B)</span>莖</li>
+<li><span class="ol">(C)</span>葉</li>
+<li><span class="ol">(D)</span>果實</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q1">解析</button><div class="exp" id="e-ch3-s3-q1"><b>答案：</b>(C)<br><b>解析：</b>葉子裡有葉綠體，可以利用陽光、水和空氣製造養分，所以葉子是植物的「食物工廠」。</div>
+</div>
+<div class="q" id="ch3-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">植物的莖有兩個重要功能：一是<strong>支撐</strong>植物的身體，二是＿＿＿＿＿＿水分和養分。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s3-q2">解析</button><div class="exp" id="e-ch3-s3-q2"><b>答案：</b>運送（輸送）<br><b>解析：</b>莖像水管一樣，把根吸收的水分往上送到葉子，也把葉子製造的養分送到植物各部位。</div>
+</div>
+<div class="q" id="ch3-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">下列哪一種植物，我們吃的部位是<strong>種子</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>花生</li>
+<li><span class="ol">(B)</span>甘蔗</li>
+<li><span class="ol">(C)</span>地瓜葉</li>
+<li><span class="ol">(D)</span>芹菜</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q3">解析</button><div class="exp" id="e-ch3-s3-q3"><b>答案：</b>(A)<br><b>解析：</b>花生吃的是種子（豆莢裡面的部分）；甘蔗吃莖、地瓜葉和芹菜吃的是葉和葉柄。</div>
+</div>
+<div class="q" id="ch3-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一項<strong>不是</strong>做科學觀察時應該有的態度？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>仔細看清楚再記錄</li>
+<li><span class="ol">(B)</span>覺得結果不好看就偷偷改資料</li>
+<li><span class="ol">(C)</span>不確定的地方再觀察一次</li>
+<li><span class="ol">(D)</span>把看到的畫下來並註明日期</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q4">解析</button><div class="exp" id="e-ch3-s3-q4"><b>答案：</b>(B)<br><b>解析：</b>科學紀錄必須誠實，看到什麼就記錄什麼。修改資料會讓別人得到錯誤的結論，是最要不得的行為。</div>
+</div>
+<div class="q" id="ch3-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列有關「根」的敘述，何者<strong>錯誤</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>根可以吸收水分</li>
+<li><span class="ol">(B)</span>根可以固定植物</li>
+<li><span class="ol">(C)</span>有些植物的根會儲存養分</li>
+<li><span class="ol">(D)</span>根可以行光合作用製造養分</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q5">解析</button><div class="exp" id="e-ch3-s3-q5"><b>答案：</b>(D)<br><b>解析：</b>製造養分是葉子的工作，根一般長在地下、沒有陽光，不能行光合作用。胡蘿蔔的根會儲存養分是正確的。</div>
+</div>
+<div class="q" id="ch3-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">觀察葉子時發現：楓葉的葉脈交錯成網子的樣子，這種葉脈叫做＿＿＿＿脈。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s3-q6">解析</button><div class="exp" id="e-ch3-s3-q6"><b>答案：</b>網狀<br><b>解析：</b>葉脈分兩大類：網狀脈（楓葉、榕樹葉）和平行脈（玉米、竹葉），可以用來當作植物分類的依據。</div>
+</div>
+<div class="q" id="ch3-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">把同一種小盆栽分成兩組，一組放在窗邊、一組放在黑暗的櫃子裡，其他條件都一樣。這個實驗最想知道什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>水量會不會影響植物</li>
+<li><span class="ol">(B)</span>陽光會不會影響植物生長</li>
+<li><span class="ol">(C)</span>土壤種類會不會影響植物</li>
+<li><span class="ol">(D)</span>溫度會不會影響植物</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q7">解析</button><div class="exp" id="e-ch3-s3-q7"><b>答案：</b>(B)<br><b>解析：</b>實驗時只改變一個條件（有沒有陽光），其他條件都相同，這樣才知道結果是由陽光造成的。這叫做「公平的比較」。</div>
+</div>
+<div class="q" id="ch3-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">承上題，過了兩星期後，放在黑暗櫃子裡的那一組，最可能出現什麼結果？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>葉子變得更綠更大</li>
+<li><span class="ol">(B)</span>葉子變黃、莖細長而軟弱</li>
+<li><span class="ol">(C)</span>開出更多花</li>
+<li><span class="ol">(D)</span>完全沒有任何改變</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q8">解析</button><div class="exp" id="e-ch3-s3-q8"><b>答案：</b>(B)<br><b>解析：</b>缺少陽光無法正常製造養分，葉子會變黃，莖會因為向光生長而細長軟弱，整株植物明顯比較不健康。</div>
+</div>
+<div class="q" id="ch3-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請寫出「校園植物觀察紀錄表」上，至少<strong>三個</strong>應該要記下來的項目。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s3-q9">解析</button><div class="exp" id="e-ch3-s3-q9"><b>答案：</b>參考答案：觀察日期、觀察地點、植物名稱、葉子的形狀或大小、葉脈的樣子、有沒有花或果實。（任三項）<br><b>解析：</b>紀錄項目要能幫助日後比較與查證，因此時間、地點、對象、特徵是基本四要素。</div>
+</div>
+<div class="q" id="ch3-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">住在海邊的植物常常長得比較矮小，葉子也比較厚。請你猜猜看，這和什麼環境條件有關？</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s3-q10">解析</button><div class="exp" id="e-ch3-s3-q10"><b>答案：</b>參考答案：和海邊風大、太陽強、土壤含鹽分有關；長得矮可以不被強風吹倒，葉子厚可以減少水分散失。<br><b>解析：</b>這題考植物與環境的關係。只要能連結「風大→長得矮」或「乾／鹽分高→葉子厚儲水、減少蒸散」其中一項並說明，就算正確。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch4">
+<div class="chap-head"><div class="chap-n">第 4 章</div><h2 class="chap-t">社會</h2><div class="chap-s">我的家庭・學校生活・校園平面圖與方位｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題寫在橫線上；簡答題請寫出完整句子。社會科重視「說得出理由」，簡答題只要理由合理、寫得清楚就給分。</div>
+<div class="sec" id="ch4-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">4-1　社會（康軒版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 我的家庭／第二單元 學校生活（家人稱謂與分工、校園人物、方位與平面圖）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">小美家裡有爺爺、奶奶、爸爸、媽媽和她自己，三代人住在一起。這樣的家庭稱為什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>小家庭</li>
+<li><span class="ol">(B)</span>三代同堂（大家庭）</li>
+<li><span class="ol">(C)</span>單親家庭</li>
+<li><span class="ol">(D)</span>隔代教養家庭</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q1">解析</button><div class="exp" id="e-ch4-s1-q1"><b>答案：</b>(B)<br><b>解析：</b>祖父母、父母、子女三代住在一起叫三代同堂（大家庭）；只有父母和子女的是小家庭；由祖父母照顧孫子女、父母不同住的是隔代教養家庭。</div>
+</div>
+<div class="q" id="ch4-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">爸爸的姊姊，我們應該稱呼她什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>姑姑</li>
+<li><span class="ol">(B)</span>阿姨</li>
+<li><span class="ol">(C)</span>舅媽</li>
+<li><span class="ol">(D)</span>嬸嬸</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q2">解析</button><div class="exp" id="e-ch4-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>爸爸的姊妹叫姑姑；媽媽的姊妹叫阿姨；舅舅的太太是舅媽；叔叔的太太是嬸嬸。</div>
+</div>
+<div class="q" id="ch4-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">看地圖時，方位的口訣是：上＿＿、下＿＿、左＿＿、右＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s1-q3">解析</button><div class="exp" id="e-ch4-s1-q3"><b>答案：</b>北、南、西、東<br><b>解析：</b>一般地圖都以「上北下南、左西右東」來畫，所以看平面圖時先找指北方向，就能判斷各個地點的相對位置。</div>
+</div>
+<div class="q" id="ch4-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">早上，小華面向太陽升起的方向站著，那麼他的<strong>右手邊</strong>是哪一個方位？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>東方</li>
+<li><span class="ol">(B)</span>西方</li>
+<li><span class="ol">(C)</span>南方</li>
+<li><span class="ol">(D)</span>北方</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q4">解析</button><div class="exp" id="e-ch4-s1-q4"><b>答案：</b>(C)<br><b>解析：</b>太陽從東方升起，面向東方時，背後是西方、左手邊是北方、右手邊是南方。</div>
+</div>
+<div class="q" id="ch4-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">校園平面圖上的「圖例」，主要的用途是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>說明圖上各種符號代表什麼</li>
+<li><span class="ol">(B)</span>記錄學校有多少學生</li>
+<li><span class="ol">(C)</span>標示今天的天氣</li>
+<li><span class="ol">(D)</span>寫出校長的名字</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q5">解析</button><div class="exp" id="e-ch4-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>圖例就是符號的說明表，看懂圖例才知道圖上的方塊、線條分別代表操場、教室或走廊。</div>
+</div>
+<div class="q" id="ch4-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">上體育課時不小心擦傷流血，應該先去找學校裡的哪一位？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>警衛伯伯</li>
+<li><span class="ol">(B)</span>健康中心的護理師</li>
+<li><span class="ol">(C)</span>廚房的廚工</li>
+<li><span class="ol">(D)</span>圖書館志工</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q6">解析</button><div class="exp" id="e-ch4-s1-q6"><b>答案：</b>(B)<br><b>解析：</b>學校的健康中心（保健室）由護理師負責處理受傷與身體不舒服的狀況，應該先請老師陪同前往。</div>
+</div>
+<div class="q" id="ch4-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請舉出<strong>一項</strong>你在家中可以幫忙做的家事：＿＿＿＿＿＿＿＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s1-q7">解析</button><div class="exp" id="e-ch4-s1-q7"><b>答案：</b>參考答案：擦桌子／收碗筷／摺衣服／倒垃圾／整理自己的房間<br><b>解析：</b>家人本來就會分工合作，小朋友能做的家事雖然不多，但參與分工是家庭生活的重要一環。</div>
+</div>
+<div class="q" id="ch4-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一項<strong>最能</strong>表現「家人互相關心」？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>哥哥發燒時，弟弟主動幫他倒水</li>
+<li><span class="ol">(B)</span>把玩具全部藏起來不給弟弟玩</li>
+<li><span class="ol">(C)</span>爸爸下班回家時假裝沒看見</li>
+<li><span class="ol">(D)</span>考試考不好就把成績單藏起來</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q8">解析</button><div class="exp" id="e-ch4-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>互相關心指的是注意到家人的需要並主動行動，主動幫生病的哥哥倒水就是具體的關心行為。</div>
+</div>
+<div class="q" id="ch4-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">學校訂定「上下樓梯靠右走」的規定，最主要的目的是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>讓大家走得更快</li>
+<li><span class="ol">(B)</span>維護安全，避免碰撞受傷</li>
+<li><span class="ol">(C)</span>方便老師點名</li>
+<li><span class="ol">(D)</span>減少打掃工作</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q9">解析</button><div class="exp" id="e-ch4-s1-q9"><b>答案：</b>(B)<br><b>解析：</b>校園規則多半是為了共同的安全與秩序而訂，靠右走可以避免上下樓的人互撞跌倒。</div>
+</div>
+<div class="q" id="ch4-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請寫出<strong>兩件</strong>在學校裡你可以自己完成、不需要大人幫忙的事。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s1-q10">解析</button><div class="exp" id="e-ch4-s1-q10"><b>答案：</b>參考答案：自己整理書包和抽屜、自己把餐具洗乾淨、自己完成掃地工作、自己記聯絡簿。（任兩項）<br><b>解析：</b>這題考自我負責的態度。只要是符合三年級能力、且確實是自己能完成的事，都算正確。</div>
+</div>
+</div>
+<div class="sec" id="ch4-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">4-2　社會（南一版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 家庭生活／第二單元 我的學校（家庭類型與公約、學校裡的人、指北針與方位）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一項<strong>不是</strong>家庭的功能？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>提供家人生活照顧</li>
+<li><span class="ol">(B)</span>給家人情感上的支持</li>
+<li><span class="ol">(C)</span>教導孩子生活規矩</li>
+<li><span class="ol">(D)</span>規定全國人民要繳稅</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q1">解析</button><div class="exp" id="e-ch4-s2-q1"><b>答案：</b>(D)<br><b>解析：</b>照顧、情感支持、教育都是家庭的功能；訂定稅制是國家（政府）的工作，不是家庭能做的事。</div>
+</div>
+<div class="q" id="ch4-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">媽媽的哥哥，我們應該稱呼他什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>伯伯</li>
+<li><span class="ol">(B)</span>舅舅</li>
+<li><span class="ol">(C)</span>姑丈</li>
+<li><span class="ol">(D)</span>叔叔</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q2">解析</button><div class="exp" id="e-ch4-s2-q2"><b>答案：</b>(B)<br><b>解析：</b>媽媽的兄弟叫舅舅；爸爸的哥哥叫伯伯、弟弟叫叔叔；姑姑的先生叫姑丈。</div>
+</div>
+<div class="q" id="ch4-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">全家人一起討論、共同訂出來，大家都要遵守的生活規則，稱為家庭＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s2-q3">解析</button><div class="exp" id="e-ch4-s2-q3"><b>答案：</b>公約<br><b>解析：</b>家庭公約由全家人一起討論訂定（例如晚上九點前洗澡、輪流洗碗），因為是共同決定的，大家才願意遵守。</div>
+</div>
+<div class="q" id="ch4-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">使用指北針時，下列哪一個做法<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>把指北針放平，等指針停穩再讀方向</li>
+<li><span class="ol">(B)</span>一邊快跑一邊看指北針</li>
+<li><span class="ol">(C)</span>把指北針貼在鐵門上使用</li>
+<li><span class="ol">(D)</span>用力搖晃指北針讓指針轉快一點</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q4">解析</button><div class="exp" id="e-ch4-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>指北針要放平、保持穩定，等磁針停下來後再讀。靠近鐵器或磁鐵會干擾磁針，指出的方向就不準了。</div>
+</div>
+<div class="q" id="ch4-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">如果學校大門朝<strong>南</strong>，那麼從大門走進校園，是朝哪一個方位前進？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>東</li>
+<li><span class="ol">(B)</span>西</li>
+<li><span class="ol">(C)</span>南</li>
+<li><span class="ol">(D)</span>北</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q5">解析</button><div class="exp" id="e-ch4-s2-q5"><b>答案：</b>(D)<br><b>解析：</b>大門朝南表示門口面向南方，所以從門口往校園裡走，是往北方前進（和門口的朝向相反）。</div>
+</div>
+<div class="q" id="ch4-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">下列哪一位是負責管理全校校務、帶領全校師生的人？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>校長</li>
+<li><span class="ol">(B)</span>導師</li>
+<li><span class="ol">(C)</span>警衛</li>
+<li><span class="ol">(D)</span>班長</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q6">解析</button><div class="exp" id="e-ch4-s2-q6"><b>答案：</b>(A)<br><b>解析：</b>校長綜理全校校務；導師負責一個班級；警衛負責校園安全；班長協助班級事務。</div>
+</div>
+<div class="q" id="ch4-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">學校裡可以借書、看書的地方是＿＿＿＿＿；上課時做實驗、觀察的地方是＿＿＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s2-q7">解析</button><div class="exp" id="e-ch4-s2-q7"><b>答案：</b>圖書館（圖書室）、自然教室（實驗室）<br><b>解析：</b>認識校園空間可以幫助我們在需要時找到正確的地方，也是畫校園平面圖的基礎。</div>
+</div>
+<div class="q" id="ch4-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">班上要決定校外教學的地點，下列哪一種做法<strong>最適當</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>用投票的方式，多數決定</li>
+<li><span class="ol">(B)</span>誰的聲音大就聽誰的</li>
+<li><span class="ol">(C)</span>由跑最快的同學決定</li>
+<li><span class="ol">(D)</span>抽籤決定，不用討論</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q8">解析</button><div class="exp" id="e-ch4-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>班級是一個小型的團體，遇到大家意見不同時，先充分討論再以投票（多數決）決定，同時尊重少數人的意見。</div>
+</div>
+<div class="q" id="ch4-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">下列哪一種家庭型態，是指子女和父母其中一方共同生活？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>小家庭</li>
+<li><span class="ol">(B)</span>單親家庭</li>
+<li><span class="ol">(C)</span>三代同堂</li>
+<li><span class="ol">(D)</span>寄養家庭</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q9">解析</button><div class="exp" id="e-ch4-s2-q9"><b>答案：</b>(B)<br><b>解析：</b>單親家庭是指子女由父親或母親其中一方照顧共同生活。每一種家庭型態都值得被尊重。</div>
+</div>
+<div class="q" id="ch4-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">如果家裡新添了一個小弟弟或小妹妹，家中的生活可能會有什麼改變？請寫出兩點。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s2-q10">解析</button><div class="exp" id="e-ch4-s2-q10"><b>答案：</b>參考答案：（1）爸媽要花很多時間照顧寶寶，陪我的時間變少；（2）我要幫忙做更多家事，也要學著當哥哥或姊姊。<br><b>解析：</b>這題考「家庭會改變」的概念。寫出作息改變、空間改變、分工改變、心情改變等任兩點皆可。</div>
+</div>
+</div>
+<div class="sec" id="ch4-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">4-3　社會（翰林版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 家庭與我／第二單元 學校生活（家人關係、校園空間、位置與方位描述）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一項是「家人之間互相分工」的例子？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>爸爸負責煮飯、媽媽負責倒垃圾、我負責收碗</li>
+<li><span class="ol">(B)</span>全家人都在看電視，沒有人做家事</li>
+<li><span class="ol">(C)</span>媽媽一個人做完所有家事</li>
+<li><span class="ol">(D)</span>請鄰居幫忙打掃我們家</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q1">解析</button><div class="exp" id="e-ch4-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>分工是把家事分配給不同的家人各自負責，讓工作不會全部落在一個人身上，也讓每個人都對家有貢獻。</div>
+</div>
+<div class="q" id="ch4-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">「我」和爸爸的關係是父子（女）；那麼「我」和爺爺的關係是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>祖孫</li>
+<li><span class="ol">(B)</span>兄弟</li>
+<li><span class="ol">(C)</span>叔姪</li>
+<li><span class="ol">(D)</span>表親</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q2">解析</button><div class="exp" id="e-ch4-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>爺爺是爸爸的父親，和我隔了兩代，所以我們是祖孫關係。</div>
+</div>
+<div class="q" id="ch4-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">在校園平面圖上，如果操場畫在教室的<strong>下方</strong>，表示操場位在教室的＿＿方（依上北下南判讀）。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s3-q3">解析</button><div class="exp" id="e-ch4-s3-q3"><b>答案：</b>南<br><b>解析：</b>平面圖以「上北下南、左西右東」為原則，畫在下方就是位在南邊。判讀時先確認圖上的指北符號。</div>
+</div>
+<div class="q" id="ch4-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一組敘述，是用<strong>方位</strong>來描述位置？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>圖書館在活動中心的東邊</li>
+<li><span class="ol">(B)</span>圖書館很漂亮</li>
+<li><span class="ol">(C)</span>圖書館裡有很多書</li>
+<li><span class="ol">(D)</span>圖書館下午四點關門</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q4">解析</button><div class="exp" id="e-ch4-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>方位描述要用東、西、南、北（或前後左右加上參照物）來說明兩個地點的相對位置，其他三句都只是在描述特色。</div>
+</div>
+<div class="q" id="ch4-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下課時看到低年級小朋友在走廊上奔跑，最適當的做法是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>跟著一起跑比較好玩</li>
+<li><span class="ol">(B)</span>出聲提醒他們走廊不能奔跑</li>
+<li><span class="ol">(C)</span>大聲罵他們笨蛋</li>
+<li><span class="ol">(D)</span>假裝沒看到就走開</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q5">解析</button><div class="exp" id="e-ch4-s3-q5"><b>答案：</b>(B)<br><b>解析：</b>善意提醒既能維護對方安全，也是校園中互相關心的表現。責罵會傷害別人，視而不見則失去幫助他人的機會。</div>
+</div>
+<div class="q" id="ch4-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">學校裡負責檢查進出人員、維護校園安全的人是＿＿＿；生病或受傷時，我們要到＿＿＿＿＿找護理師。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s3-q6">解析</button><div class="exp" id="e-ch4-s3-q6"><b>答案：</b>警衛、健康中心（保健室）<br><b>解析：</b>校園裡不同的人負責不同的工作，認識他們可以在需要時很快找到能幫忙的人。</div>
+</div>
+<div class="q" id="ch4-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一項<strong>最能</strong>說明「每個家庭都不一樣」？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>有的是小家庭，有的三代同堂，也有單親或隔代教養家庭</li>
+<li><span class="ol">(B)</span>每個家庭都有爸爸媽媽和兩個小孩</li>
+<li><span class="ol">(C)</span>所有家庭吃的東西都一樣</li>
+<li><span class="ol">(D)</span>每個家庭都住在同一種房子</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q7">解析</button><div class="exp" id="e-ch4-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>家庭的組成方式非常多元，沒有哪一種比較好或比較差，我們要學會尊重和自己不同的家庭。</div>
+</div>
+<div class="q" id="ch4-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">班上有同學因為說話有口音而被取笑，這件事最違反下列哪一項？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>尊重差異</li>
+<li><span class="ol">(B)</span>按時繳交作業</li>
+<li><span class="ol">(C)</span>保持環境整潔</li>
+<li><span class="ol">(D)</span>上課專心聽講</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q8">解析</button><div class="exp" id="e-ch4-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>每個人的成長背景不同，取笑他人的口音、外表或家庭，都是不尊重差異的行為。</div>
+</div>
+<div class="q" id="ch4-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請用<strong>方位或參照物</strong>，描述你們教室到廁所要怎麼走。（例如：從教室門口往北走，經過樓梯口後左轉。）</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s3-q9">解析</button><div class="exp" id="e-ch4-s3-q9"><b>答案：</b>參考答案：從教室門口往南走約十公尺，經過飲水機後右轉，廁所就在走廊盡頭。<br><b>解析：</b>這題考位置描述能力。只要有「起點＋方向（或左右轉）＋參照物＋終點」，敘述清楚可以照著走到，就算正確。</div>
+</div>
+<div class="q" id="ch4-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">學校為什麼要規定「垃圾要分類」？請寫出你的理由。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s3-q10">解析</button><div class="exp" id="e-ch4-s3-q10"><b>答案：</b>參考答案：因為可以回收的東西再利用，能減少垃圾量、節省資源，也讓校園更乾淨。<br><b>解析：</b>能答出資源回收再利用、減少垃圾、愛護環境等任一理由並說明清楚即可。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch5">
+<div class="chap-head"><div class="chap-n">第 5 章</div><h2 class="chap-t">英語 English</h2><div class="chap-s">字母大小寫・自我介紹與問候・課室用語・自然發音入門｜康軒／南一／翰林／何嘉仁 四版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題請用四線三格的方式把字母或單字寫工整（大小寫要正確）。三年級剛開始學英語，<strong>書寫題只要字母形狀正確、大小寫沒錯就給分</strong>。英語是四家版本都會用到的科目，何嘉仁只出現在英語課，因此本章比其他章多一節。</div>
+<div class="sec" id="ch5-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">5-1　英語（康軒版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>字母 Aa～Mm、問候語、自我介紹、課室用語　<b>配分</b>選擇每題 8 分、填充每格 5 分、書寫題 10 分</div>
+<div class="q" id="ch5-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">大寫字母 <strong>B</strong> 的小寫是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>d</li>
+<li><span class="ol">(B)</span>b</li>
+<li><span class="ol">(C)</span>p</li>
+<li><span class="ol">(D)</span>q</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q1">解析</button><div class="exp" id="e-ch5-s1-q1"><b>答案：</b>(B)<br><b>解析：</b>b 的圓圈在右下方、直線在左邊；d 的圓圈在左下方。b、d、p、q 長得很像，要特別小心。</div>
+</div>
+<div class="q" id="ch5-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">請看字母順序：D, E, ＿, G。空格應該填入哪一個字母？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>C</li>
+<li><span class="ol">(B)</span>F</li>
+<li><span class="ol">(C)</span>H</li>
+<li><span class="ol">(D)</span>I</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q2">解析</button><div class="exp" id="e-ch5-s1-q2"><b>答案：</b>(B)<br><b>解析：</b>英文字母的順序是 A B C D E F G…，E 的後面、G 的前面是 F。</div>
+</div>
+<div class="q" id="ch5-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把大寫字母改寫成小寫：<strong>A B C D E</strong> → ＿ ＿ ＿ ＿ ＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s1-q3">解析</button><div class="exp" id="e-ch5-s1-q3"><b>答案：</b>a b c d e<br><b>解析：</b>注意 a、c、e 是小字母（只佔中間格），b、d 有向上的長線（佔上面兩格）。</div>
+</div>
+<div class="q" id="ch5-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">早上到學校遇到老師，應該說什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Good morning.</li>
+<li><span class="ol">(B)</span>Good night.</li>
+<li><span class="ol">(C)</span>Thank you.</li>
+<li><span class="ol">(D)</span>I'm sorry.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q4">解析</button><div class="exp" id="e-ch5-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>Good morning. 用在早上；Good night. 是晚上睡前道別；Thank you. 是道謝；I'm sorry. 是道歉。</div>
+</div>
+<div class="q" id="ch5-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: What's your name?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I'm fine.</li>
+<li><span class="ol">(B)</span>I'm Amy.</li>
+<li><span class="ol">(C)</span>Yes, I am.</li>
+<li><span class="ol">(D)</span>Thank you.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q5">解析</button><div class="exp" id="e-ch5-s1-q5"><b>答案：</b>(B)<br><b>解析：</b>問名字要用 I'm＋名字 或 My name is＋名字 回答。I'm fine. 是回答 How are you?</div>
+</div>
+<div class="q" id="ch5-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">A: Hello, I'm Ben.　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Hi, Ben.</li>
+<li><span class="ol">(B)</span>Sit down, please.</li>
+<li><span class="ol">(C)</span>It's a book.</li>
+<li><span class="ol">(D)</span>Goodbye.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q6">解析</button><div class="exp" id="e-ch5-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>對方自我介紹時，回應 Hi/Hello 加上對方的名字最自然、也最有禮貌。</div>
+</div>
+<div class="q" id="ch5-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">單字 <strong>apple</strong> 是哪一個字母開頭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>A</li>
+<li><span class="ol">(B)</span>E</li>
+<li><span class="ol">(C)</span>O</li>
+<li><span class="ol">(D)</span>U</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q7">解析</button><div class="exp" id="e-ch5-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>apple（蘋果）的第一個字母是 a，大寫寫成 A。</div>
+</div>
+<div class="q" id="ch5-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">請寫出中文意思：Sit down, please. →＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s1-q8">解析</button><div class="exp" id="e-ch5-s1-q8"><b>答案：</b>請坐下。<br><b>解析：</b>sit down 是坐下、stand up 是站起來，加上 please 表示禮貌的「請」。這些都是老師上課常用的課室用語。</div>
+</div>
+<div class="q" id="ch5-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">放學和老師說再見時，最適合說哪一句？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Good morning.</li>
+<li><span class="ol">(B)</span>Goodbye.</li>
+<li><span class="ol">(C)</span>Nice to meet you.</li>
+<li><span class="ol">(D)</span>How old are you?</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q9">解析</button><div class="exp" id="e-ch5-s1-q9"><b>答案：</b>(B)<br><b>解析：</b>Goodbye.（或 Bye-bye.）用在道別；Nice to meet you. 是初次見面時說的話。</div>
+</div>
+<div class="q" id="ch5-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文寫出一句自我介紹（把自己的英文名字填進去）：I'm ＿＿＿＿＿＿.</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s1-q10">解析</button><div class="exp" id="e-ch5-s1-q10"><b>答案：</b>參考答案：I'm Kevin.（I'm 後面接自己的英文名字，開頭字母要大寫，句末要有句點）<br><b>解析：</b>這題檢查三件事：I 永遠大寫、名字第一個字母大寫、句末要有句點（.）。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">5-2　英語（南一版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>字母 Aa～Mm、問候語、數字 1～10、Yes/No 問答　<b>配分</b>選擇每題 8 分、填充每格 5 分、書寫題 10 分</div>
+<div class="q" id="ch5-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">小寫字母 <strong>g</strong> 的大寫是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>G</li>
+<li><span class="ol">(B)</span>J</li>
+<li><span class="ol">(C)</span>Q</li>
+<li><span class="ol">(D)</span>C</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q1">解析</button><div class="exp" id="e-ch5-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>g 的大寫是 G。書寫時小寫 g 的尾巴要寫到第三格（下面那一格）。</div>
+</div>
+<div class="q" id="ch5-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一組字母的順序是<strong>正確</strong>的？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>H, I, J, K</li>
+<li><span class="ol">(B)</span>H, J, I, K</li>
+<li><span class="ol">(C)</span>I, H, K, J</li>
+<li><span class="ol">(D)</span>J, K, H, I</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q2">解析</button><div class="exp" id="e-ch5-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>字母順序 …G H I J K L M…，所以 H, I, J, K 才是正確的。</div>
+</div>
+<div class="q" id="ch5-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出這個數字的英文：<strong>5</strong> →＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s2-q3">解析</button><div class="exp" id="e-ch5-s2-q3"><b>答案：</b>five<br><b>解析：</b>1～10：one, two, three, four, five, six, seven, eight, nine, ten。five 的字尾是 -ve。</div>
+</div>
+<div class="q" id="ch5-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">A: How are you?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I'm fine, thank you.</li>
+<li><span class="ol">(B)</span>My name is Lisa.</li>
+<li><span class="ol">(C)</span>It's a pen.</li>
+<li><span class="ol">(D)</span>I'm seven.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q4">解析</button><div class="exp" id="e-ch5-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>How are you? 是問候身體或心情好不好，要回答 I'm fine / I'm OK / Not so good 等。</div>
+</div>
+<div class="q" id="ch5-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: Are you Peter?　B: Yes, ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I am.</li>
+<li><span class="ol">(B)</span>you are.</li>
+<li><span class="ol">(C)</span>he is.</li>
+<li><span class="ol">(D)</span>I'm not.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q5">解析</button><div class="exp" id="e-ch5-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>用 Are you…? 問句時，肯定回答是 Yes, I am.；否定回答是 No, I'm not.</div>
+</div>
+<div class="q" id="ch5-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">下列哪一個字母是<strong>母音字母</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>B</li>
+<li><span class="ol">(B)</span>E</li>
+<li><span class="ol">(C)</span>K</li>
+<li><span class="ol">(D)</span>T</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q6">解析</button><div class="exp" id="e-ch5-s2-q6"><b>答案：</b>(B)<br><b>解析：</b>英文的母音字母有 a, e, i, o, u 五個，其餘都是子音字母。</div>
+</div>
+<div class="q" id="ch5-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請把小寫改寫成大寫：<strong>f  h  m</strong> → ＿ ＿ ＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s2-q7">解析</button><div class="exp" id="e-ch5-s2-q7"><b>答案：</b>F H M<br><b>解析：</b>大寫字母都寫在四線三格的上面兩格，不會超出第一線，也不會掉到第三格。</div>
+</div>
+<div class="q" id="ch5-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">「七」的英文是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>six</li>
+<li><span class="ol">(B)</span>seven</li>
+<li><span class="ol">(C)</span>eight</li>
+<li><span class="ol">(D)</span>nine</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q8">解析</button><div class="exp" id="e-ch5-s2-q8"><b>答案：</b>(B)<br><b>解析：</b>six 是六、seven 是七、eight 是八、nine 是九。</div>
+</div>
+<div class="q" id="ch5-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">第一次見到新同學時，最適合說哪一句？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Nice to meet you.</li>
+<li><span class="ol">(B)</span>Good night.</li>
+<li><span class="ol">(C)</span>See you tomorrow.</li>
+<li><span class="ol">(D)</span>I'm sorry.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q9">解析</button><div class="exp" id="e-ch5-s2-q9"><b>答案：</b>(A)<br><b>解析：</b>Nice to meet you.（很高興認識你）用在初次見面，對方通常會回答 Nice to meet you, too.</div>
+</div>
+<div class="q" id="ch5-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文回答這個問題（寫出完整句子）：How are you?</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s2-q10">解析</button><div class="exp" id="e-ch5-s2-q10"><b>答案：</b>參考答案：I'm fine, thank you.（也可以寫 I'm OK. / I'm good.）<br><b>解析：</b>答句要以大寫開頭、句末加句點。三年級只要句型正確、拼字大致無誤即可得分。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">5-3　英語（翰林版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>字母 Aa～Mm、文具用品單字、This is a…、課室用語　<b>配分</b>選擇每題 8 分、填充每格 5 分、書寫題 10 分</div>
+<div class="q" id="ch5-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一個是<strong>書</strong>的英文？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>book</li>
+<li><span class="ol">(B)</span>bag</li>
+<li><span class="ol">(C)</span>pen</li>
+<li><span class="ol">(D)</span>ruler</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q1">解析</button><div class="exp" id="e-ch5-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>book 是書、bag 是書包、pen 是筆、ruler 是尺。</div>
+</div>
+<div class="q" id="ch5-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">A: What's this?　B: ＿＿＿＿（圖：一枝鉛筆）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>It's a pencil.</li>
+<li><span class="ol">(B)</span>I'm a pencil.</li>
+<li><span class="ol">(C)</span>Yes, it is.</li>
+<li><span class="ol">(D)</span>He is a pencil.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q2">解析</button><div class="exp" id="e-ch5-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>問「這是什麼」，要用 It's a＋單字 回答。物品不能用 I'm 或 He is。</div>
+</div>
+<div class="q" id="ch5-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出中文意思：Open your book. →＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s3-q3">解析</button><div class="exp" id="e-ch5-s3-q3"><b>答案：</b>打開你的書（把書打開）。<br><b>解析：</b>open 是打開、close 是關上，這是課堂上老師最常用的指令之一。</div>
+</div>
+<div class="q" id="ch5-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">大寫字母 <strong>M</strong> 的小寫是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>n</li>
+<li><span class="ol">(B)</span>m</li>
+<li><span class="ol">(C)</span>w</li>
+<li><span class="ol">(D)</span>u</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q4">解析</button><div class="exp" id="e-ch5-s3-q4"><b>答案：</b>(B)<br><b>解析：</b>M 的小寫是 m（三隻腳）；n 只有兩隻腳，w 和 u 則是開口朝上的形狀。</div>
+</div>
+<div class="q" id="ch5-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一個字母<strong>不在</strong> A 到 M 之間？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>C</li>
+<li><span class="ol">(B)</span>G</li>
+<li><span class="ol">(C)</span>K</li>
+<li><span class="ol">(D)</span>R</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q5">解析</button><div class="exp" id="e-ch5-s3-q5"><b>答案：</b>(D)<br><b>解析：</b>A 到 M 依序是 A B C D E F G H I J K L M，R 排在 M 後面，不在這個範圍內。</div>
+</div>
+<div class="q" id="ch5-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">老師說「Stand up.」，你應該做什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>站起來</li>
+<li><span class="ol">(B)</span>坐下</li>
+<li><span class="ol">(C)</span>舉手</li>
+<li><span class="ol">(D)</span>閉上眼睛</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q6">解析</button><div class="exp" id="e-ch5-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>stand up 是站起來；sit down 是坐下；raise your hand 是舉手。</div>
+</div>
+<div class="q" id="ch5-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請寫出這個文具的英文：<strong>書包</strong> →＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s3-q7">解析</button><div class="exp" id="e-ch5-s3-q7"><b>答案：</b>bag（或 schoolbag）<br><b>解析：</b>bag 泛指袋子或書包，學校用的書包也可以說 schoolbag，兩者都算對。</div>
+</div>
+<div class="q" id="ch5-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">A: Thank you.　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>You're welcome.</li>
+<li><span class="ol">(B)</span>I'm sorry.</li>
+<li><span class="ol">(C)</span>Good night.</li>
+<li><span class="ol">(D)</span>Here you are.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q8">解析</button><div class="exp" id="e-ch5-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>別人道謝時回答 You're welcome.（不客氣）。Here you are. 是遞東西給人時說「拿去吧」。</div>
+</div>
+<div class="q" id="ch5-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">下列單字，哪一個和「文具」<strong>沒有</strong>關係？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>ruler</li>
+<li><span class="ol">(B)</span>eraser</li>
+<li><span class="ol">(C)</span>pencil</li>
+<li><span class="ol">(D)</span>apple</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q9">解析</button><div class="exp" id="e-ch5-s3-q9"><b>答案：</b>(D)<br><b>解析：</b>ruler（尺）、eraser（橡皮擦）、pencil（鉛筆）都是文具；apple（蘋果）是水果。</div>
+</div>
+<div class="q" id="ch5-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用 This is a ＿＿. 造一個句子，介紹你桌上的一樣文具。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s3-q10">解析</button><div class="exp" id="e-ch5-s3-q10"><b>答案：</b>參考答案：This is a ruler.（也可寫 This is a pen. / This is a book.）<br><b>解析：</b>句首 T 要大寫、句末要有句點；a 後面要接單數的物品單字。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s4">
+<div class="sec-head"><span class="pub">何嘉仁版</span><span class="sec-t">5-4　英語（何嘉仁版）第一次段考</span></div>
+<div class="scope"><b>對應單元</b>字母名稱與字母音（Phonics 入門 a～f）、問候與自我介紹、Sight Words　<b>配分</b>選擇每題 8 分、填充每格 5 分、書寫題 10 分</div>
+<div class="q" id="ch5-s4-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">字母 <strong>Bb</strong> 的「字母音」（發音）最接近下列哪一個單字的開頭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>ball</li>
+<li><span class="ol">(B)</span>cat</li>
+<li><span class="ol">(C)</span>dog</li>
+<li><span class="ol">(D)</span>fish</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q1">解析</button><div class="exp" id="e-ch5-s4-q1"><b>答案：</b>(A)<br><b>解析：</b>Bb 的字母音是 /b/，ball 的開頭正是這個音。cat 是 /k/、dog 是 /d/、fish 是 /f/。</div>
+</div>
+<div class="q" id="ch5-s4-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一個單字是 <strong>/k/</strong>（字母 Cc 的音）開頭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>cake</li>
+<li><span class="ol">(B)</span>apple</li>
+<li><span class="ol">(C)</span>egg</li>
+<li><span class="ol">(D)</span>dog</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q2">解析</button><div class="exp" id="e-ch5-s4-q2"><b>答案：</b>(A)<br><b>解析：</b>cake 的 c 發 /k/。apple 開頭是短母音 /æ/、egg 是 /e/、dog 是 /d/。</div>
+</div>
+<div class="q" id="ch5-s4-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出這個字母的大小寫（四線三格書寫）：ㄈ音（/f/）的字母 → 大寫＿＿　小寫＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s4-q3">解析</button><div class="exp" id="e-ch5-s4-q3"><b>答案：</b>F、f<br><b>解析：</b>/f/ 的字母是 Ff。小寫 f 的長線要寫到上面第一格，中間有一橫。</div>
+</div>
+<div class="q" id="ch5-s4-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一組是<strong>同一個字母</strong>的大寫和小寫？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>D—d</li>
+<li><span class="ol">(B)</span>B—p</li>
+<li><span class="ol">(C)</span>E—a</li>
+<li><span class="ol">(D)</span>C—g</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q4">解析</button><div class="exp" id="e-ch5-s4-q4"><b>答案：</b>(A)<br><b>解析：</b>D 的小寫是 d。B 的小寫是 b、E 的小寫是 e、C 的小寫是 c，其他三組都配錯了。</div>
+</div>
+<div class="q" id="ch5-s4-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: Good afternoon, Miss Wang.　這句話會在什麼時候說？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>下午</li>
+<li><span class="ol">(B)</span>早上</li>
+<li><span class="ol">(C)</span>半夜</li>
+<li><span class="ol">(D)</span>睡覺前</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q5">解析</button><div class="exp" id="e-ch5-s4-q5"><b>答案：</b>(A)<br><b>解析：</b>Good morning 用於早上、Good afternoon 用於中午到傍晚、Good evening 用於晚上、Good night 用於睡前道別。</div>
+</div>
+<div class="q" id="ch5-s4-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">A: My name is Sandy. What's your name?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>My name is Tom.</li>
+<li><span class="ol">(B)</span>I'm fine, thanks.</li>
+<li><span class="ol">(C)</span>It's a dog.</li>
+<li><span class="ol">(D)</span>You're welcome.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q6">解析</button><div class="exp" id="e-ch5-s4-q6"><b>答案：</b>(A)<br><b>解析：</b>對方問名字，就用 My name is＋名字 或 I'm＋名字 回答，句型要對應問句。</div>
+</div>
+<div class="q" id="ch5-s4-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請把字母依照順序補完：a, b, ＿, d, ＿, f</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s4-q7">解析</button><div class="exp" id="e-ch5-s4-q7"><b>答案：</b>c、e<br><b>解析：</b>字母順序 a b c d e f。這一段是自然發音課最先學的六個字母。</div>
+</div>
+<div class="q" id="ch5-s4-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一個單字的開頭字母音和 <strong>apple</strong> 相同？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>ant</li>
+<li><span class="ol">(B)</span>book</li>
+<li><span class="ol">(C)</span>cat</li>
+<li><span class="ol">(D)</span>egg</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q8">解析</button><div class="exp" id="e-ch5-s4-q8"><b>答案：</b>(A)<br><b>解析：</b>apple 和 ant 開頭都是短母音 a 的音 /æ/。book 是 /b/、cat 是 /k/、egg 是 /e/。</div>
+</div>
+<div class="q" id="ch5-s4-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">看到常見字（Sight Word）<strong>I</strong>，下列用法正確的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I am a student.</li>
+<li><span class="ol">(B)</span>i am a student.</li>
+<li><span class="ol">(C)</span>I Am A Student.</li>
+<li><span class="ol">(D)</span>AM I student a.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q9">解析</button><div class="exp" id="e-ch5-s4-q9"><b>答案：</b>(A)<br><b>解析：</b>英文的 I（我）不管放在句子哪個位置都要大寫，句子其他單字則不需要每個字都大寫，字序也要正確。</div>
+</div>
+<div class="q" id="ch5-s4-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文寫出「早安，我是（你的名字）。」兩句話。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s4-q10">解析</button><div class="exp" id="e-ch5-s4-q10"><b>答案：</b>參考答案：Good morning. I'm Amy.<br><b>解析：</b>檢查點：Good 的 G 大寫、morning 小寫、句末句點；第二句 I 大寫、名字第一個字母大寫、句末句點。</div>
+</div>
+</div>
+</section>
+<section class="sheet key"><h2 class="h-page">解答本</h2><p class="pf">本頁提供快速對答；詳細解析請點選題目下方的「解析」按鈕。</p>
+<h3 class="key-ch">第 1 章　國語</h3>
+<div class="key-sec"><div class="key-t">1-1　康軒版　第1~4課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (C)</li><li><b>3.</b> 仔細、觀察</li><li><b>4.</b> (A)</li><li><b>5.</b> (B)</li><li><b>6.</b> (A)</li><li><b>7.</b> 媽媽問我：「今天在學校過得好嗎？」</li><li><b>8.</b> (B)</li><li><b>9.</b> 參考答案：妹妹一邊哼著歌，一邊幫忙擦桌子。</li><li><b>10.</b> (A)</li><li><b>11.</b> (B)</li></ol></div>
+<div class="key-sec"><div class="key-t">1-2　南一版　第1~4課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 歡呼、緊張</li><li><b>4.</b> (A)</li><li><b>5.</b> (B)</li><li><b>6.</b> (A)</li><li><b>7.</b> 因為、所以</li><li><b>8.</b> (C)</li><li><b>9.</b> 參考答案：弟弟餓得肚子咕嚕咕嚕叫。</li><li><b>10.</b> (D)</li><li><b>11.</b> (B)</li></ol></div>
+<div class="key-sec"><div class="key-t">1-3　翰林版　第1~4課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 漸ㄐㄧㄢˋ、響ㄒㄧㄤˇ</li><li><b>4.</b> (C)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 參考答案：觀察／觀賞；趣味／興趣</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：雖然外面下著大雨，但是我還是準時到學校了。</li><li><b>10.</b> (B)</li><li><b>11.</b> (B)</li></ol></div>
+<h3 class="key-ch">第 2 章　數學</h3>
+<div class="key-sec"><div class="key-t">2-1　康軒版　數・加減・乘法</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> 3040</li><li><b>3.</b> (B)</li><li><b>4.</b> 6245</li><li><b>5.</b> 5434</li><li><b>6.</b> 1058</li><li><b>7.</b> 360 片</li><li><b>8.</b> 3982 本</li><li><b>9.</b> (C)</li><li><b>10.</b> 4196 元</li></ol></div>
+<div class="key-sec"><div class="key-t">2-2　南一版　數・加減・乘法</div><ol class="key-list"><li><b>1.</b> (C)</li><li><b>2.</b> 5086</li><li><b>3.</b> (A)</li><li><b>4.</b> 4023</li><li><b>5.</b> 3525</li><li><b>6.</b> 1036</li><li><b>7.</b> 450 瓶</li><li><b>8.</b> 1960 元</li><li><b>9.</b> (C)</li><li><b>10.</b> 38 瓶</li></ol></div>
+<div class="key-sec"><div class="key-t">2-3　翰林版　數・加減・乘法</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> 400</li><li><b>3.</b> (B)</li><li><b>4.</b> 8324</li><li><b>5.</b> 2373</li><li><b>6.</b> 1440</li><li><b>7.</b> 364 元</li><li><b>8.</b> 2730 顆</li><li><b>9.</b> (A)</li><li><b>10.</b> 390 元</li></ol></div>
+<h3 class="key-ch">第 3 章　自然與生活科技</h3>
+<div class="key-sec"><div class="key-t">3-1　康軒版　植物的身體</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (B)</li><li><b>3.</b> 葉柄</li><li><b>4.</b> (B)</li><li><b>5.</b> (B)</li><li><b>6.</b> 日期（時間）、地點</li><li><b>7.</b> (B)</li><li><b>8.</b> (B)</li><li><b>9.</b> 參考答案：根—吸收水分和養分（並固定植物）；葉—製造植物需要的養分。</li><li><b>10.</b> 參考答案：因為摘下來植物會受傷、也可能死掉，別人就看不到了；而且有些植物有刺或汁液會讓皮膚過敏，摘取不安全。</li></ol></div>
+<div class="key-sec"><div class="key-t">3-2　南一版　植物的身體</div><ol class="key-list"><li><b>1.</b> (C)</li><li><b>2.</b> (A)</li><li><b>3.</b> 儲存水分</li><li><b>4.</b> (A)</li><li><b>5.</b> (B)</li><li><b>6.</b> 分類</li><li><b>7.</b> (B)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為植物的根深入土中並向四周分開生長，能把植物牢牢固定在土裡，所以不容易被水沖走。</li><li><b>10.</b> 參考答案：不可以隨便把植物放進嘴巴嘗，也不要摘不認識的植物來聞，觀察完要洗手；有刺或有汁液的植物不要直接用手摸。</li></ol></div>
+<div class="key-sec"><div class="key-t">3-3　翰林版　植物的身體</div><ol class="key-list"><li><b>1.</b> (C)</li><li><b>2.</b> 運送（輸送）</li><li><b>3.</b> (A)</li><li><b>4.</b> (B)</li><li><b>5.</b> (D)</li><li><b>6.</b> 網狀</li><li><b>7.</b> (B)</li><li><b>8.</b> (B)</li><li><b>9.</b> 參考答案：觀察日期、觀察地點、植物名稱、葉子的形狀或大小、葉脈的樣子、有沒有花或果實。（任三項）</li><li><b>10.</b> 參考答案：和海邊風大、太陽強、土壤含鹽分有關；長得矮可以不被強風吹倒，葉子厚可以減少水分散失。</li></ol></div>
+<h3 class="key-ch">第 4 章　社會</h3>
+<div class="key-sec"><div class="key-t">4-1　康軒版　家庭與學校</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> (A)</li><li><b>3.</b> 北、南、西、東</li><li><b>4.</b> (C)</li><li><b>5.</b> (A)</li><li><b>6.</b> (B)</li><li><b>7.</b> 參考答案：擦桌子／收碗筷／摺衣服／倒垃圾／整理自己的房間</li><li><b>8.</b> (A)</li><li><b>9.</b> (B)</li><li><b>10.</b> 參考答案：自己整理書包和抽屜、自己把餐具洗乾淨、自己完成掃地工作、自己記聯絡簿。（任兩項）</li></ol></div>
+<div class="key-sec"><div class="key-t">4-2　南一版　家庭與學校</div><ol class="key-list"><li><b>1.</b> (D)</li><li><b>2.</b> (B)</li><li><b>3.</b> 公約</li><li><b>4.</b> (A)</li><li><b>5.</b> (D)</li><li><b>6.</b> (A)</li><li><b>7.</b> 圖書館（圖書室）、自然教室（實驗室）</li><li><b>8.</b> (A)</li><li><b>9.</b> (B)</li><li><b>10.</b> 參考答案：（1）爸媽要花很多時間照顧寶寶，陪我的時間變少；（2）我要幫忙做更多家事，也要學著當哥哥或姊姊。</li></ol></div>
+<div class="key-sec"><div class="key-t">4-3　翰林版　家庭與學校</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 南</li><li><b>4.</b> (A)</li><li><b>5.</b> (B)</li><li><b>6.</b> 警衛、健康中心（保健室）</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：從教室門口往南走約十公尺，經過飲水機後右轉，廁所就在走廊盡頭。</li><li><b>10.</b> 參考答案：因為可以回收的東西再利用，能減少垃圾量、節省資源，也讓校園更乾淨。</li></ol></div>
+<h3 class="key-ch">第 5 章　英語 English</h3>
+<div class="key-sec"><div class="key-t">5-1　康軒版　字母與問候</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> (B)</li><li><b>3.</b> a b c d e</li><li><b>4.</b> (A)</li><li><b>5.</b> (B)</li><li><b>6.</b> (A)</li><li><b>7.</b> (A)</li><li><b>8.</b> 請坐下。</li><li><b>9.</b> (B)</li><li><b>10.</b> 參考答案：I'm Kevin.（I'm 後面接自己的英文名字，開頭字母要大寫，句末要有句點）</li></ol></div>
+<div class="key-sec"><div class="key-t">5-2　南一版　字母與數字</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> five</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (B)</li><li><b>7.</b> F H M</li><li><b>8.</b> (B)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：I'm fine, thank you.（也可以寫 I'm OK. / I'm good.）</li></ol></div>
+<div class="key-sec"><div class="key-t">5-3　翰林版　字母與文具</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 打開你的書（把書打開）。</li><li><b>4.</b> (B)</li><li><b>5.</b> (D)</li><li><b>6.</b> (A)</li><li><b>7.</b> bag（或 schoolbag）</li><li><b>8.</b> (A)</li><li><b>9.</b> (D)</li><li><b>10.</b> 參考答案：This is a ruler.（也可寫 This is a pen. / This is a book.）</li></ol></div>
+<div class="key-sec"><div class="key-t">5-4　何嘉仁版　字母音與問候</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> F、f</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> c、e</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：Good morning. I'm Amy.</li></ol></div>
+</section>
+</div>
+<div class="pagefoot"></div>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.exp-btn'); if(!b) return;
+  var el=document.getElementById('e-'+b.dataset.t);
+  el.classList.toggle('on');
+  b.textContent=el.classList.contains('on')?'收合解析':'解析';
+});
+function allExp(on){
+  document.querySelectorAll('.exp').forEach(function(el){el.classList.toggle('on',on)});
+  document.querySelectorAll('.exp-btn').forEach(function(b){b.textContent=on?'收合解析':'解析'});
+}
+</script>
+</body>
+</html>

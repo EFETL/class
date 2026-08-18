@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>何嘉仁版　國小英語 第一次段考題本</title>
+<style>
+:root{--ink:#22201d;--ink2:#5b544c;--line:#d9d0c2;--paper:#fdfaf4;--band:#1f5f6b;--band2:#c8663a;--soft:#f4efe5;--acc:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;background:#e8e3d9;color:var(--ink);
+ font-family:"Noto Sans TC","PingFang TC","Heiti TC",system-ui,sans-serif;font-size:16px;line-height:1.9}
+.book{max-width:820px;margin:0 auto;padding:24px 12px 80px}
+.sheet{background:var(--paper);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08);
+ padding:38px 40px 46px;margin:0 0 26px}
+h2.h-page{font-size:24px;margin:0 0 18px;padding-bottom:10px;border-bottom:3px solid var(--band)}
+.pf{margin:.5em 0;color:var(--ink2);font-size:15px}
+/* 封面 */
+.cover{text-align:center;padding:64px 40px 54px;background:linear-gradient(180deg,#fffdf8,#f6efe2)}
+.cv-band{display:inline-block;background:var(--band);color:#fff;padding:6px 20px;border-radius:999px;font-size:14px;letter-spacing:2px}
+.cv-title{font-size:40px;line-height:1.35;margin:22px 0 6px;letter-spacing:2px}
+.cv-sub{font-size:18px;color:var(--ink2)}
+.cv-line{width:96px;height:4px;background:var(--band2);margin:24px auto 28px;border-radius:2px}
+.cv-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;max-width:520px;margin:0 auto;text-align:left;font-size:15px}
+.cv-meta div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 14px}
+.cv-meta span{display:block;font-size:12px;color:var(--band);letter-spacing:1px}
+.cv-name{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:34px 0 8px;font-size:15px}
+.cv-foot{margin-top:26px;color:var(--ink2);font-size:13px}
+/* 對照表 */
+table.ref{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+table.ref th{background:var(--band);color:#fff;padding:8px 6px;border:1px solid #b9ab97}
+table.ref td{border:1px solid var(--line);padding:7px 8px;vertical-align:top}
+table.ref td.reg{background:var(--soft);font-weight:700;text-align:center;white-space:nowrap}
+/* 目錄 */
+ol.toc{list-style:none;margin:0;padding:0;counter-reset:none}
+ol.toc>li{margin:0 0 14px;border-bottom:1px dashed var(--line);padding-bottom:12px}
+ol.toc>li>a{display:grid;grid-template-columns:74px 1fr;gap:2px 10px;text-decoration:none;color:var(--ink)}
+.tc-n{color:var(--band2);font-weight:700}
+.tc-t{font-size:19px;font-weight:700}
+.tc-d{grid-column:2;color:var(--ink2);font-size:13px}
+ol.toc ul{list-style:none;margin:8px 0 0 74px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
+ol.toc ul a{color:var(--ink2);text-decoration:none;font-size:14px}
+ol.toc a:hover{color:var(--acc)}
+/* 章 */
+.chap-head{border-left:8px solid var(--band);padding:6px 0 6px 16px;margin-bottom:16px}
+.chap-n{color:var(--band2);font-weight:700;letter-spacing:2px}
+.chap-t{font-size:28px;margin:2px 0 4px}
+.chap-s{color:var(--ink2);font-size:14px}
+.chap-intro{background:var(--soft);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--ink2);margin-bottom:22px}
+.sec{margin:26px 0 34px}
+.sec-head{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--line);padding-bottom:8px}
+.pub{background:var(--band2);color:#fff;border-radius:6px;padding:2px 10px;font-size:13px;white-space:nowrap}
+.sec-t{font-size:19px;font-weight:700}
+.scope{font-size:13px;color:var(--ink2);margin:8px 0 16px}
+.scope b{color:var(--band);margin-right:6px}
+.scope b+b{margin-left:10px}
+/* 題目 */
+.q{margin:0 0 16px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;page-break-inside:avoid;break-inside:avoid}
+.q-h{display:flex;gap:9px}
+.q-n{flex:0 0 auto;min-width:26px;height:26px;border-radius:50%;background:var(--band);color:#fff;
+ display:inline-flex;align-items:center;justify-content:center;font-size:13px;margin-top:3px}
+.q-t{flex:1}
+ol.opts{list-style:none;margin:8px 0 0 35px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}
+ol.opts li{font-size:15px}
+.ol{color:var(--band2);font-weight:700;margin-right:5px}
+.passage{background:var(--soft);border-left:5px solid var(--band);border-radius:8px;padding:12px 16px;margin:0 0 16px}
+.passage-t{font-weight:700;margin-bottom:6px}
+.passage-b{font-size:15px;line-height:2.1;white-space:pre-wrap}
+.ansline{margin:14px 0 4px 35px;border-bottom:1.5px solid var(--line);height:26px}
+.ansline.tall{height:52px;border-bottom:1.5px solid var(--line);
+ background:repeating-linear-gradient(transparent,transparent 25px,var(--line) 25px,var(--line) 26px)}
+.workbox{margin:10px 0 4px 35px;border:1.5px dashed var(--line);border-radius:8px;height:110px;position:relative}
+.wb-tag{position:absolute;top:6px;left:10px;font-size:12px;color:#b4a894}
+.exp-btn{margin:10px 0 0 35px;background:#fff;border:1.5px solid var(--acc);color:var(--acc);
+ border-radius:999px;padding:3px 15px;font-size:13px;cursor:pointer}
+.exp-btn:hover{background:var(--acc);color:#fff}
+.exp{display:none;margin:10px 0 0 35px;background:#f0f7f5;border-left:4px solid var(--acc);
+ border-radius:0 8px 8px 0;padding:10px 14px;font-size:14px}
+.exp.on{display:block}
+.exp b{color:var(--acc)}
+/* 解答本 */
+.key-ch{margin:22px 0 8px;font-size:20px;border-bottom:2px solid var(--line);padding-bottom:5px}
+.key-sec{margin:0 0 14px}
+.key-t{font-size:14px;color:var(--band);font-weight:700;margin-bottom:4px}
+ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px 12px;font-size:14px}
+/* 頁碼（螢幕不顯示，列印才出現） */
+.pagefoot{display:none}
+/* 工具列 */
+.bar{position:sticky;top:0;z-index:9;background:rgba(253,250,244,.96);backdrop-filter:blur(6px);
+ border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+ max-width:820px;margin:0 auto;border-radius:0 0 12px 12px}
+.bar b{font-size:14px;margin-right:4px}
+.bar button,.bar a{background:var(--band);color:#fff;border:0;border-radius:8px;padding:6px 13px;
+ font-size:13px;cursor:pointer;text-decoration:none}
+.bar button.ghost{background:#fff;color:var(--band);border:1.5px solid var(--band)}
+@media(max-width:640px){
+ .sheet{padding:24px 18px 30px}.cv-title{font-size:30px}
+ .cv-meta,ol.opts,ol.toc ul{grid-template-columns:1fr}
+ .ansline,.workbox,.exp,.exp-btn,ol.opts{margin-left:0}
+}
+/* 列印 */
+@media print{
+ @page{size:A4;margin:16mm 14mm 18mm}
+ body{background:#fff;font-size:12.5pt;line-height:1.75}
+ .book{max-width:none;padding:0}
+ .bar,.exp-btn,.no-print{display:none!important}
+ .exp{display:none!important}
+ .sheet{box-shadow:none;border-radius:0;padding:0;margin:0;background:#fff;break-after:page;page-break-after:always}
+ .sheet:last-child{break-after:auto;page-break-after:auto}
+ .cover{padding-top:40mm}
+ .q{border-color:#bbb}
+ .pagefoot{display:block;position:fixed;bottom:0;right:0;font-size:10pt;color:#555}
+ .pagefoot::after{counter-increment:page;content:"— " counter(page) " —"}
+}
+</style>
+<style>:root{--band:#b0561f;--band2:#1f6470}</style>
+</head>
+<body>
+<div class="bar no-print">
+  <b>何嘉仁版　國小英語 第一次段考題本</b>
+  <button class="ghost" onclick="allExp(true)">顯示全部解析</button>
+  <button class="ghost" onclick="allExp(false)">收合全部解析</button>
+  <button onclick="window.print()">列印 / 存成 PDF</button>
+  <a href="#toc-top">回目錄</a>
+  <a href="../exams.html" style="background:#fff;color:var(--band);border:1.5px solid var(--band)">← 回題庫首頁</a>
+</div>
+<div class="book" id="toc-top">
+<section class="sheet cover">
+  <div class="cv-band">安親班自編・何嘉仁版專冊</div>
+  <h1 class="cv-title">何嘉仁版　國小英語 第一次段考題本</h1>
+  <div class="cv-sub">三年級・四年級・五年級・六年級　英語專冊</div>
+  <div class="cv-line"></div>
+  <div class="cv-meta">
+    <div><span>適用年級</span>三～六年級（上學期）</div>
+    <div><span>適用版本</span>何嘉仁</div>
+    <div><span>科目</span>英語</div>
+    <div><span>取材範圍</span>第一次段考（期中考）常見範圍</div>
+  </div>
+  <div class="cv-name">
+    <div>班級 ____________</div><div>座號 ________</div><div>姓名 ________________</div>
+  </div>
+  <div class="cv-foot">安親班自編教材　何嘉仁版專冊　©本題本題目全數自編，僅供班內教學使用</div>
+</section>
+<section class="sheet"><h2 class="h-page">編輯說明</h2>
+<p class="pf"><strong>一、這本書是什麼。</strong> 這是一本 <strong>何嘉仁版專冊</strong>，整本只放何嘉仁版的題目，發給使用何嘉仁版的孩子就對了，不必再翻找別的版本。書裡依<strong>年級</strong>分章，章內再依<strong>科目</strong>分節。</p>
+<p class="pf"><strong>二、題目從哪裡來。</strong> 全書題目 <strong>100% 自編</strong>，沒有抄錄任何學校的段考原卷。我們以「中小學題庫網（tcool.cc）」上北、中、南共 9 所國小的段考卷紀錄，來確認 <strong>各年級各科目實際採用的版本、段考次數與命題範圍</strong>，再依照這個範圍與十二年國教課綱自行命題，避免版權問題。各校版本對照見下一頁。</p>
+<p class="pf"><strong>三、怎麼使用。</strong> 螢幕上點每一題下方的「解析」可展開答案與說明；按上方「列印 / 存成 PDF」時，<strong>解析會自動隱藏</strong>，印出來就是乾淨的作答題本，答案統一收在書末「解答本」。列印請用 Chrome 或 Edge，頁碼才會出現在頁尾。</p>
+<p class="pf"><strong>四、關於何嘉仁版。</strong> <strong>只在英語科出現</strong>，因此本冊為英語專冊，橫跨三、四、五、六年級。版本分布的統計見下一頁的九校對照表。各校教學進度不同，第一次段考的實際範圍請以任課老師公布為準。</p>
+<p class="pf"><strong>五、配分建議。</strong> 每一節可獨立當成一份小考（滿分 100 分）；若要組成一份完整段考卷，建議：國語 30 分＋數學 30 分＋自然 20 分＋社會 20 分，英語另外單獨計分。</p>
+</section>
+<section class="sheet"><h2 class="h-page">導讀：北、中、南九校版本對照表</h2>
+<p class="pf">資料來源：中小學題庫網（tcool.cc）各校段考卷之「學校／年級科目／出版社」欄位彙整（統計至 114 學年度）。<strong>本表只用來確認命題範圍與版本分布，題目仍為自編。</strong> 空白代表該站目前查無該校此科的段考紀錄，不代表學校沒教。</p>
+<table class="ref"><thead><tr><th>區域</th><th>縣市</th><th>學校</th><th>國語</th><th>數學</th><th>自然</th><th>社會</th><th>英語</th></tr></thead><tbody>
+<tr><td class="reg">北部</td><td>臺北市</td><td>民權國小</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒</td><td>康軒／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">北部</td><td>桃園市</td><td>大華國小</td><td>康軒／南一／翰林</td><td>康軒／翰林</td><td>南一／翰林</td><td>康軒／翰林</td><td>康軒／何嘉仁</td></tr>
+<tr><td class="reg">北部</td><td>基隆市</td><td>東光國小</td><td>康軒／翰林</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林</td></tr>
+<tr><td class="reg">中部</td><td>臺中市</td><td>大墩國小</td><td>康軒／南一／翰林</td><td>康軒／南一</td><td>康軒</td><td>康軒／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">中部</td><td>彰化縣</td><td>成功國小</td><td>康軒／南一</td><td>南一</td><td>南一／翰林</td><td>康軒／翰林</td><td>何嘉仁</td></tr>
+<tr><td class="reg">中部</td><td>南投縣</td><td>社寮國小</td><td>康軒／南一／翰林</td><td>康軒</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林</td></tr>
+<tr><td class="reg">南部</td><td>臺南市</td><td>和順國小</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">南部</td><td>高雄市</td><td>獅湖國小</td><td>康軒／翰林</td><td>康軒／南一</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td class="reg">南部</td><td>高雄市</td><td>永安國小</td><td>康軒／翰林</td><td>康軒／南一／翰林</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>統計</td><td>—</td><td>四家版本占比</td><td>康軒最高，南一、翰林次之</td><td>三家並用</td><td>康軒／翰林為主</td><td>康軒／翰林為主</td><td><strong>英語才會出現何嘉仁</strong></td></tr>
+</tbody></table></section>
+<section class="sheet"><h2 class="h-page">目錄</h2><ol class="toc">
+<li><a href="#ch1"><span class="tc-n">第 1 章</span><span class="tc-t">三年級上學期 第一次段考</span><span class="tc-d">英語　共 10 題</span></a><ul>
+<li><a href="#ch1-s1">1-1　英語　英語・字母音與問候</a></li>
+</ul></li>
+<li><a href="#ch2"><span class="tc-n">第 2 章</span><span class="tc-t">四年級上學期 第一次段考</span><span class="tc-d">英語　共 10 題</span></a><ul>
+<li><a href="#ch2-s1">2-1　英語　四年級英語</a></li>
+</ul></li>
+<li><a href="#ch3"><span class="tc-n">第 3 章</span><span class="tc-t">五年級上學期 第一次段考</span><span class="tc-d">英語　共 10 題</span></a><ul>
+<li><a href="#ch3-s1">3-1　英語　英語・發音與進行式</a></li>
+</ul></li>
+<li><a href="#ch4"><span class="tc-n">第 4 章</span><span class="tc-t">六年級上學期 第一次段考</span><span class="tc-d">英語　共 10 題</span></a><ul>
+<li><a href="#ch4-s1">4-1　英語　英語・過去式與發音</a></li>
+</ul></li>
+</ol></section>
+<section class="sheet chap" id="ch1">
+<div class="chap-head"><div class="chap-n">第 1 章</div><h2 class="chap-t">三年級上學期 第一次段考</h2><div class="chap-s">英語　共 10 題</div></div>
+<div class="chap-intro">本章是 <strong>何嘉仁版三年級上學期第一次段考</strong>的全科練習，每一節（英語）都可以單獨當成一份小考使用。各節開頭都標示了對應單元，若貴班進度不同，直接略過該節即可。</div>
+<div class="sec" id="ch1-s1">
+<div class="sec-head"><span class="pub">英語</span><span class="sec-t">1-1　英語　三年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>字母名稱與字母音（Phonics 入門 a～f）、問候與自我介紹、Sight Words　<b>配分</b>選擇每題 8 分、填充每格 5 分、書寫題 10 分</div>
+<div class="q" id="ch1-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">字母 <strong>Bb</strong> 的「字母音」（發音）最接近下列哪一個單字的開頭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>ball</li>
+<li><span class="ol">(B)</span>cat</li>
+<li><span class="ol">(C)</span>dog</li>
+<li><span class="ol">(D)</span>fish</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q1">解析</button><div class="exp" id="e-ch1-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>Bb 的字母音是 /b/，ball 的開頭正是這個音。cat 是 /k/、dog 是 /d/、fish 是 /f/。</div>
+</div>
+<div class="q" id="ch1-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一個單字是 <strong>/k/</strong>（字母 Cc 的音）開頭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>cake</li>
+<li><span class="ol">(B)</span>apple</li>
+<li><span class="ol">(C)</span>egg</li>
+<li><span class="ol">(D)</span>dog</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q2">解析</button><div class="exp" id="e-ch1-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>cake 的 c 發 /k/。apple 開頭是短母音 /æ/、egg 是 /e/、dog 是 /d/。</div>
+</div>
+<div class="q" id="ch1-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出這個字母的大小寫（四線三格書寫）：ㄈ音（/f/）的字母 → 大寫＿＿　小寫＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s1-q3">解析</button><div class="exp" id="e-ch1-s1-q3"><b>答案：</b>F、f<br><b>解析：</b>/f/ 的字母是 Ff。小寫 f 的長線要寫到上面第一格，中間有一橫。</div>
+</div>
+<div class="q" id="ch1-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一組是<strong>同一個字母</strong>的大寫和小寫？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>D—d</li>
+<li><span class="ol">(B)</span>B—p</li>
+<li><span class="ol">(C)</span>E—a</li>
+<li><span class="ol">(D)</span>C—g</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q4">解析</button><div class="exp" id="e-ch1-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>D 的小寫是 d。B 的小寫是 b、E 的小寫是 e、C 的小寫是 c，其他三組都配錯了。</div>
+</div>
+<div class="q" id="ch1-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: Good afternoon, Miss Wang.　這句話會在什麼時候說？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>下午</li>
+<li><span class="ol">(B)</span>早上</li>
+<li><span class="ol">(C)</span>半夜</li>
+<li><span class="ol">(D)</span>睡覺前</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q5">解析</button><div class="exp" id="e-ch1-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>Good morning 用於早上、Good afternoon 用於中午到傍晚、Good evening 用於晚上、Good night 用於睡前道別。</div>
+</div>
+<div class="q" id="ch1-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">A: My name is Sandy. What's your name?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>My name is Tom.</li>
+<li><span class="ol">(B)</span>I'm fine, thanks.</li>
+<li><span class="ol">(C)</span>It's a dog.</li>
+<li><span class="ol">(D)</span>You're welcome.</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q6">解析</button><div class="exp" id="e-ch1-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>對方問名字，就用 My name is＋名字 或 I'm＋名字 回答，句型要對應問句。</div>
+</div>
+<div class="q" id="ch1-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請把字母依照順序補完：a, b, ＿, d, ＿, f</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s1-q7">解析</button><div class="exp" id="e-ch1-s1-q7"><b>答案：</b>c、e<br><b>解析：</b>字母順序 a b c d e f。這一段是自然發音課最先學的六個字母。</div>
+</div>
+<div class="q" id="ch1-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一個單字的開頭字母音和 <strong>apple</strong> 相同？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>ant</li>
+<li><span class="ol">(B)</span>book</li>
+<li><span class="ol">(C)</span>cat</li>
+<li><span class="ol">(D)</span>egg</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q8">解析</button><div class="exp" id="e-ch1-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>apple 和 ant 開頭都是短母音 a 的音 /æ/。book 是 /b/、cat 是 /k/、egg 是 /e/。</div>
+</div>
+<div class="q" id="ch1-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">看到常見字（Sight Word）<strong>I</strong>，下列用法正確的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I am a student.</li>
+<li><span class="ol">(B)</span>i am a student.</li>
+<li><span class="ol">(C)</span>I Am A Student.</li>
+<li><span class="ol">(D)</span>AM I student a.</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q9">解析</button><div class="exp" id="e-ch1-s1-q9"><b>答案：</b>(A)<br><b>解析：</b>英文的 I（我）不管放在句子哪個位置都要大寫，句子其他單字則不需要每個字都大寫，字序也要正確。</div>
+</div>
+<div class="q" id="ch1-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文寫出「早安，我是（你的名字）。」兩句話。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s1-q10">解析</button><div class="exp" id="e-ch1-s1-q10"><b>答案：</b>參考答案：Good morning. I'm Amy.<br><b>解析：</b>檢查點：Good 的 G 大寫、morning 小寫、句末句點；第二句 I 大寫、名字第一個字母大寫、句末句點。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch2">
+<div class="chap-head"><div class="chap-n">第 2 章</div><h2 class="chap-t">四年級上學期 第一次段考</h2><div class="chap-s">英語　共 10 題</div></div>
+<div class="chap-intro">本章為 <strong>何嘉仁版四年級上學期第一次段考</strong>的英語練習，重點在長母音 i_e／o_e 的發音規則與 Do you like…? 的問答。</div>
+<div class="sec" id="ch2-s1">
+<div class="sec-head"><span class="pub">英語</span><span class="sec-t">2-1　英語（何嘉仁版）四年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>長母音 i_e／o_e、Do you like…? 問答、學校科目與喜好、This/That　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch2-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一個單字的 <strong>i</strong> 發長母音 /aɪ/（像字母 I 的音）？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>bike</li>
+<li><span class="ol">(B)</span>big</li>
+<li><span class="ol">(C)</span>sit</li>
+<li><span class="ol">(D)</span>pig</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q1">解析</button><div class="exp" id="e-ch2-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>「子音＋i＋子音＋e」（i_e）中，i 發字母本音 /aɪ/、字尾 e 不發音，例如 bike、nine、kite。big、sit、pig 是短母音 /ɪ/。</div>
+</div>
+<div class="q" id="ch2-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一組單字的母音發音<strong>相同</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>nose / home</li>
+<li><span class="ol">(B)</span>nose / hot</li>
+<li><span class="ol">(C)</span>home / dog</li>
+<li><span class="ol">(D)</span>box / rose</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q2">解析</button><div class="exp" id="e-ch2-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>nose、home 都是 o_e 的長母音 /oʊ/；hot、dog、box 則是短母音 /ɑ/。</div>
+</div>
+<div class="q" id="ch2-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">依照「魔法 e」的規則拼寫：把 <strong>hop</strong> 加上字尾 e 之後變成 ＿＿＿＿（希望）。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q3">解析</button><div class="exp" id="e-ch2-s1-q3"><b>答案：</b>hope<br><b>解析：</b>hop /hɑp/（跳）加上不發音的 e 變成 hope /hoʊp/（希望），中間的 o 由短音變成長音。</div>
+</div>
+<div class="q" id="ch2-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">A: Do you like math?　B: ＿＿＿＿（喜歡）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Yes, I do.</li>
+<li><span class="ol">(B)</span>Yes, I am.</li>
+<li><span class="ol">(C)</span>Yes, I like.</li>
+<li><span class="ol">(D)</span>Yes, I can.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q4">解析</button><div class="exp" id="e-ch2-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>以助動詞 Do 開頭的問句，肯定回答是 Yes, I do.；否定是 No, I don't.</div>
+</div>
+<div class="q" id="ch2-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">「音樂課」的英文是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>music</li>
+<li><span class="ol">(B)</span>math</li>
+<li><span class="ol">(C)</span>art</li>
+<li><span class="ol">(D)</span>P.E.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q5">解析</button><div class="exp" id="e-ch2-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>music＝音樂、math＝數學、art＝美術、P.E.＝體育。學校科目的單字要能看字辨義。</div>
+</div>
+<div class="q" id="ch2-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">A: What's your favorite subject?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>My favorite subject is English.</li>
+<li><span class="ol">(B)</span>I'm English.</li>
+<li><span class="ol">(C)</span>Yes, I like it.</li>
+<li><span class="ol">(D)</span>It's Monday.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q6">解析</button><div class="exp" id="e-ch2-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>問「最喜歡的科目」，要回答科目名稱，用 My favorite subject is＋科目。</div>
+</div>
+<div class="q" id="ch2-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請依照句意填入 This 或 That：＿＿＿＿ is my book. (指著手上的書)</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q7">解析</button><div class="exp" id="e-ch2-s1-q7"><b>答案：</b>This<br><b>解析：</b>This 指靠近說話者的人事物（這個）；That 指較遠的（那個）。複數則用 These／Those。</div>
+</div>
+<div class="q" id="ch2-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I don't like P.E.</li>
+<li><span class="ol">(B)</span>I doesn't like P.E.</li>
+<li><span class="ol">(C)</span>I not like P.E.</li>
+<li><span class="ol">(D)</span>I don't likes P.E.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q8">解析</button><div class="exp" id="e-ch2-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>主詞 I 的否定用 don't，後面接原形動詞 like，不加 s。</div>
+</div>
+<div class="q" id="ch2-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請寫出中文意思：I like art, but I don't like math. →＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q9">解析</button><div class="exp" id="e-ch2-s1-q9"><b>答案：</b>我喜歡美術，但是我不喜歡數學。<br><b>解析：</b>but 是轉折語「但是」，前後兩件事的態度相反。</div>
+</div>
+<div class="q" id="ch2-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文寫出你最喜歡的科目（完整句子）。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch2-s1-q10">解析</button><div class="exp" id="e-ch2-s1-q10"><b>答案：</b>參考答案：My favorite subject is music.（或 I like English.）<br><b>解析：</b>評分重點：句首大寫、科目單字拼對、句末句點；用 I like… 或 My favorite subject is… 皆可。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch3">
+<div class="chap-head"><div class="chap-n">第 3 章</div><h2 class="chap-t">五年級上學期 第一次段考</h2><div class="chap-s">英語　共 10 題</div></div>
+<div class="chap-intro">本章是 <strong>何嘉仁版五年級上學期第一次段考</strong>的全科練習，每一節（英語）都可以單獨當成一份小考使用。各節開頭都標示了對應單元，若貴班進度不同，直接略過該節即可。</div>
+<div class="sec" id="ch3-s1">
+<div class="sec-head"><span class="pub">英語</span><span class="sec-t">3-1　英語　五年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>長母音發音規則（a_e、ee／ea）、現在進行式對話、閱讀理解　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch3-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一個單字的 <strong>a</strong> 發長母音 /eɪ/（像字母 A 的音）？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>cake</li>
+<li><span class="ol">(B)</span>cat</li>
+<li><span class="ol">(C)</span>bag</li>
+<li><span class="ol">(D)</span>map</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q1">解析</button><div class="exp" id="e-ch3-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>「子音＋a＋子音＋e」的組合（a_e）中，a 發字母本音 /eɪ/、字尾 e 不發音，例如 cake、name、game。cat、bag、map 則發短母音 /æ/。</div>
+</div>
+<div class="q" id="ch3-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一組單字的畫線部分發音<strong>相同</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>see / tea</li>
+<li><span class="ol">(B)</span>see / red</li>
+<li><span class="ol">(C)</span>tea / bed</li>
+<li><span class="ol">(D)</span>red / bee</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q2">解析</button><div class="exp" id="e-ch3-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>ee 和 ea 常常都發長音 /iː/，例如 see、tea、green、eat。red、bed 則是短母音 /e/。</div>
+</div>
+<div class="q" id="ch3-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請依照 a_e 的規則拼出單字：把 cap 中間加上長母音規則後變成 ＿＿＿＿（帽子→斗篷／披風）。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s1-q3">解析</button><div class="exp" id="e-ch3-s1-q3"><b>答案：</b>cape<br><b>解析：</b>cap /kæp/ 加上字尾 e 變成 cape /keɪp/，中間的 a 由短音變長音，這就是「魔法 e」的作用。</div>
+</div>
+<div class="q" id="ch3-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">A: What is he doing?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>He is eating an apple.</li>
+<li><span class="ol">(B)</span>He eat an apple.</li>
+<li><span class="ol">(C)</span>He is eat an apple.</li>
+<li><span class="ol">(D)</span>He an apple.</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q4">解析</button><div class="exp" id="e-ch3-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>現在進行式＝be 動詞＋動詞-ing。He 要搭配 is，動詞 eat 要改成 eating。</div>
+</div>
+<div class="q" id="ch3-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列單字，哪一個的母音<strong>不是</strong>長音？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>make</li>
+<li><span class="ol">(B)</span>name</li>
+<li><span class="ol">(C)</span>game</li>
+<li><span class="ol">(D)</span>hat</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q5">解析</button><div class="exp" id="e-ch3-s1-q5"><b>答案：</b>(D)<br><b>解析：</b>make、name、game 都符合 a_e 的長母音規則；hat 是「子音＋a＋子音」的短母音 /æ/。</div>
+</div>
+<div class="q" id="ch3-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請把句子改成現在進行式：They play soccer. → They ＿＿＿ ＿＿＿＿＿＿ soccer.</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s1-q6">解析</button><div class="exp" id="e-ch3-s1-q6"><b>答案：</b>are playing<br><b>解析：</b>主詞 They 要搭配 are，動詞 play 加 -ing 成 playing（play 字尾是母音＋y，直接加 ing，不用改字）。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 6～8 題）</div><div class="passage-b">　　It is Sunday morning. Mike and his family are in the park.<br>　　Mike is flying a kite. His sister Amy is riding a bike. Mom is reading a book under the big tree, and Dad is taking pictures of them.<br>　　"I'm hungry," says Mike. "Me, too," says Amy. So Mom takes out some sandwiches, and they all sit down and eat together.</div></div>
+<div class="q" id="ch3-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">What is Amy doing in the park?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>She is riding a bike.</li>
+<li><span class="ol">(B)</span>She is flying a kite.</li>
+<li><span class="ol">(C)</span>She is reading a book.</li>
+<li><span class="ol">(D)</span>She is taking pictures.</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q7">解析</button><div class="exp" id="e-ch3-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>文中寫 His sister Amy is riding a bike.，所以 Amy 正在騎腳踏車。放風箏的是 Mike。</div>
+</div>
+<div class="q" id="ch3-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">Who is taking pictures?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Dad</li>
+<li><span class="ol">(B)</span>Mom</li>
+<li><span class="ol">(C)</span>Mike</li>
+<li><span class="ol">(D)</span>Amy</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q8">解析</button><div class="exp" id="e-ch3-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>文中寫 Dad is taking pictures of them.，拍照的是爸爸；媽媽則在大樹下看書。</div>
+</div>
+<div class="q" id="ch3-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">根據短文，他們最後做了什麼事？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>一起坐下來吃三明治</li>
+<li><span class="ol">(B)</span>回家睡覺</li>
+<li><span class="ol">(C)</span>去買風箏</li>
+<li><span class="ol">(D)</span>開始下雨了</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q9">解析</button><div class="exp" id="e-ch3-s1-q9"><b>答案：</b>(A)<br><b>解析：</b>最後一句 they all sit down and eat together（媽媽拿出三明治，大家坐下來一起吃）。</div>
+</div>
+<div class="q" id="ch3-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請仿照短文，用現在進行式寫一句話，描述你家人正在做的事。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s1-q10">解析</button><div class="exp" id="e-ch3-s1-q10"><b>答案：</b>參考答案：My mom is cooking dinner.（或 My dad is watching TV.）<br><b>解析：</b>評分重點：主詞與 be 動詞一致（My mom→is）、動詞加 -ing、句首大寫、句末句點。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch4">
+<div class="chap-head"><div class="chap-n">第 4 章</div><h2 class="chap-t">六年級上學期 第一次段考</h2><div class="chap-s">英語　共 10 題</div></div>
+<div class="chap-intro">本章是 <strong>何嘉仁版六年級上學期第一次段考</strong>的全科練習，每一節（英語）都可以單獨當成一份小考使用。各節開頭都標示了對應單元，若貴班進度不同，直接略過該節即可。</div>
+<div class="sec" id="ch4-s1">
+<div class="sec-head"><span class="pub">英語</span><span class="sec-t">4-1　英語　六年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>過去式（be 動詞與一般動詞）、r 控制母音（ar／or／er）、閱讀理解　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch4-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">I ＿＿ at home yesterday.</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>was</li>
+<li><span class="ol">(B)</span>were</li>
+<li><span class="ol">(C)</span>am</li>
+<li><span class="ol">(D)</span>is</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q1">解析</button><div class="exp" id="e-ch4-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>yesterday 表示過去，主詞 I 的 be 動詞過去式是 was；you/we/they 用 were。</div>
+</div>
+<div class="q" id="ch4-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一個是 <strong>go</strong> 的過去式？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>went</li>
+<li><span class="ol">(B)</span>goed</li>
+<li><span class="ol">(C)</span>gone</li>
+<li><span class="ol">(D)</span>going</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q2">解析</button><div class="exp" id="e-ch4-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>go 是不規則動詞，過去式是 went（gone 是過去分詞）。常見不規則變化還有 eat→ate、see→saw、have→had。</div>
+</div>
+<div class="q" id="ch4-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出動詞的過去式：play → ＿＿＿＿＿；study → ＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s1-q3">解析</button><div class="exp" id="e-ch4-s1-q3"><b>答案：</b>played、studied<br><b>解析：</b>規則動詞直接加 -ed；字尾是「子音＋y」要先改 y 為 i 再加 -ed，所以 study→studied。</div>
+</div>
+<div class="q" id="ch4-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">A: What did you do last Sunday?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I visited my grandma.</li>
+<li><span class="ol">(B)</span>I visit my grandma.</li>
+<li><span class="ol">(C)</span>I am visiting my grandma.</li>
+<li><span class="ol">(D)</span>I will visit my grandma.</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q4">解析</button><div class="exp" id="e-ch4-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>問句用 did（過去式），回答也要用過去式 visited。注意 did 出現在問句時，後面的動詞用原形。</div>
+</div>
+<div class="q" id="ch4-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>She didn't watch TV last night.</li>
+<li><span class="ol">(B)</span>She didn't watched TV last night.</li>
+<li><span class="ol">(C)</span>She don't watched TV last night.</li>
+<li><span class="ol">(D)</span>She wasn't watch TV last night.</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q5">解析</button><div class="exp" id="e-ch4-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>一般動詞的過去否定是 didn't＋<strong>原形動詞</strong>，所以是 didn't watch，不能再加 -ed。</div>
+</div>
+<div class="q" id="ch4-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">下列哪一組畫線部分的發音<strong>相同</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>car / far</li>
+<li><span class="ol">(B)</span>car / for</li>
+<li><span class="ol">(C)</span>bird / bear</li>
+<li><span class="ol">(D)</span>work / walk</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q6">解析</button><div class="exp" id="e-ch4-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>car、far 都是 ar 的 /ɑr/ 音。for 是 /ɔr/；bird 是 /ɜr/；work 雖含 or 但讀 /ɜr/，和 walk 的 /ɔ/ 不同。</div>
+</div>
+<div class="q" id="ch4-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請把句子改成過去式：We are in the park. → We ＿＿＿＿ in the park.</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s1-q7">解析</button><div class="exp" id="e-ch4-s1-q7"><b>答案：</b>were<br><b>解析：</b>主詞 We 的 be 動詞過去式是 were；I / he / she / it 用 was。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 7～9 題）</div><div class="passage-b">　　Last Saturday, Kevin and his classmates went to the beach for a clean-up activity.<br>　　They picked up plastic bottles, straws, and old fishing nets. In two hours, they filled more than twenty big bags. Kevin was tired, but he felt happy.<br>　　"The sea gives us so much," his teacher said. "Today we gave a little back." On the way home, Kevin decided to bring his own water bottle to school every day.</div></div>
+<div class="q" id="ch4-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">What did Kevin and his classmates do last Saturday?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>They cleaned up the beach.</li>
+<li><span class="ol">(B)</span>They went swimming.</li>
+<li><span class="ol">(C)</span>They had a picnic in the park.</li>
+<li><span class="ol">(D)</span>They stayed at school.</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q8">解析</button><div class="exp" id="e-ch4-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>第一段說他們去海邊參加 clean-up activity（淨灘活動），第二段列出他們撿拾的垃圾。</div>
+</div>
+<div class="q" id="ch4-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">How did Kevin feel after the activity?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Tired but happy</li>
+<li><span class="ol">(B)</span>Angry</li>
+<li><span class="ol">(C)</span>Bored</li>
+<li><span class="ol">(D)</span>Afraid</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q9">解析</button><div class="exp" id="e-ch4-s1-q9"><b>答案：</b>(A)<br><b>解析：</b>文中寫 Kevin was tired, but he felt happy.（很累但覺得開心）。</div>
+</div>
+<div class="q" id="ch4-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用過去式寫一句話，說出你上週末做的一件事。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s1-q10">解析</button><div class="exp" id="e-ch4-s1-q10"><b>答案：</b>參考答案：I played basketball with my friends last Sunday.<br><b>解析：</b>評分重點：動詞用過去式（規則加 -ed 或不規則變化）、句首大寫、句末句點，最好加上時間副詞 last…。</div>
+</div>
+</div>
+</section>
+<section class="sheet key"><h2 class="h-page">解答本</h2><p class="pf">本頁提供快速對答；詳細解析請點選題目下方的「解析」按鈕。</p>
+<h3 class="key-ch">第 1 章　三年級上學期 第一次段考</h3>
+<div class="key-sec"><div class="key-t">1-1　英語　英語・字母音與問候</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> F、f</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> c、e</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：Good morning. I'm Amy.</li></ol></div>
+<h3 class="key-ch">第 2 章　四年級上學期 第一次段考</h3>
+<div class="key-sec"><div class="key-t">2-1　英語　四年級英語</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> hope</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> This</li><li><b>8.</b> (A)</li><li><b>9.</b> 我喜歡美術，但是我不喜歡數學。</li><li><b>10.</b> 參考答案：My favorite subject is music.（或 I like English.）</li></ol></div>
+<h3 class="key-ch">第 3 章　五年級上學期 第一次段考</h3>
+<div class="key-sec"><div class="key-t">3-1　英語　英語・發音與進行式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> cape</li><li><b>4.</b> (A)</li><li><b>5.</b> (D)</li><li><b>6.</b> are playing</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：My mom is cooking dinner.（或 My dad is watching TV.）</li></ol></div>
+<h3 class="key-ch">第 4 章　六年級上學期 第一次段考</h3>
+<div class="key-sec"><div class="key-t">4-1　英語　英語・過去式與發音</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> played、studied</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> were</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：I played basketball with my friends last Sunday.</li></ol></div>
+</section>
+</div>
+<div class="pagefoot"></div>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.exp-btn'); if(!b) return;
+  var el=document.getElementById('e-'+b.dataset.t);
+  el.classList.toggle('on');
+  b.textContent=el.classList.contains('on')?'收合解析':'解析';
+});
+function allExp(on){
+  document.querySelectorAll('.exp').forEach(function(el){el.classList.toggle('on',on)});
+  document.querySelectorAll('.exp-btn').forEach(function(b){b.textContent=on?'收合解析':'解析'});
+}
+</script>
+</body>
+</html>

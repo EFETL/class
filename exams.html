@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>五科題庫 Question Bank｜星光教學舞台</title>
+<meta name="description" content="國語・數學・自然・社會・英語五科自編題本，依康軒／南一／翰林／何嘉仁分節，可線上點看解析、可直接列印成紙本。">
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .bank-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .bank-grid.g3{grid-template-columns:repeat(3,1fr)}
+  .bookcard{display:flex;flex-direction:column;text-decoration:none;color:inherit;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .bookcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .bookcard .spine{height:8px}
+  .bookcard .in{padding:22px 22px 24px;display:flex;flex-direction:column;gap:6px;height:100%}
+  .bookcard .tag{align-self:flex-start;margin-bottom:6px}
+  .bookcard h3{margin:0;font-size:19px;font-weight:800}
+  .bookcard .en{font-size:13.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.04em}
+  .bookcard p{margin:8px 0 0;font-size:14.5px;color:var(--ink-soft);line-height:1.75}
+  .bookcard .meta{margin-top:auto;padding-top:14px;font-size:13px;color:var(--ink-soft);
+    display:flex;gap:12px;flex-wrap:wrap}
+  .bookcard .meta b{color:var(--ink)}
+  .bookcard .go{margin-top:12px;font-weight:800;font-size:14.5px}
+  table.schools{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:18px}
+  table.schools th{background:var(--primary-soft);color:var(--primary-dark);
+    padding:10px 8px;border:1px solid var(--line);font-weight:800}
+  table.schools td{border:1px solid var(--line);padding:9px 10px;vertical-align:top}
+  table.schools td.reg{text-align:center;font-weight:800;white-space:nowrap;background:#fafbff}
+  .tablewrap{overflow-x:auto}
+  @media(max-width:1000px){.bank-grid,.bank-grid.g3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.bank-grid,.bank-grid.g3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ========== 導覽列 ========== -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html">
+      <img class="logo" src="assets/img/logo.svg" alt="星光教學舞台">
+      <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">首頁 Home</a>
+      <a href="stage.html">教學舞台 Stage</a>
+      <a href="english.html">英文教室 English</a>
+      <a href="toolbox.html">課堂工具箱 Toolbox</a>
+      <a href="exams.html" class="on">五科題庫 Exams</a>
+      <a href="pro.html">資深老師 Pro</a>
+    </div>
+    <button class="sfx-toggle"><span class="sfx-ico">🔊</span><span class="sfx-txt">音效開</span></button>
+  </div>
+</nav>
+
+<!-- ========== Hero ========== -->
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">📚 QUESTION BANK　五科・四版本・全數自編</span>
+      <h1>Pick a book.<br><span class="hl">Print it. Teach it.</span></h1>
+      <p class="zh">挑一本、印出來，<br>今天的考卷就備好了。</p>
+      <p>國語・數學・自然・社會・英語五科，依 <b>康軒／南一／翰林／何嘉仁</b> 分節出題。<br>
+         線上點「解析」看答案，按「列印」解析自動隱藏，印出來就是乾淨的作答題本。</p>
+      <div class="btn-row">
+        <a class="btn big" href="#by-version">依版本選書 →</a>
+        <a class="btn ghost big" href="#by-grade">依年級選書</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>7</b><span>本題本 Books</span></div>
+        <div class="stat"><b>489</b><span>題自編題目 Questions</span></div>
+        <div class="stat"><b>4</b><span>版本 Publishers</span></div>
+        <div class="stat"><b>9</b><span>校範圍比對 Schools</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="assets/img/entry-bank.svg" alt="五科題庫插畫" width="460" height="380">
+      <img class="floaty a" src="assets/img/deco-star.svg" alt="" aria-hidden="true">
+      <img class="floaty b" src="assets/img/deco-pencil.svg" alt="" aria-hidden="true">
+    </div>
+  </div>
+</header>
+
+<!-- ========== 版本冊 ========== -->
+<section class="section" id="by-version">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">BY PUBLISHER　一個版本一本</span>
+      <h2 class="h-en">One book per publisher.</h2>
+      <p class="h-zh">依版本分冊 — 孩子用哪個版本，就發哪一本</p>
+      <p class="lead">每一冊裡面依 <b>年級</b> 分章、章內依 <b>科目</b> 分節，
+         老師不必再從一大疊考卷裡挑版本。</p>
+    </div>
+
+    <div class="bank-grid reveal" style="margin-top:34px">
+      <a class="bookcard" href="exams/elementary-vol-kanghsuan.html">
+        <span class="spine" style="background:#17607a"></span>
+        <span class="in">
+          <span class="tag">康軒版</span>
+          <h3>康軒版專冊</h3>
+          <span class="en">KANG HSUAN</span>
+          <p>三、五、六年級 × 國語・數學・自然・社會・英語，第一次段考全科練習。</p>
+          <span class="meta"><span>題數 <b>153</b></span><span>列印 <b>35 頁</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-vol-nanni.html">
+        <span class="spine" style="background:#6b4a2a"></span>
+        <span class="in">
+          <span class="tag sun">南一版</span>
+          <h3>南一版專冊</h3>
+          <span class="en">NANI</span>
+          <p>三、五、六年級 × 五科，題型與康軒冊對齊，取材主題依南一課本調整。</p>
+          <span class="meta"><span>題數 <b>153</b></span><span>列印 <b>35 頁</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-vol-hanlin.html">
+        <span class="spine" style="background:#2f6b46"></span>
+        <span class="in">
+          <span class="tag mint">翰林版</span>
+          <h3>翰林版專冊</h3>
+          <span class="en">HAN LIN</span>
+          <p>三、五、六年級 × 五科，自然與數學加入資料判讀與紀錄表分析題。</p>
+          <span class="meta"><span>題數 <b>153</b></span><span>列印 <b>36 頁</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-vol-hess.html">
+        <span class="spine" style="background:#b0561f"></span>
+        <span class="in">
+          <span class="tag sun">何嘉仁</span>
+          <h3>何嘉仁英語專冊</h3>
+          <span class="en">HESS ENGLISH</span>
+          <p>何嘉仁只出版英語教材，因此本冊為英語專冊，橫跨三、四、五、六年級。</p>
+          <span class="meta"><span>題數 <b>40</b></span><span>列印 <b>15 頁</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 年級冊 ========== -->
+<section class="section tight" id="by-grade" style="background:var(--primary-soft)">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">BY GRADE　一個年級一本</span>
+      <h2 class="h-en">Or one book per grade.</h2>
+      <p class="h-zh">依年級分冊 — 同一批題目的另一種裝訂</p>
+      <p class="lead">同一個年級的五科放在一起，每一科底下並排 <b>康軒／南一／翰林／何嘉仁</b>，
+         適合老師手上留一本、全班通用。</p>
+    </div>
+
+    <div class="bank-grid g3 reveal" style="margin-top:34px">
+      <a class="bookcard" href="exams/elementary-g3-term1-exam-book.html">
+        <span class="spine" style="background:#1f5f6b"></span>
+        <span class="in">
+          <span class="tag">三年級</span>
+          <h3>三年級上學期<br>第一次段考題本</h3>
+          <span class="en">GRADE 3 · TERM 1</span>
+          <p>國語字詞與短文、一萬以內的數與乘法、植物的身體、家庭與學校、字母與問候語。</p>
+          <span class="meta"><span>題數 <b>163</b></span><span>列印 <b>40 頁</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-g5-term1-exam-book.html">
+        <span class="spine" style="background:#1f5f6b"></span>
+        <span class="in">
+          <span class="tag">五年級</span>
+          <h3>五年級上學期<br>第一次段考題本</h3>
+          <span class="en">GRADE 5 · TERM 1</span>
+          <p>修辭與長文閱讀、因數倍數與多位小數、觀測太陽、臺灣地形氣候、現在進行式。</p>
+          <span class="meta"><span>題數 <b>163</b></span><span>列印 <b>40 頁</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-g6-term1-exam-book.html">
+        <span class="spine" style="background:#1f5f6b"></span>
+        <span class="in">
+          <span class="tag">六年級</span>
+          <h3>六年級上學期<br>第一次段考題本</h3>
+          <span class="en">GRADE 6 · TERM 1</span>
+          <p>語病修改與議論文、分數小數除法與比、天氣的變化、政府與民主、過去式。</p>
+          <span class="meta"><span>題數 <b>163</b></span><span>列印 <b>40 頁</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 命題依據 ========== -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">HOW WE MADE IT　命題依據</span>
+      <h2 class="h-en">Real scope. Original questions.</h2>
+      <p class="h-zh">範圍取自真實段考，題目 100% 自編</p>
+    </div>
+
+    <div class="grid g3 reveal" style="margin-top:32px">
+      <div class="card">
+        <span class="tag">1</span>
+        <h3>先查真實範圍</h3>
+        <p class="h3zh">Check the real scope</p>
+        <p>彙整「中小學題庫網」上北、中、南 <b>9 所國小、1,853 筆</b>段考卷索引，
+           確認各校各年級各科實際使用的版本與命題範圍。</p>
+      </div>
+      <div class="card">
+        <span class="tag sun">2</span>
+        <h3>再自己出題</h3>
+        <p class="h3zh">Write our own</p>
+        <p>只借用「範圍」與「題型比重」，<b>不抄任何學校原卷</b>，
+           所有題目與解析皆自行編寫，避免版權問題。</p>
+      </div>
+      <div class="card">
+        <span class="tag mint">3</span>
+        <h3>組成可印的書</h3>
+        <p class="h3zh">Bind it into a book</p>
+        <p>封面、目錄、分章分節、書末解答本一應俱全。
+           螢幕點「解析」看答案，列印時解析自動隱藏、右下角有頁碼。</p>
+      </div>
+    </div>
+
+    <div class="panel reveal" style="margin-top:34px">
+      <span class="tag">SCHOOLS　九校版本對照</span>
+      <h3 style="margin:6px 0 0;font-size:22px">北・中・南九所國小的版本分布</h3>
+      <p style="color:var(--ink-soft);margin:10px 0 0">
+        下表是命題範圍的依據。留意：<b>何嘉仁只出現在英語科</b>，
+        國語／數學／自然／社會三科只有康軒、南一、翰林三家。
+      </p>
+      <div class="tablewrap">
+        <table class="schools">
+          <thead>
+            <tr><th>區域</th><th>縣市</th><th>學校</th><th>國語</th><th>數學</th><th>自然</th><th>社會</th><th>英語</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="reg">北部</td><td>臺北市</td><td>民權國小</td><td>康／南／翰</td><td>康／南／翰</td><td>康</td><td>康／翰</td><td>康／翰／何</td></tr>
+            <tr><td class="reg">北部</td><td>桃園市</td><td>大華國小</td><td>康／南／翰</td><td>康／翰</td><td>南／翰</td><td>康／翰</td><td>康／何</td></tr>
+            <tr><td class="reg">北部</td><td>基隆市</td><td>東光國小</td><td>康／翰</td><td>康／南／翰</td><td>康／南／翰</td><td>康／南／翰</td><td>康／翰</td></tr>
+            <tr><td class="reg">中部</td><td>臺中市</td><td>大墩國小</td><td>康／南／翰</td><td>康／南</td><td>康</td><td>康／翰</td><td>康／翰／何</td></tr>
+            <tr><td class="reg">中部</td><td>彰化縣</td><td>成功國小</td><td>康／南</td><td>南</td><td>南／翰</td><td>康／翰</td><td>何</td></tr>
+            <tr><td class="reg">中部</td><td>南投縣</td><td>社寮國小</td><td>康／南／翰</td><td>康</td><td>康／南／翰</td><td>康／南／翰</td><td>康／翰</td></tr>
+            <tr><td class="reg">南部</td><td>臺南市</td><td>和順國小</td><td>康／南／翰</td><td>康／南／翰</td><td>南／翰</td><td>康／南／翰</td><td>康／翰／何</td></tr>
+            <tr><td class="reg">南部</td><td>高雄市</td><td>獅湖國小</td><td>康／翰</td><td>康／南</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td class="reg">南部</td><td>高雄市</td><td>永安國小</td><td>康／翰</td><td>康／南／翰</td><td>—</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--ink-soft);margin:14px 0 0;font-size:14px">
+        康＝康軒、南＝南一、翰＝翰林、何＝何嘉仁；「—」代表題庫網目前查無該校此科紀錄，不代表學校沒教。
+      </p>
+    </div>
+
+    <div class="panel reveal" style="margin-top:22px">
+      <span class="tag sun">NOTE　使用提醒</span>
+      <h3 style="margin:6px 0 0;font-size:22px">各校進度不同，請以任課老師公布的範圍為準</h3>
+      <p style="color:var(--ink-soft);margin:10px 0 0">
+        每一節開頭都標示「對應單元」。若某一節超出班上進度，直接略過該節即可，不影響其他節。
+        每一節都可以單獨當成一份小考（滿分 100 分）。<br>
+        <b>列印小提醒：</b>請用 Chrome 或 Edge 列印，頁碼才會出現在頁尾。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 頁尾 ========== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <img class="logo" src="assets/img/logo.svg" alt="">
+          <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+        </div>
+        <p>給安親班老師與國小英文老師的教學平台。<br>
+           A teaching stage for after-school and elementary English teachers.</p>
+      </div>
+      <div>
+        <h5>教學 Teaching</h5>
+        <ul>
+          <li><a href="stage.html">教學舞台 Stage</a></li>
+          <li><a href="english.html">英文教室 English</a></li>
+          <li><a href="toolbox.html">課堂工具箱 Toolbox</a></li>
+          <li><a href="pro.html">資深老師 Pro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>題庫 Question Bank</h5>
+        <ul>
+          <li><a href="exams.html#by-version">依版本選書 By Publisher</a></li>
+          <li><a href="exams.html#by-grade">依年級選書 By Grade</a></li>
+          <li><a href="exams.html#how">命題依據 How we made it</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>聯絡 Contact</h5>
+        <ul>
+          <li>教務信箱 · office@example.edu.tw</li>
+          <li>電話 · (04) 0000-0000</li>
+          <li>地址 · 台灣・彰化縣</li>
+          <li>上課時間 · 週一至週五 15:30–20:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 星光教學舞台 Starlight Teaching Stage. 題目全數自編，僅供班內教學使用。</span>
+      <span>Made for teachers who care. 　🌟</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
