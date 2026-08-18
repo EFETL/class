@@ -77,6 +77,18 @@ ol.opts li{font-size:15px}
  border-radius:0 8px 8px 0;padding:10px 14px;font-size:14px}
 .exp.on{display:block}
 .exp b{color:var(--acc)}
+/* 注音（低年級）：直排在國字右側，臺灣課本排法；字級加大讓小朋友看得清楚 */
+.rubyzone{font-size:21px;line-height:2.7}
+.zy{display:inline-flex;align-items:center;vertical-align:baseline;margin-right:1.5px}
+.zc{display:inline-block}
+.zz{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+ font-size:.56em;line-height:1;color:#554d43;margin-left:1.5px;font-style:normal;white-space:nowrap}
+.zs{font-style:normal;display:block;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:0}
+.zt,.zl{font-style:normal;display:block;text-align:center;line-height:.9}
+.rubyzone .q-t,.rubyzone ol.opts li{line-height:2.5}
+.rubyzone ol.opts{gap:14px 20px;font-size:1em}
+.rubyzone .q{padding:14px 16px}
+@media print{.rubyzone{font-size:15pt;line-height:2.5}.zz{color:#222}}
 /* 解答本 */
 .key-ch{margin:22px 0 8px;font-size:20px;border-bottom:2px solid var(--line);padding-bottom:5px}
 .key-sec{margin:0 0 14px}
@@ -127,10 +139,10 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <section class="sheet cover">
   <div class="cv-band">安親班自編・康軒版專冊</div>
   <h1 class="cv-title">康軒版　國小第一次段考 跨年級題本</h1>
-  <div class="cv-sub">三年級・五年級・六年級　國語・數學・自然・社會・英語</div>
+  <div class="cv-sub">三～六年級　國語・數學・自然・社會・英語</div>
   <div class="cv-line"></div>
   <div class="cv-meta">
-    <div><span>適用年級</span>三年級・五年級・六年級（上學期）</div>
+    <div><span>適用年級</span>三～六年級（上學期）</div>
     <div><span>適用版本</span>康軒</div>
     <div><span>科目</span>國語／數學／自然／社會／英語</div>
     <div><span>取材範圍</span>第一次段考（期中考）常見範圍</div>
@@ -169,19 +181,26 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><a href="#ch1-s4">1-4　社會　社會・家庭與學校</a></li>
 <li><a href="#ch1-s5">1-5　英語　英語・字母與問候</a></li>
 </ul></li>
-<li><a href="#ch2"><span class="tc-n">第 2 章</span><span class="tc-t">五年級上學期 第一次段考</span><span class="tc-d">國語／數學／自然／社會／英語　共 51 題</span></a><ul>
+<li><a href="#ch2"><span class="tc-n">第 2 章</span><span class="tc-t">四年級上學期 第一次段考</span><span class="tc-d">國語／數學／自然／社會／英語　共 51 題</span></a><ul>
 <li><a href="#ch2-s1">2-1　國語　國語・第1~4課</a></li>
-<li><a href="#ch2-s2">2-2　數學　數學・因倍數・小數</a></li>
-<li><a href="#ch2-s3">2-3　自然　自然・觀測太陽</a></li>
+<li><a href="#ch2-s2">2-2　數學　數學・大數・加減乘</a></li>
+<li><a href="#ch2-s3">2-3　自然　自然・月亮</a></li>
 <li><a href="#ch2-s4">2-4　社會　社會・位置與地形</a></li>
-<li><a href="#ch2-s5">2-5　英語　英語・現在進行式</a></li>
+<li><a href="#ch2-s5">2-5　英語　英語・時間與科目</a></li>
 </ul></li>
-<li><a href="#ch3"><span class="tc-n">第 3 章</span><span class="tc-t">六年級上學期 第一次段考</span><span class="tc-d">國語／數學／自然／社會／英語　共 51 題</span></a><ul>
+<li><a href="#ch3"><span class="tc-n">第 3 章</span><span class="tc-t">五年級上學期 第一次段考</span><span class="tc-d">國語／數學／自然／社會／英語　共 51 題</span></a><ul>
 <li><a href="#ch3-s1">3-1　國語　國語・第1~4課</a></li>
-<li><a href="#ch3-s2">3-2　數學　數學・分數小數除法・比</a></li>
-<li><a href="#ch3-s3">3-3　自然　自然・天氣的變化</a></li>
-<li><a href="#ch3-s4">3-4　社會　社會・政府與民主</a></li>
-<li><a href="#ch3-s5">3-5　英語　英語・過去式</a></li>
+<li><a href="#ch3-s2">3-2　數學　數學・因倍數・小數</a></li>
+<li><a href="#ch3-s3">3-3　自然　自然・觀測太陽</a></li>
+<li><a href="#ch3-s4">3-4　社會　社會・位置與地形</a></li>
+<li><a href="#ch3-s5">3-5　英語　英語・現在進行式</a></li>
+</ul></li>
+<li><a href="#ch4"><span class="tc-n">第 4 章</span><span class="tc-t">六年級上學期 第一次段考</span><span class="tc-d">國語／數學／自然／社會／英語　共 51 題</span></a><ul>
+<li><a href="#ch4-s1">4-1　國語　國語・第1~4課</a></li>
+<li><a href="#ch4-s2">4-2　數學　數學・分數小數除法・比</a></li>
+<li><a href="#ch4-s3">4-3　自然　自然・天氣的變化</a></li>
+<li><a href="#ch4-s4">4-4　社會　社會・政府與民主</a></li>
+<li><a href="#ch4-s5">4-5　英語　英語・過去式</a></li>
 </ul></li>
 </ol></section>
 <section class="sheet chap" id="ch1">
@@ -620,12 +639,437 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 </div>
 </section>
 <section class="sheet chap" id="ch2">
-<div class="chap-head"><div class="chap-n">第 2 章</div><h2 class="chap-t">五年級上學期 第一次段考</h2><div class="chap-s">國語／數學／自然／社會／英語　共 51 題</div></div>
-<div class="chap-intro">本章是 <strong>康軒版五年級上學期第一次段考</strong>的全科練習，每一節（國語／數學／自然／社會／英語）都可以單獨當成一份小考使用。各節開頭都標示了對應單元，若貴班進度不同，直接略過該節即可。</div>
+<div class="chap-head"><div class="chap-n">第 2 章</div><h2 class="chap-t">四年級上學期 第一次段考</h2><div class="chap-s">國語／數學／自然／社會／英語　共 51 題</div></div>
+<div class="chap-intro">本章是 <strong>康軒版四年級上學期第一次段考</strong>的全科練習，每一節（國語／數學／自然／社會／英語）都可以單獨當成一份小考使用。各節開頭都標示了對應單元，若貴班進度不同，直接略過該節即可。</div>
 <div class="sec" id="ch2-s1">
-<div class="sec-head"><span class="pub">國語</span><span class="sec-t">2-1　國語　五年級上學期 第一次段考</span></div>
-<div class="scope"><b>對應單元</b>第一～四課；記敘與抒情類課文（破音字、成語、譬喻與擬人、關聯詞、長文閱讀）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
+<div class="sec-head"><span class="pub">國語</span><span class="sec-t">2-1　國語　四年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一～四課；記敘與生活類課文（字音字形、量詞、成語、譬喻與擬人、關聯詞、短文閱讀）　<b>配分</b>選擇每題 8 分、填充每格 5 分、造句 10 分</div>
 <div class="q" id="ch2-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音<strong>正確</strong>的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「盡」力 ㄐㄧㄣˋ</li>
+<li><span class="ol">(B)</span>「重」複 ㄓㄨㄥˋ</li>
+<li><span class="ol">(C)</span>「相」信 ㄒㄧㄤˋ</li>
+<li><span class="ol">(D)</span>「散」開 ㄙㄢˇ</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q1">解析</button><div class="exp" id="e-ch2-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>盡力讀ㄐㄧㄣˋ。重複讀ㄔㄨㄥˊ、相信讀ㄒㄧㄤ、散開讀ㄙㄢˋ，其餘三個都標錯了。</div>
+</div>
+<div class="q" id="ch2-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>聚精會神</li>
+<li><span class="ol">(B)</span>全神灌注</li>
+<li><span class="ol">(C)</span>專心至致</li>
+<li><span class="ol">(D)</span>目不轉精</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q2">解析</button><div class="exp" id="e-ch2-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>全神灌注→全神貫注（貫是貫穿）；專心至致→專心致志；目不轉精→目不轉睛（睛是眼睛）。</div>
+</div>
+<div class="q" id="ch2-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：他ㄏㄠˊ　ㄅㄨˋ（　　）猶豫地舉手，ㄩㄥˇ　ㄍㄢˇ（　　）說出自己的想法。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q3">解析</button><div class="exp" id="e-ch2-s1-q3"><b>答案：</b>毫不、勇敢<br><b>解析：</b>「毫不」的毫是細毛，表示一點也不；「勇敢」的勇是力部，敢是攴部。</div>
+</div>
+<div class="q" id="ch2-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列量詞使用<strong>正確</strong>的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>一「首」歌</li>
+<li><span class="ol">(B)</span>一「棵」魚</li>
+<li><span class="ol">(C)</span>一「條」書</li>
+<li><span class="ol">(D)</span>一「張」樹</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q4">解析</button><div class="exp" id="e-ch2-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>歌用「首」。魚用「條」、書用「本」、樹用「棵」。</div>
+</div>
+<div class="q" id="ch2-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">「他做事總是（　　），從來不馬虎。」括號中填入哪一個成語最恰當？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>一絲不苟</li>
+<li><span class="ol">(B)</span>得過且過</li>
+<li><span class="ol">(C)</span>馬馬虎虎</li>
+<li><span class="ol">(D)</span>三心二意</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q5">解析</button><div class="exp" id="e-ch2-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>後句說「不馬虎」，前面要填意思相合的「一絲不苟」（做事非常仔細）。</div>
+</div>
+<div class="q" id="ch2-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">「陽光把操場曬得發燙，連影子都躲起來了。」這句話使用了什麼修辭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>擬人</li>
+<li><span class="ol">(B)</span>譬喻</li>
+<li><span class="ol">(C)</span>排比</li>
+<li><span class="ol">(D)</span>設問</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q6">解析</button><div class="exp" id="e-ch2-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>「影子躲起來」是人的動作，把影子當成人來寫，屬於擬人。</div>
+</div>
+<div class="q" id="ch2-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請填入合適的關聯詞語：（　　　）他每天練習，（　　　）進步得特別快。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q7">解析</button><div class="exp" id="e-ch2-s1-q7"><b>答案：</b>因為、所以<br><b>解析：</b>前面是原因（每天練習），後面是結果（進步快），用「因為……所以……」。</div>
+</div>
+<div class="q" id="ch2-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列句子的標點符號，使用<strong>正確</strong>的是哪一句？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>老師問我們：「今天的作業寫完了嗎？」</li>
+<li><span class="ol">(B)</span>老師問我們「今天的作業寫完了嗎？」：</li>
+<li><span class="ol">(C)</span>老師問我們：今天的作業寫完了嗎？「」</li>
+<li><span class="ol">(D)</span>老師問我們，「今天的作業寫完了嗎」？</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q8">解析</button><div class="exp" id="e-ch2-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>引述說話內容要用「冒號＋引號」，問號放在下引號的裡面。</div>
+</div>
+<div class="q" id="ch2-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請用「不但……而且……」造一個完整的句子。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch2-s1-q9">解析</button><div class="exp" id="e-ch2-s1-q9"><b>答案：</b>參考答案：他不但主動整理教室，而且還幫同學搬桌椅。<br><b>解析：</b>「不但……而且……」是遞進關係，後面那件事的程度要比前面更進一層。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　學校頂樓有一座小小的菜園，是四年級同學一起整理出來的。剛開始土是硬的，大家輪流鬆土、播種、澆水，還做了一張輪值表貼在牆上。<br>　　有一天午休，突然下起大雨。阿修想起菜苗才剛長出來，二話不說衝上頂樓，把塑膠布蓋在菜圃上，自己淋得全身溼透。<br>　　後來收成那天，每個人分到一小把青江菜。老師說：「這把菜看起來很普通，可是它是你們自己種出來的。」那天中午的湯，大家都喝得特別乾淨。</div></div>
+<div class="q" id="ch2-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">阿修在午休時衝上頂樓，是為了做什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>去採收青江菜</li>
+<li><span class="ol">(B)</span>把塑膠布蓋在菜圃上避雨</li>
+<li><span class="ol">(C)</span>去貼輪值表</li>
+<li><span class="ol">(D)</span>去澆水</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q10">解析</button><div class="exp" id="e-ch2-s1-q10"><b>答案：</b>(B)<br><b>解析：</b>第二段寫「把塑膠布蓋在菜圃上，自己淋得全身溼透」，是為了保護剛長出的菜苗。</div>
+</div>
+<div class="q" id="ch2-s1-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">「那天中午的湯，大家都喝得特別乾淨。」這句話最主要想表達什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>那天的湯特別好喝</li>
+<li><span class="ol">(B)</span>因為是自己種的，大家格外珍惜</li>
+<li><span class="ol">(C)</span>大家那天特別餓</li>
+<li><span class="ol">(D)</span>湯只有一點點</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q11">解析</button><div class="exp" id="e-ch2-s1-q11"><b>答案：</b>(B)<br><b>解析：</b>對照老師說的「它是你們自己種出來的」，可知大家珍惜的是自己付出的成果。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s2">
+<div class="sec-head"><span class="pub">數學</span><span class="sec-t">2-2　數學　四年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 一億以內的數／第二單元 加法與減法／第三單元 乘法　<b>配分</b>選擇每題 8 分、填充每格 8 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">36540000 讀作什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>三千六百五十四萬</li>
+<li><span class="ol">(B)</span>三百六十五萬四千</li>
+<li><span class="ol">(C)</span>三億六千五百四十萬</li>
+<li><span class="ol">(D)</span>三十六萬五千四百</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q1">解析</button><div class="exp" id="e-ch2-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>大數由右往左每四位一個數級：3654|0000，讀作三千六百五十四萬。</div>
+</div>
+<div class="q" id="ch2-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">「五千零八萬」寫成數字是＿＿＿＿＿＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q2">解析</button><div class="exp" id="e-ch2-s2-q2"><b>答案：</b>50080000<br><b>解析：</b>五千零八萬＝5008 萬＝5008 後面加四個 0，寫成 50080000。</div>
+</div>
+<div class="q" id="ch2-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">在 8503700 這個數中，「5」表示多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>五十萬</li>
+<li><span class="ol">(B)</span>五萬</li>
+<li><span class="ol">(C)</span>五千</li>
+<li><span class="ol">(D)</span>五百</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q3">解析</button><div class="exp" id="e-ch2-s2-q3"><b>答案：</b>(A)<br><b>解析：</b>8503700 分成 850|3700，5 站在十萬位，所以表示 50 萬。</div>
+</div>
+<div class="q" id="ch2-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">用直式計算：4728 ＋ 3596 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q4">解析</button><div class="exp" id="e-ch2-s2-q4"><b>答案：</b>8324<br><b>解析：</b>個位 8+6=14 進 1；十位 2+9+1=12 進 1；百位 7+5+1=13 進 1；千位 4+3+1=8，得 8324。</div>
+</div>
+<div class="q" id="ch2-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">用直式計算：50100 － 23648 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q5">解析</button><div class="exp" id="e-ch2-s2-q5"><b>答案：</b>26452<br><b>解析：</b>不夠減時逐位借位，50100－23648＝26452。可用 26452＋23648＝50100 驗算。</div>
+</div>
+<div class="q" id="ch2-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">用直式計算：438 × 26 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q6">解析</button><div class="exp" id="e-ch2-s2-q6"><b>答案：</b>11388<br><b>解析：</b>438×6＝2628；438×20＝8760；2628＋8760＝11388。</div>
+</div>
+<div class="q" id="ch2-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">一箱橘子有 145 顆，32 箱一共有＿＿＿＿＿顆。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q7">解析</button><div class="exp" id="e-ch2-s2-q7"><b>答案：</b>4640 顆<br><b>解析：</b>145×32＝4640（顆）。可拆成 145×30＝4350、145×2＝290，相加得 4640。</div>
+</div>
+<div class="q" id="ch2-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">38650 四捨五入到千位，大約是多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>39000</li>
+<li><span class="ol">(B)</span>38000</li>
+<li><span class="ol">(C)</span>38700</li>
+<li><span class="ol">(D)</span>40000</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q8">解析</button><div class="exp" id="e-ch2-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>看千位的下一位（百位）是 6，比 5 大要進位，所以約等於 39000。</div>
+</div>
+<div class="q" id="ch2-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">一場演唱會有 12500 個座位，已經賣出 8760 張票，還剩下幾個座位？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q9">解析</button><div class="exp" id="e-ch2-s2-q9"><b>答案：</b>3740 個<br><b>解析：</b>12500－8760＝3740（個）。</div>
+</div>
+<div class="q" id="ch2-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">文具店一枝筆 35 元，學校買了 128 枝，共要付多少元？付 5000 元找回多少元？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q10">解析</button><div class="exp" id="e-ch2-s2-q10"><b>答案：</b>共 4480 元；找回 520 元<br><b>解析：</b>35×128＝4480（元）；5000－4480＝520（元）。兩步驟題要先算總價再算找零。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s3">
+<div class="sec-head"><span class="pub">自然</span><span class="sec-t">2-3　自然　四年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 月亮（月亮的位置變化、月相的循環、月亮與農曆、觀測記錄）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch2-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">我們看到的月光是怎麼來的？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>月亮反射太陽的光</li>
+<li><span class="ol">(B)</span>月亮自己發出的光</li>
+<li><span class="ol">(C)</span>月亮反射地球的光</li>
+<li><span class="ol">(D)</span>月亮上的燈光</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q1">解析</button><div class="exp" id="e-ch2-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>月亮本身不發光，我們看到的是它把太陽光反射到地球的部分，所以被照亮的那一面才看得見。</div>
+</div>
+<div class="q" id="ch2-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">月亮每天也是從哪一個方向升起？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>東方</li>
+<li><span class="ol">(B)</span>西方</li>
+<li><span class="ol">(C)</span>南方</li>
+<li><span class="ol">(D)</span>北方</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q2">解析</button><div class="exp" id="e-ch2-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>和太陽一樣，月亮也是東升西落，這是地球自轉造成的。不過月亮每天升起的時間會晚大約 50 分鐘。</div>
+</div>
+<div class="q" id="ch2-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">月相變化的順序是：新月→＿＿＿→滿月→＿＿＿→新月，週期大約＿＿＿天。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q3">解析</button><div class="exp" id="e-ch2-s3-q3"><b>答案：</b>上弦月、下弦月、29～30<br><b>解析：</b>月相依「新月（朔）→眉月→上弦月→凸月→滿月（望）→凸月→下弦月→殘月→新月」循環，一個週期約 29.5 天。</div>
+</div>
+<div class="q" id="ch2-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">農曆十五前後的晚上，我們最可能看到什麼月相？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>滿月</li>
+<li><span class="ol">(B)</span>新月</li>
+<li><span class="ol">(C)</span>上弦月</li>
+<li><span class="ol">(D)</span>下弦月</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q4">解析</button><div class="exp" id="e-ch2-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>農曆初一是新月（看不見），十五前後是滿月，所以中秋節（八月十五）才會月圓。</div>
+</div>
+<div class="q" id="ch2-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">上弦月大約在農曆初七、初八出現，它看起來是什麼樣子？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>右半邊亮的半圓</li>
+<li><span class="ol">(B)</span>左半邊亮的半圓</li>
+<li><span class="ol">(C)</span>整個圓亮</li>
+<li><span class="ol">(D)</span>完全看不見</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q5">解析</button><div class="exp" id="e-ch2-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>在臺灣看到的上弦月是右半邊被照亮的半圓形，通常在傍晚出現在南方天空。</div>
+</div>
+<div class="q" id="ch2-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">下列有關月亮觀測的做法，何者<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>每天在相同時間、相同地點觀測並記錄</li>
+<li><span class="ol">(B)</span>每天隨意換時間和地點</li>
+<li><span class="ol">(C)</span>只觀測一天就下結論</li>
+<li><span class="ol">(D)</span>用望遠鏡直接對著太陽找月亮</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q6">解析</button><div class="exp" id="e-ch2-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>要看出月相的變化規律，必須固定時間與地點連續觀測，才能互相比較。絕不可用望遠鏡對著太陽。</div>
+</div>
+<div class="q" id="ch2-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">月亮表面有許多凹凸不平的坑洞，稱為＿＿＿＿；月亮上沒有空氣和液態水，所以＿＿＿＿（有／沒有）生物居住。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q7">解析</button><div class="exp" id="e-ch2-s3-q7"><b>答案：</b>隕石坑（環形山）、沒有<br><b>解析：</b>月球表面被隕石撞擊形成大量坑洞；因為沒有大氣層與液態水，目前並未發現生物。</div>
+</div>
+<div class="q" id="ch2-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">小華連續觀察一個月，發現月亮的形狀不斷改變。造成月相變化的主要原因是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>月亮繞著地球轉，被太陽照亮的部分角度不同</li>
+<li><span class="ol">(B)</span>月亮被雲遮住的程度不同</li>
+<li><span class="ol">(C)</span>月亮自己會變大變小</li>
+<li><span class="ol">(D)</span>地球擋住月亮的次數不同</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q8">解析</button><div class="exp" id="e-ch2-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>月亮繞地球公轉，日、地、月三者相對位置改變，我們看到被照亮的部分就跟著改變，形成月相。</div>
+</div>
+<div class="q" id="ch2-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">為什麼中秋節晚上的月亮特別圓？請說明。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch2-s3-q9">解析</button><div class="exp" id="e-ch2-s3-q9"><b>答案：</b>參考答案：因為中秋是農曆八月十五，這時月亮運行到地球背對太陽的一側，被照亮的一面幾乎完全朝向地球，所以看起來又圓又亮。<br><b>解析：</b>能連結「農曆十五＝滿月」與「日地月相對位置」即可得分。</div>
+</div>
+<div class="q" id="ch2-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請寫出月亮觀測紀錄表上至少<strong>三個</strong>應該記錄的項目。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch2-s3-q10">解析</button><div class="exp" id="e-ch2-s3-q10"><b>答案：</b>參考答案：觀測日期（含農曆）、觀測時間、月亮的形狀（畫下來）、月亮出現的方位、當時天氣。（任三項）<br><b>解析：</b>紀錄要能重現觀測情境並互相比較，日期、時間、形狀、方位是核心欄位。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s4">
+<div class="sec-head"><span class="pub">社會</span><span class="sec-t">2-4　社會　四年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一單元 家鄉的位置與範圍／第二單元 家鄉的地形（相對位置、行政區、五大地形、地名由來）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch2-s4-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">要說明「我的家鄉在哪裡」，下列哪一種說法<strong>最清楚</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>在臺中市西屯區，臺中市的西邊</li>
+<li><span class="ol">(B)</span>在很遠的地方</li>
+<li><span class="ol">(C)</span>在山的那一邊</li>
+<li><span class="ol">(D)</span>在學校附近</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s4-q1">解析</button><div class="exp" id="e-ch2-s4-q1"><b>答案：</b>(A)<br><b>解析：</b>說明位置要用行政區名稱（縣市、鄉鎮市區）再加上相對位置，別人才找得到。</div>
+</div>
+<div class="q" id="ch2-s4-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">我國地方行政區的層級，由大到小排列正確的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>縣市→鄉鎮市區→村里</li>
+<li><span class="ol">(B)</span>村里→鄉鎮市區→縣市</li>
+<li><span class="ol">(C)</span>鄉鎮市區→縣市→村里</li>
+<li><span class="ol">(D)</span>縣市→村里→鄉鎮市區</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s4-q2">解析</button><div class="exp" id="e-ch2-s4-q2"><b>答案：</b>(A)<br><b>解析：</b>行政區由大到小是：縣（市）→鄉（鎮、市、區）→村（里）→鄰。</div>
+</div>
+<div class="q" id="ch2-s4-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">臺灣的五大地形是：山地、丘陵、台地、＿＿＿和＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s4-q3">解析</button><div class="exp" id="e-ch2-s4-q3"><b>答案：</b>盆地、平原<br><b>解析：</b>五大地形＝山地、丘陵、台地、盆地、平原。不同地形上的產業與聚落型態都不一樣。</div>
+</div>
+<div class="q" id="ch2-s4-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一種地形，最適合發展稻作農業與大型聚落？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>平原</li>
+<li><span class="ol">(B)</span>高山</li>
+<li><span class="ol">(C)</span>陡峭的海岸</li>
+<li><span class="ol">(D)</span>沙漠</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s4-q4">解析</button><div class="exp" id="e-ch2-s4-q4"><b>答案：</b>(A)<br><b>解析：</b>平原地勢平坦、土壤肥沃、水源充足，最適合耕作與居住，因此人口也最密集。</div>
+</div>
+<div class="q" id="ch2-s4-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">許多地名和自然環境有關，例如「五股」「三峽」。下列哪一個地名最可能和<strong>地形</strong>有關？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>大坑</li>
+<li><span class="ol">(B)</span>新市</li>
+<li><span class="ol">(C)</span>忠孝里</li>
+<li><span class="ol">(D)</span>民生路</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s4-q5">解析</button><div class="exp" id="e-ch2-s4-q5"><b>答案：</b>(A)<br><b>解析：</b>「坑」指低窪的谷地，屬於地形類地名；忠孝、民生等多半是後來取的吉祥或紀念性名稱。</div>
+</div>
+<div class="q" id="ch2-s4-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">看地圖時要先找三樣東西：方位、＿＿＿和＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s4-q6">解析</button><div class="exp" id="e-ch2-s4-q6"><b>答案：</b>圖例、比例尺<br><b>解析：</b>方位知道東西南北、圖例看懂符號、比例尺換算實際距離，三者缺一不可。</div>
+</div>
+<div class="q" id="ch2-s4-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">地圖上的比例尺「1：50000」表示什麼意思？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>圖上 1 公分代表實際 50000 公分</li>
+<li><span class="ol">(B)</span>圖上 1 公分代表實際 1 公分</li>
+<li><span class="ol">(C)</span>地圖被放大了 50000 倍</li>
+<li><span class="ol">(D)</span>比例尺沒有實際意義</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s4-q7">解析</button><div class="exp" id="e-ch2-s4-q7"><b>答案：</b>(A)<br><b>解析：</b>比例尺表示圖上距離與實際距離的比，1：50000 就是圖上 1 公分等於實地 50000 公分（500 公尺）。</div>
+</div>
+<div class="q" id="ch2-s4-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">家鄉的地形會影響下列哪一項？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>居民的產業與交通方式</li>
+<li><span class="ol">(B)</span>居民的姓氏</li>
+<li><span class="ol">(C)</span>一年有幾個月</li>
+<li><span class="ol">(D)</span>太陽升起的方向</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s4-q8">解析</button><div class="exp" id="e-ch2-s4-q8"><b>答案：</b>(A)<br><b>解析：</b>地形影響土地利用、產業型態與道路修築的難易，但不會影響姓氏或天文現象。</div>
+</div>
+<div class="q" id="ch2-s4-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">住在山地和住在平原的居民，生活可能有什麼不同？請寫出兩點。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch2-s4-q9">解析</button><div class="exp" id="e-ch2-s4-q9"><b>答案：</b>參考答案：（1）山地居民多從事林業、觀光或種植茶葉高冷蔬菜，平原居民多從事稻作或工商業；（2）山地道路蜿蜒、交通較不便，平原交通網密集、來往方便。<br><b>解析：</b>從產業、交通、聚落規模、氣候感受等任兩個面向作答皆可。</div>
+</div>
+<div class="q" id="ch2-s4-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請說明「認識家鄉的位置」對我們的生活有什麼幫助。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch2-s4-q10">解析</button><div class="exp" id="e-ch2-s4-q10"><b>答案：</b>參考答案：知道家鄉的位置可以幫助我們規劃路線、了解鄰近地區的資源，遇到災害時也知道往哪裡避難、向誰求助。<br><b>解析：</b>能連結到生活應用（找路、認識資源、防災）即可得分。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s5">
+<div class="sec-head"><span class="pub">英語</span><span class="sec-t">2-5　英語　四年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>What time is it?、日常作息時間、學校科目、Do you like…? 問答　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch2-s5-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">A: What time is it?　B: ＿＿＿＿（8:15）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>It's eight fifteen.</li>
+<li><span class="ol">(B)</span>It's fifteen eight.</li>
+<li><span class="ol">(C)</span>I'm eight fifteen.</li>
+<li><span class="ol">(D)</span>It's at eight fifteen.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s5-q1">解析</button><div class="exp" id="e-ch2-s5-q1"><b>答案：</b>(A)<br><b>解析：</b>報時間用 It's＋時＋分，8:15 讀作 eight fifteen。回答「幾點」時不加 at。</div>
+</div>
+<div class="q" id="ch2-s5-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">A: What time do you go to school?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I go to school at 7:20.</li>
+<li><span class="ol">(B)</span>I'm going to school.</li>
+<li><span class="ol">(C)</span>Yes, I do.</li>
+<li><span class="ol">(D)</span>It's a school.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s5-q2">解析</button><div class="exp" id="e-ch2-s5-q2"><b>答案：</b>(A)<br><b>解析：</b>問「幾點做某事」要用 at＋時刻回答。</div>
+</div>
+<div class="q" id="ch2-s5-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出中文意思：I eat breakfast at seven o'clock. →＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s5-q3">解析</button><div class="exp" id="e-ch2-s5-q3"><b>答案：</b>我在七點吃早餐。<br><b>解析：</b>eat breakfast＝吃早餐；at seven o'clock＝在七點整。</div>
+</div>
+<div class="q" id="ch2-s5-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">「數學」的英文是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>math</li>
+<li><span class="ol">(B)</span>music</li>
+<li><span class="ol">(C)</span>art</li>
+<li><span class="ol">(D)</span>science</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s5-q4">解析</button><div class="exp" id="e-ch2-s5-q4"><b>答案：</b>(A)<br><b>解析：</b>math＝數學、music＝音樂、art＝美術、science＝自然。</div>
+</div>
+<div class="q" id="ch2-s5-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: Do you like science?　B: ＿＿＿＿（喜歡）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Yes, I do.</li>
+<li><span class="ol">(B)</span>Yes, I am.</li>
+<li><span class="ol">(C)</span>Yes, I like.</li>
+<li><span class="ol">(D)</span>Yes, I can.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s5-q5">解析</button><div class="exp" id="e-ch2-s5-q5"><b>答案：</b>(A)<br><b>解析：</b>以 Do 開頭的問句，肯定回答用 Yes, I do.；否定是 No, I don't.</div>
+</div>
+<div class="q" id="ch2-s5-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請填入正確的字：＿＿＿ he like P.E.?</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s5-q6">解析</button><div class="exp" id="e-ch2-s5-q6"><b>答案：</b>Does<br><b>解析：</b>主詞 he 是第三人稱單數，助動詞要用 Does，後面的動詞維持原形 like。</div>
+</div>
+<div class="q" id="ch2-s5-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>She doesn't like math.</li>
+<li><span class="ol">(B)</span>She don't like math.</li>
+<li><span class="ol">(C)</span>She doesn't likes math.</li>
+<li><span class="ol">(D)</span>She not like math.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s5-q7">解析</button><div class="exp" id="e-ch2-s5-q7"><b>答案：</b>(A)<br><b>解析：</b>第三人稱單數否定用 doesn't＋原形動詞，所以是 doesn't like。</div>
+</div>
+<div class="q" id="ch2-s5-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">A: What's your favorite subject?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>My favorite subject is music.</li>
+<li><span class="ol">(B)</span>I'm music.</li>
+<li><span class="ol">(C)</span>Yes, I like it.</li>
+<li><span class="ol">(D)</span>It's Monday.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s5-q8">解析</button><div class="exp" id="e-ch2-s5-q8"><b>答案：</b>(A)<br><b>解析：</b>問最喜歡的科目，要用 My favorite subject is＋科目回答。</div>
+</div>
+<div class="q" id="ch2-s5-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請寫出英文：我在九點半睡覺。→ I go to bed ＿＿ nine thirty.</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s5-q9">解析</button><div class="exp" id="e-ch2-s5-q9"><b>答案：</b>at<br><b>解析：</b>表示「在幾點」用介系詞 at；在早上、晚上則用 in（in the morning／evening）。</div>
+</div>
+<div class="q" id="ch2-s5-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文寫出你每天起床的時間（完整句子）。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch2-s5-q10">解析</button><div class="exp" id="e-ch2-s5-q10"><b>答案：</b>參考答案：I get up at six thirty.（時間可依實際情形更換）<br><b>解析：</b>評分重點：get up 的用法、介系詞 at、句首大寫、句末句點。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch3">
+<div class="chap-head"><div class="chap-n">第 3 章</div><h2 class="chap-t">五年級上學期 第一次段考</h2><div class="chap-s">國語／數學／自然／社會／英語　共 51 題</div></div>
+<div class="chap-intro">本章是 <strong>康軒版五年級上學期第一次段考</strong>的全科練習，每一節（國語／數學／自然／社會／英語）都可以單獨當成一份小考使用。各節開頭都標示了對應單元，若貴班進度不同，直接略過該節即可。</div>
+<div class="sec" id="ch3-s1">
+<div class="sec-head"><span class="pub">國語</span><span class="sec-t">3-1　國語　五年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>第一～四課；記敘與抒情類課文（破音字、成語、譬喻與擬人、關聯詞、長文閱讀）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
+<div class="q" id="ch3-s1-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音<strong>正確</strong>的是哪一個？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>勉「強」ㄑㄧㄤˇ</li>
@@ -633,9 +1077,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>倔「強」ㄑㄧㄤˊ</li>
 <li><span class="ol">(D)</span>「強」盜 ㄐㄧㄤˋ</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q1">解析</button><div class="exp" id="e-ch2-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>「強」是三音字：勉強、強迫讀ㄑㄧㄤˇ；強調、強盜讀ㄑㄧㄤˊ；倔強讀ㄐㄧㄤˋ。只有第一個標對。</div>
+<button class="exp-btn" data-t="ch3-s1-q1">解析</button><div class="exp" id="e-ch3-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>「強」是三音字：勉強、強迫讀ㄑㄧㄤˇ；強調、強盜讀ㄑㄧㄤˊ；倔強讀ㄐㄧㄤˋ。只有第一個標對。</div>
 </div>
-<div class="q" id="ch2-s1-q2">
+<div class="q" id="ch3-s1-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>一鼓作氣</li>
@@ -643,14 +1087,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>不徑而走</li>
 <li><span class="ol">(D)</span>川流不習</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q2">解析</button><div class="exp" id="e-ch2-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>按耐不住→按捺不住（捺，壓住）；不徑而走→不脛而走（脛，小腿）；川流不習→川流不息（息，停止）。</div>
+<button class="exp-btn" data-t="ch3-s1-q2">解析</button><div class="exp" id="e-ch3-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>按耐不住→按捺不住（捺，壓住）；不徑而走→不脛而走（脛，小腿）；川流不習→川流不息（息，停止）。</div>
 </div>
-<div class="q" id="ch2-s1-q3">
+<div class="q" id="ch3-s1-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：他的態度非常ㄐㄧㄢ　ㄉㄧㄥˋ（　　），準備的資料也十分ㄈㄥ　ㄈㄨˋ（　　）。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s1-q3">解析</button><div class="exp" id="e-ch2-s1-q3"><b>答案：</b>堅定、豐富<br><b>解析：</b>「堅」上面是「臤」不要寫成「艮」；「豐」的下方是「豆」，不要少寫橫畫。</div>
+<button class="exp-btn" data-t="ch3-s1-q3">解析</button><div class="exp" id="e-ch3-s1-q3"><b>答案：</b>堅定、豐富<br><b>解析：</b>「堅」上面是「臤」不要寫成「艮」；「豐」的下方是「豆」，不要少寫橫畫。</div>
 </div>
-<div class="q" id="ch2-s1-q4">
+<div class="q" id="ch3-s1-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">「金黃色的稻田，像一張鋪到天邊的地毯。」這句話使用了什麼修辭？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>譬喻</li>
@@ -658,9 +1102,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>排比</li>
 <li><span class="ol">(D)</span>轉品</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q4">解析</button><div class="exp" id="e-ch2-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>有喻體（稻田）、喻詞（像）、喻依（地毯），是典型的譬喻（明喻）。</div>
+<button class="exp-btn" data-t="ch3-s1-q4">解析</button><div class="exp" id="e-ch3-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>有喻體（稻田）、喻詞（像）、喻依（地毯），是典型的譬喻（明喻）。</div>
 </div>
-<div class="q" id="ch2-s1-q5">
+<div class="q" id="ch3-s1-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一句使用了<strong>排比</strong>修辭？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>春天的雨是溫柔的，夏天的雨是急躁的，秋天的雨是清冷的。</li>
@@ -668,9 +1112,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>難道我們就這樣放棄嗎？</li>
 <li><span class="ol">(D)</span>窗外傳來一陣陣蟬鳴。</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q5">解析</button><div class="exp" id="e-ch2-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>排比是用三個以上結構相似的句子並列，加強語氣。第二句是誇飾、第三句是設問、第四句只是敘述。</div>
+<button class="exp-btn" data-t="ch3-s1-q5">解析</button><div class="exp" id="e-ch3-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>排比是用三個以上結構相似的句子並列，加強語氣。第二句是誇飾、第三句是設問、第四句只是敘述。</div>
 </div>
-<div class="q" id="ch2-s1-q6">
+<div class="q" id="ch3-s1-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">「他做事總是（　　），從來不半途而廢。」括號中填入哪一個成語最恰當？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>持之以恆</li>
@@ -678,14 +1122,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>得過且過</li>
 <li><span class="ol">(D)</span>虎頭蛇尾</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q6">解析</button><div class="exp" id="e-ch2-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>後半句說「不半途而廢」，前面要填意思相合的「持之以恆」。其餘三個都是做事不能堅持的意思，語意相反。</div>
+<button class="exp-btn" data-t="ch3-s1-q6">解析</button><div class="exp" id="e-ch3-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>後半句說「不半途而廢」，前面要填意思相合的「持之以恆」。其餘三個都是做事不能堅持的意思，語意相反。</div>
 </div>
-<div class="q" id="ch2-s1-q7">
+<div class="q" id="ch3-s1-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">請填入合適的關聯詞語：他（　　　）功課忙，（　　　）每天都抽出時間運動。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s1-q7">解析</button><div class="exp" id="e-ch2-s1-q7"><b>答案：</b>雖然、但是（或：儘管、還是）<br><b>解析：</b>前後兩句意思相反（功課忙 vs 仍然運動），要用表示轉折的關聯詞。</div>
+<button class="exp-btn" data-t="ch3-s1-q7">解析</button><div class="exp" id="e-ch3-s1-q7"><b>答案：</b>雖然、但是（或：儘管、還是）<br><b>解析：</b>前後兩句意思相反（功課忙 vs 仍然運動），要用表示轉折的關聯詞。</div>
 </div>
-<div class="q" id="ch2-s1-q8">
+<div class="q" id="ch3-s1-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">下列句子的標點符號，使用<strong>正確</strong>的是哪一句？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>他小聲地說：「我明天再告訴你。」</li>
@@ -693,15 +1137,15 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>他小聲地說，「我明天再告訴你」。</li>
 <li><span class="ol">(D)</span>他小聲地說：我明天再告訴你。</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q8">解析</button><div class="exp" id="e-ch2-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>引述說話內容時，先用冒號（：）再用引號（「」），句號放在下引號的裡面。</div>
+<button class="exp-btn" data-t="ch3-s1-q8">解析</button><div class="exp" id="e-ch3-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>引述說話內容時，先用冒號（：）再用引號（「」），句號放在下引號的裡面。</div>
 </div>
-<div class="q" id="ch2-s1-q9">
+<div class="q" id="ch3-s1-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">請把這個句子加以<strong>擴寫</strong>（至少加入兩個修飾的詞語）：　小鳥飛過天空。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch2-s1-q9">解析</button><div class="exp" id="e-ch2-s1-q9"><b>答案：</b>參考答案：一群羽毛雪白的小鳥，輕快地飛過黃昏時橘紅色的天空。<br><b>解析：</b>擴寫是在主語、動詞或賓語前加上修飾語（形容詞、副詞、數量詞），讓畫面更具體，但不能改變原本的意思。</div>
+<button class="exp-btn" data-t="ch3-s1-q9">解析</button><div class="exp" id="e-ch3-s1-q9"><b>答案：</b>參考答案：一群羽毛雪白的小鳥，輕快地飛過黃昏時橘紅色的天空。<br><b>解析：</b>擴寫是在主語、動詞或賓語前加上修飾語（形容詞、副詞、數量詞），讓畫面更具體，但不能改變原本的意思。</div>
 </div>
 <div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　外公家門前有一口老井。小時候我最喜歡趴在井邊，看水面上晃動的天空。外公說，這口井從他還是孩子的時候就在了，村子裡的人靠它煮飯、洗衣，也靠它度過好幾次乾旱。<br>　　後來家家戶戶接了自來水，井漸漸沒有人使用，井口長出了青苔。有一年颱風停水三天，鄰居們又提著水桶回到井邊排隊。外公一邊搖著把手一邊笑說：「你看，它一直都在這裡等著呢。」<br>　　那天我才明白，有些東西即使被冷落，也不會失去它的價值。</div></div>
-<div class="q" id="ch2-s1-q10">
+<div class="q" id="ch3-s1-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">根據本文，村民後來為什麼很少使用那口老井？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>井水乾涸了</li>
@@ -709,9 +1153,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>井被颱風吹壞了</li>
 <li><span class="ol">(D)</span>外公不讓人使用</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q10">解析</button><div class="exp" id="e-ch2-s1-q10"><b>答案：</b>(B)<br><b>解析：</b>第二段第一句明確說「後來家家戶戶接了自來水，井漸漸沒有人使用」，其他選項文中都沒有提到。</div>
+<button class="exp-btn" data-t="ch3-s1-q10">解析</button><div class="exp" id="e-ch3-s1-q10"><b>答案：</b>(B)<br><b>解析：</b>第二段第一句明確說「後來家家戶戶接了自來水，井漸漸沒有人使用」，其他選項文中都沒有提到。</div>
 </div>
-<div class="q" id="ch2-s1-q11">
+<div class="q" id="ch3-s1-q11">
 <div class="q-h"><span class="q-n">11</span><span class="q-t">外公說「你看，它一直都在這裡等著呢。」這句話最主要想表達什麼？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>老井雖然被冷落，需要時仍然有用</li>
@@ -719,13 +1163,13 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>自來水比井水乾淨</li>
 <li><span class="ol">(D)</span>颱風每年都會來</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q11">解析</button><div class="exp" id="e-ch2-s1-q11"><b>答案：</b>(A)<br><b>解析：</b>對照最後一段「有些東西即使被冷落，也不會失去它的價值」，可知外公是在強調老井的價值一直都在。</div>
+<button class="exp-btn" data-t="ch3-s1-q11">解析</button><div class="exp" id="e-ch3-s1-q11"><b>答案：</b>(A)<br><b>解析：</b>對照最後一段「有些東西即使被冷落，也不會失去它的價值」，可知外公是在強調老井的價值一直都在。</div>
 </div>
 </div>
-<div class="sec" id="ch2-s2">
-<div class="sec-head"><span class="pub">數學</span><span class="sec-t">2-2　數學　五年級上學期 第一次段考</span></div>
+<div class="sec" id="ch3-s2">
+<div class="sec-head"><span class="pub">數學</span><span class="sec-t">3-2　數學　五年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>第一單元 因數與倍數（含質數、公因數、公倍數）／第二單元 多位小數　<b>配分</b>選擇每題 7 分、填充每格 7 分、計算與應用每題 12 分</div>
-<div class="q" id="ch2-s2-q1">
+<div class="q" id="ch3-s2-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">24 的因數一共有幾個？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>6 個</li>
@@ -733,19 +1177,19 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>8 個</li>
 <li><span class="ol">(D)</span>9 個</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s2-q1">解析</button><div class="exp" id="e-ch2-s2-q1"><b>答案：</b>(C)<br><b>解析：</b>24 的因數成對來找：1×24、2×12、3×8、4×6，共 1、2、3、4、6、8、12、24 八個。</div>
+<button class="exp-btn" data-t="ch3-s2-q1">解析</button><div class="exp" id="e-ch3-s2-q1"><b>答案：</b>(C)<br><b>解析：</b>24 的因數成對來找：1×24、2×12、3×8、4×6，共 1、2、3、4、6、8、12、24 八個。</div>
 </div>
-<div class="q" id="ch2-s2-q2">
+<div class="q" id="ch3-s2-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">12 和 18 的最大公因數是＿＿＿＿。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s2-q2">解析</button><div class="exp" id="e-ch2-s2-q2"><b>答案：</b>6<br><b>解析：</b>12 的因數：1、2、3、4、6、12；18 的因數：1、2、3、6、9、18。公因數是 1、2、3、6，其中最大的是 6。</div>
+<button class="exp-btn" data-t="ch3-s2-q2">解析</button><div class="exp" id="e-ch3-s2-q2"><b>答案：</b>6<br><b>解析：</b>12 的因數：1、2、3、4、6、12；18 的因數：1、2、3、6、9、18。公因數是 1、2、3、6，其中最大的是 6。</div>
 </div>
-<div class="q" id="ch2-s2-q3">
+<div class="q" id="ch3-s2-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">4 和 6 的最小公倍數是＿＿＿＿。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s2-q3">解析</button><div class="exp" id="e-ch2-s2-q3"><b>答案：</b>12<br><b>解析：</b>4 的倍數：4、8、12、16…；6 的倍數：6、12、18…。最先出現的共同倍數是 12。</div>
+<button class="exp-btn" data-t="ch3-s2-q3">解析</button><div class="exp" id="e-ch3-s2-q3"><b>答案：</b>12<br><b>解析：</b>4 的倍數：4、8、12、16…；6 的倍數：6、12、18…。最先出現的共同倍數是 12。</div>
 </div>
-<div class="q" id="ch2-s2-q4">
+<div class="q" id="ch3-s2-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一個數是<strong>質數</strong>？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>21</li>
@@ -753,14 +1197,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>29</li>
 <li><span class="ol">(D)</span>33</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s2-q4">解析</button><div class="exp" id="e-ch2-s2-q4"><b>答案：</b>(C)<br><b>解析：</b>質數只有 1 和自己兩個因數。21＝3×7、27＝3×9、33＝3×11 都是合數；29 除了 1 和 29 以外沒有其他因數，是質數。</div>
+<button class="exp-btn" data-t="ch3-s2-q4">解析</button><div class="exp" id="e-ch3-s2-q4"><b>答案：</b>(C)<br><b>解析：</b>質數只有 1 和自己兩個因數。21＝3×7、27＝3×9、33＝3×11 都是合數；29 除了 1 和 29 以外沒有其他因數，是質數。</div>
 </div>
-<div class="q" id="ch2-s2-q5">
+<div class="q" id="ch3-s2-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">求 36 和 48 的<strong>最大公因數</strong>與<strong>最小公倍數</strong>。</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch2-s2-q5">解析</button><div class="exp" id="e-ch2-s2-q5"><b>答案：</b>最大公因數 12；最小公倍數 144<br><b>解析：</b>用短除法：36 和 48 同除 2 得 18、24；再除 2 得 9、12；再除 3 得 3、4。最大公因數＝2×2×3＝12；最小公倍數＝12×3×4＝144。</div>
+<button class="exp-btn" data-t="ch3-s2-q5">解析</button><div class="exp" id="e-ch3-s2-q5"><b>答案：</b>最大公因數 12；最小公倍數 144<br><b>解析：</b>用短除法：36 和 48 同除 2 得 18、24；再除 2 得 9、12；再除 3 得 3、4。最大公因數＝2×2×3＝12；最小公倍數＝12×3×4＝144。</div>
 </div>
-<div class="q" id="ch2-s2-q6">
+<div class="q" id="ch3-s2-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">3.507 這個數的<strong>百分位</strong>數字是多少？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>3</li>
@@ -768,33 +1212,33 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>0</li>
 <li><span class="ol">(D)</span>7</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s2-q6">解析</button><div class="exp" id="e-ch2-s2-q6"><b>答案：</b>(C)<br><b>解析：</b>小數點後依序是十分位 5、百分位 0、千分位 7，所以百分位數字是 0。</div>
+<button class="exp-btn" data-t="ch3-s2-q6">解析</button><div class="exp" id="e-ch3-s2-q6"><b>答案：</b>(C)<br><b>解析：</b>小數點後依序是十分位 5、百分位 0、千分位 7，所以百分位數字是 0。</div>
 </div>
-<div class="q" id="ch2-s2-q7">
+<div class="q" id="ch3-s2-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">在 ○ 中填入 ＞、＝ 或 ＜：0.7 ○ 0.68</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s2-q7">解析</button><div class="exp" id="e-ch2-s2-q7"><b>答案：</b>＞<br><b>解析：</b>先比十分位：0.7 是 7、0.68 是 6，7 大於 6，所以 0.7＞0.68。位數不同時可以先補 0 想成 0.70 和 0.68。</div>
+<button class="exp-btn" data-t="ch3-s2-q7">解析</button><div class="exp" id="e-ch3-s2-q7"><b>答案：</b>＞<br><b>解析：</b>先比十分位：0.7 是 7、0.68 是 6，7 大於 6，所以 0.7＞0.68。位數不同時可以先補 0 想成 0.70 和 0.68。</div>
 </div>
-<div class="q" id="ch2-s2-q8">
+<div class="q" id="ch3-s2-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">計算：12.5 ＋ 3.68 ＝ ？（請列直式）</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch2-s2-q8">解析</button><div class="exp" id="e-ch2-s2-q8"><b>答案：</b>16.18<br><b>解析：</b>直式要把小數點對齊，12.50＋3.68：百分位 0+8=8、十分位 5+6=11 進 1、個位 2+3+1=6、十位 1，得 16.18。</div>
+<button class="exp-btn" data-t="ch3-s2-q8">解析</button><div class="exp" id="e-ch3-s2-q8"><b>答案：</b>16.18<br><b>解析：</b>直式要把小數點對齊，12.50＋3.68：百分位 0+8=8、十分位 5+6=11 進 1、個位 2+3+1=6、十位 1，得 16.18。</div>
 </div>
-<div class="q" id="ch2-s2-q9">
+<div class="q" id="ch3-s2-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">哥哥每 6 天去一次圖書館，妹妹每 8 天去一次。今天兩人同時在圖書館遇到，最少要再過幾天才會再次同一天去？</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch2-s2-q9">解析</button><div class="exp" id="e-ch2-s2-q9"><b>答案：</b>24 天<br><b>解析：</b>求「再次同時」要用最小公倍數。6 的倍數 6、12、18、24…；8 的倍數 8、16、24…，最小公倍數是 24，所以 24 天後。</div>
+<button class="exp-btn" data-t="ch3-s2-q9">解析</button><div class="exp" id="e-ch3-s2-q9"><b>答案：</b>24 天<br><b>解析：</b>求「再次同時」要用最小公倍數。6 的倍數 6、12、18、24…；8 的倍數 8、16、24…，最小公倍數是 24，所以 24 天後。</div>
 </div>
-<div class="q" id="ch2-s2-q10">
+<div class="q" id="ch3-s2-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">有 36 顆糖果和 48 片餅乾，要平分給小朋友，且都剛好分完沒有剩下。最多可以分給幾個小朋友？這時每人各得幾顆糖果、幾片餅乾？</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch2-s2-q10">解析</button><div class="exp" id="e-ch2-s2-q10"><b>答案：</b>最多 12 人；每人 3 顆糖果、4 片餅乾<br><b>解析：</b>要「剛好分完且人數最多」，人數必須是 36 和 48 的最大公因數＝12。36÷12＝3（顆）、48÷12＝4（片）。</div>
+<button class="exp-btn" data-t="ch3-s2-q10">解析</button><div class="exp" id="e-ch3-s2-q10"><b>答案：</b>最多 12 人；每人 3 顆糖果、4 片餅乾<br><b>解析：</b>要「剛好分完且人數最多」，人數必須是 36 和 48 的最大公因數＝12。36÷12＝3（顆）、48÷12＝4（片）。</div>
 </div>
 </div>
-<div class="sec" id="ch2-s3">
-<div class="sec-head"><span class="pub">自然</span><span class="sec-t">2-3　自然　五年級上學期 第一次段考</span></div>
+<div class="sec" id="ch3-s3">
+<div class="sec-head"><span class="pub">自然</span><span class="sec-t">3-3　自然　五年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>第一單元 觀測太陽（太陽的位置變化、日影的方向與長短、一天與一年的變化）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
-<div class="q" id="ch2-s3-q1">
+<div class="q" id="ch3-s3-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">太陽每天升起和落下的方位，下列哪一個<strong>正確</strong>？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>東邊升起、西邊落下</li>
@@ -802,9 +1246,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>南邊升起、北邊落下</li>
 <li><span class="ol">(D)</span>每天都不一樣，沒有規則</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s3-q1">解析</button><div class="exp" id="e-ch2-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>太陽因為地球由西向東自轉，看起來總是從東方升起、西方落下，這個大方向每天都相同（升起的確切位置會隨季節略有偏移）。</div>
+<button class="exp-btn" data-t="ch3-s3-q1">解析</button><div class="exp" id="e-ch3-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>太陽因為地球由西向東自轉，看起來總是從東方升起、西方落下，這個大方向每天都相同（升起的確切位置會隨季節略有偏移）。</div>
 </div>
-<div class="q" id="ch2-s3-q2">
+<div class="q" id="ch3-s3-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">在臺灣大部分地區，<strong>正午</strong>時竿子影子的方向大約朝向哪一方？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>東方</li>
@@ -812,9 +1256,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>南方</li>
 <li><span class="ol">(D)</span>北方</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s3-q2">解析</button><div class="exp" id="e-ch2-s3-q2"><b>答案：</b>(D)<br><b>解析：</b>正午時太陽位在南方的天空，影子和太陽方向相反，所以影子朝北。</div>
+<button class="exp-btn" data-t="ch3-s3-q2">解析</button><div class="exp" id="e-ch3-s3-q2"><b>答案：</b>(D)<br><b>解析：</b>正午時太陽位在南方的天空，影子和太陽方向相反，所以影子朝北。</div>
 </div>
-<div class="q" id="ch2-s3-q3">
+<div class="q" id="ch3-s3-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">一天當中，竿影<strong>最短</strong>的時候大約是幾點？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>早上 8 點</li>
@@ -822,14 +1266,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>下午 3 點</li>
 <li><span class="ol">(D)</span>傍晚 5 點</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s3-q3">解析</button><div class="exp" id="e-ch2-s3-q3"><b>答案：</b>(B)<br><b>解析：</b>正午太陽升得最高（仰角最大），陽光最接近直射，因此影子最短。</div>
+<button class="exp-btn" data-t="ch3-s3-q3">解析</button><div class="exp" id="e-ch3-s3-q3"><b>答案：</b>(B)<br><b>解析：</b>正午太陽升得最高（仰角最大），陽光最接近直射，因此影子最短。</div>
 </div>
-<div class="q" id="ch2-s3-q4">
+<div class="q" id="ch3-s3-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">進行太陽觀測時，最重要的安全守則是：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s3-q4">解析</button><div class="exp" id="e-ch2-s3-q4"><b>答案：</b>不可以用眼睛直接看太陽（要觀察影子或使用專用濾光設備）<br><b>解析：</b>陽光很強，直視太陽可能永久傷害視網膜，即使戴太陽眼鏡也不行。改用觀察竿影、或用紙板投影的方式最安全。</div>
+<button class="exp-btn" data-t="ch3-s3-q4">解析</button><div class="exp" id="e-ch3-s3-q4"><b>答案：</b>不可以用眼睛直接看太陽（要觀察影子或使用專用濾光設備）<br><b>解析：</b>陽光很強，直視太陽可能永久傷害視網膜，即使戴太陽眼鏡也不行。改用觀察竿影、或用紙板投影的方式最安全。</div>
 </div>
-<div class="q" id="ch2-s3-q5">
+<div class="q" id="ch3-s3-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">從早上到傍晚，竿子影子的<strong>長度</strong>如何變化？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>一直變長</li>
@@ -837,9 +1281,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>先變短再變長</li>
 <li><span class="ol">(D)</span>完全沒有變化</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s3-q5">解析</button><div class="exp" id="e-ch2-s3-q5"><b>答案：</b>(C)<br><b>解析：</b>早上太陽低、影子長；接近正午太陽最高、影子最短；下午太陽又降低，影子再變長，呈現「長→短→長」。</div>
+<button class="exp-btn" data-t="ch3-s3-q5">解析</button><div class="exp" id="e-ch3-s3-q5"><b>答案：</b>(C)<br><b>解析：</b>早上太陽低、影子長；接近正午太陽最高、影子最短；下午太陽又降低，影子再變長，呈現「長→短→長」。</div>
 </div>
-<div class="q" id="ch2-s3-q6">
+<div class="q" id="ch3-s3-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">同樣在正午測量，夏天和冬天的竿影相比，下列敘述何者<strong>正確</strong>？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>夏天的影子比較短</li>
@@ -847,9 +1291,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>兩季一樣長</li>
 <li><span class="ol">(D)</span>夏天完全沒有影子</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s3-q6">解析</button><div class="exp" id="e-ch2-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>夏天正午太陽仰角大（升得高），影子短；冬天正午太陽仰角小，影子長。這也是夏天比較熱的原因之一。</div>
+<button class="exp-btn" data-t="ch3-s3-q6">解析</button><div class="exp" id="e-ch3-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>夏天正午太陽仰角大（升得高），影子短；冬天正午太陽仰角小，影子長。這也是夏天比較熱的原因之一。</div>
 </div>
-<div class="q" id="ch2-s3-q7">
+<div class="q" id="ch3-s3-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">要測量「太陽仰角」的大小，最適合使用下列哪一種工具？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>溫度計</li>
@@ -857,9 +1301,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>磁鐵</li>
 <li><span class="ol">(D)</span>放大鏡</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s3-q7">解析</button><div class="exp" id="e-ch2-s3-q7"><b>答案：</b>(B)<br><b>解析：</b>仰角是角度，要用量角器或自製的簡易測角器來量；判斷方位則要用指北針。</div>
+<button class="exp-btn" data-t="ch3-s3-q7">解析</button><div class="exp" id="e-ch3-s3-q7"><b>答案：</b>(B)<br><b>解析：</b>仰角是角度，要用量角器或自製的簡易測角器來量；判斷方位則要用指北針。</div>
 </div>
-<div class="q" id="ch2-s3-q8">
+<div class="q" id="ch3-s3-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">古時候的「日晷」可以用來做什麼？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>測量風速</li>
@@ -867,23 +1311,23 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>測量雨量</li>
 <li><span class="ol">(D)</span>判斷地震大小</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s3-q8">解析</button><div class="exp" id="e-ch2-s3-q8"><b>答案：</b>(B)<br><b>解析：</b>日晷利用指針投下的影子隨太陽移動而改變位置的原理，把影子落在不同刻度上代表不同時刻。</div>
+<button class="exp-btn" data-t="ch3-s3-q8">解析</button><div class="exp" id="e-ch3-s3-q8"><b>答案：</b>(B)<br><b>解析：</b>日晷利用指針投下的影子隨太陽移動而改變位置的原理，把影子落在不同刻度上代表不同時刻。</div>
 </div>
-<div class="q" id="ch2-s3-q9">
+<div class="q" id="ch3-s3-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">為什麼一天當中，同一根竿子的影子會不斷移動？請寫出原因。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch2-s3-q9">解析</button><div class="exp" id="e-ch2-s3-q9"><b>答案：</b>參考答案：因為太陽在天空中的位置會隨著時間改變（東→南→西），影子的方向和太陽相反，所以影子也跟著移動。<br><b>解析：</b>能寫出「太陽位置改變／地球自轉造成太陽看起來移動」，並連結到影子方向與太陽相反，即為完整答案。</div>
+<button class="exp-btn" data-t="ch3-s3-q9">解析</button><div class="exp" id="e-ch3-s3-q9"><b>答案：</b>參考答案：因為太陽在天空中的位置會隨著時間改變（東→南→西），影子的方向和太陽相反，所以影子也跟著移動。<br><b>解析：</b>能寫出「太陽位置改變／地球自轉造成太陽看起來移動」，並連結到影子方向與太陽相反，即為完整答案。</div>
 </div>
-<div class="q" id="ch2-s3-q10">
+<div class="q" id="ch3-s3-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">如果要在校園中進行一整天的日影觀測，你會選擇什麼樣的地點？請說明理由。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch2-s3-q10">解析</button><div class="exp" id="e-ch2-s3-q10"><b>答案：</b>參考答案：選擇空曠、整天都晒得到太陽、地面平坦的地方，例如操場旁；因為若被樹或建築物遮住，中間就會量不到影子，資料會不完整。<br><b>解析：</b>觀測條件的控制是本單元重點：地點固定、地面水平、無遮蔽，並且每次都用同一根竿子、同樣的時間間隔記錄。</div>
+<button class="exp-btn" data-t="ch3-s3-q10">解析</button><div class="exp" id="e-ch3-s3-q10"><b>答案：</b>參考答案：選擇空曠、整天都晒得到太陽、地面平坦的地方，例如操場旁；因為若被樹或建築物遮住，中間就會量不到影子，資料會不完整。<br><b>解析：</b>觀測條件的控制是本單元重點：地點固定、地面水平、無遮蔽，並且每次都用同一根竿子、同樣的時間間隔記錄。</div>
 </div>
 </div>
-<div class="sec" id="ch2-s4">
-<div class="sec-head"><span class="pub">社會</span><span class="sec-t">2-4　社會　五年級上學期 第一次段考</span></div>
+<div class="sec" id="ch3-s4">
+<div class="sec-head"><span class="pub">社會</span><span class="sec-t">3-4　社會　五年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>第一單元 臺灣的位置與範圍／第二單元 臺灣的地形（位置、經緯線、五大地形、平原與盆地）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
-<div class="q" id="ch2-s4-q1">
+<div class="q" id="ch3-s4-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">臺灣位於亞洲大陸的哪一側？西邊隔著什麼海域與大陸相望？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>東南方；臺灣海峽</li>
@@ -891,9 +1335,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>正南方；巴士海峽</li>
 <li><span class="ol">(D)</span>東北方；南海</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s4-q1">解析</button><div class="exp" id="e-ch2-s4-q1"><b>答案：</b>(A)<br><b>解析：</b>臺灣位於亞洲大陸東南方、太平洋西岸，西邊隔著臺灣海峽與中國大陸相望；南邊隔巴士海峽與菲律賓相望。</div>
+<button class="exp-btn" data-t="ch3-s4-q1">解析</button><div class="exp" id="e-ch3-s4-q1"><b>答案：</b>(A)<br><b>解析：</b>臺灣位於亞洲大陸東南方、太平洋西岸，西邊隔著臺灣海峽與中國大陸相望；南邊隔巴士海峽與菲律賓相望。</div>
 </div>
-<div class="q" id="ch2-s4-q2">
+<div class="q" id="ch3-s4-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">通過臺灣的重要緯線是哪一條？它大約通過哪兩個縣市？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>赤道；臺南、高雄</li>
@@ -901,14 +1345,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>南回歸線；屏東、臺東</li>
 <li><span class="ol">(D)</span>北極圈；基隆、宜蘭</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s4-q2">解析</button><div class="exp" id="e-ch2-s4-q2"><b>答案：</b>(B)<br><b>解析：</b>北回歸線（約北緯 23.5 度）由西向東通過嘉義縣與花蓮縣，是劃分熱帶與亞熱帶的界線。</div>
+<button class="exp-btn" data-t="ch3-s4-q2">解析</button><div class="exp" id="e-ch3-s4-q2"><b>答案：</b>(B)<br><b>解析：</b>北回歸線（約北緯 23.5 度）由西向東通過嘉義縣與花蓮縣，是劃分熱帶與亞熱帶的界線。</div>
 </div>
-<div class="q" id="ch2-s4-q3">
+<div class="q" id="ch3-s4-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">臺灣的行政範圍除了臺灣本島之外，還包括澎湖群島、金門、馬祖，以及＿＿＿、＿＿＿等離島。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s4-q3">解析</button><div class="exp" id="e-ch2-s4-q3"><b>答案：</b>綠島、蘭嶼（釣魚臺列嶼、東沙、南沙等亦可）<br><b>解析：</b>我國的領土範圍包含臺灣本島與周邊眾多離島，各離島的位置、交通與生活方式都不相同。</div>
+<button class="exp-btn" data-t="ch3-s4-q3">解析</button><div class="exp" id="e-ch3-s4-q3"><b>答案：</b>綠島、蘭嶼（釣魚臺列嶼、東沙、南沙等亦可）<br><b>解析：</b>我國的領土範圍包含臺灣本島與周邊眾多離島，各離島的位置、交通與生活方式都不相同。</div>
 </div>
-<div class="q" id="ch2-s4-q4">
+<div class="q" id="ch3-s4-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">臺灣的五大地形中，面積比例<strong>最大</strong>的是哪一類？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>平原</li>
@@ -916,9 +1360,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>山地</li>
 <li><span class="ol">(D)</span>台地</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s4-q4">解析</button><div class="exp" id="e-ch2-s4-q4"><b>答案：</b>(C)<br><b>解析：</b>臺灣山地面積最大，山地加丘陵約占全島面積三分之二，平原主要集中在西部。</div>
+<button class="exp-btn" data-t="ch3-s4-q4">解析</button><div class="exp" id="e-ch3-s4-q4"><b>答案：</b>(C)<br><b>解析：</b>臺灣山地面積最大，山地加丘陵約占全島面積三分之二，平原主要集中在西部。</div>
 </div>
-<div class="q" id="ch2-s4-q5">
+<div class="q" id="ch3-s4-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">被稱為「臺灣屋脊」、縱貫南北的山脈是哪一條？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>中央山脈</li>
@@ -926,9 +1370,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>玉山山脈</li>
 <li><span class="ol">(D)</span>海岸山脈</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s4-q5">解析</button><div class="exp" id="e-ch2-s4-q5"><b>答案：</b>(A)<br><b>解析：</b>中央山脈由北到南縱貫臺灣，像屋脊一樣把臺灣分成東西兩部分，也是許多河川的分水嶺。</div>
+<button class="exp-btn" data-t="ch3-s4-q5">解析</button><div class="exp" id="e-ch3-s4-q5"><b>答案：</b>(A)<br><b>解析：</b>中央山脈由北到南縱貫臺灣，像屋脊一樣把臺灣分成東西兩部分，也是許多河川的分水嶺。</div>
 </div>
-<div class="q" id="ch2-s4-q6">
+<div class="q" id="ch3-s4-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">臺灣最高峰玉山的高度約為多少公尺？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>約 1952 公尺</li>
@@ -936,14 +1380,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>約 3952 公尺</li>
 <li><span class="ol">(D)</span>約 4952 公尺</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s4-q6">解析</button><div class="exp" id="e-ch2-s4-q6"><b>答案：</b>(C)<br><b>解析：</b>玉山主峰高約 3952 公尺，是臺灣也是東北亞的最高峰。</div>
+<button class="exp-btn" data-t="ch3-s4-q6">解析</button><div class="exp" id="e-ch3-s4-q6"><b>答案：</b>(C)<br><b>解析：</b>玉山主峰高約 3952 公尺，是臺灣也是東北亞的最高峰。</div>
 </div>
-<div class="q" id="ch2-s4-q7">
+<div class="q" id="ch3-s4-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">臺灣面積最大的平原是＿＿＿＿平原，主要分布在＿＿＿部地區。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s4-q7">解析</button><div class="exp" id="e-ch2-s4-q7"><b>答案：</b>嘉南、西<br><b>解析：</b>嘉南平原位於西部，由濁水溪、曾文溪等河川沖積而成，是臺灣重要的農業區。</div>
+<button class="exp-btn" data-t="ch3-s4-q7">解析</button><div class="exp" id="e-ch3-s4-q7"><b>答案：</b>嘉南、西<br><b>解析：</b>嘉南平原位於西部，由濁水溪、曾文溪等河川沖積而成，是臺灣重要的農業區。</div>
 </div>
-<div class="q" id="ch2-s4-q8">
+<div class="q" id="ch3-s4-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一個地方是<strong>盆地</strong>地形？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>臺北</li>
@@ -951,9 +1395,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>花蓮</li>
 <li><span class="ol">(D)</span>澎湖</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s4-q8">解析</button><div class="exp" id="e-ch2-s4-q8"><b>答案：</b>(A)<br><b>解析：</b>臺北盆地四周被山地圍繞、中間低平，是典型的盆地；臺中、埔里也是盆地地形。</div>
+<button class="exp-btn" data-t="ch3-s4-q8">解析</button><div class="exp" id="e-ch3-s4-q8"><b>答案：</b>(A)<br><b>解析：</b>臺北盆地四周被山地圍繞、中間低平，是典型的盆地；臺中、埔里也是盆地地形。</div>
 </div>
-<div class="q" id="ch2-s4-q9">
+<div class="q" id="ch3-s4-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">臺灣西部有較多平原與台地，東部則多高山逼近海岸。這樣的地形差異，對人口分布造成什麼影響？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>西部人口較多、都市較密集</li>
@@ -961,18 +1405,18 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>東西部人口一樣多</li>
 <li><span class="ol">(D)</span>地形與人口分布無關</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s4-q9">解析</button><div class="exp" id="e-ch2-s4-q9"><b>答案：</b>(A)<br><b>解析：</b>平原地勢平坦、交通方便、易於耕作與建設，因此西部人口稠密、都市集中；東部因山地多、平地少，人口相對較少。</div>
+<button class="exp-btn" data-t="ch3-s4-q9">解析</button><div class="exp" id="e-ch3-s4-q9"><b>答案：</b>(A)<br><b>解析：</b>平原地勢平坦、交通方便、易於耕作與建設，因此西部人口稠密、都市集中；東部因山地多、平地少，人口相對較少。</div>
 </div>
-<div class="q" id="ch2-s4-q10">
+<div class="q" id="ch3-s4-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">住在山地和住在平原的居民，生活方式可能有什麼不同？請寫出兩點。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch2-s4-q10">解析</button><div class="exp" id="e-ch2-s4-q10"><b>答案：</b>參考答案：（1）山地居民多從事林業、觀光或種植高冷蔬菜、茶葉，平原居民多從事稻作、養殖或工商業；（2）山地聚落規模小、交通較不便，平原聚落較大、交通網密集。<br><b>解析：</b>這題考「地形影響人類活動」。從產業、交通、聚落規模、氣候感受等任兩個面向作答皆可。</div>
+<button class="exp-btn" data-t="ch3-s4-q10">解析</button><div class="exp" id="e-ch3-s4-q10"><b>答案：</b>參考答案：（1）山地居民多從事林業、觀光或種植高冷蔬菜、茶葉，平原居民多從事稻作、養殖或工商業；（2）山地聚落規模小、交通較不便，平原聚落較大、交通網密集。<br><b>解析：</b>這題考「地形影響人類活動」。從產業、交通、聚落規模、氣候感受等任兩個面向作答皆可。</div>
 </div>
 </div>
-<div class="sec" id="ch2-s5">
-<div class="sec-head"><span class="pub">英語</span><span class="sec-t">2-5　英語　五年級上學期 第一次段考</span></div>
+<div class="sec" id="ch3-s5">
+<div class="sec-head"><span class="pub">英語</span><span class="sec-t">3-5　英語　五年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>現在進行式、日常活動動詞片語、What are you doing? 問答　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
-<div class="q" id="ch2-s5-q1">
+<div class="q" id="ch3-s5-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">A: What are you doing?　B: ＿＿＿＿</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>I'm doing my homework.</li>
@@ -980,9 +1424,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>I'm homework.</li>
 <li><span class="ol">(D)</span>Yes, I am doing.</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s5-q1">解析</button><div class="exp" id="e-ch2-s5-q1"><b>答案：</b>(A)<br><b>解析：</b>問「你正在做什麼」，要用現在進行式 I'm＋動詞-ing 回答。第二句是現在簡單式，不能用來回答「正在」。</div>
+<button class="exp-btn" data-t="ch3-s5-q1">解析</button><div class="exp" id="e-ch3-s5-q1"><b>答案：</b>(A)<br><b>解析：</b>問「你正在做什麼」，要用現在進行式 I'm＋動詞-ing 回答。第二句是現在簡單式，不能用來回答「正在」。</div>
 </div>
-<div class="q" id="ch2-s5-q2">
+<div class="q" id="ch3-s5-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">He ＿＿ playing basketball on the playground.</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>am</li>
@@ -990,14 +1434,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>are</li>
 <li><span class="ol">(D)</span>be</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s5-q2">解析</button><div class="exp" id="e-ch2-s5-q2"><b>答案：</b>(B)<br><b>解析：</b>主詞是 He（第三人稱單數），be 動詞要用 is。I 用 am；You/We/They 用 are。</div>
+<button class="exp-btn" data-t="ch3-s5-q2">解析</button><div class="exp" id="e-ch3-s5-q2"><b>答案：</b>(B)<br><b>解析：</b>主詞是 He（第三人稱單數），be 動詞要用 is。I 用 am；You/We/They 用 are。</div>
 </div>
-<div class="q" id="ch2-s5-q3">
+<div class="q" id="ch3-s5-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出動詞的 -ing 形式：swim → ＿＿＿＿＿；run → ＿＿＿＿＿</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s5-q3">解析</button><div class="exp" id="e-ch2-s5-q3"><b>答案：</b>swimming、running<br><b>解析：</b>單音節「子音＋母音＋子音」結尾的動詞，要<strong>重複字尾子音</strong>再加 -ing，所以是 swimming、running。</div>
+<button class="exp-btn" data-t="ch3-s5-q3">解析</button><div class="exp" id="e-ch3-s5-q3"><b>答案：</b>swimming、running<br><b>解析：</b>單音節「子音＋母音＋子音」結尾的動詞，要<strong>重複字尾子音</strong>再加 -ing，所以是 swimming、running。</div>
 </div>
-<div class="q" id="ch2-s5-q4">
+<div class="q" id="ch3-s5-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">看圖回答（圖：一個女孩正在讀書）。A: What is she doing?　B: ＿＿＿＿</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>She is reading a book.</li>
@@ -1005,9 +1449,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>She is a book.</li>
 <li><span class="ol">(D)</span>He is reading a book.</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s5-q4">解析</button><div class="exp" id="e-ch2-s5-q4"><b>答案：</b>(A)<br><b>解析：</b>主詞是女生用 She，動作正在進行用 is＋reading。要注意主詞的性別和 be 動詞的一致。</div>
+<button class="exp-btn" data-t="ch3-s5-q4">解析</button><div class="exp" id="e-ch3-s5-q4"><b>答案：</b>(A)<br><b>解析：</b>主詞是女生用 She，動作正在進行用 is＋reading。要注意主詞的性別和 be 動詞的一致。</div>
 </div>
-<div class="q" id="ch2-s5-q5">
+<div class="q" id="ch3-s5-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一個句子<strong>沒有</strong>錯誤？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>They are watch TV.</li>
@@ -1015,14 +1459,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>They watching TV.</li>
 <li><span class="ol">(D)</span>They is watching TV.</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s5-q5">解析</button><div class="exp" id="e-ch2-s5-q5"><b>答案：</b>(B)<br><b>解析：</b>現在進行式的公式是「be 動詞＋動詞-ing」，兩個部分缺一不可，而 They 要搭配 are。</div>
+<button class="exp-btn" data-t="ch3-s5-q5">解析</button><div class="exp" id="e-ch3-s5-q5"><b>答案：</b>(B)<br><b>解析：</b>現在進行式的公式是「be 動詞＋動詞-ing」，兩個部分缺一不可，而 They 要搭配 are。</div>
 </div>
-<div class="q" id="ch2-s5-q6">
+<div class="q" id="ch3-s5-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">請把句子改成現在進行式：I eat lunch. → ＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s5-q6">解析</button><div class="exp" id="e-ch2-s5-q6"><b>答案：</b>I am eating lunch.<br><b>解析：</b>把動詞 eat 改成 eating，並在主詞 I 後面加上 am。注意 eat 是 e 結尾但不去 e（去 e 的例子是 make→making）。</div>
+<button class="exp-btn" data-t="ch3-s5-q6">解析</button><div class="exp" id="e-ch3-s5-q6"><b>答案：</b>I am eating lunch.<br><b>解析：</b>把動詞 eat 改成 eating，並在主詞 I 後面加上 am。注意 eat 是 e 結尾但不去 e（去 e 的例子是 make→making）。</div>
 </div>
-<div class="q" id="ch2-s5-q7">
+<div class="q" id="ch3-s5-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">A: Are you listening to music?　B: ＿＿＿＿（你正在聽）</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>Yes, I am.</li>
@@ -1030,9 +1474,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>No, I am.</li>
 <li><span class="ol">(D)</span>Yes, you are.</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s5-q7">解析</button><div class="exp" id="e-ch2-s5-q7"><b>答案：</b>(A)<br><b>解析：</b>以 be 動詞開頭的問句，要用 be 動詞回答：肯定 Yes, I am.；否定 No, I'm not.</div>
+<button class="exp-btn" data-t="ch3-s5-q7">解析</button><div class="exp" id="e-ch3-s5-q7"><b>答案：</b>(A)<br><b>解析：</b>以 be 動詞開頭的問句，要用 be 動詞回答：肯定 Yes, I am.；否定 No, I'm not.</div>
 </div>
-<div class="q" id="ch2-s5-q8">
+<div class="q" id="ch3-s5-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一組「動詞＋-ing」的拼法<strong>正確</strong>？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>make → makeing</li>
@@ -1040,27 +1484,27 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>write → writing</li>
 <li><span class="ol">(D)</span>sit → siting</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s5-q8">解析</button><div class="exp" id="e-ch2-s5-q8"><b>答案：</b>(C)<br><b>解析：</b>字尾是不發音 e 的動詞要<strong>去 e 再加 ing</strong>（write→writing、make→making、take→taking）；sit 則要重複子音成 sitting。</div>
+<button class="exp-btn" data-t="ch3-s5-q8">解析</button><div class="exp" id="e-ch3-s5-q8"><b>答案：</b>(C)<br><b>解析：</b>字尾是不發音 e 的動詞要<strong>去 e 再加 ing</strong>（write→writing、make→making、take→taking）；sit 則要重複子音成 sitting。</div>
 </div>
-<div class="q" id="ch2-s5-q9">
+<div class="q" id="ch3-s5-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">請寫出中文意思：My brother is riding a bike in the park. →＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s5-q9">解析</button><div class="exp" id="e-ch2-s5-q9"><b>答案：</b>我哥哥（弟弟）正在公園裡騎腳踏車。<br><b>解析：</b>ride a bike＝騎腳踏車，in the park＝在公園裡。翻譯時要把「正在」翻出來，才符合進行式的語氣。</div>
+<button class="exp-btn" data-t="ch3-s5-q9">解析</button><div class="exp" id="e-ch3-s5-q9"><b>答案：</b>我哥哥（弟弟）正在公園裡騎腳踏車。<br><b>解析：</b>ride a bike＝騎腳踏車，in the park＝在公園裡。翻譯時要把「正在」翻出來，才符合進行式的語氣。</div>
 </div>
-<div class="q" id="ch2-s5-q10">
+<div class="q" id="ch3-s5-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">請用現在進行式描述你現在正在做的事（寫出一個完整句子）。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch2-s5-q10">解析</button><div class="exp" id="e-ch2-s5-q10"><b>答案：</b>參考答案：I am taking a test.（也可以寫 I am writing. / I am sitting in the classroom.）<br><b>解析：</b>評分重點：主詞正確、be 動詞與主詞一致、動詞加 -ing、句首大寫、句末句點。</div>
+<button class="exp-btn" data-t="ch3-s5-q10">解析</button><div class="exp" id="e-ch3-s5-q10"><b>答案：</b>參考答案：I am taking a test.（也可以寫 I am writing. / I am sitting in the classroom.）<br><b>解析：</b>評分重點：主詞正確、be 動詞與主詞一致、動詞加 -ing、句首大寫、句末句點。</div>
 </div>
 </div>
 </section>
-<section class="sheet chap" id="ch3">
-<div class="chap-head"><div class="chap-n">第 3 章</div><h2 class="chap-t">六年級上學期 第一次段考</h2><div class="chap-s">國語／數學／自然／社會／英語　共 51 題</div></div>
+<section class="sheet chap" id="ch4">
+<div class="chap-head"><div class="chap-n">第 4 章</div><h2 class="chap-t">六年級上學期 第一次段考</h2><div class="chap-s">國語／數學／自然／社會／英語　共 51 題</div></div>
 <div class="chap-intro">本章是 <strong>康軒版六年級上學期第一次段考</strong>的全科練習，每一節（國語／數學／自然／社會／英語）都可以單獨當成一份小考使用。各節開頭都標示了對應單元，若貴班進度不同，直接略過該節即可。</div>
-<div class="sec" id="ch3-s1">
-<div class="sec-head"><span class="pub">國語</span><span class="sec-t">3-1　國語　六年級上學期 第一次段考</span></div>
+<div class="sec" id="ch4-s1">
+<div class="sec-head"><span class="pub">國語</span><span class="sec-t">4-1　國語　六年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>第一～四課；記敘與議論類課文（形音義、成語、修辭綜合、語病、閱讀理解）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
-<div class="q" id="ch3-s1-q1">
+<div class="q" id="ch4-s1-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音<strong>正確</strong>的是哪一個？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>自怨自「艾」ㄧˋ</li>
@@ -1068,9 +1512,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>「一」鼓作氣 ㄧˊ</li>
 <li><span class="ol">(D)</span>「模」稜兩可 ㄇㄨˊ</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s1-q1">解析</button><div class="exp" id="e-ch3-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>自怨自艾的「艾」在此讀ㄧˋ（改正、治理之意），不讀ㄞˋ。相形見絀的相讀ㄒㄧㄤ、一鼓作氣的一讀ㄧˋ、模稜兩可的模讀ㄇㄛˊ。</div>
+<button class="exp-btn" data-t="ch4-s1-q1">解析</button><div class="exp" id="e-ch4-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>自怨自艾的「艾」在此讀ㄧˋ（改正、治理之意），不讀ㄞˋ。相形見絀的相讀ㄒㄧㄤ、一鼓作氣的一讀ㄧˋ、模稜兩可的模讀ㄇㄛˊ。</div>
 </div>
-<div class="q" id="ch3-s1-q2">
+<div class="q" id="ch4-s1-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>殷鑑不遠</li>
@@ -1078,14 +1522,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>負偶頑抗</li>
 <li><span class="ol">(D)</span>如火如塗</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s1-q2">解析</button><div class="exp" id="e-ch3-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>走頭無路→走投無路（投，投奔）；負偶頑抗→負隅頑抗（隅，角落）；如火如塗→如火如荼（荼，白色茅草花）。只有「殷鑑不遠」正確。</div>
+<button class="exp-btn" data-t="ch4-s1-q2">解析</button><div class="exp" id="e-ch4-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>走頭無路→走投無路（投，投奔）；負偶頑抗→負隅頑抗（隅，角落）；如火如塗→如火如荼（荼，白色茅草花）。只有「殷鑑不遠」正確。</div>
 </div>
-<div class="q" id="ch3-s1-q3">
+<div class="q" id="ch4-s1-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：面對輿論的ㄓˊ　ㄧˊ（　　），他選擇以行動ㄏㄨㄟˊ　ㄧㄥˋ（　　）。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s1-q3">解析</button><div class="exp" id="e-ch3-s1-q3"><b>答案：</b>質疑、回應<br><b>解析：</b>「質疑」的質是提出問題；「回應」的應讀ㄧㄥˋ（回答之意），不要寫成「回映」。</div>
+<button class="exp-btn" data-t="ch4-s1-q3">解析</button><div class="exp" id="e-ch4-s1-q3"><b>答案：</b>質疑、回應<br><b>解析：</b>「質疑」的質是提出問題；「回應」的應讀ㄧㄥˋ（回答之意），不要寫成「回映」。</div>
 </div>
-<div class="q" id="ch3-s1-q4">
+<div class="q" id="ch4-s1-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">「時間是一把無情的刻刀，在每個人臉上留下痕跡。」這句話主要使用了什麼修辭？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>譬喻兼擬人</li>
@@ -1093,9 +1537,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>排比</li>
 <li><span class="ol">(D)</span>類疊</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s1-q4">解析</button><div class="exp" id="e-ch3-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>把時間比作「刻刀」是譬喻；說它「無情」並會「留下痕跡」則帶有擬人的意味，屬於譬喻與擬人的綜合運用。</div>
+<button class="exp-btn" data-t="ch4-s1-q4">解析</button><div class="exp" id="e-ch4-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>把時間比作「刻刀」是譬喻；說它「無情」並會「留下痕跡」則帶有擬人的意味，屬於譬喻與擬人的綜合運用。</div>
 </div>
-<div class="q" id="ch3-s1-q5">
+<div class="q" id="ch4-s1-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一句<strong>有語病</strong>，需要修改？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>為了避免不再發生意外，學校加強了安全宣導。</li>
@@ -1103,9 +1547,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>學校加強安全宣導，以免意外再度發生。</li>
 <li><span class="ol">(D)</span>學校為了防止意外再度發生，加強了安全宣導。</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s1-q5">解析</button><div class="exp" id="e-ch3-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>「避免」和「不再」都含否定，兩個否定疊在一起意思會相反（變成希望意外發生）。應改為「避免再發生意外」。</div>
+<button class="exp-btn" data-t="ch4-s1-q5">解析</button><div class="exp" id="e-ch4-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>「避免」和「不再」都含否定，兩個否定疊在一起意思會相反（變成希望意外發生）。應改為「避免再發生意外」。</div>
 </div>
-<div class="q" id="ch3-s1-q6">
+<div class="q" id="ch4-s1-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">「他一向謙沖自牧，即使獲獎無數，也從不（　　）。」括號中填入哪一個成語最恰當？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>自命不凡</li>
@@ -1113,14 +1557,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>精益求精</li>
 <li><span class="ol">(D)</span>不以為然</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s1-q6">解析</button><div class="exp" id="e-ch3-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>前面說他謙虛，後面用「也從不」帶出相反的行為，要填自誇自大的詞，「自命不凡」正合。實至名歸是稱讚、精益求精是追求更好，都不合語意。</div>
+<button class="exp-btn" data-t="ch4-s1-q6">解析</button><div class="exp" id="e-ch4-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>前面說他謙虛，後面用「也從不」帶出相反的行為，要填自誇自大的詞，「自命不凡」正合。實至名歸是稱讚、精益求精是追求更好，都不合語意。</div>
 </div>
-<div class="q" id="ch3-s1-q7">
+<div class="q" id="ch4-s1-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">請填入合適的關聯詞語：（　　　）我們願意改變習慣，減塑（　　　）不再只是口號。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s1-q7">解析</button><div class="exp" id="e-ch3-s1-q7"><b>答案：</b>只要、就（或：如果、才）<br><b>解析：</b>這是條件關係：前句提出條件，後句說出結果，可用「只要……就……」。若強調唯一條件，也可用「唯有……才……」。</div>
+<button class="exp-btn" data-t="ch4-s1-q7">解析</button><div class="exp" id="e-ch4-s1-q7"><b>答案：</b>只要、就（或：如果、才）<br><b>解析：</b>這是條件關係：前句提出條件，後句說出結果，可用「只要……就……」。若強調唯一條件，也可用「唯有……才……」。</div>
 </div>
-<div class="q" id="ch3-s1-q8">
+<div class="q" id="ch4-s1-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">下列各組詞語，<strong>意思相反</strong>的是哪一組？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>含蓄／直率</li>
@@ -1128,15 +1572,15 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>矛盾／衝突</li>
 <li><span class="ol">(D)</span>豁達／開朗</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s1-q8">解析</button><div class="exp" id="e-ch3-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>含蓄是不直接說出，直率是有話直說，兩者相反。其餘三組都是意思相近的詞。</div>
+<button class="exp-btn" data-t="ch4-s1-q8">解析</button><div class="exp" id="e-ch4-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>含蓄是不直接說出，直率是有話直說，兩者相反。其餘三組都是意思相近的詞。</div>
 </div>
-<div class="q" id="ch3-s1-q9">
+<div class="q" id="ch4-s1-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">請把下面的句子改成<strong>不改變原意</strong>的另一種說法（句型變換）：　沒有人不被他的毅力所感動。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch3-s1-q9">解析</button><div class="exp" id="e-ch3-s1-q9"><b>答案：</b>參考答案：每個人都被他的毅力感動。<br><b>解析：</b>「沒有人不……」是雙重否定，等於全部肯定。改寫時要把語氣拉平但意思不變。</div>
+<button class="exp-btn" data-t="ch4-s1-q9">解析</button><div class="exp" id="e-ch4-s1-q9"><b>答案：</b>參考答案：每個人都被他的毅力感動。<br><b>解析：</b>「沒有人不……」是雙重否定，等於全部肯定。改寫時要把語氣拉平但意思不變。</div>
 </div>
 <div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　有人主張，學校應該全面禁止學生攜帶手機；也有人認為，與其禁止，不如教會學生怎麼使用。<br>　　支持禁止的人指出，手機讓學生分心，也讓校園霸凌更容易發生。主張開放的人則回應：問題不在工具，而在使用的方式；把手機收走，並不會讓孩子自然學會自律，反而失去在有人指導時練習的機會。<br>　　真正的關鍵，或許不是「能不能帶」，而是「學校有沒有教」。一項規定若只有禁止而沒有教導，往往只是把問題推遲到孩子離開校園的那一天。</div></div>
-<div class="q" id="ch3-s1-q10">
+<div class="q" id="ch4-s1-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">本文對於「學校是否禁止手機」的立場，最接近下列哪一項？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>完全支持全面禁止</li>
@@ -1144,9 +1588,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>主張學生應該無限制使用手機</li>
 <li><span class="ol">(D)</span>認為手機和學習完全無關</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s1-q10">解析</button><div class="exp" id="e-ch3-s1-q10"><b>答案：</b>(B)<br><b>解析：</b>最後一段是主旨句：「真正的關鍵，或許不是能不能帶，而是學校有沒有教」，作者把重點放在教導而非禁止。</div>
+<button class="exp-btn" data-t="ch4-s1-q10">解析</button><div class="exp" id="e-ch4-s1-q10"><b>答案：</b>(B)<br><b>解析：</b>最後一段是主旨句：「真正的關鍵，或許不是能不能帶，而是學校有沒有教」，作者把重點放在教導而非禁止。</div>
 </div>
-<div class="q" id="ch3-s1-q11">
+<div class="q" id="ch4-s1-q11">
 <div class="q-h"><span class="q-n">11</span><span class="q-t">文中「把問題推遲到孩子離開校園的那一天」這句話的意思是什麼？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>問題會自動消失</li>
@@ -1154,13 +1598,13 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>孩子畢業後就不會用手機</li>
 <li><span class="ol">(D)</span>學校不需要負任何責任</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s1-q11">解析</button><div class="exp" id="e-ch3-s1-q11"><b>答案：</b>(B)<br><b>解析：</b>「推遲」是往後延，作者指出只禁止不教導，孩子離開學校後仍然不會使用，問題並未解決。</div>
+<button class="exp-btn" data-t="ch4-s1-q11">解析</button><div class="exp" id="e-ch4-s1-q11"><b>答案：</b>(B)<br><b>解析：</b>「推遲」是往後延，作者指出只禁止不教導，孩子離開學校後仍然不會使用，問題並未解決。</div>
 </div>
 </div>
-<div class="sec" id="ch3-s2">
-<div class="sec-head"><span class="pub">數學</span><span class="sec-t">3-2　數學　六年級上學期 第一次段考</span></div>
+<div class="sec" id="ch4-s2">
+<div class="sec-head"><span class="pub">數學</span><span class="sec-t">4-2　數學　六年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>第一單元 分數的除法／第二單元 小數的除法／第三單元 比與比值　<b>配分</b>選擇每題 7 分、填充每格 7 分、計算與應用每題 12 分</div>
-<div class="q" id="ch3-s2-q1">
+<div class="q" id="ch4-s2-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">6 ÷ (1/3) 的答案是多少？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>2</li>
@@ -1168,19 +1612,19 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>1/18</li>
 <li><span class="ol">(D)</span>6/3</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s2-q1">解析</button><div class="exp" id="e-ch3-s2-q1"><b>答案：</b>(B)<br><b>解析：</b>除以 1/3 等於乘以它的倒數 3，所以 6÷(1/3)＝6×3＝18。可以想成「6 個 1 裡面有幾個 1/3」，答案當然比 6 大。</div>
+<button class="exp-btn" data-t="ch4-s2-q1">解析</button><div class="exp" id="e-ch4-s2-q1"><b>答案：</b>(B)<br><b>解析：</b>除以 1/3 等於乘以它的倒數 3，所以 6÷(1/3)＝6×3＝18。可以想成「6 個 1 裡面有幾個 1/3」，答案當然比 6 大。</div>
 </div>
-<div class="q" id="ch3-s2-q2">
+<div class="q" id="ch4-s2-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">計算並化成最簡：(3/4) ÷ (2/5) ＝ ＿＿＿＿＿</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s2-q2">解析</button><div class="exp" id="e-ch3-s2-q2"><b>答案：</b>15/8（＝1又7/8）<br><b>解析：</b>(3/4)÷(2/5)＝(3/4)×(5/2)＝15/8，已是最簡分數，也可寫成帶分數 1又7/8。</div>
+<button class="exp-btn" data-t="ch4-s2-q2">解析</button><div class="exp" id="e-ch4-s2-q2"><b>答案：</b>15/8（＝1又7/8）<br><b>解析：</b>(3/4)÷(2/5)＝(3/4)×(5/2)＝15/8，已是最簡分數，也可寫成帶分數 1又7/8。</div>
 </div>
-<div class="q" id="ch3-s2-q3">
+<div class="q" id="ch4-s2-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">計算：2又1/2 ÷ (3/4) ＝ ？（答案化成最簡）</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch3-s2-q3">解析</button><div class="exp" id="e-ch3-s2-q3"><b>答案：</b>10/3（＝3又1/3）<br><b>解析：</b>先把帶分數化成假分數：2又1/2＝5/2。5/2÷3/4＝5/2×4/3＝20/6＝10/3＝3又1/3。</div>
+<button class="exp-btn" data-t="ch4-s2-q3">解析</button><div class="exp" id="e-ch4-s2-q3"><b>答案：</b>10/3（＝3又1/3）<br><b>解析：</b>先把帶分數化成假分數：2又1/2＝5/2。5/2÷3/4＝5/2×4/3＝20/6＝10/3＝3又1/3。</div>
 </div>
-<div class="q" id="ch3-s2-q4">
+<div class="q" id="ch4-s2-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">7.2 ÷ 0.8 ＝ ？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>0.9</li>
@@ -1188,14 +1632,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>90</li>
 <li><span class="ol">(D)</span>0.09</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s2-q4">解析</button><div class="exp" id="e-ch3-s2-q4"><b>答案：</b>(B)<br><b>解析：</b>把除數 0.8 變成 8（小數點右移一位），被除數 7.2 也右移一位變成 72，72÷8＝9。</div>
+<button class="exp-btn" data-t="ch4-s2-q4">解析</button><div class="exp" id="e-ch4-s2-q4"><b>答案：</b>(B)<br><b>解析：</b>把除數 0.8 變成 8（小數點右移一位），被除數 7.2 也右移一位變成 72，72÷8＝9。</div>
 </div>
-<div class="q" id="ch3-s2-q5">
+<div class="q" id="ch4-s2-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">計算：4.32 ÷ 1.2 ＝ ？</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch3-s2-q5">解析</button><div class="exp" id="e-ch3-s2-q5"><b>答案：</b>3.6<br><b>解析：</b>除數右移一位變 12，被除數同步右移一位變 43.2，43.2÷12＝3.6。可用 3.6×1.2＝4.32 驗算。</div>
+<button class="exp-btn" data-t="ch4-s2-q5">解析</button><div class="exp" id="e-ch4-s2-q5"><b>答案：</b>3.6<br><b>解析：</b>除數右移一位變 12，被除數同步右移一位變 43.2，43.2÷12＝3.6。可用 3.6×1.2＝4.32 驗算。</div>
 </div>
-<div class="q" id="ch3-s2-q6">
+<div class="q" id="ch4-s2-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">12 : 16 的比值是多少？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>3/4</li>
@@ -1203,33 +1647,33 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>12/16 不能再化簡</li>
 <li><span class="ol">(D)</span>16/12</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s2-q6">解析</button><div class="exp" id="e-ch3-s2-q6"><b>答案：</b>(A)<br><b>解析：</b>比值＝前項÷後項＝12÷16＝12/16＝3/4（也可寫成 0.75）。注意比值是一個數，不是比。</div>
+<button class="exp-btn" data-t="ch4-s2-q6">解析</button><div class="exp" id="e-ch4-s2-q6"><b>答案：</b>(A)<br><b>解析：</b>比值＝前項÷後項＝12÷16＝12/16＝3/4（也可寫成 0.75）。注意比值是一個數，不是比。</div>
 </div>
-<div class="q" id="ch3-s2-q7">
+<div class="q" id="ch4-s2-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">把 0.5 : 1.5 化成<strong>最簡整數比</strong>：＿＿＿＿＿</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s2-q7">解析</button><div class="exp" id="e-ch3-s2-q7"><b>答案：</b>1 : 3<br><b>解析：</b>兩項同時乘 10 變成 5 : 15，再同時除以 5 得 1 : 3。化簡比時前後項要做同樣的乘或除。</div>
+<button class="exp-btn" data-t="ch4-s2-q7">解析</button><div class="exp" id="e-ch4-s2-q7"><b>答案：</b>1 : 3<br><b>解析：</b>兩項同時乘 10 變成 5 : 15，再同時除以 5 得 1 : 3。化簡比時前後項要做同樣的乘或除。</div>
 </div>
-<div class="q" id="ch3-s2-q8">
+<div class="q" id="ch4-s2-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">一條繩子長 9/10 公尺，每 3/20 公尺剪成一段，可以剪成幾段？</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch3-s2-q8">解析</button><div class="exp" id="e-ch3-s2-q8"><b>答案：</b>6 段<br><b>解析：</b>(9/10)÷(3/20)＝(9/10)×(20/3)＝180/30＝6（段）。這是「包含除」：問大的裡面有幾個小的。</div>
+<button class="exp-btn" data-t="ch4-s2-q8">解析</button><div class="exp" id="e-ch4-s2-q8"><b>答案：</b>6 段<br><b>解析：</b>(9/10)÷(3/20)＝(9/10)×(20/3)＝180/30＝6（段）。這是「包含除」：問大的裡面有幾個小的。</div>
 </div>
-<div class="q" id="ch3-s2-q9">
+<div class="q" id="ch4-s2-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">媽媽買了 2.5 公斤的蘋果，共花 187.5 元。每公斤蘋果多少元？</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch3-s2-q9">解析</button><div class="exp" id="e-ch3-s2-q9"><b>答案：</b>75 元<br><b>解析：</b>187.5÷2.5＝1875÷25＝75（元）。除數與被除數同時乘 10，答案不變。</div>
+<button class="exp-btn" data-t="ch4-s2-q9">解析</button><div class="exp" id="e-ch4-s2-q9"><b>答案：</b>75 元<br><b>解析：</b>187.5÷2.5＝1875÷25＝75（元）。除數與被除數同時乘 10，答案不變。</div>
 </div>
-<div class="q" id="ch3-s2-q10">
+<div class="q" id="ch4-s2-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">調果汁時，濃縮汁和水要以 2 : 5 的比混合。如果用了 8 杯濃縮汁，需要加幾杯水？</span></div>
 <div class="workbox"><span class="wb-tag">計算/作答區</span></div>
-<button class="exp-btn" data-t="ch3-s2-q10">解析</button><div class="exp" id="e-ch3-s2-q10"><b>答案：</b>20 杯<br><b>解析：</b>2 : 5 ＝ 8 : ？，前項由 2 變成 8 是乘 4，後項也要乘 4，5×4＝20（杯）。</div>
+<button class="exp-btn" data-t="ch4-s2-q10">解析</button><div class="exp" id="e-ch4-s2-q10"><b>答案：</b>20 杯<br><b>解析：</b>2 : 5 ＝ 8 : ？，前項由 2 變成 8 是乘 4，後項也要乘 4，5×4＝20（杯）。</div>
 </div>
 </div>
-<div class="sec" id="ch3-s3">
-<div class="sec-head"><span class="pub">自然</span><span class="sec-t">3-3　自然　六年級上學期 第一次段考</span></div>
+<div class="sec" id="ch4-s3">
+<div class="sec-head"><span class="pub">自然</span><span class="sec-t">4-3　自然　六年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>第一單元 多變的天氣（氣象要素、觀測工具與百葉箱、氣團與鋒面、颱風）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
-<div class="q" id="ch3-s3-q1">
+<div class="q" id="ch4-s3-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一項<strong>不是</strong>描述天氣狀況的氣象要素？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>氣溫</li>
@@ -1237,9 +1681,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>雨量</li>
 <li><span class="ol">(D)</span>地震規模</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s3-q1">解析</button><div class="exp" id="e-ch3-s3-q1"><b>答案：</b>(D)<br><b>解析：</b>氣象要素包括氣溫、濕度、風向風速、雨量、氣壓與雲量。地震規模屬於地質現象，與天氣無關。</div>
+<button class="exp-btn" data-t="ch4-s3-q1">解析</button><div class="exp" id="e-ch4-s3-q1"><b>答案：</b>(D)<br><b>解析：</b>氣象要素包括氣溫、濕度、風向風速、雨量、氣壓與雲量。地震規模屬於地質現象，與天氣無關。</div>
 </div>
-<div class="q" id="ch3-s3-q2">
+<div class="q" id="ch4-s3-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">氣象站的百葉箱漆成白色、四面做成百葉狀，主要目的是什麼？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>讓箱內通風並避免陽光直接照射，測得準確氣溫</li>
@@ -1247,14 +1691,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>避免動物進入</li>
 <li><span class="ol">(D)</span>增加箱子的重量</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s3-q2">解析</button><div class="exp" id="e-ch3-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>白色可反射陽光、百葉可通風，使箱內空氣與外界相通卻不被直射，量到的才是真正的氣溫。百葉箱通常離地約 1.5 公尺、門朝北開。</div>
+<button class="exp-btn" data-t="ch4-s3-q2">解析</button><div class="exp" id="e-ch4-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>白色可反射陽光、百葉可通風，使箱內空氣與外界相通卻不被直射，量到的才是真正的氣溫。百葉箱通常離地約 1.5 公尺、門朝北開。</div>
 </div>
-<div class="q" id="ch3-s3-q3">
+<div class="q" id="ch4-s3-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">氣象觀測中，測量雨量的工具是＿＿＿＿＿；測量風從哪個方向吹來的工具是＿＿＿＿＿。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s3-q3">解析</button><div class="exp" id="e-ch3-s3-q3"><b>答案：</b>雨量筒（雨量計）、風向計<br><b>解析：</b>雨量以毫米（mm）為單位；風速另以風速計測量，單位常用公尺／秒。</div>
+<button class="exp-btn" data-t="ch4-s3-q3">解析</button><div class="exp" id="e-ch4-s3-q3"><b>答案：</b>雨量筒（雨量計）、風向計<br><b>解析：</b>雨量以毫米（mm）為單位；風速另以風速計測量，單位常用公尺／秒。</div>
 </div>
-<div class="q" id="ch3-s3-q4">
+<div class="q" id="ch4-s3-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">氣象報告說「今天吹北風」，這是什麼意思？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>風從北方吹來</li>
@@ -1262,9 +1706,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>風在北方繞圈</li>
 <li><span class="ol">(D)</span>北部才有風</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s3-q4">解析</button><div class="exp" id="e-ch3-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>風向的命名以「風吹來的方向」為準，北風就是從北方吹向南方的風。</div>
+<button class="exp-btn" data-t="ch4-s3-q4">解析</button><div class="exp" id="e-ch4-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>風向的命名以「風吹來的方向」為準，北風就是從北方吹向南方的風。</div>
 </div>
-<div class="q" id="ch3-s3-q5">
+<div class="q" id="ch4-s3-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">冷鋒過境時，天氣通常會出現什麼變化？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>氣溫下降、常伴隨短時強降雨</li>
@@ -1272,9 +1716,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>完全沒有變化</li>
 <li><span class="ol">(D)</span>只會下雪不會下雨</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s3-q5">解析</button><div class="exp" id="e-ch3-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>冷空氣推向暖空氣，把暖空氣抬升，水氣凝結成雲致雨，過境後氣溫明顯下降、氣壓上升、風向改變。</div>
+<button class="exp-btn" data-t="ch4-s3-q5">解析</button><div class="exp" id="e-ch4-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>冷空氣推向暖空氣，把暖空氣抬升，水氣凝結成雲致雨，過境後氣溫明顯下降、氣壓上升、風向改變。</div>
 </div>
-<div class="q" id="ch3-s3-q6">
+<div class="q" id="ch4-s3-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">每年五、六月臺灣的梅雨，主要是由哪一種鋒面造成的？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>滯留鋒</li>
@@ -1282,14 +1726,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>暖鋒</li>
 <li><span class="ol">(D)</span>囚錮鋒</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s3-q6">解析</button><div class="exp" id="e-ch3-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>冷暖氣團勢力相當、鋒面在臺灣附近來回徘徊不易移動，稱為滯留鋒，容易造成連續多日的降雨。</div>
+<button class="exp-btn" data-t="ch4-s3-q6">解析</button><div class="exp" id="e-ch4-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>冷暖氣團勢力相當、鋒面在臺灣附近來回徘徊不易移動，稱為滯留鋒，容易造成連續多日的降雨。</div>
 </div>
-<div class="q" id="ch3-s3-q7">
+<div class="q" id="ch4-s3-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">颱風中心風速較小、天氣較好的區域稱為＿＿＿＿；在北半球，颱風的環流是以＿＿＿＿（順／逆）時針方向旋轉。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s3-q7">解析</button><div class="exp" id="e-ch3-s3-q7"><b>答案：</b>颱風眼、逆<br><b>解析：</b>颱風眼附近下沉氣流使雲量減少；北半球因地球自轉的偏向效應，低氣壓環流為逆時針旋轉。</div>
+<button class="exp-btn" data-t="ch4-s3-q7">解析</button><div class="exp" id="e-ch4-s3-q7"><b>答案：</b>颱風眼、逆<br><b>解析：</b>颱風眼附近下沉氣流使雲量減少；北半球因地球自轉的偏向效應，低氣壓環流為逆時針旋轉。</div>
 </div>
-<div class="q" id="ch3-s3-q8">
+<div class="q" id="ch4-s3-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">氣象局發布「陸上颱風警報」，代表什麼？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>颱風暴風圈可能在 18 小時內侵襲陸地</li>
@@ -1297,23 +1741,23 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>颱風只會影響海面</li>
 <li><span class="ol">(D)</span>可以照常到山區露營</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s3-q8">解析</button><div class="exp" id="e-ch3-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>海上警報是暴風圈可能在 24 小時內侵襲近海，陸上警報則是 18 小時內可能侵襲陸地，此時應完成防颱準備、避免前往山區與海邊。</div>
+<button class="exp-btn" data-t="ch4-s3-q8">解析</button><div class="exp" id="e-ch4-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>海上警報是暴風圈可能在 24 小時內侵襲近海，陸上警報則是 18 小時內可能侵襲陸地，此時應完成防颱準備、避免前往山區與海邊。</div>
 </div>
-<div class="q" id="ch3-s3-q9">
+<div class="q" id="ch4-s3-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">為什麼氣象觀測要「在固定時間、固定地點」進行？請說明理由。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch3-s3-q9">解析</button><div class="exp" id="e-ch3-s3-q9"><b>答案：</b>參考答案：因為天氣時時刻刻在變化，固定時間與地點才能排除其他因素的干擾，讓每天的資料可以互相比較，看出真正的變化趨勢。<br><b>解析：</b>這題考變因控制與資料的可比較性，是本單元的核心科學方法。</div>
+<button class="exp-btn" data-t="ch4-s3-q9">解析</button><div class="exp" id="e-ch4-s3-q9"><b>答案：</b>參考答案：因為天氣時時刻刻在變化，固定時間與地點才能排除其他因素的干擾，讓每天的資料可以互相比較，看出真正的變化趨勢。<br><b>解析：</b>這題考變因控制與資料的可比較性，是本單元的核心科學方法。</div>
 </div>
-<div class="q" id="ch3-s3-q10">
+<div class="q" id="ch4-s3-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">颱風來臨前，家裡可以做哪些防颱準備？請寫出<strong>三項</strong>。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch3-s3-q10">解析</button><div class="exp" id="e-ch3-s3-q10"><b>答案：</b>參考答案：（1）準備飲用水、乾糧、手電筒與電池；（2）檢查門窗並收好陽台的花盆與雜物；（3）清理排水孔、把車輛移到不會淹水的地方；（4）隨時注意氣象局的最新警報。（任三項）<br><b>解析：</b>防颱準備分為「防風」「防水」「備物資」「掌握資訊」四個方向，任舉三項具體做法即可。</div>
+<button class="exp-btn" data-t="ch4-s3-q10">解析</button><div class="exp" id="e-ch4-s3-q10"><b>答案：</b>參考答案：（1）準備飲用水、乾糧、手電筒與電池；（2）檢查門窗並收好陽台的花盆與雜物；（3）清理排水孔、把車輛移到不會淹水的地方；（4）隨時注意氣象局的最新警報。（任三項）<br><b>解析：</b>防颱準備分為「防風」「防水」「備物資」「掌握資訊」四個方向，任舉三項具體做法即可。</div>
 </div>
 </div>
-<div class="sec" id="ch3-s4">
-<div class="sec-head"><span class="pub">社會</span><span class="sec-t">3-4　社會　六年級上學期 第一次段考</span></div>
+<div class="sec" id="ch4-s4">
+<div class="sec-head"><span class="pub">社會</span><span class="sec-t">4-4　社會　六年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>第一單元 我們的政府（中央政府五院、地方政府、權力分立與制衡）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
-<div class="q" id="ch3-s4-q1">
+<div class="q" id="ch4-s4-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">我國中央政府設有五院，下列哪一院負責<strong>制定法律</strong>？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>行政院</li>
@@ -1321,9 +1765,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>司法院</li>
 <li><span class="ol">(D)</span>監察院</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s4-q1">解析</button><div class="exp" id="e-ch3-s4-q1"><b>答案：</b>(B)<br><b>解析：</b>立法院由人民選出的立法委員組成，負責制定、修改法律與審查預算，並監督行政院。</div>
+<button class="exp-btn" data-t="ch4-s4-q1">解析</button><div class="exp" id="e-ch4-s4-q1"><b>答案：</b>(B)<br><b>解析：</b>立法院由人民選出的立法委員組成，負責制定、修改法律與審查預算，並監督行政院。</div>
 </div>
-<div class="q" id="ch3-s4-q2">
+<div class="q" id="ch4-s4-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">負責推動國家政務、執行法律的最高行政機關是哪一個？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>行政院</li>
@@ -1331,14 +1775,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>立法院</li>
 <li><span class="ol">(D)</span>總統府</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s4-q2">解析</button><div class="exp" id="e-ch3-s4-q2"><b>答案：</b>(A)<br><b>解析：</b>行政院是最高行政機關，下設各部會（如教育部、衛生福利部）負責推動政務並執行立法院通過的法律。</div>
+<button class="exp-btn" data-t="ch4-s4-q2">解析</button><div class="exp" id="e-ch4-s4-q2"><b>答案：</b>(A)<br><b>解析：</b>行政院是最高行政機關，下設各部會（如教育部、衛生福利部）負責推動政務並執行立法院通過的法律。</div>
 </div>
-<div class="q" id="ch3-s4-q3">
+<div class="q" id="ch4-s4-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">五院中，負責審判案件、解釋憲法的是＿＿＿院；負責公務人員考試與銓敘的是＿＿＿院。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s4-q3">解析</button><div class="exp" id="e-ch3-s4-q3"><b>答案：</b>司法、考試<br><b>解析：</b>司法院掌理審判與憲法解釋（憲法法庭）；考試院掌理國家考試與公務人員的任用資格；監察院則負責彈劾、糾舉與審計。</div>
+<button class="exp-btn" data-t="ch4-s4-q3">解析</button><div class="exp" id="e-ch4-s4-q3"><b>答案：</b>司法、考試<br><b>解析：</b>司法院掌理審判與憲法解釋（憲法法庭）；考試院掌理國家考試與公務人員的任用資格；監察院則負責彈劾、糾舉與審計。</div>
 </div>
-<div class="q" id="ch3-s4-q4">
+<div class="q" id="ch4-s4-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">我國總統的產生方式與任期，下列敘述何者<strong>正確</strong>？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>由人民直接選舉，任期四年，連選得連任一次</li>
@@ -1346,9 +1790,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>由行政院長推薦產生</li>
 <li><span class="ol">(D)</span>終身職，不需要改選</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s4-q4">解析</button><div class="exp" id="e-ch3-s4-q4"><b>答案：</b>(A)<br><b>解析：</b>自 1996 年起總統由人民直接選舉產生，任期四年，連選得連任一次，這是民主政治「主權在民」的具體表現。</div>
+<button class="exp-btn" data-t="ch4-s4-q4">解析</button><div class="exp" id="e-ch4-s4-q4"><b>答案：</b>(A)<br><b>解析：</b>自 1996 年起總統由人民直接選舉產生，任期四年，連選得連任一次，這是民主政治「主權在民」的具體表現。</div>
 </div>
-<div class="q" id="ch3-s4-q5">
+<div class="q" id="ch4-s4-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一項是<strong>地方政府</strong>（縣市政府）的職權？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>管理縣市內的道路、學校與垃圾清運</li>
@@ -1356,9 +1800,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>代表國家與他國簽訂條約</li>
 <li><span class="ol">(D)</span>指揮國軍作戰</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s4-q5">解析</button><div class="exp" id="e-ch3-s4-q5"><b>答案：</b>(A)<br><b>解析：</b>地方政府負責處理地方性事務（教育、交通、環保、社福）；外交、國防、全國性法律屬於中央政府的權限。</div>
+<button class="exp-btn" data-t="ch4-s4-q5">解析</button><div class="exp" id="e-ch4-s4-q5"><b>答案：</b>(A)<br><b>解析：</b>地方政府負責處理地方性事務（教育、交通、環保、社福）；外交、國防、全國性法律屬於中央政府的權限。</div>
 </div>
-<div class="q" id="ch3-s4-q6">
+<div class="q" id="ch4-s4-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">為什麼要把政府的權力分成不同機關，並讓它們互相監督？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>避免權力集中在少數人手中而被濫用</li>
@@ -1366,14 +1810,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>讓做事速度變快</li>
 <li><span class="ol">(D)</span>讓人民不能參與政治</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s4-q6">解析</button><div class="exp" id="e-ch3-s4-q6"><b>答案：</b>(A)<br><b>解析：</b>權力分立與制衡的目的，就是防止任何一個機關獨大濫權，保障人民的自由與權利。分權雖然使決策較慢，但更安全。</div>
+<button class="exp-btn" data-t="ch4-s4-q6">解析</button><div class="exp" id="e-ch4-s4-q6"><b>答案：</b>(A)<br><b>解析：</b>權力分立與制衡的目的，就是防止任何一個機關獨大濫權，保障人民的自由與權利。分權雖然使決策較慢，但更安全。</div>
 </div>
-<div class="q" id="ch3-s4-q7">
+<div class="q" id="ch4-s4-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">人民選出＿＿＿＿＿＿＿＿代表自己在議會中發言、審查地方預算，這種制度稱為＿＿＿＿民主（間接民主）。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s4-q7">解析</button><div class="exp" id="e-ch3-s4-q7"><b>答案：</b>民意代表（議員）、代議<br><b>解析：</b>因為全體人民不可能天天集會決定所有事，所以選出代表代為行使權力，稱為代議民主；公投則屬於直接民主的方式。</div>
+<button class="exp-btn" data-t="ch4-s4-q7">解析</button><div class="exp" id="e-ch4-s4-q7"><b>答案：</b>民意代表（議員）、代議<br><b>解析：</b>因為全體人民不可能天天集會決定所有事，所以選出代表代為行使權力，稱為代議民主；公投則屬於直接民主的方式。</div>
 </div>
-<div class="q" id="ch3-s4-q8">
+<div class="q" id="ch4-s4-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">小明發現住家附近的公園設施損壞，最適當的做法是什麼？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>向區公所或市政府反映（陳情），請求維修</li>
@@ -1381,23 +1825,23 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>在牆上噴漆抗議</li>
 <li><span class="ol">(D)</span>什麼都不做，等它自己好</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s4-q8">解析</button><div class="exp" id="e-ch3-s4-q8"><b>答案：</b>(A)<br><b>解析：</b>陳情、申訴、1999 專線都是合法且有效的公民參與管道，既能解決問題，也是民主社會中人民與政府溝通的方式。</div>
+<button class="exp-btn" data-t="ch4-s4-q8">解析</button><div class="exp" id="e-ch4-s4-q8"><b>答案：</b>(A)<br><b>解析：</b>陳情、申訴、1999 專線都是合法且有效的公民參與管道，既能解決問題，也是民主社會中人民與政府溝通的方式。</div>
 </div>
-<div class="q" id="ch3-s4-q9">
+<div class="q" id="ch4-s4-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">請說明「政府的權力來自人民」是什麼意思。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch3-s4-q9">解析</button><div class="exp" id="e-ch3-s4-q9"><b>答案：</b>參考答案：意思是政府的統治權是人民透過選舉授權給它的，官員是為人民服務、對人民負責；如果做不好，人民可以用選票或罷免把權力收回來。<br><b>解析：</b>能答出「主權在民」「選舉授權」「向人民負責」其中兩點並說明清楚即可。</div>
+<button class="exp-btn" data-t="ch4-s4-q9">解析</button><div class="exp" id="e-ch4-s4-q9"><b>答案：</b>參考答案：意思是政府的統治權是人民透過選舉授權給它的，官員是為人民服務、對人民負責；如果做不好，人民可以用選票或罷免把權力收回來。<br><b>解析：</b>能答出「主權在民」「選舉授權」「向人民負責」其中兩點並說明清楚即可。</div>
 </div>
-<div class="q" id="ch3-s4-q10">
+<div class="q" id="ch4-s4-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">如果政府要在你家附近蓋一座垃圾焚化廠，居民可以透過哪些<strong>合法</strong>管道表達意見？請寫出兩項。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch3-s4-q10">解析</button><div class="exp" id="e-ch3-s4-q10"><b>答案：</b>參考答案：（1）參加環評說明會或公聽會發言、提出書面意見；（2）向民意代表陳情、連署請願，或依法申請行政救濟。<br><b>解析：</b>重點在「合法」的參與方式：公聽會、陳情、請願、連署、投書、透過議員質詢等皆可，暴力抗爭則不算。</div>
+<button class="exp-btn" data-t="ch4-s4-q10">解析</button><div class="exp" id="e-ch4-s4-q10"><b>答案：</b>參考答案：（1）參加環評說明會或公聽會發言、提出書面意見；（2）向民意代表陳情、連署請願，或依法申請行政救濟。<br><b>解析：</b>重點在「合法」的參與方式：公聽會、陳情、請願、連署、投書、透過議員質詢等皆可，暴力抗爭則不算。</div>
 </div>
 </div>
-<div class="sec" id="ch3-s5">
-<div class="sec-head"><span class="pub">英語</span><span class="sec-t">3-5　英語　六年級上學期 第一次段考</span></div>
+<div class="sec" id="ch4-s5">
+<div class="sec-head"><span class="pub">英語</span><span class="sec-t">4-5　英語　六年級上學期 第一次段考</span></div>
 <div class="scope"><b>對應單元</b>一般動詞過去式（規則與不規則）、What did you do…? 問答、時間副詞　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
-<div class="q" id="ch3-s5-q1">
+<div class="q" id="ch4-s5-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">A: What did you do last weekend?　B: ＿＿＿＿</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>I went to the night market.</li>
@@ -1405,9 +1849,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>I am going to the night market.</li>
 <li><span class="ol">(D)</span>I will go to the night market.</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s5-q1">解析</button><div class="exp" id="e-ch3-s5-q1"><b>答案：</b>(A)<br><b>解析：</b>問句用 did 表示過去，回答也要用過去式 went（go 的不規則過去式）。</div>
+<button class="exp-btn" data-t="ch4-s5-q1">解析</button><div class="exp" id="e-ch4-s5-q1"><b>答案：</b>(A)<br><b>解析：</b>問句用 did 表示過去，回答也要用過去式 went（go 的不規則過去式）。</div>
 </div>
-<div class="q" id="ch3-s5-q2">
+<div class="q" id="ch4-s5-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">They ＿＿ a movie yesterday.</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>watch</li>
@@ -1415,14 +1859,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>watching</li>
 <li><span class="ol">(D)</span>watches</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s5-q2">解析</button><div class="exp" id="e-ch3-s5-q2"><b>答案：</b>(B)<br><b>解析：</b>yesterday 是過去的時間，動詞要用過去式 watched（規則動詞直接加 -ed）。</div>
+<button class="exp-btn" data-t="ch4-s5-q2">解析</button><div class="exp" id="e-ch4-s5-q2"><b>答案：</b>(B)<br><b>解析：</b>yesterday 是過去的時間，動詞要用過去式 watched（規則動詞直接加 -ed）。</div>
 </div>
-<div class="q" id="ch3-s5-q3">
+<div class="q" id="ch4-s5-q3">
 <div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出過去式：stop → ＿＿＿＿＿；have → ＿＿＿＿＿</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s5-q3">解析</button><div class="exp" id="e-ch3-s5-q3"><b>答案：</b>stopped、had<br><b>解析：</b>stop 是「短母音＋單子音」結尾，要重複字尾再加 -ed；have 是不規則動詞，過去式為 had。</div>
+<button class="exp-btn" data-t="ch4-s5-q3">解析</button><div class="exp" id="e-ch4-s5-q3"><b>答案：</b>stopped、had<br><b>解析：</b>stop 是「短母音＋單子音」結尾，要重複字尾再加 -ed；have 是不規則動詞，過去式為 had。</div>
 </div>
-<div class="q" id="ch3-s5-q4">
+<div class="q" id="ch4-s5-q4">
 <div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>He didn't finish his homework.</li>
@@ -1430,9 +1874,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>He don't finished his homework.</li>
 <li><span class="ol">(D)</span>He wasn't finish his homework.</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s5-q4">解析</button><div class="exp" id="e-ch3-s5-q4"><b>答案：</b>(A)<br><b>解析：</b>過去式否定是 didn't＋原形動詞，所以是 didn't finish，不能再加 -ed。</div>
+<button class="exp-btn" data-t="ch4-s5-q4">解析</button><div class="exp" id="e-ch4-s5-q4"><b>答案：</b>(A)<br><b>解析：</b>過去式否定是 didn't＋原形動詞，所以是 didn't finish，不能再加 -ed。</div>
 </div>
-<div class="q" id="ch3-s5-q5">
+<div class="q" id="ch4-s5-q5">
 <div class="q-h"><span class="q-n">5</span><span class="q-t">A: Did you see Amy this morning?　B: ＿＿＿＿（沒有）</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>No, I didn't.</li>
@@ -1440,14 +1884,14 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>No, I wasn't.</li>
 <li><span class="ol">(D)</span>No, I am not.</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s5-q5">解析</button><div class="exp" id="e-ch3-s5-q5"><b>答案：</b>(A)<br><b>解析：</b>以 Did 開頭的問句要用 did/didn't 回答；肯定 Yes, I did.，否定 No, I didn't.</div>
+<button class="exp-btn" data-t="ch4-s5-q5">解析</button><div class="exp" id="e-ch4-s5-q5"><b>答案：</b>(A)<br><b>解析：</b>以 Did 開頭的問句要用 did/didn't 回答；肯定 Yes, I did.，否定 No, I didn't.</div>
 </div>
-<div class="q" id="ch3-s5-q6">
+<div class="q" id="ch4-s5-q6">
 <div class="q-h"><span class="q-n">6</span><span class="q-t">請把句子改成過去式：We visit my grandparents. → We ＿＿＿＿＿＿ my grandparents.</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s5-q6">解析</button><div class="exp" id="e-ch3-s5-q6"><b>答案：</b>visited<br><b>解析：</b>visit 是規則動詞，字尾直接加 -ed 變成 visited。</div>
+<button class="exp-btn" data-t="ch4-s5-q6">解析</button><div class="exp" id="e-ch4-s5-q6"><b>答案：</b>visited<br><b>解析：</b>visit 是規則動詞，字尾直接加 -ed 變成 visited。</div>
 </div>
-<div class="q" id="ch3-s5-q7">
+<div class="q" id="ch4-s5-q7">
 <div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一個是 <strong>eat</strong> 的過去式？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>ate</li>
@@ -1455,9 +1899,9 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>eaten</li>
 <li><span class="ol">(D)</span>eating</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s5-q7">解析</button><div class="exp" id="e-ch3-s5-q7"><b>答案：</b>(A)<br><b>解析：</b>eat 是不規則動詞，過去式是 ate（eaten 是過去分詞）。常見不規則：see→saw、go→went、buy→bought。</div>
+<button class="exp-btn" data-t="ch4-s5-q7">解析</button><div class="exp" id="e-ch4-s5-q7"><b>答案：</b>(A)<br><b>解析：</b>eat 是不規則動詞，過去式是 ate（eaten 是過去分詞）。常見不規則：see→saw、go→went、buy→bought。</div>
 </div>
-<div class="q" id="ch3-s5-q8">
+<div class="q" id="ch4-s5-q8">
 <div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一個時間副詞，<strong>不能</strong>和過去式一起使用？</span></div>
 <ol class="opts">
 <li><span class="ol">(A)</span>tomorrow</li>
@@ -1465,17 +1909,17 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>last night</li>
 <li><span class="ol">(D)</span>two days ago</li>
 </ol>
-<button class="exp-btn" data-t="ch3-s5-q8">解析</button><div class="exp" id="e-ch3-s5-q8"><b>答案：</b>(A)<br><b>解析：</b>tomorrow（明天）指未來，要搭配 will 或 be going to；其餘三個都是過去的時間。</div>
+<button class="exp-btn" data-t="ch4-s5-q8">解析</button><div class="exp" id="e-ch4-s5-q8"><b>答案：</b>(A)<br><b>解析：</b>tomorrow（明天）指未來，要搭配 will 或 be going to；其餘三個都是過去的時間。</div>
 </div>
-<div class="q" id="ch3-s5-q9">
+<div class="q" id="ch4-s5-q9">
 <div class="q-h"><span class="q-n">9</span><span class="q-t">請寫出中文意思：I bought a new bike last month. →＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch3-s5-q9">解析</button><div class="exp" id="e-ch3-s5-q9"><b>答案：</b>我上個月買了一台新腳踏車。<br><b>解析：</b>bought 是 buy 的過去式；last month＝上個月。翻譯時要把「了」翻出來表示已完成。</div>
+<button class="exp-btn" data-t="ch4-s5-q9">解析</button><div class="exp" id="e-ch4-s5-q9"><b>答案：</b>我上個月買了一台新腳踏車。<br><b>解析：</b>bought 是 buy 的過去式；last month＝上個月。翻譯時要把「了」翻出來表示已完成。</div>
 </div>
-<div class="q" id="ch3-s5-q10">
+<div class="q" id="ch4-s5-q10">
 <div class="q-h"><span class="q-n">10</span><span class="q-t">請用過去式寫一句話，說出你昨天做的一件事。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch3-s5-q10">解析</button><div class="exp" id="e-ch3-s5-q10"><b>答案：</b>參考答案：I played basketball with my classmates yesterday.<br><b>解析：</b>評分重點：動詞用過去式、句首大寫、句末句點，最好加上時間副詞 yesterday。</div>
+<button class="exp-btn" data-t="ch4-s5-q10">解析</button><div class="exp" id="e-ch4-s5-q10"><b>答案：</b>參考答案：I played basketball with my classmates yesterday.<br><b>解析：</b>評分重點：動詞用過去式、句首大寫、句末句點，最好加上時間副詞 yesterday。</div>
 </div>
 </div>
 </section>
@@ -1486,18 +1930,24 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <div class="key-sec"><div class="key-t">1-3　自然　自然・植物的身體</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (B)</li><li><b>3.</b> 葉柄</li><li><b>4.</b> (B)</li><li><b>5.</b> (B)</li><li><b>6.</b> 日期（時間）、地點</li><li><b>7.</b> (B)</li><li><b>8.</b> (B)</li><li><b>9.</b> 參考答案：根—吸收水分和養分（並固定植物）；葉—製造植物需要的養分。</li><li><b>10.</b> 參考答案：因為摘下來植物會受傷、也可能死掉，別人就看不到了；而且有些植物有刺或汁液會讓皮膚過敏，摘取不安全。</li></ol></div>
 <div class="key-sec"><div class="key-t">1-4　社會　社會・家庭與學校</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> (A)</li><li><b>3.</b> 北、南、西、東</li><li><b>4.</b> (C)</li><li><b>5.</b> (A)</li><li><b>6.</b> (B)</li><li><b>7.</b> 參考答案：擦桌子／收碗筷／摺衣服／倒垃圾／整理自己的房間</li><li><b>8.</b> (A)</li><li><b>9.</b> (B)</li><li><b>10.</b> 參考答案：自己整理書包和抽屜、自己把餐具洗乾淨、自己完成掃地工作、自己記聯絡簿。（任兩項）</li></ol></div>
 <div class="key-sec"><div class="key-t">1-5　英語　英語・字母與問候</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> (B)</li><li><b>3.</b> a b c d e</li><li><b>4.</b> (A)</li><li><b>5.</b> (B)</li><li><b>6.</b> (A)</li><li><b>7.</b> (A)</li><li><b>8.</b> 請坐下。</li><li><b>9.</b> (B)</li><li><b>10.</b> 參考答案：I'm Kevin.（I'm 後面接自己的英文名字，開頭字母要大寫，句末要有句點）</li></ol></div>
-<h3 class="key-ch">第 2 章　五年級上學期 第一次段考</h3>
-<div class="key-sec"><div class="key-t">2-1　國語　國語・第1~4課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 堅定、豐富</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 雖然、但是（或：儘管、還是）</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：一群羽毛雪白的小鳥，輕快地飛過黃昏時橘紅色的天空。</li><li><b>10.</b> (B)</li><li><b>11.</b> (A)</li></ol></div>
-<div class="key-sec"><div class="key-t">2-2　數學　數學・因倍數・小數</div><ol class="key-list"><li><b>1.</b> (C)</li><li><b>2.</b> 6</li><li><b>3.</b> 12</li><li><b>4.</b> (C)</li><li><b>5.</b> 最大公因數 12；最小公倍數 144</li><li><b>6.</b> (C)</li><li><b>7.</b> ＞</li><li><b>8.</b> 16.18</li><li><b>9.</b> 24 天</li><li><b>10.</b> 最多 12 人；每人 3 顆糖果、4 片餅乾</li></ol></div>
-<div class="key-sec"><div class="key-t">2-3　自然　自然・觀測太陽</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (D)</li><li><b>3.</b> (B)</li><li><b>4.</b> 不可以用眼睛直接看太陽（要觀察影子或使用專用濾光設備）</li><li><b>5.</b> (C)</li><li><b>6.</b> (A)</li><li><b>7.</b> (B)</li><li><b>8.</b> (B)</li><li><b>9.</b> 參考答案：因為太陽在天空中的位置會隨著時間改變（東→南→西），影子的方向和太陽相反，所以影子也跟著移動。</li><li><b>10.</b> 參考答案：選擇空曠、整天都晒得到太陽、地面平坦的地方，例如操場旁；因為若被樹或建築物遮住，中間就會量不到影子，資料會不完整。</li></ol></div>
-<div class="key-sec"><div class="key-t">2-4　社會　社會・位置與地形</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (B)</li><li><b>3.</b> 綠島、蘭嶼（釣魚臺列嶼、東沙、南沙等亦可）</li><li><b>4.</b> (C)</li><li><b>5.</b> (A)</li><li><b>6.</b> (C)</li><li><b>7.</b> 嘉南、西</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：（1）山地居民多從事林業、觀光或種植高冷蔬菜、茶葉，平原居民多從事稻作、養殖或工商業；（2）山地聚落規模小、交通較不便，平原聚落較大、交通網密集。</li></ol></div>
-<div class="key-sec"><div class="key-t">2-5　英語　英語・現在進行式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (B)</li><li><b>3.</b> swimming、running</li><li><b>4.</b> (A)</li><li><b>5.</b> (B)</li><li><b>6.</b> I am eating lunch.</li><li><b>7.</b> (A)</li><li><b>8.</b> (C)</li><li><b>9.</b> 我哥哥（弟弟）正在公園裡騎腳踏車。</li><li><b>10.</b> 參考答案：I am taking a test.（也可以寫 I am writing. / I am sitting in the classroom.）</li></ol></div>
-<h3 class="key-ch">第 3 章　六年級上學期 第一次段考</h3>
-<div class="key-sec"><div class="key-t">3-1　國語　國語・第1~4課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 質疑、回應</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 只要、就（或：如果、才）</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：每個人都被他的毅力感動。</li><li><b>10.</b> (B)</li><li><b>11.</b> (B)</li></ol></div>
-<div class="key-sec"><div class="key-t">3-2　數學　數學・分數小數除法・比</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> 15/8（＝1又7/8）</li><li><b>3.</b> 10/3（＝3又1/3）</li><li><b>4.</b> (B)</li><li><b>5.</b> 3.6</li><li><b>6.</b> (A)</li><li><b>7.</b> 1 : 3</li><li><b>8.</b> 6 段</li><li><b>9.</b> 75 元</li><li><b>10.</b> 20 杯</li></ol></div>
-<div class="key-sec"><div class="key-t">3-3　自然　自然・天氣的變化</div><ol class="key-list"><li><b>1.</b> (D)</li><li><b>2.</b> (A)</li><li><b>3.</b> 雨量筒（雨量計）、風向計</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 颱風眼、逆</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為天氣時時刻刻在變化，固定時間與地點才能排除其他因素的干擾，讓每天的資料可以互相比較，看出真正的變化趨勢。</li><li><b>10.</b> 參考答案：（1）準備飲用水、乾糧、手電筒與電池；（2）檢查門窗並收好陽台的花盆與雜物；（3）清理排水孔、把車輛移到不會淹水的地方；（4）隨時注意氣象局的最新警報。（任三項）</li></ol></div>
-<div class="key-sec"><div class="key-t">3-4　社會　社會・政府與民主</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> (A)</li><li><b>3.</b> 司法、考試</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 民意代表（議員）、代議</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：意思是政府的統治權是人民透過選舉授權給它的，官員是為人民服務、對人民負責；如果做不好，人民可以用選票或罷免把權力收回來。</li><li><b>10.</b> 參考答案：（1）參加環評說明會或公聽會發言、提出書面意見；（2）向民意代表陳情、連署請願，或依法申請行政救濟。</li></ol></div>
-<div class="key-sec"><div class="key-t">3-5　英語　英語・過去式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (B)</li><li><b>3.</b> stopped、had</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> visited</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 我上個月買了一台新腳踏車。</li><li><b>10.</b> 參考答案：I played basketball with my classmates yesterday.</li></ol></div>
+<h3 class="key-ch">第 2 章　四年級上學期 第一次段考</h3>
+<div class="key-sec"><div class="key-t">2-1　國語　國語・第1~4課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 毫不、勇敢</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 因為、所以</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：他不但主動整理教室，而且還幫同學搬桌椅。</li><li><b>10.</b> (B)</li><li><b>11.</b> (B)</li></ol></div>
+<div class="key-sec"><div class="key-t">2-2　數學　數學・大數・加減乘</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> 50080000</li><li><b>3.</b> (A)</li><li><b>4.</b> 8324</li><li><b>5.</b> 26452</li><li><b>6.</b> 11388</li><li><b>7.</b> 4640 顆</li><li><b>8.</b> (A)</li><li><b>9.</b> 3740 個</li><li><b>10.</b> 共 4480 元；找回 520 元</li></ol></div>
+<div class="key-sec"><div class="key-t">2-3　自然　自然・月亮</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 上弦月、下弦月、29～30</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 隕石坑（環形山）、沒有</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為中秋是農曆八月十五，這時月亮運行到地球背對太陽的一側，被照亮的一面幾乎完全朝向地球，所以看起來又圓又亮。</li><li><b>10.</b> 參考答案：觀測日期（含農曆）、觀測時間、月亮的形狀（畫下來）、月亮出現的方位、當時天氣。（任三項）</li></ol></div>
+<div class="key-sec"><div class="key-t">2-4　社會　社會・位置與地形</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 盆地、平原</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 圖例、比例尺</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：（1）山地居民多從事林業、觀光或種植茶葉高冷蔬菜，平原居民多從事稻作或工商業；（2）山地道路蜿蜒、交通較不便，平原交通網密集、來往方便。</li><li><b>10.</b> 參考答案：知道家鄉的位置可以幫助我們規劃路線、了解鄰近地區的資源，遇到災害時也知道往哪裡避難、向誰求助。</li></ol></div>
+<div class="key-sec"><div class="key-t">2-5　英語　英語・時間與科目</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 我在七點吃早餐。</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> Does</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> at</li><li><b>10.</b> 參考答案：I get up at six thirty.（時間可依實際情形更換）</li></ol></div>
+<h3 class="key-ch">第 3 章　五年級上學期 第一次段考</h3>
+<div class="key-sec"><div class="key-t">3-1　國語　國語・第1~4課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 堅定、豐富</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 雖然、但是（或：儘管、還是）</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：一群羽毛雪白的小鳥，輕快地飛過黃昏時橘紅色的天空。</li><li><b>10.</b> (B)</li><li><b>11.</b> (A)</li></ol></div>
+<div class="key-sec"><div class="key-t">3-2　數學　數學・因倍數・小數</div><ol class="key-list"><li><b>1.</b> (C)</li><li><b>2.</b> 6</li><li><b>3.</b> 12</li><li><b>4.</b> (C)</li><li><b>5.</b> 最大公因數 12；最小公倍數 144</li><li><b>6.</b> (C)</li><li><b>7.</b> ＞</li><li><b>8.</b> 16.18</li><li><b>9.</b> 24 天</li><li><b>10.</b> 最多 12 人；每人 3 顆糖果、4 片餅乾</li></ol></div>
+<div class="key-sec"><div class="key-t">3-3　自然　自然・觀測太陽</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (D)</li><li><b>3.</b> (B)</li><li><b>4.</b> 不可以用眼睛直接看太陽（要觀察影子或使用專用濾光設備）</li><li><b>5.</b> (C)</li><li><b>6.</b> (A)</li><li><b>7.</b> (B)</li><li><b>8.</b> (B)</li><li><b>9.</b> 參考答案：因為太陽在天空中的位置會隨著時間改變（東→南→西），影子的方向和太陽相反，所以影子也跟著移動。</li><li><b>10.</b> 參考答案：選擇空曠、整天都晒得到太陽、地面平坦的地方，例如操場旁；因為若被樹或建築物遮住，中間就會量不到影子，資料會不完整。</li></ol></div>
+<div class="key-sec"><div class="key-t">3-4　社會　社會・位置與地形</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (B)</li><li><b>3.</b> 綠島、蘭嶼（釣魚臺列嶼、東沙、南沙等亦可）</li><li><b>4.</b> (C)</li><li><b>5.</b> (A)</li><li><b>6.</b> (C)</li><li><b>7.</b> 嘉南、西</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：（1）山地居民多從事林業、觀光或種植高冷蔬菜、茶葉，平原居民多從事稻作、養殖或工商業；（2）山地聚落規模小、交通較不便，平原聚落較大、交通網密集。</li></ol></div>
+<div class="key-sec"><div class="key-t">3-5　英語　英語・現在進行式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (B)</li><li><b>3.</b> swimming、running</li><li><b>4.</b> (A)</li><li><b>5.</b> (B)</li><li><b>6.</b> I am eating lunch.</li><li><b>7.</b> (A)</li><li><b>8.</b> (C)</li><li><b>9.</b> 我哥哥（弟弟）正在公園裡騎腳踏車。</li><li><b>10.</b> 參考答案：I am taking a test.（也可以寫 I am writing. / I am sitting in the classroom.）</li></ol></div>
+<h3 class="key-ch">第 4 章　六年級上學期 第一次段考</h3>
+<div class="key-sec"><div class="key-t">4-1　國語　國語・第1~4課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 質疑、回應</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 只要、就（或：如果、才）</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：每個人都被他的毅力感動。</li><li><b>10.</b> (B)</li><li><b>11.</b> (B)</li></ol></div>
+<div class="key-sec"><div class="key-t">4-2　數學　數學・分數小數除法・比</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> 15/8（＝1又7/8）</li><li><b>3.</b> 10/3（＝3又1/3）</li><li><b>4.</b> (B)</li><li><b>5.</b> 3.6</li><li><b>6.</b> (A)</li><li><b>7.</b> 1 : 3</li><li><b>8.</b> 6 段</li><li><b>9.</b> 75 元</li><li><b>10.</b> 20 杯</li></ol></div>
+<div class="key-sec"><div class="key-t">4-3　自然　自然・天氣的變化</div><ol class="key-list"><li><b>1.</b> (D)</li><li><b>2.</b> (A)</li><li><b>3.</b> 雨量筒（雨量計）、風向計</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 颱風眼、逆</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為天氣時時刻刻在變化，固定時間與地點才能排除其他因素的干擾，讓每天的資料可以互相比較，看出真正的變化趨勢。</li><li><b>10.</b> 參考答案：（1）準備飲用水、乾糧、手電筒與電池；（2）檢查門窗並收好陽台的花盆與雜物；（3）清理排水孔、把車輛移到不會淹水的地方；（4）隨時注意氣象局的最新警報。（任三項）</li></ol></div>
+<div class="key-sec"><div class="key-t">4-4　社會　社會・政府與民主</div><ol class="key-list"><li><b>1.</b> (B)</li><li><b>2.</b> (A)</li><li><b>3.</b> 司法、考試</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 民意代表（議員）、代議</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：意思是政府的統治權是人民透過選舉授權給它的，官員是為人民服務、對人民負責；如果做不好，人民可以用選票或罷免把權力收回來。</li><li><b>10.</b> 參考答案：（1）參加環評說明會或公聽會發言、提出書面意見；（2）向民意代表陳情、連署請願，或依法申請行政救濟。</li></ol></div>
+<div class="key-sec"><div class="key-t">4-5　英語　英語・過去式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (B)</li><li><b>3.</b> stopped、had</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> visited</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 我上個月買了一台新腳踏車。</li><li><b>10.</b> 參考答案：I played basketball with my classmates yesterday.</li></ol></div>
 </section>
 </div>
 <div class="pagefoot"></div>

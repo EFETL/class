@@ -77,6 +77,18 @@ ol.opts li{font-size:15px}
  border-radius:0 8px 8px 0;padding:10px 14px;font-size:14px}
 .exp.on{display:block}
 .exp b{color:var(--acc)}
+/* 注音（低年級）：直排在國字右側，臺灣課本排法；字級加大讓小朋友看得清楚 */
+.rubyzone{font-size:21px;line-height:2.7}
+.zy{display:inline-flex;align-items:center;vertical-align:baseline;margin-right:1.5px}
+.zc{display:inline-block}
+.zz{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+ font-size:.56em;line-height:1;color:#554d43;margin-left:1.5px;font-style:normal;white-space:nowrap}
+.zs{font-style:normal;display:block;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:0}
+.zt,.zl{font-style:normal;display:block;text-align:center;line-height:.9}
+.rubyzone .q-t,.rubyzone ol.opts li{line-height:2.5}
+.rubyzone ol.opts{gap:14px 20px;font-size:1em}
+.rubyzone .q{padding:14px 16px}
+@media print{.rubyzone{font-size:15pt;line-height:2.5}.zz{color:#222}}
 /* 解答本 */
 .key-ch{margin:22px 0 8px;font-size:20px;border-bottom:2px solid var(--line);padding-bottom:5px}
 .key-sec{margin:0 0 14px}
@@ -166,7 +178,7 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><a href="#ch1-s1">1-1　英語　英語・字母音與問候</a></li>
 </ul></li>
 <li><a href="#ch2"><span class="tc-n">第 2 章</span><span class="tc-t">四年級上學期 第一次段考</span><span class="tc-d">英語　共 10 題</span></a><ul>
-<li><a href="#ch2-s1">2-1　英語　四年級英語</a></li>
+<li><a href="#ch2-s1">2-1　英語　英語・發音與喜好</a></li>
 </ul></li>
 <li><a href="#ch3"><span class="tc-n">第 3 章</span><span class="tc-t">五年級上學期 第一次段考</span><span class="tc-d">英語　共 10 題</span></a><ul>
 <li><a href="#ch3-s1">3-1　英語　英語・發音與進行式</a></li>
@@ -270,10 +282,10 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 </section>
 <section class="sheet chap" id="ch2">
 <div class="chap-head"><div class="chap-n">第 2 章</div><h2 class="chap-t">四年級上學期 第一次段考</h2><div class="chap-s">英語　共 10 題</div></div>
-<div class="chap-intro">本章為 <strong>何嘉仁版四年級上學期第一次段考</strong>的英語練習，重點在長母音 i_e／o_e 的發音規則與 Do you like…? 的問答。</div>
+<div class="chap-intro">本章是 <strong>何嘉仁版四年級上學期第一次段考</strong>的全科練習，每一節（英語）都可以單獨當成一份小考使用。各節開頭都標示了對應單元，若貴班進度不同，直接略過該節即可。</div>
 <div class="sec" id="ch2-s1">
-<div class="sec-head"><span class="pub">英語</span><span class="sec-t">2-1　英語（何嘉仁版）四年級上學期 第一次段考</span></div>
-<div class="scope"><b>對應單元</b>長母音 i_e／o_e、Do you like…? 問答、學校科目與喜好、This/That　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="sec-head"><span class="pub">英語</span><span class="sec-t">2-1　英語　四年級上學期 第一次段考</span></div>
+<div class="scope"><b>對應單元</b>長母音 i_e／o_e（Phonics）、Do you like…?、學校科目與喜好、閱讀理解　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
 <div class="q" id="ch2-s1-q1">
 <div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一個單字的 <strong>i</strong> 發長母音 /aɪ/（像字母 I 的音）？</span></div>
 <ol class="opts">
@@ -282,7 +294,7 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>sit</li>
 <li><span class="ol">(D)</span>pig</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q1">解析</button><div class="exp" id="e-ch2-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>「子音＋i＋子音＋e」（i_e）中，i 發字母本音 /aɪ/、字尾 e 不發音，例如 bike、nine、kite。big、sit、pig 是短母音 /ɪ/。</div>
+<button class="exp-btn" data-t="ch2-s1-q1">解析</button><div class="exp" id="e-ch2-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>「子音＋i＋子音＋e」（i_e）中，i 發字母本音 /aɪ/、字尾 e 不發音，例如 bike、nine、kite。</div>
 </div>
 <div class="q" id="ch2-s1-q2">
 <div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一組單字的母音發音<strong>相同</strong>？</span></div>
@@ -292,67 +304,73 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <li><span class="ol">(C)</span>home / dog</li>
 <li><span class="ol">(D)</span>box / rose</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q2">解析</button><div class="exp" id="e-ch2-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>nose、home 都是 o_e 的長母音 /oʊ/；hot、dog、box 則是短母音 /ɑ/。</div>
+<button class="exp-btn" data-t="ch2-s1-q2">解析</button><div class="exp" id="e-ch2-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>nose、home 都是 o_e 的長母音 /oʊ/；hot、dog、box 是短母音。</div>
 </div>
 <div class="q" id="ch2-s1-q3">
-<div class="q-h"><span class="q-n">3</span><span class="q-t">依照「魔法 e」的規則拼寫：把 <strong>hop</strong> 加上字尾 e 之後變成 ＿＿＿＿（希望）。</span></div>
+<div class="q-h"><span class="q-n">3</span><span class="q-t">依照「魔法 e」的規則拼寫：hop 加上字尾 e 之後變成 ＿＿＿＿（希望）。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s1-q3">解析</button><div class="exp" id="e-ch2-s1-q3"><b>答案：</b>hope<br><b>解析：</b>hop /hɑp/（跳）加上不發音的 e 變成 hope /hoʊp/（希望），中間的 o 由短音變成長音。</div>
+<button class="exp-btn" data-t="ch2-s1-q3">解析</button><div class="exp" id="e-ch2-s1-q3"><b>答案：</b>hope<br><b>解析：</b>hop /hɑp/（跳）加上不發音的 e 變成 hope /hoʊp/，中間的 o 由短音變長音。</div>
 </div>
 <div class="q" id="ch2-s1-q4">
-<div class="q-h"><span class="q-n">4</span><span class="q-t">A: Do you like math?　B: ＿＿＿＿（喜歡）</span></div>
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一個單字<strong>不是</strong>長母音？</span></div>
 <ol class="opts">
-<li><span class="ol">(A)</span>Yes, I do.</li>
-<li><span class="ol">(B)</span>Yes, I am.</li>
-<li><span class="ol">(C)</span>Yes, I like.</li>
-<li><span class="ol">(D)</span>Yes, I can.</li>
+<li><span class="ol">(A)</span>hat</li>
+<li><span class="ol">(B)</span>make</li>
+<li><span class="ol">(C)</span>name</li>
+<li><span class="ol">(D)</span>game</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q4">解析</button><div class="exp" id="e-ch2-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>以助動詞 Do 開頭的問句，肯定回答是 Yes, I do.；否定是 No, I don't.</div>
+<button class="exp-btn" data-t="ch2-s1-q4">解析</button><div class="exp" id="e-ch2-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>make、name、game 都符合 a_e 的長母音規則；hat 是短母音 /æ/。</div>
 </div>
 <div class="q" id="ch2-s1-q5">
-<div class="q-h"><span class="q-n">5</span><span class="q-t">「音樂課」的英文是哪一個？</span></div>
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: Do you like art?　B: ＿＿＿＿（不喜歡）</span></div>
 <ol class="opts">
-<li><span class="ol">(A)</span>music</li>
-<li><span class="ol">(B)</span>math</li>
-<li><span class="ol">(C)</span>art</li>
-<li><span class="ol">(D)</span>P.E.</li>
+<li><span class="ol">(A)</span>No, I don't.</li>
+<li><span class="ol">(B)</span>No, I'm not.</li>
+<li><span class="ol">(C)</span>No, I doesn't.</li>
+<li><span class="ol">(D)</span>No, I can't.</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q5">解析</button><div class="exp" id="e-ch2-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>music＝音樂、math＝數學、art＝美術、P.E.＝體育。學校科目的單字要能看字辨義。</div>
+<button class="exp-btn" data-t="ch2-s1-q5">解析</button><div class="exp" id="e-ch2-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>Do 問句的否定回答是 No, I don't.</div>
 </div>
 <div class="q" id="ch2-s1-q6">
-<div class="q-h"><span class="q-n">6</span><span class="q-t">A: What's your favorite subject?　B: ＿＿＿＿</span></div>
-<ol class="opts">
-<li><span class="ol">(A)</span>My favorite subject is English.</li>
-<li><span class="ol">(B)</span>I'm English.</li>
-<li><span class="ol">(C)</span>Yes, I like it.</li>
-<li><span class="ol">(D)</span>It's Monday.</li>
-</ol>
-<button class="exp-btn" data-t="ch2-s1-q6">解析</button><div class="exp" id="e-ch2-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>問「最喜歡的科目」，要回答科目名稱，用 My favorite subject is＋科目。</div>
-</div>
-<div class="q" id="ch2-s1-q7">
-<div class="q-h"><span class="q-n">7</span><span class="q-t">請依照句意填入 This 或 That：＿＿＿＿ is my book. (指著手上的書)</span></div>
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請依照 a_e 的規則拼出單字：cap 加上字尾 e 之後變成 ＿＿＿＿（斗篷）。</span></div>
 <div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s1-q7">解析</button><div class="exp" id="e-ch2-s1-q7"><b>答案：</b>This<br><b>解析：</b>This 指靠近說話者的人事物（這個）；That 指較遠的（那個）。複數則用 These／Those。</div>
+<button class="exp-btn" data-t="ch2-s1-q6">解析</button><div class="exp" id="e-ch2-s1-q6"><b>答案：</b>cape<br><b>解析：</b>cap /kæp/（帽子）加上不發音的 e 變成 cape /keɪp/，中間的 a 由短音變成長音。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 6～8 題）</div><div class="passage-b">　　Hi! I'm Nick. I'm ten years old. I have four classes on Monday: math, Chinese, art, and P.E.<br>　　My favorite subject is art. I like drawing animals. I don't like math, but I study hard.<br>　　After school, I ride my bike to the park with my sister. We come home at five thirty.</div></div>
+<div class="q" id="ch2-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">What is Nick's favorite subject?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Art</li>
+<li><span class="ol">(B)</span>Math</li>
+<li><span class="ol">(C)</span>Chinese</li>
+<li><span class="ol">(D)</span>P.E.</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q7">解析</button><div class="exp" id="e-ch2-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>文中寫 My favorite subject is art.，最喜歡的是美術。</div>
 </div>
 <div class="q" id="ch2-s1-q8">
-<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<div class="q-h"><span class="q-n">8</span><span class="q-t">How does Nick go to the park?</span></div>
 <ol class="opts">
-<li><span class="ol">(A)</span>I don't like P.E.</li>
-<li><span class="ol">(B)</span>I doesn't like P.E.</li>
-<li><span class="ol">(C)</span>I not like P.E.</li>
-<li><span class="ol">(D)</span>I don't likes P.E.</li>
+<li><span class="ol">(A)</span>He rides his bike.</li>
+<li><span class="ol">(B)</span>He takes the bus.</li>
+<li><span class="ol">(C)</span>He walks.</li>
+<li><span class="ol">(D)</span>He goes by car.</li>
 </ol>
-<button class="exp-btn" data-t="ch2-s1-q8">解析</button><div class="exp" id="e-ch2-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>主詞 I 的否定用 don't，後面接原形動詞 like，不加 s。</div>
+<button class="exp-btn" data-t="ch2-s1-q8">解析</button><div class="exp" id="e-ch2-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>文中寫 I ride my bike to the park，他是騎腳踏車去公園。</div>
 </div>
 <div class="q" id="ch2-s1-q9">
-<div class="q-h"><span class="q-n">9</span><span class="q-t">請寫出中文意思：I like art, but I don't like math. →＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
-<div class="ansline"></div>
-<button class="exp-btn" data-t="ch2-s1-q9">解析</button><div class="exp" id="e-ch2-s1-q9"><b>答案：</b>我喜歡美術，但是我不喜歡數學。<br><b>解析：</b>but 是轉折語「但是」，前後兩件事的態度相反。</div>
+<div class="q-h"><span class="q-n">9</span><span class="q-t">根據短文，下列哪一句<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Nick 不喜歡數學，但他仍然認真讀。</li>
+<li><span class="ol">(B)</span>Nick 最喜歡數學。</li>
+<li><span class="ol">(C)</span>Nick 星期一有六堂課。</li>
+<li><span class="ol">(D)</span>Nick 六點才回家。</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q9">解析</button><div class="exp" id="e-ch2-s1-q9"><b>答案：</b>(A)<br><b>解析：</b>文中說 I don't like math, but I study hard.（不喜歡但認真學）；星期一有四堂課，五點半回家。</div>
 </div>
 <div class="q" id="ch2-s1-q10">
-<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文寫出你最喜歡的科目（完整句子）。</span></div>
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文寫出你最喜歡的科目與原因（一到兩句）。</span></div>
 <div class="ansline tall"></div>
-<button class="exp-btn" data-t="ch2-s1-q10">解析</button><div class="exp" id="e-ch2-s1-q10"><b>答案：</b>參考答案：My favorite subject is music.（或 I like English.）<br><b>解析：</b>評分重點：句首大寫、科目單字拼對、句末句點；用 I like… 或 My favorite subject is… 皆可。</div>
+<button class="exp-btn" data-t="ch2-s1-q10">解析</button><div class="exp" id="e-ch2-s1-q10"><b>答案：</b>參考答案：My favorite subject is music. I like singing.<br><b>解析：</b>評分重點：句型 My favorite subject is…／I like…、句首大寫、句末句點。</div>
 </div>
 </div>
 </section>
@@ -548,7 +566,7 @@ ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-column
 <h3 class="key-ch">第 1 章　三年級上學期 第一次段考</h3>
 <div class="key-sec"><div class="key-t">1-1　英語　英語・字母音與問候</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> F、f</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> c、e</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：Good morning. I'm Amy.</li></ol></div>
 <h3 class="key-ch">第 2 章　四年級上學期 第一次段考</h3>
-<div class="key-sec"><div class="key-t">2-1　英語　四年級英語</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> hope</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> This</li><li><b>8.</b> (A)</li><li><b>9.</b> 我喜歡美術，但是我不喜歡數學。</li><li><b>10.</b> 參考答案：My favorite subject is music.（或 I like English.）</li></ol></div>
+<div class="key-sec"><div class="key-t">2-1　英語　英語・發音與喜好</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> hope</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> cape</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：My favorite subject is music. I like singing.</li></ol></div>
 <h3 class="key-ch">第 3 章　五年級上學期 第一次段考</h3>
 <div class="key-sec"><div class="key-t">3-1　英語　英語・發音與進行式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> cape</li><li><b>4.</b> (A)</li><li><b>5.</b> (D)</li><li><b>6.</b> are playing</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：My mom is cooking dinner.（或 My dad is watching TV.）</li></ol></div>
 <h3 class="key-ch">第 4 章　六年級上學期 第一次段考</h3>
