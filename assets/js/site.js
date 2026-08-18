@@ -73,7 +73,7 @@ const SFX = (() => {
     document.querySelectorAll('.sfx-toggle').forEach(b => {
       b.dataset.on = on ? 'on' : 'off';
       b.querySelector('.sfx-ico').textContent = on ? '🔊' : '🔇';
-      b.querySelector('.sfx-txt').textContent = on ? '音效開 Sound on' : '音效關 Muted';
+      b.querySelector('.sfx-txt').textContent = on ? '音效開' : '音效關';
     });
   }
 })();
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.sfx-toggle').forEach(b => {
     b.dataset.on = SFX.on ? 'on' : 'off';
     b.querySelector('.sfx-ico').textContent = SFX.on ? '🔊' : '🔇';
-    b.querySelector('.sfx-txt').textContent = SFX.on ? '音效開 Sound on' : '音效關 Muted';
+    b.querySelector('.sfx-txt').textContent = SFX.on ? '音效開' : '音效關';
     b.addEventListener('click', () => SFX.toggle());
   });
 

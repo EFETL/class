@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>教學舞台 Teaching Stage｜星光教學舞台</title>
+<title>教學舞台｜星光教學舞台</title>
 <meta name="description" content="選班級、按開始，五步驟教學流程搭配計時器與老師逐字腳本，帶你走完一整堂課。">
 <link rel="icon" href="assets/img/logo.svg">
 <link rel="stylesheet" href="assets/css/site.css">
@@ -99,15 +99,14 @@
   <div class="nav-in">
     <a class="brand" href="index.html">
       <img class="logo" src="assets/img/logo.svg" alt="星光教學舞台">
-      <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+      <span>星光教學舞台<small>安親・英文教學平台</small></span>
     </a>
     <div class="nav-links">
-      <a href="index.html">首頁 Home</a>
-      <a href="stage.html" class="on">教學舞台 Stage</a>
-      <a href="english.html">英文教室 English</a>
-      <a href="toolbox.html">課堂工具箱 Toolbox</a>
-      <a href="exams.html">五科題庫 Exams</a>
-      <a href="pro.html">資深老師 Pro</a>
+      <a href="index.html">首頁</a>
+      <a href="stage.html" class="on">教學舞台</a>
+      <a href="english.html">英文教室</a>
+      <a href="toolbox.html">課堂工具箱</a>
+      <a href="pro.html">資深老師</a>
     </div>
     <button class="sfx-toggle"><span class="sfx-ico">🔊</span><span class="sfx-txt">音效開</span></button>
   </div>
@@ -116,9 +115,9 @@
 <!-- ========== 設定區 ========== -->
 <section class="section tight" id="setup">
   <div class="wrap">
-    <span class="eyebrow">STEP 0　先設定，只要點三下</span>
-    <h1 class="h-en">Set up your class.</h1>
-    <p class="h-zh">選年級 → 選科目 → 選單元，然後按開始。</p>
+    <span class="eyebrow">第一步　先設定，只要點三下</span>
+    <h1 class="h-main">設定今天的課</h1>
+    <p class="h-sub">選年級 → 選科目 → 選單元，然後按開始。</p>
 
     <div class="panel hidden" id="customPanel" style="margin-top:28px;border:2px solid var(--sun)">
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px">
@@ -130,19 +129,19 @@
 
     <div class="panel" style="margin-top:28px">
       <div class="setup-row">
-        <div class="k">年級<small>GRADE</small></div>
+        <div class="k">年級</div>
         <div class="pill-row" id="gradeRow"></div>
       </div>
       <div class="setup-row">
-        <div class="k">科目<small>SUBJECT</small></div>
+        <div class="k">科目</div>
         <div class="pill-row" id="subjRow"></div>
       </div>
       <div class="setup-row">
-        <div class="k">單元<small>UNIT</small></div>
+        <div class="k">單元</div>
         <div class="unit-grid" id="unitRow"></div>
       </div>
       <div class="setup-row">
-        <div class="k">課堂長度<small>LENGTH</small></div>
+        <div class="k">課堂長度</div>
         <div>
           <div class="pill-row" id="lenRow">
             <button class="pill on" data-len="1">45 分鐘 標準課</button>
@@ -156,8 +155,8 @@
     </div>
 
     <div class="btn-row">
-      <button class="btn big" id="startBtn">▶ 開始上課 Start Lesson</button>
-      <a class="btn ghost" href="#bank">先看題庫 Question Bank</a>
+      <button class="btn big" id="startBtn">▶ 開始上課</button>
+      <a class="btn ghost" href="#bank">先看題庫</a>
     </div>
     <p id="setupHint" style="color:var(--coral);font-weight:700;margin-top:12px"></p>
   </div>
@@ -168,10 +167,10 @@
   <div class="wrap">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px">
       <div>
-        <span class="eyebrow" id="lessonTag">ON STAGE</span>
-        <h1 class="h-en" id="lessonTitle" style="font-size:clamp(24px,3.4vw,34px)"></h1>
+        <span class="eyebrow" id="lessonTag">上課中</span>
+        <h1 class="h-main" id="lessonTitle" style="font-size:clamp(24px,3.4vw,34px)"></h1>
       </div>
-      <button class="btn ghost sm" id="backSetup">↺ 重新設定 Change class</button>
+      <button class="btn ghost sm" id="backSetup">↺ 重新設定</button>
     </div>
 
     <div class="rail" id="rail"></div>
@@ -186,7 +185,7 @@
                     stroke-width="18" stroke-linecap="round"
                     stroke-dasharray="628.3" stroke-dashoffset="0"/>
           </svg>
-          <div class="rt"><b id="tTime">05:00</b><span id="tLabel">WARM-UP</span></div>
+          <div class="rt"><b id="tTime">05:00</b><span id="tLabel">暖身</span></div>
         </div>
         <div class="tbtns">
           <button class="btn sm" id="tPlay">▶ 開始</button>
@@ -200,8 +199,8 @@
       <div class="step-body">
         <div class="step-hero">
           <div>
-            <span class="tag" id="stepTag">STEP 1 / 5</span>
-            <h2 id="stepEn">Warm-up</h2>
+            <span class="tag" id="stepTag">第 1 / 5 步</span>
+            <h2 id="stepEn">暖身</h2>
             <p class="zh" id="stepZh">暖身　5 分鐘</p>
           </div>
           <img id="stepImg" src="assets/img/g1-hands-up.svg" alt="">
@@ -210,23 +209,23 @@
           <div id="sayBox"></div>
 
           <div class="block">
-            <h4>👦 學生要做什麼　STUDENTS DO</h4>
+            <h4>👦 學生要做什麼</h4>
             <ul id="doList"></ul>
           </div>
 
           <div class="block">
-            <h4>🎒 要準備的東西　MATERIALS</h4>
+            <h4>🎒 要準備的東西</h4>
             <ul id="propList"></ul>
           </div>
 
           <div class="block check">
-            <b>✅ 這一步算成功的標準　SUCCESS CHECK</b>
+            <b>✅ 這一步算成功的標準</b>
             <p id="checkTxt"></p>
           </div>
 
           <div class="navbtns">
-            <button class="btn ghost" id="prevBtn">← 上一步 Back</button>
-            <button class="btn" id="nextBtn">下一步 Next →</button>
+            <button class="btn ghost" id="prevBtn">← 上一步</button>
+            <button class="btn" id="nextBtn">下一步 →</button>
           </div>
         </div>
       </div>
@@ -239,14 +238,14 @@
   <div class="wrap" style="max-width:720px">
     <div class="done-card">
       <img src="assets/img/g8-trophy.svg" alt="獎盃">
-      <span class="eyebrow">LESSON COMPLETE</span>
-      <h2>Great class! 🎉</h2>
-      <p class="h-zh" id="finishSub">這堂課上完了，辛苦了！</p>
+      <span class="eyebrow">這堂課完成</span>
+      <h2>上得很棒！🎉</h2>
+      <p class="h-sub" id="finishSub">這堂課上完了，辛苦了！</p>
       <p class="lead center" style="margin:18px auto 0">
         別忘了：在聯絡簿寫下回家作業，把今天表現好的孩子記下來，下次上課先給他們鼓勵。</p>
       <div class="btn-row" style="justify-content:center">
-        <button class="btn" id="againBtn">↺ 再上一堂 Teach again</button>
-        <a class="btn ghost" href="toolbox.html">打開工具箱 Toolbox</a>
+        <button class="btn" id="againBtn">↺ 再上一堂</button>
+        <a class="btn ghost" href="toolbox.html">打開工具箱</a>
       </div>
     </div>
   </div>
@@ -256,16 +255,16 @@
 <section class="section" id="bank" style="background:#fff;border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="center reveal">
-      <span class="eyebrow">QUESTION BANK　五科題庫</span>
-      <h2 class="h-en">Questions are ready too.</h2>
-      <p class="h-zh">題目也幫你準備好了 — 三年級上學期第一次段考，五科合訂。</p>
+      <span class="eyebrow">五科題庫</span>
+      <h2 class="h-main">題目也幫你準備好了</h2>
+      <p class="h-sub">題目也幫你準備好了 — 三年級上學期第一次段考，五科合訂。</p>
       <p class="lead center">
         全數自編、依 <b>康軒／南一／翰林</b> 分節，同一間安親班裡用不同版本的孩子可以各翻各的那一節。
         螢幕上點「解析」可展開答案，列印時解析會自動隱藏。</p>
     </div>
     <div class="grid g3 reveal" id="bankGrid" style="margin-top:44px"></div>
     <div class="hint reveal" style="max-width:880px;margin:32px auto 0">
-      <b>版權說明 COPYRIGHT</b>
+      <b>版權說明</b>
       <p>題本題目 100% 自編，未抄錄任何學校段考原卷；命題範圍參考公開的各校段考紀錄與十二年國教課綱。僅供班內教學使用。</p>
     </div>
   </div>
@@ -277,20 +276,20 @@
       <div>
         <div class="brand">
           <img class="logo" src="assets/img/logo.svg" alt="">
-          <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+          <span>星光教學舞台<small>安親・英文教學平台</small></span>
         </div>
-        <p>給安親班老師與國小英文老師的教學平台。<br>A teaching stage for after-school and elementary English teachers.</p>
+        <p>給安親班老師與國小英文老師的教學平台。</p>
       </div>
-      <div><h5>教學 Teaching</h5><ul>
-        <li><a href="stage.html">教學舞台 Stage</a></li>
-        <li><a href="english.html">英文教室 English</a></li>
-        <li><a href="toolbox.html">課堂工具箱 Toolbox</a></li>
-        <li><a href="pro.html">資深老師 Pro</a></li></ul></div>
-      <div><h5>資源 Resources</h5><ul>
-        <li><a href="#bank">五科題庫 Question Bank</a></li>
-        <li><a href="#setup">五步驟流程 Lesson Flow</a></li>
-        <li><a href="english.html#guide">新手老師指引 Guide</a></li></ul></div>
-      <div><h5>聯絡 Contact</h5><ul>
+      <div><h5>教學</h5><ul>
+        <li><a href="stage.html">教學舞台</a></li>
+        <li><a href="english.html">英文教室</a></li>
+        <li><a href="toolbox.html">課堂工具箱</a></li>
+        <li><a href="pro.html">資深老師</a></li></ul></div>
+      <div><h5>資源</h5><ul>
+        <li><a href="#bank">五科題庫</a></li>
+        <li><a href="#setup">五步驟流程</a></li>
+        <li><a href="english.html#guide">新手老師指引</a></li></ul></div>
+      <div><h5>聯絡</h5><ul>
         <li>教務信箱 · office@example.edu.tw</li>
         <li>電話 · (04) 0000-0000</li>
         <li>地址 · 台灣・彰化縣</li>
@@ -298,7 +297,7 @@
     </div>
     <div class="footer-bot">
       <span>© 2026 星光教學舞台. 題目全數自編，僅供班內教學使用。</span>
-      <span>Made for teachers who care.　🌟</span>
+      <span>為認真的老師而做　🌟</span>
     </div>
   </div>
 </footer>
@@ -317,7 +316,7 @@ function paintGrades(){
 }
 function paintSubjects(){
   $('#subjRow').innerHTML = Object.entries(SUBJECTS)
-    .map(([k,v])=>`<button class="pill${k===state.subject?' on':''}" data-s="${k}">${v.icon} ${v.zh} ${v.en}</button>`).join('');
+    .map(([k,v])=>`<button class="pill${k===state.subject?' on':''}" data-s="${k}">${v.icon} ${v.zh}</button>`).join('');
 }
 function paintUnits(){
   const list = UNITS[state.subject][state.grade] || [];
@@ -375,8 +374,8 @@ function launch(){
   const g = state.custom ? state.custom.grade : state.grade;
   const sk = state.custom ? state.custom.subject : state.subject;
   const s = SUBJECTS[sk] || {zh:'其他',en:''};
-  $('#lessonTag').textContent = (state.custom ? '🎓 資深老師課程　' : 'ON STAGE　') +
-    `${'一二三四五六'[g-1]}年級・${s.zh} ${s.en}`;
+  $('#lessonTag').textContent = (state.custom ? '🎓 資深老師課程　' : '上課中　') +
+    `${'一二三四五六'[g-1]}年級・${s.zh}`;
   $('#lessonTitle').textContent = name;
   $('#finishSub').textContent = `《${name}》這堂課上完了，辛苦了！`;
   $('#setup').classList.add('hidden'); $('#finish').classList.add('hidden');
@@ -405,15 +404,19 @@ function renderStep(){
   const unit = state.custom ? state.custom.name : state.unit.replace(/&amp;/g,'&');
   const fill = t => t.replace(/\{unit\}/g, unit);
 
+  // 英語科保留英文步驟名（英文本身就是教材）；其餘科目只顯示中文。
+  const isEn = (state.custom ? state.custom.subject : state.subject) === 'english';
+  const mins = k => state.custom ? f[k].min : Math.round(f[k].min*state.len);
+
   $('#rail').innerHTML = f.map((x,k)=>
     `<button data-k="${k}" class="${k===i?'on':(k<i?'done':'')}">
-       <b>${x.zh}</b><small>${x.en.toUpperCase()}</small></button>`).join('');
+       <b>${x.zh}</b><small>${isEn ? x.en.toUpperCase() : mins(k)+' 分'}</small></button>`).join('');
 
-  $('#stepTag').textContent = `STEP ${i+1} / ${f.length}`;
-  $('#stepEn').textContent = s.en;
-  $('#stepZh').textContent = `${s.zh}　${state.custom ? s.min : Math.round(s.min*state.len)} 分鐘`;
+  $('#stepTag').textContent = `第 ${i+1} / ${f.length} 步`;
+  $('#stepEn').textContent = isEn ? s.en : s.zh;
+  $('#stepZh').textContent = isEn ? `${s.zh}　${mins(i)} 分鐘` : `${mins(i)} 分鐘`;
   $('#stepImg').src = 'assets/img/'+(s.img || 'g1-hands-up.svg');
-  $('#tLabel').textContent = s.en.toUpperCase();
+  $('#tLabel').textContent = isEn ? s.en.toUpperCase() : s.zh;
 
   $('#sayBox').innerHTML   = (s.say||[]).map(t=>`<div class="say">${fill(t)}</div>`).join('');
   $('#doList').innerHTML   = (s.do||[]).map(t=>`<li>${fill(t)}</li>`).join('') || '<li>—</li>';
@@ -421,7 +424,7 @@ function renderStep(){
   $('#checkTxt').textContent = fill(s.check||'—');
 
   $('#prevBtn').disabled = i===0;
-  $('#nextBtn').textContent = i===f.length-1 ? '完成這堂課 Finish 🎉' : '下一步 Next →';
+  $('#nextBtn').textContent = i===f.length-1 ? '完成這堂課 🎉' : '下一步 →';
 
   timer.reset(stepSeconds(i)); $('#tPlay').textContent='▶ 開始';
   $('.step-body').classList.add('pop'); setTimeout(()=>$('.step-body').classList.remove('pop'),450);
@@ -484,7 +487,7 @@ $('#bankGrid').innerHTML = BANK.map(b=>{
   return `<article class="card hoverable">
     <div class="thumb"><img src="assets/img/${b.img}" alt="${s.zh}題庫"></div>
     <span class="tag ${s.tag}">${b.pub}</span>
-    <h3>${s.icon} ${s.zh}　${s.en}</h3>
+    <h3>${s.icon} ${s.zh}</h3>
     <p class="h3zh">段考範圍：${b.scope}</p>
     <p>${b.detail}</p>
   </article>`;

@@ -54,11 +54,12 @@ button{font-family:inherit}
   font-size:14px;font-weight:800;letter-spacing:.08em;
   padding:7px 16px;border-radius:999px;margin:0 0 14px;
 }
-.h-en{
+/* .h-main / .h-sub 是主／副標題。舊名 .h-en / .h-zh 保留相容（英文教室仍在用）。 */
+.h-en,.h-main{
   font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.01em;
   margin:0;line-height:1.2;
 }
-.h-zh{
+.h-zh,.h-sub{
   font-size:clamp(19px,2.4vw,24px);font-weight:700;color:var(--ink-soft);
   margin:8px 0 0;line-height:1.5;
 }

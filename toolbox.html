@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>課堂工具箱 Classroom Toolbox｜星光教學舞台</title>
+<title>課堂工具箱｜星光教學舞台</title>
 <meta name="description" content="計時器、隨機點名、快速分組、分組計分板、獎勵音效鈕 — 管秩序需要的工具都在這裡。">
 <link rel="icon" href="assets/img/logo.svg">
 <link rel="stylesheet" href="assets/css/site.css">
@@ -70,15 +70,14 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
   <div class="nav-in">
     <a class="brand" href="index.html">
       <img class="logo" src="assets/img/logo.svg" alt="星光教學舞台">
-      <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+      <span>星光教學舞台<small>安親・英文教學平台</small></span>
     </a>
     <div class="nav-links">
-      <a href="index.html">首頁 Home</a>
-      <a href="stage.html">教學舞台 Stage</a>
-      <a href="english.html">英文教室 English</a>
-      <a href="toolbox.html" class="on">課堂工具箱 Toolbox</a>
-      <a href="exams.html">五科題庫 Exams</a>
-      <a href="pro.html">資深老師 Pro</a>
+      <a href="index.html">首頁</a>
+      <a href="stage.html">教學舞台</a>
+      <a href="english.html">英文教室</a>
+      <a href="toolbox.html" class="on">課堂工具箱</a>
+      <a href="pro.html">資深老師</a>
     </div>
     <button class="sfx-toggle"><span class="sfx-ico">🔊</span><span class="sfx-txt">音效開</span></button>
   </div>
@@ -87,14 +86,13 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
 <header class="hero">
   <div class="hero-in">
     <div>
-      <span class="eyebrow">🧰 CLASSROOM TOOLBOX　課堂工具箱</span>
-      <h1>Six tools.<br><span class="hl">A calm classroom.</span></h1>
-      <p class="zh">六樣工具，讓教室安靜下來。</p>
+      <span class="eyebrow">🧰 課堂工具箱</span>
+      <h1>六樣工具，<br><span class="hl">讓教室安靜下來。</span></h1>
       <p>計時器、抽籤點名、快速分組、分組計分、獎勵音效、安靜倒數。<br>
          把螢幕投出去，孩子看得到，秩序就自己來了。</p>
       <div class="btn-row">
-        <a class="btn big" href="#tools">打開工具 Open tools</a>
-        <a class="btn ghost big" href="stage.html">回到教學舞台 Stage</a>
+        <a class="btn big" href="#tools">打開工具</a>
+        <a class="btn ghost big" href="stage.html">回到教學舞台</a>
       </div>
     </div>
     <div class="hero-art">
@@ -110,7 +108,7 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
   <div class="wrap">
     <div class="tool">
       <div class="ico">📝</div>
-      <h3>班級名單　Class Roster</h3>
+      <h3>班級名單</h3>
       <p class="sub">貼一次就好，抽籤和分組都會用到（存在這台裝置上，重開網頁還在）。</p>
       <textarea id="roster" placeholder="一行一個名字，或用逗號分開&#10;例：小明, 小華, 阿宏, 佳佳, 阿凱, 小雨"></textarea>
       <div class="btn-row" style="margin-top:14px">
@@ -130,7 +128,7 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
       <!-- 1 計時器 -->
       <div class="tool">
         <div class="ico">⏱</div>
-        <h3>課堂計時器　Timer</h3>
+        <h3>課堂計時器</h3>
         <p class="sub">時間到會響鈴，最後 5 秒有倒數提示音。</p>
         <div class="bignum" id="tmNum">05:00</div>
         <div class="bar"><i id="tmBar"></i></div>
@@ -150,7 +148,7 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
       <!-- 2 抽籤點名 -->
       <div class="tool">
         <div class="ico">🎲</div>
-        <h3>隨機點名　Random Pick</h3>
+        <h3>隨機點名</h3>
         <p class="sub">跑馬燈抽人，公平又有戲劇效果。可設定「抽過的不再抽」。</p>
         <div class="pickbox">
           <div class="name" id="pickName">— —</div>
@@ -161,14 +159,14 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
           <button class="pill" id="resetPool">↺ 全部放回去</button>
         </div>
         <div class="btn-row" style="margin-top:16px">
-          <button class="btn coral" id="pickBtn">🎲 抽一位 Pick one</button>
+          <button class="btn coral" id="pickBtn">🎲 抽一位</button>
         </div>
       </div>
 
       <!-- 3 快速分組 -->
       <div class="tool">
         <div class="ico">👥</div>
-        <h3>快速分組　Grouping</h3>
+        <h3>快速分組</h3>
         <p class="sub">輸入要分幾組，按一下就洗牌分完，每次都不一樣。</p>
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
           <span style="font-weight:800">分成</span>
@@ -182,11 +180,11 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
       <!-- 4 計分板 -->
       <div class="tool">
         <div class="ico">🏆</div>
-        <h3>分組計分板　Scoreboard</h3>
+        <h3>分組計分板</h3>
         <p class="sub">兩隊搶答用。任一隊先到 10 分會自動放彩帶。</p>
         <div class="teams">
           <div class="team red">
-            <div class="tn">紅隊 RED</div>
+            <div class="tn">紅隊</div>
             <div class="sc" id="scRed">0</div>
             <div class="row">
               <button data-t="red" data-d="1">+1</button>
@@ -195,7 +193,7 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
             </div>
           </div>
           <div class="team blue">
-            <div class="tn">藍隊 BLUE</div>
+            <div class="tn">藍隊</div>
             <div class="sc" id="scBlue">0</div>
             <div class="row">
               <button data-t="blue" data-d="1">+1</button>
@@ -204,13 +202,13 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
             </div>
           </div>
         </div>
-        <button class="btn ghost sm" id="scReset">↺ 歸零 Reset</button>
+        <button class="btn ghost sm" id="scReset">↺ 歸零</button>
       </div>
 
       <!-- 5 音效鈕 -->
       <div class="tool">
         <div class="ico">🔊</div>
-        <h3>獎勵音效鈕　Sound Buttons</h3>
+        <h3>獎勵音效鈕</h3>
         <p class="sub">孩子答對就按掌聲，要收心就按鈴聲。手邊沒有響板也沒關係。</p>
         <div class="sfxpad">
           <button style="background:var(--mint)"   data-fx="correct"><span>✅</span>答對了</button>
@@ -225,7 +223,7 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
       <!-- 6 安靜倒數 -->
       <div class="tool">
         <div class="ico">🤫</div>
-        <h3>安靜倒數　Quiet Countdown</h3>
+        <h3>安靜倒數</h3>
         <p class="sub">全螢幕黑底大數字，孩子看到就會自己安靜。倒數完會響鈴。</p>
         <div class="pill-row">
           <button class="pill" data-q="10">10 秒</button>
@@ -247,14 +245,14 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
 <!-- 安靜遮罩 -->
 <div id="quietMask" class="hidden">
   <div class="big" id="quietNum">30</div>
-  <p>🤫 安靜　Quiet please</p>
+  <p>🤫 安靜</p>
   <small>坐好・閉上嘴巴・手放桌上　（點畫面可提前結束）</small>
 </div>
 
 <section class="section">
   <div class="wrap">
     <div class="hint" style="max-width:900px;margin:0 auto">
-      <b>怎麼用最順 HOW TO USE</b>
+      <b>怎麼用最順</b>
       <p>把這一頁投影出去，整堂課都不用關。要換活動時按計時器，要點人時按抽籤，
          搶答時開計分板 — 孩子的眼睛會跟著螢幕走，你就不用一直提高音量。</p>
     </div>
@@ -267,20 +265,20 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
       <div>
         <div class="brand">
           <img class="logo" src="assets/img/logo.svg" alt="">
-          <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+          <span>星光教學舞台<small>安親・英文教學平台</small></span>
         </div>
-        <p>給安親班老師與國小英文老師的教學平台。<br>A teaching stage for after-school and elementary English teachers.</p>
+        <p>給安親班老師與國小英文老師的教學平台。</p>
       </div>
-      <div><h5>教學 Teaching</h5><ul>
-        <li><a href="stage.html">教學舞台 Stage</a></li>
-        <li><a href="english.html">英文教室 English</a></li>
-        <li><a href="toolbox.html">課堂工具箱 Toolbox</a></li>
-        <li><a href="pro.html">資深老師 Pro</a></li></ul></div>
-      <div><h5>資源 Resources</h5><ul>
-        <li><a href="exams.html">五科題庫 Question Bank</a></li>
-        <li><a href="english.html#cards">單字卡 Flashcards</a></li>
-        <li><a href="english.html#guide">新手老師指引 Guide</a></li></ul></div>
-      <div><h5>聯絡 Contact</h5><ul>
+      <div><h5>教學</h5><ul>
+        <li><a href="stage.html">教學舞台</a></li>
+        <li><a href="english.html">英文教室</a></li>
+        <li><a href="toolbox.html">課堂工具箱</a></li>
+        <li><a href="pro.html">資深老師</a></li></ul></div>
+      <div><h5>資源</h5><ul>
+        <li><a href="stage.html#bank">五科題庫</a></li>
+        <li><a href="english.html#cards">單字卡</a></li>
+        <li><a href="english.html#guide">新手老師指引</a></li></ul></div>
+      <div><h5>聯絡</h5><ul>
         <li>教務信箱 · office@example.edu.tw</li>
         <li>電話 · (04) 0000-0000</li>
         <li>地址 · 台灣・彰化縣</li>
@@ -288,7 +286,7 @@ input[type=number]{width:82px;border:2px solid var(--line);border-radius:12px;pa
     </div>
     <div class="footer-bot">
       <span>© 2026 星光教學舞台. 名單只存在你這台裝置，不會上傳。</span>
-      <span>Made for teachers who care.　🌟</span>
+      <span>為認真的老師而做　🌟</span>
     </div>
   </div>
 </footer>
