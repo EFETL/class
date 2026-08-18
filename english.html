@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英文教室 English Room｜星光教學舞台</title>
+<meta name="description" content="單字翻卡會發音、句型跟讀、看圖選字遊戲。老師發音沒把握也不怕，按 🔊 就有標準發音。">
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+/* ---- 單字翻卡 ---- */
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.flip{perspective:1000px;cursor:pointer;height:186px}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.3,1.2,.4,1);
+  transform-style:preserve-3d}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.flip .side{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--radius);
+  display:grid;place-content:center;text-align:center;gap:7px;padding:14px;
+  border:1px solid var(--line);box-shadow:var(--shadow)}
+.flip .front{background:#fff}
+.flip .front .emo{font-size:58px;line-height:1}
+.flip .front .en{font-size:23px;font-weight:900;color:var(--ink)}
+.flip .front .tip{font-size:12px;color:var(--ink-soft);font-weight:700}
+.flip .back{transform:rotateY(180deg);background:linear-gradient(140deg,var(--primary),#6a7ce8);color:#fff}
+.flip .back .zh{font-size:27px;font-weight:900}
+.flip .back .en{font-size:16px;font-weight:700;opacity:.9}
+.spk{margin-top:8px;border:none;border-radius:999px;padding:8px 16px;font-weight:800;
+  font-size:14px;cursor:pointer;background:var(--sun);color:#4a3000}
+.flip .back .spk{background:rgba(255,255,255,.92);color:var(--primary-dark)}
+
+/* ---- 句型跟讀 ---- */
+.pattern{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:18px 22px;box-shadow:var(--shadow);margin-bottom:12px}
+.pattern .en{font-size:21px;font-weight:800}
+.pattern .zh{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:3px}
+
+/* ---- 遊戲 ---- */
+.game{background:linear-gradient(150deg,#eef1ff,#fff6e8);border:1px solid var(--line);
+  border-radius:var(--radius);padding:34px 30px;box-shadow:var(--shadow);text-align:center}
+.game .quiz-emo{font-size:110px;line-height:1.05;margin:6px 0 4px}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;max-width:540px;margin:22px auto 0}
+.opt{border:3px solid var(--line);background:#fff;border-radius:var(--radius-sm);padding:17px;
+  font-size:20px;font-weight:800;cursor:pointer;transition:.15s;color:var(--ink)}
+.opt:hover{border-color:var(--primary);transform:translateY(-3px)}
+.opt.right{background:var(--mint);border-color:var(--mint);color:#fff}
+.opt.wrongpick{background:var(--coral);border-color:var(--coral);color:#fff}
+.scorebar{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
+.scorebar .s{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 20px;
+  font-weight:800;font-size:15px}
+.scorebar .s b{color:var(--primary);font-size:19px}
+
+@media(max-width:1000px){.card-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){
+  .card-grid{grid-template-columns:repeat(2,1fr)}
+  .flip{height:170px}
+  .opts{grid-template-columns:1fr}
+  .pattern{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html">
+      <img class="logo" src="assets/img/logo.svg" alt="星光教學舞台">
+      <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">首頁 Home</a>
+      <a href="stage.html">教學舞台 Stage</a>
+      <a href="english.html" class="on">英文教室 English</a>
+      <a href="toolbox.html">課堂工具箱 Toolbox</a>
+      <a href="pro.html">資深老師 Pro</a>
+    </div>
+    <button class="sfx-toggle"><span class="sfx-ico">🔊</span><span class="sfx-txt">音效開</span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">🔤 ENGLISH ROOM　英文教室</span>
+      <h1>Press 🔊.<br><span class="hl">The class speaks.</span></h1>
+      <p class="zh">按下喇叭，整班就開口了。</p>
+      <p>發音沒把握？不用擔心。每個單字都有標準發音按鈕，
+         你按、孩子跟著唸，一堂英文課就成立了。</p>
+      <div class="btn-row">
+        <a class="btn big" href="#cards">開始教單字 Flashcards</a>
+        <a class="btn ghost big" href="#game">直接玩遊戲 Play</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="assets/img/entry-english.svg" alt="英文教室插畫" width="400" height="250">
+      <img class="floaty a" src="assets/img/deco-abc.svg" alt="" aria-hidden="true">
+      <img class="floaty b" src="assets/img/deco-star.svg" alt="" aria-hidden="true">
+    </div>
+  </div>
+</header>
+
+<!-- ========== 主題 + 單字卡 ========== -->
+<section class="section" id="cards">
+  <div class="wrap">
+    <span class="eyebrow">STEP 1　選主題，教單字</span>
+    <h2 class="h-en">Flashcards that talk.</h2>
+    <p class="h-zh">會說話的單字卡 — 點卡片翻中文，點 🔊 聽發音。</p>
+
+    <div class="pill-row" id="topicRow" style="margin-top:24px"></div>
+
+    <div class="say" style="max-width:820px;margin-top:22px" id="cardScript"></div>
+
+    <div class="card-grid reveal" id="cardGrid" style="margin-top:22px"></div>
+
+    <div class="btn-row">
+      <button class="btn sun" id="readAll">🔊 全部唸一次 Read all</button>
+      <button class="btn ghost" id="flipAll">🔄 全部翻面 Flip all</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 句型跟讀 ========== -->
+<section class="section" style="background:#fff;border-block:1px solid var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">STEP 2　句型跟讀</span>
+    <h2 class="h-en">Listen &amp; Repeat.</h2>
+    <p class="h-zh">聽一次、跟一次、再自己說一次。</p>
+
+    <div class="say" style="max-width:820px;margin-top:22px">
+      「我按一次，你們聽；我再按一次，你們跟著唸。第三次換你們自己說。」
+    </div>
+
+    <div id="patternBox" style="margin-top:24px"></div>
+
+    <div class="hint" style="max-width:860px">
+      <b>發音速度 SPEED</b>
+      <p>低年級建議用「慢速」，中高年級用「正常」。按下面的按鈕切換，所有發音都會跟著變。</p>
+      <div class="pill-row" style="margin-top:12px">
+        <button class="pill" data-rate="0.6">🐢 慢速 Slow</button>
+        <button class="pill on" data-rate="0.85">🚶 正常 Normal</button>
+        <button class="pill" data-rate="1.05">🏃 快速 Fast</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 遊戲 ========== -->
+<section class="section" id="game">
+  <div class="wrap" style="max-width:820px">
+    <div class="center">
+      <span class="eyebrow">STEP 3　看圖選字遊戲</span>
+      <h2 class="h-en">Look and choose!</h2>
+      <p class="h-zh">答對有掌聲和彩帶，答錯只有一個小提示音 — 再試一次就好。</p>
+    </div>
+
+    <div class="game reveal" style="margin-top:30px">
+      <div class="scorebar">
+        <div class="s">第 <b id="qNo">1</b> / <span id="qTotal">10</span> 題</div>
+        <div class="s">答對 <b id="qRight">0</b> 題</div>
+        <div class="s">連續 <b id="qStreak">0</b> 連答</div>
+      </div>
+      <div class="quiz-emo" id="quizEmo">🎒</div>
+      <button class="btn sun sm" id="quizSpeak">🔊 再聽一次 Hear it</button>
+      <div class="opts" id="quizOpts"></div>
+      <p id="quizMsg" style="font-weight:800;font-size:19px;margin:22px 0 0;min-height:28px"></p>
+      <div class="btn-row" style="justify-content:center">
+        <button class="btn" id="quizNew">↺ 重新開始 New game</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 新手老師指引 ========== -->
+<section class="section" id="guide" style="background:linear-gradient(180deg,#fff,#f2f4ff)">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">GUIDE　新手老師指引</span>
+      <h2 class="h-en">Never taught English before?</h2>
+      <p class="h-zh">第一次教英文？照這個順序做就好。</p>
+    </div>
+    <div class="steps" style="margin-top:52px">
+      <div class="step">
+        <h4>先讓他們聽　Hear it first</h4>
+        <p>不要先解釋文法，也不要先寫黑板。按 🔊 讓孩子先聽三次，耳朵熟了嘴巴才會動。</p>
+      </div>
+      <div class="step">
+        <h4>再讓他們說　Say it together</h4>
+        <p>全班一起唸最安全，沒有人會怕。齊唸三次之後，再點個別的孩子唸。</p>
+      </div>
+      <div class="step">
+        <h4>最後才玩　Play last</h4>
+        <p>遊戲是檢查，不是教學。先聽先說，最後才進遊戲，孩子的成就感才會出來。</p>
+      </div>
+    </div>
+    <div class="hint" style="max-width:880px;margin:34px auto 0">
+      <b>如果孩子不敢開口 IF THEY WON'T SPEAK</b>
+      <p>先全班齊唸，再分兩組對唸，最後才點個人。中間不要糾正發音細節，先讓他敢說完整句再說。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <img class="logo" src="assets/img/logo.svg" alt="">
+          <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+        </div>
+        <p>給安親班老師與國小英文老師的教學平台。<br>A teaching stage for after-school and elementary English teachers.</p>
+      </div>
+      <div><h5>教學 Teaching</h5><ul>
+        <li><a href="stage.html">教學舞台 Stage</a></li>
+        <li><a href="english.html">英文教室 English</a></li>
+        <li><a href="toolbox.html">課堂工具箱 Toolbox</a></li>
+        <li><a href="pro.html">資深老師 Pro</a></li></ul></div>
+      <div><h5>資源 Resources</h5><ul>
+        <li><a href="stage.html#bank">五科題庫 Question Bank</a></li>
+        <li><a href="#cards">單字卡 Flashcards</a></li>
+        <li><a href="#guide">新手老師指引 Guide</a></li></ul></div>
+      <div><h5>聯絡 Contact</h5><ul>
+        <li>教務信箱 · office@example.edu.tw</li>
+        <li>電話 · (04) 0000-0000</li>
+        <li>地址 · 台灣・彰化縣</li>
+        <li>上課時間 · 週一至週五 15:30–20:00</li></ul></div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 星光教學舞台. 發音由裝置內建語音合成提供。</span>
+      <span>Made for teachers who care.　🌟</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+let RATE = .85;
+
+/* ---------- 單字資料 ---------- */
+const TOPICS = {
+  school:{zh:'學校用品',en:'School Things',
+    words:[['pencil','鉛筆','✏️'],['book','書','📚'],['eraser','橡皮擦','🧽'],['ruler','尺','📏'],
+           ['bag','書包','🎒'],['scissors','剪刀','✂️'],['crayon','蠟筆','🖍️'],['notebook','筆記本','📓']],
+    patterns:[['What is this?','這是什麼？'],['It is a pencil.','這是一枝鉛筆。'],
+              ['I have a book.','我有一本書。'],['May I borrow your eraser?','可以借我橡皮擦嗎？']]},
+  animals:{zh:'動物',en:'Animals',
+    words:[['dog','狗','🐶'],['cat','貓','🐱'],['rabbit','兔子','🐰'],['bird','鳥','🐦'],
+           ['fish','魚','🐟'],['elephant','大象','🐘'],['monkey','猴子','🐵'],['tiger','老虎','🐯']],
+    patterns:[['What animal is it?','那是什麼動物？'],['It is a dog.','那是一隻狗。'],
+              ['I like cats.','我喜歡貓。'],['The tiger is big.','老虎很大。']]},
+  food:{zh:'食物',en:'Food &amp; Drinks',
+    words:[['apple','蘋果','🍎'],['bread','麵包','🍞'],['milk','牛奶','🥛'],['rice','飯','🍚'],
+           ['egg','蛋','🥚'],['noodles','麵','🍜'],['water','水','💧'],['cake','蛋糕','🍰']],
+    patterns:[['What do you want?','你想要什麼？'],['I want some bread.','我想要一些麵包。'],
+              ['I am hungry.','我肚子餓了。'],['This cake is yummy!','這個蛋糕好好吃！']]},
+  colors:{zh:'顏色',en:'Colors',
+    words:[['red','紅色','🔴'],['blue','藍色','🔵'],['yellow','黃色','🟡'],['green','綠色','🟢'],
+           ['purple','紫色','🟣'],['orange','橘色','🟠'],['black','黑色','⚫'],['white','白色','⚪']],
+    patterns:[['What color is it?','那是什麼顏色？'],['It is red.','那是紅色的。'],
+              ['My favorite color is blue.','我最喜歡的顏色是藍色。'],['I see a green apple.','我看到一顆綠蘋果。']]},
+  feelings:{zh:'感覺',en:'Feelings',
+    words:[['happy','開心','😀'],['sad','難過','😢'],['angry','生氣','😠'],['tired','累','😴'],
+           ['hungry','餓','🍽️'],['scared','害怕','😨'],['excited','興奮','🤩'],['sick','生病','🤒']],
+    patterns:[['How are you?','你好嗎？'],['I am happy.','我很開心。'],
+              ['Are you tired?','你累了嗎？'],['Do not be sad.','不要難過。']]},
+  actions:{zh:'課堂動作',en:'Classroom Actions',
+    words:[['stand up','起立','🧍'],['sit down','坐下','🪑'],['listen','聽','👂'],['look','看','👀'],
+           ['write','寫','✍️'],['read','讀','📖'],['raise hand','舉手','🙋'],['line up','排隊','🚶']],
+    patterns:[['Stand up, please.','請起立。'],['Sit down, please.','請坐下。'],
+              ['Listen carefully.','仔細聽。'],['Raise your hand.','請舉手。']]},
+};
+let topic = 'school';
+
+/* ---------- 主題列 ---------- */
+function paintTopics(){
+  $('#topicRow').innerHTML = Object.entries(TOPICS)
+    .map(([k,v])=>`<button class="pill${k===topic?' on':''}" data-t="${k}">${v.zh} ${v.en}</button>`).join('');
+}
+$('#topicRow').addEventListener('click',e=>{
+  const b=e.target.closest('[data-t]'); if(!b) return;
+  topic=b.dataset.t; paintTopics(); paintCards(); paintPatterns(); newGame(); SFX.play('whoosh');
+});
+
+/* ---------- 單字卡 ---------- */
+function paintCards(){
+  const t = TOPICS[topic];
+  $('#cardScript').innerHTML =
+    `"Today we learn <b>${t.en}</b>." 「今天我們學《${t.zh}》。我按一次發音，你們聽；我再按一次，你們跟著唸。」`;
+  $('#cardGrid').innerHTML = t.words.map(([w,zh,e],i)=>`
+    <div class="flip" data-i="${i}">
+      <div class="flip-in">
+        <div class="side front">
+          <div class="emo">${e}</div>
+          <div class="en">${w}</div>
+          <div class="tip">點卡片看中文</div>
+          <button class="spk" data-say="${w}">🔊 唸一次</button>
+        </div>
+        <div class="side back">
+          <div class="zh">${zh}</div>
+          <div class="en">${w}</div>
+          <button class="spk" data-say="${w}">🔊 唸一次</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+$('#cardGrid').addEventListener('click',e=>{
+  const sp = e.target.closest('[data-say]');
+  if(sp){ e.stopPropagation(); speak(sp.dataset.say, RATE); return; }
+  const c = e.target.closest('.flip');
+  if(c){ c.classList.toggle('on'); SFX.play('flip'); }
+});
+$('#flipAll').addEventListener('click',()=>{
+  const cards=[...document.querySelectorAll('.flip')];
+  const anyOff = cards.some(c=>!c.classList.contains('on'));
+  cards.forEach((c,i)=>setTimeout(()=>{c.classList.toggle('on',anyOff);SFX.play('flip');},i*70));
+});
+$('#readAll').addEventListener('click',()=>{
+  TOPICS[topic].words.forEach(([w],i)=>setTimeout(()=>speak(w,RATE), i*1250));
+});
+
+/* ---------- 句型 ---------- */
+function paintPatterns(){
+  $('#patternBox').innerHTML = TOPICS[topic].patterns.map(([en,zh])=>`
+    <div class="pattern">
+      <div><div class="en">${en}</div><div class="zh">${zh}</div></div>
+      <button class="btn sun sm" data-say="${en}">🔊 播放</button>
+    </div>`).join('');
+}
+$('#patternBox').addEventListener('click',e=>{
+  const b=e.target.closest('[data-say]'); if(b) speak(b.dataset.say, RATE);
+});
+document.querySelectorAll('[data-rate]').forEach(b=>b.addEventListener('click',()=>{
+  RATE=+b.dataset.rate;
+  document.querySelectorAll('[data-rate]').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  speak('This is the speed.', RATE);
+}));
+
+/* ---------- 看圖選字遊戲 ---------- */
+let quiz={list:[],i:0,right:0,streak:0,locked:false};
+const shuffle = a => a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);
+
+function newGame(){
+  const words = TOPICS[topic].words;
+  quiz = { list: shuffle([...words,...words]).slice(0,10), i:0, right:0, streak:0, locked:false };
+  $('#qTotal').textContent = quiz.list.length;
+  $('#quizMsg').textContent = '';
+  paintQ();
+}
+function paintQ(){
+  const [w,zh,e] = quiz.list[quiz.i];
+  const others = shuffle(TOPICS[topic].words.filter(x=>x[0]!==w)).slice(0,3).map(x=>x[0]);
+  const opts = shuffle([w,...others]);
+  $('#qNo').textContent = quiz.i+1;
+  $('#qRight').textContent = quiz.right;
+  $('#qStreak').textContent = quiz.streak;
+  $('#quizEmo').textContent = e;
+  $('#quizEmo').classList.add('pop'); setTimeout(()=>$('#quizEmo').classList.remove('pop'),450);
+  $('#quizOpts').innerHTML = opts.map(o=>`<button class="opt" data-o="${o}">${o}</button>`).join('');
+  $('#quizSpeak').onclick = ()=>speak(w, RATE);
+  quiz.locked=false;
+}
+$('#quizOpts').addEventListener('click',e=>{
+  const b=e.target.closest('[data-o]'); if(!b || quiz.locked) return;
+  const [w,zh] = quiz.list[quiz.i];
+  if(b.dataset.o === w){
+    quiz.locked=true; quiz.right++; quiz.streak++;
+    b.classList.add('right'); SFX.play('correct'); speak(w, RATE);
+    $('#quizMsg').innerHTML = `✅ 答對了！<b>${w}</b> = ${zh}`;
+    $('#quizMsg').style.color='var(--mint)';
+    if(quiz.streak>0 && quiz.streak%3===0){ party(70); SFX.play('clap'); }
+    setTimeout(()=>{
+      if(quiz.i < quiz.list.length-1){ quiz.i++; $('#quizMsg').textContent=''; paintQ(); }
+      else finishGame();
+    },1400);
+  } else {
+    quiz.streak=0; b.classList.add('wrongpick'); b.classList.add('shake');
+    SFX.play('wrong');
+    $('#quizMsg').textContent='再試一次！Try again 🙂';
+    $('#quizMsg').style.color='var(--coral)';
+    $('#qStreak').textContent=0;
+    setTimeout(()=>{b.classList.remove('wrongpick','shake');},600);
+  }
+});
+function finishGame(){
+  const pct = Math.round(quiz.right/quiz.list.length*100);
+  $('#quizEmo').textContent = pct>=80?'🏆':pct>=60?'👏':'💪';
+  $('#quizOpts').innerHTML='';
+  $('#quizMsg').innerHTML = `答對 <b>${quiz.right}/${quiz.list.length}</b> 題（${pct}%）— ` +
+    (pct>=80?'太棒了！Excellent!':pct>=60?'不錯喔！Good job!':'再練一次會更好！Keep going!');
+  $('#quizMsg').style.color='var(--ink)';
+  SFX.play('fanfare'); if(pct>=60) party(160);
+}
+$('#quizNew').addEventListener('click',()=>{ newGame(); SFX.play('up'); });
+
+/* ---------- 啟動 ---------- */
+paintTopics(); paintCards(); paintPatterns(); newGame();
+</script>
+</body>
+</html>

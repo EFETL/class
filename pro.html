@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>資深老師工作台 Pro Console｜星光教學舞台</title>
+<meta name="description" content="給經驗豐富的老師：自己設計教學流程、改寫逐字腳本、存成課程庫，交給新老師照著上；另有全鍵盤操作的快速控制台。">
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+/* ---- 工作台專用 ---- */
+.deep{background:#1f2340;color:#e8eaf6}
+.deep .h-en{color:#fff}
+.deep .h-zh{color:#a9b0d8}
+.deep .eyebrow{background:rgba(255,255,255,.12);color:#cdd3f5}
+.deep .lead{color:#a9b0d8}
+
+.meta-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:22px}
+.field label{display:block;font-size:12.5px;font-weight:800;letter-spacing:.07em;
+  color:var(--ink-soft);margin-bottom:6px}
+.field input,.field select,.field textarea{
+  width:100%;border:2px solid var(--line);border-radius:12px;padding:11px 14px;
+  font-family:inherit;font-size:15.5px;color:var(--ink);background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--primary)}
+.field textarea{resize:vertical;min-height:76px;line-height:1.7}
+
+/* 步驟編輯卡 */
+.stepcard{border:2px solid var(--line);border-radius:var(--radius);background:#fff;
+  padding:20px 22px;margin-bottom:16px;position:relative}
+.stepcard.drag{border-color:var(--primary)}
+.sc-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.sc-num{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:var(--primary);
+  color:#fff;font-weight:900;display:grid;place-items:center;font-size:16px}
+.sc-head input[data-f="zh"]{width:104px;font-weight:800}
+.sc-head input[data-f="en"]{width:132px}
+.sc-head input[data-f="min"]{width:66px;text-align:center;font-weight:800}
+.sc-head select{width:150px}
+.sc-head input,.sc-head select{border:2px solid var(--line);border-radius:10px;padding:8px 11px;
+  font-family:inherit;font-size:14.5px;color:var(--ink);background:#fff}
+.sc-tools{margin-left:auto;display:flex;gap:6px}
+.sc-tools button{border:2px solid var(--line);background:#fff;border-radius:10px;width:36px;height:36px;
+  cursor:pointer;font-weight:900;font-size:15px;color:var(--ink-soft);transition:.15s}
+.sc-tools button:hover{border-color:var(--primary);color:var(--primary)}
+.sc-tools button[data-act="del"]:hover{border-color:var(--coral);color:var(--coral)}
+.sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sc-grid .full{grid-column:1/-1}
+
+.totalbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+  background:var(--primary-soft);border-radius:var(--radius-sm);padding:14px 20px;margin-bottom:20px}
+.totalbar b{font-size:22px;font-weight:900;color:var(--primary-dark)}
+.totalbar .warnmsg{color:var(--coral);font-weight:800;font-size:14.5px}
+
+/* 課程庫 */
+.lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.libcard{border:1px solid var(--line);border-radius:var(--radius);background:#fff;
+  padding:20px 22px;box-shadow:var(--shadow)}
+.libcard h4{margin:0;font-size:18px;font-weight:800}
+.libcard .m{font-size:13.5px;color:var(--ink-soft);font-weight:700;margin:5px 0 12px}
+.libcard .chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.chip{font-size:11.5px;font-weight:800;background:var(--primary-soft);color:var(--primary-dark);
+  padding:4px 10px;border-radius:999px}
+.libcard .acts{display:flex;gap:7px;flex-wrap:wrap}
+.libcard .acts button{border:2px solid var(--line);background:#fff;border-radius:999px;
+  padding:7px 13px;font-weight:800;font-size:13.5px;cursor:pointer;color:var(--ink);transition:.15s}
+.libcard .acts button:hover{border-color:var(--primary);color:var(--primary)}
+.libcard .acts button.go{background:var(--primary);border-color:var(--primary);color:#fff}
+.libcard .acts button.danger:hover{border-color:var(--coral);color:var(--coral)}
+.empty{border:2px dashed var(--line);border-radius:var(--radius);padding:40px 24px;text-align:center;
+  color:var(--ink-soft);font-weight:700}
+
+/* 快速控制台 */
+.pro{background:#14172e;border-radius:var(--radius);padding:26px;color:#e8eaf6}
+.pro-top{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.pro select{background:#252a4d;border:2px solid #3a4070;color:#fff;border-radius:12px;
+  padding:11px 14px;font-family:inherit;font-size:15.5px;font-weight:700;min-width:230px}
+.pro-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin-bottom:20px}
+.pro-strip button{background:#252a4d;border:2px solid #3a4070;border-radius:12px;padding:11px 6px;
+  color:#a9b0d8;cursor:pointer;font-family:inherit;transition:.15s}
+.pro-strip button b{display:block;font-size:15px;font-weight:800;color:#e8eaf6}
+.pro-strip button small{font-size:11px;font-weight:700}
+.pro-strip button.on{background:var(--primary);border-color:var(--primary)}
+.pro-strip button.on b,.pro-strip button.on small{color:#fff}
+.pro-strip button.past{border-color:var(--mint);color:var(--mint)}
+.pro-main{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start}
+.pro-clock{text-align:center;background:#252a4d;border-radius:var(--radius-sm);padding:24px 18px}
+.pro-clock .t{font-size:64px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.03em;
+  line-height:1.05}
+.pro-clock .t.warn{color:var(--coral)}
+.pro-clock .lb{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:#a9b0d8;margin-bottom:10px}
+.pro-clock .pbar{height:8px;border-radius:4px;background:#3a4070;overflow:hidden;margin:14px 0 16px}
+.pro-clock .pbar i{display:block;height:100%;background:var(--sun);width:100%;transition:width .95s linear}
+.pro-clock button{border:none;border-radius:999px;padding:11px 20px;font-weight:800;font-size:15px;
+  cursor:pointer;margin:0 4px;font-family:inherit}
+.pro-detail{background:#252a4d;border-radius:var(--radius-sm);padding:24px}
+.pro-detail h3{margin:0 0 4px;font-size:26px;font-weight:900;color:#fff}
+.pro-detail .zh2{font-size:15px;color:#a9b0d8;font-weight:700;margin-bottom:18px}
+.pro-detail .line{border-top:1px solid #3a4070;padding-top:16px;margin-top:16px}
+.pro-detail h5{margin:0 0 8px;font-size:12.5px;font-weight:800;letter-spacing:.08em;color:#8f97c9}
+.pro-detail p,.pro-detail li{font-size:16px;line-height:1.7;margin:4px 0}
+.pro-detail ul{margin:0;padding-left:20px}
+.pro-detail .quote{color:var(--sun);font-weight:700}
+
+kbd{background:#fff;border:1px solid var(--line);border-bottom-width:3px;border-radius:7px;
+  padding:3px 9px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.keys div{display:flex;gap:10px;align-items:center;font-size:15px;font-weight:700;color:var(--ink-soft)}
+
+/* 列印教案 */
+#printArea{display:none}
+@media print{
+  body>*{display:none!important}
+  #printArea{display:block!important}
+  #printArea h1{font-size:22pt;margin:0 0 4pt}
+  #printArea .pmeta{font-size:11pt;color:#444;margin-bottom:14pt;
+    border-bottom:2pt solid #333;padding-bottom:8pt}
+  #printArea .pstep{break-inside:avoid;border:1pt solid #999;border-radius:6pt;
+    padding:10pt 12pt;margin-bottom:10pt}
+  #printArea .pstep h2{font-size:14pt;margin:0 0 6pt}
+  #printArea .pstep h6{font-size:9.5pt;margin:8pt 0 3pt;letter-spacing:.05em;color:#333}
+  #printArea .pstep p,#printArea .pstep li{font-size:11pt;margin:2pt 0;line-height:1.6}
+  #printArea .pstep ul{margin:0;padding-left:16pt}
+  #printArea .psay{border-left:3pt solid #666;padding-left:8pt;font-weight:700}
+}
+
+.hidden{display:none!important}
+@media(max-width:900px){
+  .sc-grid{grid-template-columns:1fr}
+  .pro-main{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html">
+      <img class="logo" src="assets/img/logo.svg" alt="星光教學舞台">
+      <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">首頁 Home</a>
+      <a href="stage.html">教學舞台 Stage</a>
+      <a href="english.html">英文教室 English</a>
+      <a href="toolbox.html">課堂工具箱 Toolbox</a>
+      <a href="pro.html" class="on">資深老師 Pro</a>
+    </div>
+    <button class="sfx-toggle"><span class="sfx-ico">🔊</span><span class="sfx-txt">音效開</span></button>
+  </div>
+</nav>
+
+<!-- ========== Hero ========== -->
+<header class="section deep" style="padding-top:60px;padding-bottom:60px">
+  <div class="wrap">
+    <span class="eyebrow">🎓 PRO CONSOLE　資深老師工作台</span>
+    <h1 class="h-en" style="font-size:clamp(30px,4.6vw,48px)">You don't need the script.<br>The new teacher does.</h1>
+    <p class="h-zh">你不需要腳本 — 但新來的老師需要。<br>在這裡把你的教法寫下來，變成別人可以照著上的課。</p>
+    <p class="lead">
+      前面四個頁面是「照著做」，這一頁是「訂規則」。<br>
+      你設計的流程會直接出現在教學舞台上，新老師點一下就能照著上，
+      教出來的水準跟你差不多。
+    </p>
+    <div class="btn-row">
+      <a class="btn sun big" href="#designer">✎ 開始設計課程</a>
+      <a class="btn ghost big" href="#promode" style="background:transparent;color:#fff;border-color:#4a5183">⚡ 快速控制台</a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== 1. 課程設計器 ========== -->
+<section class="section" id="designer">
+  <div class="wrap">
+    <span class="eyebrow">DESIGNER　課程設計器</span>
+    <h2 class="h-en">Design the lesson once. Everyone teaches it right.</h2>
+    <p class="h-zh">設計一次，全班老師都上得對。</p>
+
+    <div class="panel" style="margin-top:28px">
+      <div class="meta-row">
+        <div class="field">
+          <label>課程名稱 LESSON NAME</label>
+          <input id="fName" placeholder="例：三上國語 L5 精讀＋圈詞">
+        </div>
+        <div class="field">
+          <label>年級 GRADE</label>
+          <select id="fGrade"></select>
+        </div>
+        <div class="field">
+          <label>科目 SUBJECT</label>
+          <select id="fSubject"></select>
+        </div>
+        <div class="field">
+          <label>從範本開始 START FROM</label>
+          <select id="fTemplate">
+            <option value="">— 空白（自己從頭設計）—</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="totalbar">
+        <span style="font-weight:800">總時長</span>
+        <b id="totalMin">0</b><span style="font-weight:800">分鐘</span>
+        <span style="color:var(--ink-soft);font-weight:700">／ <span id="stepCount">0</span> 個步驟</span>
+        <span class="warnmsg" id="totalWarn"></span>
+      </div>
+
+      <div id="stepsBox"></div>
+
+      <div class="btn-row" style="margin-top:4px">
+        <button class="btn mint" id="addStep">＋ 新增步驟</button>
+        <button class="btn" id="saveLesson">💾 儲存到課程庫</button>
+        <button class="btn ghost" id="clearDraft">✕ 清空重來</button>
+      </div>
+      <p id="designHint" style="font-weight:800;margin-top:12px;min-height:24px"></p>
+    </div>
+
+    <div class="hint" style="max-width:900px;margin-top:26px">
+      <b>寫腳本的三個原則 THREE RULES</b>
+      <p>
+        ① <b>「老師這樣說」要能直接念</b> — 寫成完整口語句子，不要寫「引導學生思考」這種抽象的話。<br>
+        ② <b>「成功標準」要看得見</b> — 寫「全班都出過聲」，不要寫「學生有參與感」。<br>
+        ③ <b>一步只做一件事</b> — 一個步驟塞三件事，新老師會漏掉兩件。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. 課程庫 ========== -->
+<section class="section" id="library" style="background:#fff;border-block:1px solid var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">LIBRARY　我的課程庫</span>
+    <h2 class="h-en">Your lessons, ready to hand over.</h2>
+    <p class="h-zh">存好的課程 — 隨時可以上、可以印、可以交給別人。</p>
+    <p class="lead">存在這裡的課程會自動出現在<a href="stage.html" style="color:var(--primary);font-weight:800">教學舞台</a>最上面，新老師一進去就看得到。</p>
+
+    <div class="lib" id="libBox" style="margin-top:30px"></div>
+  </div>
+</section>
+
+<!-- ========== 3. 交接 ========== -->
+<section class="section" id="handover">
+  <div class="wrap">
+    <span class="eyebrow">HANDOVER　交接與備份</span>
+    <h2 class="h-en">Move it to another computer.</h2>
+    <p class="h-zh">換一台電腦、換一個老師，把課程帶著走。</p>
+
+    <div class="grid g2" style="margin-top:28px">
+      <div class="panel">
+        <h3 style="margin:0 0 6px;font-size:20px">📤 匯出 Export</h3>
+        <p style="color:var(--ink-soft);font-size:15px;margin:0 0 16px">
+          把整個課程庫存成一個檔案，或直接複製下面的文字貼給同事。</p>
+        <div class="field"><textarea id="exportBox" readonly style="min-height:150px;
+          font-family:ui-monospace,Menlo,monospace;font-size:12.5px"></textarea></div>
+        <div class="btn-row" style="margin-top:14px">
+          <button class="btn sm" id="copyBtn">📋 複製</button>
+          <button class="btn mint sm" id="downloadBtn">⬇ 下載檔案</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3 style="margin:0 0 6px;font-size:20px">📥 匯入 Import</h3>
+        <p style="color:var(--ink-soft);font-size:15px;margin:0 0 16px">
+          把同事給你的文字貼進來，或選一個備份檔。匯入的課程會加進你現有的課程庫，不會蓋掉。</p>
+        <div class="field"><textarea id="importBox" placeholder="把匯出的內容貼在這裡…"
+          style="min-height:150px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px"></textarea></div>
+        <div class="btn-row" style="margin-top:14px">
+          <button class="btn sm" id="importBtn">＋ 匯入</button>
+          <label class="btn ghost sm" style="cursor:pointer">
+            📁 選檔案<input type="file" id="importFile" accept=".json" style="display:none"></label>
+        </div>
+        <p id="importHint" style="font-weight:800;margin-top:12px;min-height:22px"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. 快速控制台 ========== -->
+<section class="section" id="promode" style="background:linear-gradient(180deg,#f7f8fc,#eef1ff)">
+  <div class="wrap">
+    <span class="eyebrow">PRO MODE　快速控制台</span>
+    <h2 class="h-en">One screen. All keyboard.</h2>
+    <p class="h-zh">一個畫面看完整堂課，全部用鍵盤控制 — 不用滑鼠、不用捲動。</p>
+
+    <div class="pro" style="margin-top:28px">
+      <div class="pro-top">
+        <select id="proPick"></select>
+        <button class="btn sun sm" id="proLoad">載入 Load</button>
+        <span style="color:#8f97c9;font-size:14px;font-weight:700;margin-left:auto">
+          按 <kbd style="background:#252a4d;border-color:#3a4070;color:#fff">空白鍵</kbd> 開始／暫停
+        </span>
+      </div>
+
+      <div class="pro-strip" id="proStrip"></div>
+
+      <div class="pro-main">
+        <div class="pro-clock">
+          <div class="lb" id="proLabel">—</div>
+          <div class="t" id="proTime">00:00</div>
+          <div class="pbar"><i id="proBar"></i></div>
+          <button class="btn sm" id="proPlay" style="background:var(--sun);color:#4a3000">▶ 開始</button>
+          <button class="btn sm" id="proReset" style="background:#3a4070;color:#fff">↺</button>
+        </div>
+        <div class="pro-detail">
+          <h3 id="proEn">選一個課程載入</h3>
+          <div class="zh2" id="proZh">上面選單挑一個，按「載入」</div>
+          <div id="proSay"></div>
+          <div class="line"><h5>👦 學生要做什麼</h5><ul id="proDo"></ul></div>
+          <div class="line"><h5>🎒 教具</h5><ul id="proProps"></ul></div>
+          <div class="line"><h5>✅ 成功標準</h5><p id="proCheck">—</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:24px">
+      <h3 style="margin:0 0 16px;font-size:19px">⌨ 鍵盤快捷鍵 Shortcuts</h3>
+      <div class="keys">
+        <div><kbd>空白鍵</kbd> 開始 / 暫停計時</div>
+        <div><kbd>→</kbd> 下一步</div>
+        <div><kbd>←</kbd> 上一步</div>
+        <div><kbd>1</kbd>–<kbd>9</kbd> 直接跳到第 N 步</div>
+        <div><kbd>R</kbd> 這一步重新計時</div>
+        <div><kbd>P</kbd> 列印目前課程教案</div>
+      </div>
+      <p style="color:var(--ink-soft);font-size:14.5px;margin:16px 0 0">
+        快捷鍵只在你沒有在打字時生效，編輯課程時不會誤觸。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. 給資深老師 ========== -->
+<section class="section" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">WHY　為什麼要花時間寫下來</span>
+      <h2 class="h-en">Your best class, repeated by everyone.</h2>
+      <p class="h-zh">把你上得最好的那一堂，變成所有人的基本盤。</p>
+    </div>
+    <div class="steps" style="margin-top:52px">
+      <div class="step">
+        <h4>你的經驗會流失　Experience leaks</h4>
+        <p>帶得好的班級節奏、哪一句話能讓孩子安靜下來 — 這些只在你腦子裡。人一走，班就散了。</p>
+      </div>
+      <div class="step">
+        <h4>寫下來就能複製　Write it, clone it</h4>
+        <p>把那句話寫進「老師這樣說」，把那個節奏寫成步驟時間。新老師照著念，效果有八成。</p>
+      </div>
+      <div class="step">
+        <h4>你只要修不要教　Edit, don't train</h4>
+        <p>之後帶新人不用從頭講一遍。讓他先上一次，你看哪裡卡住，回來改腳本就好。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <img class="logo" src="assets/img/logo.svg" alt="">
+          <span>星光教學舞台<small>STARLIGHT TEACHING STAGE</small></span>
+        </div>
+        <p>給安親班老師與國小英文老師的教學平台。<br>A teaching stage for after-school and elementary English teachers.</p>
+      </div>
+      <div><h5>教學 Teaching</h5><ul>
+        <li><a href="stage.html">教學舞台 Stage</a></li>
+        <li><a href="english.html">英文教室 English</a></li>
+        <li><a href="toolbox.html">課堂工具箱 Toolbox</a></li>
+        <li><a href="pro.html">資深老師 Pro</a></li></ul></div>
+      <div><h5>資源 Resources</h5><ul>
+        <li><a href="#designer">課程設計器 Designer</a></li>
+        <li><a href="#library">我的課程庫 Library</a></li>
+        <li><a href="#promode">快速控制台 Pro Mode</a></li></ul></div>
+      <div><h5>聯絡 Contact</h5><ul>
+        <li>教務信箱 · office@example.edu.tw</li>
+        <li>電話 · (04) 0000-0000</li>
+        <li>地址 · 台灣・彰化縣</li>
+        <li>上課時間 · 週一至週五 15:30–20:00</li></ul></div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 星光教學舞台. 課程只存在你這台裝置，不會上傳。</span>
+      <span>Made for teachers who care.　🌟</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 列印用教案（螢幕上看不到，按列印才出現） -->
+<div id="printArea"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/data.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const LS = 'customLessons';
+const IMGS = [['g1-hands-up.svg','舉手發言'],['g2-group.svg','小組討論'],['g3-book.svg','課文閱讀'],
+              ['g4-listen.svg','聽與跟讀'],['g5-score.svg','分組計分'],['g6-draw.svg','抽籤點名'],
+              ['g7-math.svg','數學練習'],['g8-trophy.svg','獎勵時刻']];
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lines = a => (Array.isArray(a)?a:[]).join('\n');
+const toArr = t => String(t||'').split('\n').map(s=>s.trim()).filter(Boolean);
+
+let lessons = [];
+try { lessons = JSON.parse(localStorage.getItem(LS) || '[]'); } catch(e) { lessons = []; }
+if (!Array.isArray(lessons)) lessons = [];
+
+let draft = newLesson();
+function newLesson(){
+  return { id:'lsn_'+Date.now()+'_'+Math.floor(Math.random()*1000),
+           name:'', grade:3, subject:'chinese', steps:[newStep('暖身','Warm-up',5)] };
+}
+function newStep(zh='新步驟',en='New Step',min=5){
+  return { zh, en, min, img:'g1-hands-up.svg', say:[''], do:[''], props:[''], check:'' };
+}
+const save = () => localStorage.setItem(LS, JSON.stringify(lessons));
+
+/* ---------- 下拉選單 ---------- */
+$('#fGrade').innerHTML = [1,2,3,4,5,6].map(g=>`<option value="${g}">${'一二三四五六'[g-1]}年級</option>`).join('');
+$('#fSubject').innerHTML = Object.entries(SUBJECTS).map(([k,v])=>`<option value="${k}">${v.icon} ${v.zh} ${v.en}</option>`).join('');
+$('#fTemplate').innerHTML += Object.entries(SUBJECTS)
+  .map(([k,v])=>`<option value="${k}">${v.zh}標準五步驟（${v.en}）</option>`).join('');
+
+/* ---------- 設計器 ---------- */
+function renderDraft(){
+  $('#fName').value = draft.name;
+  $('#fGrade').value = draft.grade;
+  $('#fSubject').value = draft.subject;
+
+  $('#stepsBox').innerHTML = draft.steps.map((s,i)=>`
+    <div class="stepcard" data-i="${i}">
+      <div class="sc-head">
+        <span class="sc-num">${i+1}</span>
+        <input data-f="zh" value="${esc(s.zh)}" placeholder="中文名">
+        <input data-f="en" value="${esc(s.en)}" placeholder="English">
+        <input data-f="min" type="number" min="1" max="90" value="${s.min}">
+        <span style="font-weight:800;font-size:14px">分</span>
+        <select data-f="img">${IMGS.map(([f,n])=>
+          `<option value="${f}"${f===s.img?' selected':''}>${n}</option>`).join('')}</select>
+        <span class="sc-tools">
+          <button data-act="up" title="往上移">↑</button>
+          <button data-act="down" title="往下移">↓</button>
+          <button data-act="del" title="刪除這一步">✕</button>
+        </span>
+      </div>
+      <div class="sc-grid">
+        <div class="field full">
+          <label>🗣 老師這樣說（一行一句，可直接念出來）</label>
+          <textarea data-f="say" placeholder="「今天我們要上⋯⋯」">${esc(lines(s.say))}</textarea>
+        </div>
+        <div class="field">
+          <label>👦 學生要做什麼（一行一項）</label>
+          <textarea data-f="do">${esc(lines(s.do))}</textarea>
+        </div>
+        <div class="field">
+          <label>🎒 要準備的東西（一行一項）</label>
+          <textarea data-f="props">${esc(lines(s.props))}</textarea>
+        </div>
+        <div class="field full">
+          <label>✅ 這一步算成功的標準（寫看得見的行為）</label>
+          <input data-f="check" value="${esc(s.check)}" placeholder="例：全班都出過聲，教室氣氛熱起來了。">
+        </div>
+      </div>
+    </div>`).join('');
+
+  const total = draft.steps.reduce((a,s)=>a+(+s.min||0),0);
+  $('#totalMin').textContent = total;
+  $('#stepCount').textContent = draft.steps.length;
+  $('#totalWarn').textContent =
+    total > 90 ? '⚠ 超過 90 分鐘，一般安親班單堂課排不下。' :
+    total < 15 && total > 0 ? '⚠ 不到 15 分鐘，確認是不是漏了步驟。' : '';
+  buildExport();
+}
+
+$('#stepsBox').addEventListener('input', e=>{
+  const card = e.target.closest('.stepcard'); if(!card) return;
+  const i = +card.dataset.i, f = e.target.dataset.f; if(!f) return;
+  const s = draft.steps[i];
+  if(f==='min'){ s.min = Math.max(1, Math.min(90, +e.target.value||1)); 
+    const total = draft.steps.reduce((a,x)=>a+(+x.min||0),0);
+    $('#totalMin').textContent = total;
+    $('#totalWarn').textContent = total>90?'⚠ 超過 90 分鐘，一般安親班單堂課排不下。':
+      (total<15&&total>0?'⚠ 不到 15 分鐘，確認是不是漏了步驟。':'');
+  }
+  else if(f==='say'||f==='do'||f==='props') s[f] = toArr(e.target.value);
+  else s[f] = e.target.value;
+  buildExport();
+});
+$('#stepsBox').addEventListener('click', e=>{
+  const b = e.target.closest('[data-act]'); if(!b) return;
+  const i = +b.closest('.stepcard').dataset.i, a = b.dataset.act;
+  if(a==='del'){
+    if(draft.steps.length<=1){ hint('#designHint','至少要留一個步驟。','var(--coral)'); SFX.play('wrong'); return; }
+    draft.steps.splice(i,1); SFX.play('whoosh');
+  }
+  if(a==='up' && i>0){ [draft.steps[i-1],draft.steps[i]]=[draft.steps[i],draft.steps[i-1]]; SFX.play('tap'); }
+  if(a==='down' && i<draft.steps.length-1){ [draft.steps[i+1],draft.steps[i]]=[draft.steps[i],draft.steps[i+1]]; SFX.play('tap'); }
+  renderDraft();
+});
+['fName','fGrade','fSubject'].forEach(id=>$('#'+id).addEventListener('input',e=>{
+  const k = id==='fName'?'name':id==='fGrade'?'grade':'subject';
+  draft[k] = id==='fGrade' ? +e.target.value : e.target.value;
+  buildExport();
+}));
+$('#fTemplate').addEventListener('change', e=>{
+  const k = e.target.value; if(!k) return;
+  if(!confirm('載入範本會蓋掉目前正在編輯的內容，確定嗎？')){ e.target.value=''; return; }
+  draft.subject = k; 
+  draft.steps = FLOWS[k].map(s=>({ zh:s.zh, en:s.en, min:s.min, img:s.img,
+    say:[...s.say], do:[...s.do], props:[...s.props], check:s.check }));
+  if(!draft.name) draft.name = SUBJECTS[k].zh + '課（改編自標準流程）';
+  e.target.value=''; renderDraft(); SFX.play('up');
+  hint('#designHint','已載入範本，直接改成你的教法就好。','var(--mint)');
+});
+$('#addStep').addEventListener('click',()=>{ draft.steps.push(newStep()); renderDraft(); SFX.play('up');
+  $('#stepsBox').lastElementChild.scrollIntoView({behavior:'smooth',block:'center'}); });
+$('#clearDraft').addEventListener('click',()=>{
+  if(!confirm('清空目前編輯中的課程？已儲存到課程庫的不受影響。')) return;
+  draft = newLesson(); renderDraft(); hint('#designHint','已清空。','var(--ink-soft)'); SFX.play('whoosh');
+});
+$('#saveLesson').addEventListener('click',()=>{
+  if(!draft.name.trim()){ hint('#designHint','⚠ 請先填課程名稱。','var(--coral)'); SFX.play('wrong'); $('#fName').focus(); return; }
+  const empty = draft.steps.findIndex(s=>!s.say.length && !s.do.length);
+  if(empty>=0){ hint('#designHint',`⚠ 第 ${empty+1} 步還沒寫「老師這樣說」或「學生要做什麼」。`,'var(--coral)'); SFX.play('wrong'); return; }
+  const at = lessons.findIndex(l=>l.id===draft.id);
+  if(at>=0) lessons[at] = JSON.parse(JSON.stringify(draft));
+  else lessons.push(JSON.parse(JSON.stringify(draft)));
+  save(); renderLib(); buildProPick();
+  hint('#designHint','✅ 已存進課程庫，教學舞台上已經看得到了。','var(--mint)');
+  SFX.play('fanfare'); party(70);
+});
+function hint(sel,msg,color){ const el=$(sel); el.textContent=msg; el.style.color=color; }
+
+/* ---------- 課程庫 ---------- */
+function renderLib(){
+  if(!lessons.length){
+    $('#libBox').innerHTML = `<div class="empty" style="grid-column:1/-1">
+      還沒有存過課程。<br>在上面的「課程設計器」設計一個，按「儲存到課程庫」就會出現在這裡。</div>`;
+    return;
+  }
+  $('#libBox').innerHTML = lessons.map(l=>{
+    const s = SUBJECTS[l.subject] || {icon:'📘',zh:'其他',en:''};
+    const total = l.steps.reduce((a,x)=>a+(+x.min||0),0);
+    return `<div class="libcard" data-id="${l.id}">
+      <h4>${esc(l.name)}</h4>
+      <p class="m">${'一二三四五六'[l.grade-1]}年級・${s.icon} ${s.zh}　｜　${l.steps.length} 步驟・${total} 分鐘</p>
+      <div class="chips">${l.steps.map(x=>`<span class="chip">${esc(x.zh)} ${x.min}′</span>`).join('')}</div>
+      <div class="acts">
+        <button class="go" data-a="run">▶ 上這堂</button>
+        <button data-a="edit">✎ 編輯</button>
+        <button data-a="copy">⧉ 複製</button>
+        <button data-a="print">🖨 印教案</button>
+        <button class="danger" data-a="del">✕ 刪除</button>
+      </div></div>`;
+  }).join('');
+}
+$('#libBox').addEventListener('click', e=>{
+  const b = e.target.closest('[data-a]'); if(!b) return;
+  const id = b.closest('.libcard').dataset.id;
+  const i = lessons.findIndex(l=>l.id===id), l = lessons[i];
+  const a = b.dataset.a;
+  if(a==='run'){ localStorage.setItem('runLesson', id); location.href='stage.html#setup'; }
+  if(a==='edit'){ draft = JSON.parse(JSON.stringify(l)); renderDraft();
+    hint('#designHint','正在編輯：'+l.name+'（存檔會覆蓋原本那一筆）','var(--primary)');
+    $('#designer').scrollIntoView({behavior:'smooth'}); SFX.play('up'); }
+  if(a==='copy'){ const c=JSON.parse(JSON.stringify(l));
+    c.id='lsn_'+Date.now()+'_'+Math.floor(Math.random()*1000); c.name=l.name+'（複本）';
+    lessons.push(c); save(); renderLib(); buildProPick(); buildExport(); SFX.play('ding'); }
+  if(a==='print'){ printLesson(l); }
+  if(a==='del'){ if(!confirm(`刪除「${l.name}」？這個動作沒辦法復原。`)) return;
+    lessons.splice(i,1); save(); renderLib(); buildProPick(); buildExport(); SFX.play('whoosh'); }
+});
+
+/* ---------- 匯出 / 匯入 ---------- */
+function buildExport(){ $('#exportBox').value = JSON.stringify(lessons, null, 1); }
+$('#copyBtn').addEventListener('click', async ()=>{
+  const t = $('#exportBox');
+  try { await navigator.clipboard.writeText(t.value); }
+  catch(e){ t.removeAttribute('readonly'); t.select(); document.execCommand('copy'); t.setAttribute('readonly',''); }
+  SFX.play('ding'); $('#copyBtn').textContent='✅ 已複製'; setTimeout(()=>$('#copyBtn').textContent='📋 複製',1600);
+});
+$('#downloadBtn').addEventListener('click',()=>{
+  const blob = new Blob([JSON.stringify(lessons,null,1)],{type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '星光教學舞台-課程庫.json';
+  a.click(); URL.revokeObjectURL(a.href); SFX.play('ding');
+});
+function doImport(text){
+  let data;
+  try { data = JSON.parse(text); } catch(e){ hint('#importHint','⚠ 這段文字不是有效的課程資料。','var(--coral)'); SFX.play('wrong'); return; }
+  if(!Array.isArray(data)) data = [data];
+  const ok = data.filter(l=>l && l.name && Array.isArray(l.steps) && l.steps.length);
+  if(!ok.length){ hint('#importHint','⚠ 裡面沒有可用的課程。','var(--coral)'); SFX.play('wrong'); return; }
+  ok.forEach(l=>{
+    l.id = 'lsn_'+Date.now()+'_'+Math.floor(Math.random()*10000);
+    l.grade = +l.grade||3; l.subject = SUBJECTS[l.subject]?l.subject:'chinese';
+    l.steps = l.steps.map(s=>({ zh:s.zh||'步驟', en:s.en||'Step', min:+s.min||5,
+      img: IMGS.some(x=>x[0]===s.img)?s.img:'g1-hands-up.svg',
+      say:Array.isArray(s.say)?s.say:toArr(s.say), do:Array.isArray(s.do)?s.do:toArr(s.do),
+      props:Array.isArray(s.props)?s.props:toArr(s.props), check:s.check||'' }));
+    lessons.push(l);
+  });
+  save(); renderLib(); buildProPick(); buildExport(); $('#importBox').value='';
+  hint('#importHint',`✅ 匯入了 ${ok.length} 堂課。`,'var(--mint)'); SFX.play('fanfare'); party(60);
+}
+$('#importBtn').addEventListener('click',()=>doImport($('#importBox').value));
+$('#importFile').addEventListener('change',e=>{
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader(); r.onload = ()=>doImport(r.result); r.readAsText(f); e.target.value='';
+});
+
+/* ---------- 列印教案 ---------- */
+function printLesson(l){
+  const s = SUBJECTS[l.subject] || {zh:'其他'};
+  const total = l.steps.reduce((a,x)=>a+(+x.min||0),0);
+  $('#printArea').innerHTML = `
+    <h1>${esc(l.name)}</h1>
+    <div class="pmeta">${'一二三四五六'[l.grade-1]}年級・${s.zh}　｜　
+      ${l.steps.length} 個步驟・共 ${total} 分鐘　｜　星光教學舞台 教案</div>
+    ${l.steps.map((x,i)=>`
+      <div class="pstep">
+        <h2>${i+1}. ${esc(x.zh)} ${esc(x.en)}　（${x.min} 分鐘）</h2>
+        <h6>🗣 老師這樣說</h6>
+        ${(x.say||[]).map(t=>`<p class="psay">${esc(t)}</p>`).join('') || '<p>—</p>'}
+        <h6>👦 學生要做什麼</h6>
+        <ul>${(x.do||[]).map(t=>`<li>${esc(t)}</li>`).join('') || '<li>—</li>'}</ul>
+        <h6>🎒 要準備的東西</h6>
+        <ul>${(x.props||[]).map(t=>`<li>${esc(t)}</li>`).join('') || '<li>—</li>'}</ul>
+        <h6>✅ 這一步算成功的標準</h6>
+        <p>${esc(x.check) || '—'}</p>
+      </div>`).join('')}`;
+  window.print();
+}
+
+/* ---------- 快速控制台 ---------- */
+let pro = { lesson:null, i:0 };
+function buildProPick(){
+  const built = Object.entries(SUBJECTS).map(([k,v])=>
+    `<option value="std:${k}">［標準］${v.zh} 五步驟</option>`).join('');
+  const mine = lessons.map(l=>`<option value="my:${l.id}">［我的］${esc(l.name)}</option>`).join('');
+  $('#proPick').innerHTML = built + (mine ? `<optgroup label="我的課程">${mine}</optgroup>` : '');
+}
+const proTimer = new ClassTimer(
+  (left,total)=>{
+    $('#proTime').textContent = mmss(left);
+    $('#proBar').style.width = total ? (left/total*100)+'%' : '0%';
+    $('#proTime').classList.toggle('warn', left<=30 && left>0);
+  },
+  ()=>{ $('#proPlay').textContent='▶ 開始'; party(60); }
+);
+$('#proLoad').addEventListener('click',()=>{
+  const v = $('#proPick').value;
+  if(v.startsWith('std:')){
+    const k = v.slice(4);
+    pro.lesson = { name:SUBJECTS[k].zh+' 標準五步驟', steps:FLOWS[k], unit:'（單元）' };
+  } else {
+    const l = lessons.find(x=>x.id===v.slice(3)); if(!l) return;
+    pro.lesson = { name:l.name, steps:l.steps, unit:l.name };
+  }
+  pro.i = 0; renderPro(); SFX.play('up');
+});
+function renderPro(){
+  if(!pro.lesson) return;
+  const st = pro.lesson.steps, s = st[pro.i];
+  const fill = t => String(t).replace(/\{unit\}/g, pro.lesson.unit);
+  $('#proStrip').innerHTML = st.map((x,k)=>
+    `<button data-k="${k}" class="${k===pro.i?'on':(k<pro.i?'past':'')}">
+       <b>${esc(x.zh)}</b><small>${x.min}′</small></button>`).join('');
+  $('#proEn').textContent = s.en;
+  $('#proZh').textContent = `${s.zh}　${s.min} 分鐘　·　第 ${pro.i+1} / ${st.length} 步　·　${pro.lesson.name}`;
+  $('#proLabel').textContent = s.en.toUpperCase();
+  $('#proSay').innerHTML = (s.say||[]).map(t=>`<p class="quote">🗣 ${esc(fill(t))}</p>`).join('');
+  $('#proDo').innerHTML = (s.do||[]).map(t=>`<li>${esc(fill(t))}</li>`).join('') || '<li>—</li>';
+  $('#proProps').innerHTML = (s.props||[]).map(t=>`<li>${esc(fill(t))}</li>`).join('') || '<li>—</li>';
+  $('#proCheck').textContent = fill(s.check||'—');
+  proTimer.reset(s.min*60); $('#proPlay').textContent='▶ 開始';
+}
+$('#proStrip').addEventListener('click',e=>{
+  const b=e.target.closest('[data-k]'); if(!b) return;
+  pro.i=+b.dataset.k; renderPro(); SFX.play('whoosh');
+});
+$('#proPlay').addEventListener('click',()=>{
+  if(!pro.lesson) return;
+  if(proTimer.running){ proTimer.stop(); $('#proPlay').textContent='▶ 繼續'; }
+  else { proTimer.start(); $('#proPlay').textContent='⏸ 暫停'; }
+});
+$('#proReset').addEventListener('click',()=>{
+  if(!pro.lesson) return;
+  proTimer.reset(pro.lesson.steps[pro.i].min*60); $('#proPlay').textContent='▶ 開始';
+});
+
+/* 鍵盤快捷鍵（打字時不觸發） */
+document.addEventListener('keydown', e=>{
+  const t = e.target.tagName;
+  if(t==='INPUT'||t==='TEXTAREA'||t==='SELECT'||e.target.isContentEditable) return;
+  if(e.metaKey||e.ctrlKey||e.altKey) return;
+  if(!pro.lesson && e.key!=='p' && e.key!=='P') return;
+  const n = pro.lesson ? pro.lesson.steps.length : 0;
+  if(e.code==='Space'){ e.preventDefault(); $('#proPlay').click(); }
+  else if(e.key==='ArrowRight'){ e.preventDefault(); if(pro.i<n-1){ pro.i++; renderPro(); SFX.play('up'); } }
+  else if(e.key==='ArrowLeft'){ e.preventDefault(); if(pro.i>0){ pro.i--; renderPro(); SFX.play('whoosh'); } }
+  else if(/^[1-9]$/.test(e.key)){ const k=+e.key-1; if(k<n){ pro.i=k; renderPro(); SFX.play('whoosh'); } }
+  else if(e.key==='r'||e.key==='R'){ $('#proReset').click(); }
+  else if(e.key==='p'||e.key==='P'){
+    e.preventDefault();
+    const cur = lessons.find(l=>pro.lesson && l.name===pro.lesson.name);
+    if(cur) printLesson(cur);
+    else if(lessons.length) printLesson(lessons[0]);
+    else alert('課程庫還沒有課程可以列印。');
+  }
+});
+
+/* ---------- 啟動 ---------- */
+renderDraft(); renderLib(); buildProPick(); buildExport();
+</script>
+</body>
+</html>
