@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>國小五年級 上學期 第二次段考 跨版本綜合題本</title>
+<style>
+:root{--ink:#22201d;--ink2:#5b544c;--line:#d9d0c2;--paper:#fdfaf4;--band:#1f5f6b;--band2:#c8663a;--soft:#f4efe5;--acc:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;background:#e8e3d9;color:var(--ink);
+ font-family:"Noto Sans TC","PingFang TC","Heiti TC",system-ui,sans-serif;font-size:16px;line-height:1.9}
+.book{max-width:820px;margin:0 auto;padding:24px 12px 80px}
+.sheet{background:var(--paper);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08);
+ padding:38px 40px 46px;margin:0 0 26px}
+h2.h-page{font-size:24px;margin:0 0 18px;padding-bottom:10px;border-bottom:3px solid var(--band)}
+.pf{margin:.5em 0;color:var(--ink2);font-size:15px}
+/* 封面 */
+.cover{text-align:center;padding:64px 40px 54px;background:linear-gradient(180deg,#fffdf8,#f6efe2)}
+.cv-band{display:inline-block;background:var(--band);color:#fff;padding:6px 20px;border-radius:999px;font-size:14px;letter-spacing:2px}
+.cv-title{font-size:40px;line-height:1.35;margin:22px 0 6px;letter-spacing:2px}
+.cv-sub{font-size:18px;color:var(--ink2)}
+.cv-line{width:96px;height:4px;background:var(--band2);margin:24px auto 28px;border-radius:2px}
+.cv-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;max-width:520px;margin:0 auto;text-align:left;font-size:15px}
+.cv-meta div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 14px}
+.cv-meta span{display:block;font-size:12px;color:var(--band);letter-spacing:1px}
+.cv-name{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:34px 0 8px;font-size:15px}
+.cv-foot{margin-top:26px;color:var(--ink2);font-size:13px}
+/* 對照表 */
+table.ref{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+table.ref th{background:var(--band);color:#fff;padding:8px 6px;border:1px solid #b9ab97}
+table.ref td{border:1px solid var(--line);padding:7px 8px;vertical-align:top}
+table.ref td.reg{background:var(--soft);font-weight:700;text-align:center;white-space:nowrap}
+/* 目錄 */
+ol.toc{list-style:none;margin:0;padding:0;counter-reset:none}
+ol.toc>li{margin:0 0 14px;border-bottom:1px dashed var(--line);padding-bottom:12px}
+ol.toc>li>a{display:grid;grid-template-columns:74px 1fr;gap:2px 10px;text-decoration:none;color:var(--ink)}
+.tc-n{color:var(--band2);font-weight:700}
+.tc-t{font-size:19px;font-weight:700}
+.tc-d{grid-column:2;color:var(--ink2);font-size:13px}
+ol.toc ul{list-style:none;margin:8px 0 0 74px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
+ol.toc ul a{color:var(--ink2);text-decoration:none;font-size:14px}
+ol.toc a:hover{color:var(--acc)}
+/* 章 */
+.chap-head{border-left:8px solid var(--band);padding:6px 0 6px 16px;margin-bottom:16px}
+.chap-n{color:var(--band2);font-weight:700;letter-spacing:2px}
+.chap-t{font-size:28px;margin:2px 0 4px}
+.chap-s{color:var(--ink2);font-size:14px}
+.chap-intro{background:var(--soft);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--ink2);margin-bottom:22px}
+.sec{margin:26px 0 34px}
+.sec-head{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--line);padding-bottom:8px}
+.pub{background:var(--band2);color:#fff;border-radius:6px;padding:2px 10px;font-size:13px;white-space:nowrap}
+.sec-t{font-size:19px;font-weight:700}
+.scope{font-size:13px;color:var(--ink2);margin:8px 0 16px}
+.scope b{color:var(--band);margin-right:6px}
+.scope b+b{margin-left:10px}
+/* 題目 */
+.q{margin:0 0 16px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;page-break-inside:avoid;break-inside:avoid}
+.q-h{display:flex;gap:9px}
+.q-n{flex:0 0 auto;min-width:26px;height:26px;border-radius:50%;background:var(--band);color:#fff;
+ display:inline-flex;align-items:center;justify-content:center;font-size:13px;margin-top:3px}
+.q-t{flex:1}
+ol.opts{list-style:none;margin:8px 0 0 35px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}
+ol.opts li{font-size:15px}
+.ol{color:var(--band2);font-weight:700;margin-right:5px}
+.passage{background:var(--soft);border-left:5px solid var(--band);border-radius:8px;padding:12px 16px;margin:0 0 16px}
+.passage-t{font-weight:700;margin-bottom:6px}
+.passage-b{font-size:15px;line-height:2.1;white-space:pre-wrap}
+.ansline{margin:14px 0 4px 35px;border-bottom:1.5px solid var(--line);height:26px}
+.ansline.tall{height:52px;border-bottom:1.5px solid var(--line);
+ background:repeating-linear-gradient(transparent,transparent 25px,var(--line) 25px,var(--line) 26px)}
+.workbox{margin:10px 0 4px 35px;border:1.5px dashed var(--line);border-radius:8px;height:110px;position:relative}
+.wb-tag{position:absolute;top:6px;left:10px;font-size:12px;color:#b4a894}
+.exp-btn{margin:10px 0 0 35px;background:#fff;border:1.5px solid var(--acc);color:var(--acc);
+ border-radius:999px;padding:3px 15px;font-size:13px;cursor:pointer}
+.exp-btn:hover{background:var(--acc);color:#fff}
+.exp{display:none;margin:10px 0 0 35px;background:#f0f7f5;border-left:4px solid var(--acc);
+ border-radius:0 8px 8px 0;padding:10px 14px;font-size:14px}
+.exp.on{display:block}
+.exp b{color:var(--acc)}
+/* 注音（低年級）：直排在國字右側，臺灣課本排法；字級加大讓小朋友看得清楚 */
+.rubyzone{font-size:21px;line-height:2.7}
+.zy{display:inline-flex;align-items:center;vertical-align:baseline;margin-right:1.5px}
+.zc{display:inline-block}
+.zz{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+ font-size:.56em;line-height:1;color:#554d43;margin-left:1.5px;font-style:normal;white-space:nowrap}
+.zs{font-style:normal;display:block;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:0}
+.zt,.zl{font-style:normal;display:block;text-align:center;line-height:.9}
+.rubyzone .q-t,.rubyzone ol.opts li{line-height:2.5}
+.rubyzone ol.opts{gap:14px 20px;font-size:1em}
+.rubyzone .q{padding:14px 16px}
+@media print{.rubyzone{font-size:15pt;line-height:2.5}.zz{color:#222}}
+/* 解答本 */
+.key-ch{margin:22px 0 8px;font-size:20px;border-bottom:2px solid var(--line);padding-bottom:5px}
+.key-sec{margin:0 0 14px}
+.key-t{font-size:14px;color:var(--band);font-weight:700;margin-bottom:4px}
+ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px 12px;font-size:14px}
+/* 頁碼（螢幕不顯示，列印才出現） */
+.pagefoot{display:none}
+/* 工具列 */
+.bar{position:sticky;top:0;z-index:9;background:rgba(253,250,244,.96);backdrop-filter:blur(6px);
+ border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+ max-width:820px;margin:0 auto;border-radius:0 0 12px 12px}
+.bar b{font-size:14px;margin-right:4px}
+.bar button,.bar a{background:var(--band);color:#fff;border:0;border-radius:8px;padding:6px 13px;
+ font-size:13px;cursor:pointer;text-decoration:none}
+.bar button.ghost{background:#fff;color:var(--band);border:1.5px solid var(--band)}
+@media(max-width:640px){
+ .sheet{padding:24px 18px 30px}.cv-title{font-size:30px}
+ .cv-meta,ol.opts,ol.toc ul{grid-template-columns:1fr}
+ .ansline,.workbox,.exp,.exp-btn,ol.opts{margin-left:0}
+}
+/* 列印 */
+@media print{
+ @page{size:A4;margin:16mm 14mm 18mm}
+ body{background:#fff;font-size:12.5pt;line-height:1.75}
+ .book{max-width:none;padding:0}
+ .bar,.exp-btn,.no-print{display:none!important}
+ .exp{display:none!important}
+ .sheet{box-shadow:none;border-radius:0;padding:0;margin:0;background:#fff;break-after:page;page-break-after:always}
+ .sheet:last-child{break-after:auto;page-break-after:auto}
+ .cover{padding-top:40mm}
+ .q{border-color:#bbb}
+ .pagefoot{display:block;position:fixed;bottom:0;right:0;font-size:10pt;color:#555}
+ .pagefoot::after{counter-increment:page;content:"— " counter(page) " —"}
+}
+</style>
+<style>:root{--band:#2f5d8a;--band2:#cf7038}</style>
+</head>
+<body>
+<div class="bar no-print">
+  <b>國小五年級 上學期 第二次段考 跨版本綜合題本</b>
+  <button class="ghost" onclick="allExp(true)">顯示全部解析</button>
+  <button class="ghost" onclick="allExp(false)">收合全部解析</button>
+  <button onclick="window.print()">列印 / 存成 PDF</button>
+  <a href="#toc-top">回目錄</a>
+  <a href="../exams.html" style="background:#fff;color:var(--band);border:1.5px solid var(--band)">← 回題庫首頁</a>
+</div>
+<div class="book" id="toc-top">
+<section class="sheet cover">
+  <div class="cv-band">安親班自編・小五・第二次段考</div>
+  <h1 class="cv-title">國小五年級 上學期 第二次段考 跨版本綜合題本</h1>
+  <div class="cv-sub">國語・數學・自然・社會・英語　五科合訂本</div>
+  <div class="cv-line"></div>
+  <div class="cv-meta">
+    <div><span>適用年級</span>五年級（上學期）</div>
+    <div><span>適用版本</span>康軒・南一・翰林・何嘉仁</div>
+    <div><span>科目</span>國語／數學／自然／社會／英語</div>
+    <div><span>取材範圍</span>第二次段考（期中 2）常見範圍</div>
+  </div>
+  <div class="cv-name">
+    <div>班級 ____________</div><div>座號 ________</div><div>姓名 ________________</div>
+  </div>
+  <div class="cv-foot">安親班自編教材　小五 第二次段考　©本題本題目全數自編，僅供班內教學使用</div>
+</section>
+<section class="sheet"><h2 class="h-page">編輯說明</h2>
+<p class="pf"><strong>一、這本書是什麼。</strong> 這是<strong>第二次段考（期中 2）</strong>的合訂題本，不是單張考卷。全書把國語、數學、自然、社會、英語五科放進同一本，每一科底下再依 <strong>康軒、南一、翰林、何嘉仁</strong> 分節出題，讓同一間安親班裡使用不同版本的孩子，可以各自翻到自己的那一節作答，老師只要備一本書。</p>
+<p class="pf"><strong>二、題目從哪裡來。</strong> 全書題目 <strong>100% 自編</strong>，沒有抄錄任何學校的段考原卷。我們以「中小學題庫網（tcool.cc）」上北、中、南共 9 所國小的段考卷紀錄，來確認 <strong>各年級各科目實際採用的版本、段考次數與命題範圍</strong>，再依照這個範圍與十二年國教課綱自行命題，避免版權問題。各校版本對照見下一頁。</p>
+<p class="pf"><strong>三、怎麼使用。</strong> 螢幕上點每一題下方的「解析」可展開答案與說明；按上方「列印 / 存成 PDF」時，<strong>解析會自動隱藏</strong>，印出來就是乾淨的作答題本，答案統一收在書末「解答本」。列印請用 Chrome 或 Edge，頁碼才會出現在頁尾。</p>
+<p class="pf"><strong>四、進度提醒。</strong> 五上第二次段考三家版本的核心範圍相當一致：數學為「擴分約分通分、異分母分數加減與多邊形面積」，自然為「植物的構造與繁殖」，社會為「臺灣的原住民族與早期歷史」，英語為「日常作息與頻率」。各校進度仍有差異，實際範圍請以任課老師公布為準；若某一節超出貴班進度，直接略過即可。</p>
+<p class="pf"><strong>五、配分建議。</strong> 每一節可獨立當成一份小考（滿分 100 分）；若要組成一份完整段考卷，建議：國語 30 分＋數學 30 分＋自然 20 分＋社會 20 分，英語另外單獨計分。</p>
+</section>
+<section class="sheet"><h2 class="h-page">導讀：北、中、南九校版本對照表</h2>
+<p class="pf">資料來源：中小學題庫網（tcool.cc）各校段考卷之「學校／年級科目／出版社」欄位彙整（統計至 114 學年度）。<strong>本表只用來確認命題範圍與版本分布，題目仍為自編。</strong> 空白代表該站目前查無該校此科的段考紀錄，不代表學校沒教。</p>
+<table class="ref"><thead><tr><th>區域</th><th>縣市</th><th>學校</th><th>國語</th><th>數學</th><th>自然</th><th>社會</th><th>英語</th></tr></thead><tbody>
+<tr><td class="reg">北部</td><td>臺北市</td><td>民權國小</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒</td><td>康軒／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">北部</td><td>桃園市</td><td>大華國小</td><td>康軒／南一／翰林</td><td>康軒／翰林</td><td>南一／翰林</td><td>康軒／翰林</td><td>康軒／何嘉仁</td></tr>
+<tr><td class="reg">北部</td><td>基隆市</td><td>東光國小</td><td>康軒／翰林</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林</td></tr>
+<tr><td class="reg">中部</td><td>臺中市</td><td>大墩國小</td><td>康軒／南一／翰林</td><td>康軒／南一</td><td>康軒</td><td>康軒／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">中部</td><td>彰化縣</td><td>成功國小</td><td>康軒／南一</td><td>南一</td><td>南一／翰林</td><td>康軒／翰林</td><td>何嘉仁</td></tr>
+<tr><td class="reg">中部</td><td>南投縣</td><td>社寮國小</td><td>康軒／南一／翰林</td><td>康軒</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林</td></tr>
+<tr><td class="reg">南部</td><td>臺南市</td><td>和順國小</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">南部</td><td>高雄市</td><td>獅湖國小</td><td>康軒／翰林</td><td>康軒／南一</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td class="reg">南部</td><td>高雄市</td><td>永安國小</td><td>康軒／翰林</td><td>康軒／南一／翰林</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>統計</td><td>—</td><td>四家版本占比</td><td>康軒最高，南一、翰林次之</td><td>三家並用</td><td>康軒／翰林為主</td><td>康軒／翰林為主</td><td><strong>英語才會出現何嘉仁</strong></td></tr>
+</tbody></table></section>
+<section class="sheet"><h2 class="h-page">目錄</h2><ol class="toc">
+<li><a href="#ch1"><span class="tc-n">第 1 章</span><span class="tc-t">國語</span><span class="tc-d">字音字形・成語・修辭・語法・長文閱讀｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch1-s1">1-1　康軒版　第5~8課</a></li>
+<li><a href="#ch1-s2">1-2　南一版　第5~8課</a></li>
+<li><a href="#ch1-s3">1-3　翰林版　第5~8課</a></li>
+</ul></li>
+<li><a href="#ch2"><span class="tc-n">第 2 章</span><span class="tc-t">數學</span><span class="tc-d">擴分約分與通分・異分母分數加減・多邊形面積｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch2-s1">2-1　康軒版　分數・面積</a></li>
+<li><a href="#ch2-s2">2-2　南一版　分數・面積</a></li>
+<li><a href="#ch2-s3">2-3　翰林版　分數・面積</a></li>
+</ul></li>
+<li><a href="#ch3"><span class="tc-n">第 3 章</span><span class="tc-t">自然與生活科技</span><span class="tc-d">花的構造・授粉與傳播・植物的無性繁殖・觀察與實驗｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch3-s1">3-1　康軒版　植物的繁殖</a></li>
+<li><a href="#ch3-s2">3-2　南一版　植物的繁殖</a></li>
+<li><a href="#ch3-s3">3-3　翰林版　植物的繁殖</a></li>
+</ul></li>
+<li><a href="#ch4"><span class="tc-n">第 4 章</span><span class="tc-t">社會</span><span class="tc-d">臺灣的自然資源・原住民族與早期歷史・族群互動｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch4-s1">4-1　康軒版　資源與早期歷史</a></li>
+<li><a href="#ch4-s2">4-2　南一版　族群與早期歷史</a></li>
+<li><a href="#ch4-s3">4-3　翰林版　資源與早期歷史</a></li>
+</ul></li>
+<li><a href="#ch5"><span class="tc-n">第 5 章</span><span class="tc-t">英語 English</span><span class="tc-d">日常作息與時間・頻率副詞・can 的能力表達・閱讀理解｜康軒／南一／翰林／何嘉仁 四版分節</span></a><ul>
+<li><a href="#ch5-s1">5-1　康軒版　作息與頻率</a></li>
+<li><a href="#ch5-s2">5-2　南一版　現在進行式</a></li>
+<li><a href="#ch5-s3">5-3　翰林版　can 與才藝</a></li>
+<li><a href="#ch5-s4">5-4　何嘉仁版　發音與閱讀</a></li>
+</ul></li>
+</ol></section>
+<section class="sheet chap" id="ch1">
+<div class="chap-head"><div class="chap-n">第 1 章</div><h2 class="chap-t">國語</h2><div class="chap-s">字音字形・成語・修辭・語法・長文閱讀｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題寫在橫線上；改寫題請寫成通順完整的句子。本冊取材以第五～八課為主。</div>
+<div class="sec" id="ch1-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">1-1　國語（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第五～八課；敘事與說理類課文（破音字、成語、修辭、語法、長文閱讀）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
+<div class="q" id="ch1-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音<strong>正確</strong>的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「屏」息 ㄅㄧㄥˇ</li>
+<li><span class="ol">(B)</span>「乘」機 ㄔㄥˋ</li>
+<li><span class="ol">(C)</span>「著」手 ㄓㄠˊ</li>
+<li><span class="ol">(D)</span>「處」置 ㄔㄨˋ</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q1">解析</button><div class="exp" id="e-ch1-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>屏息（憋住呼吸）讀ㄅㄧㄥˇ。乘機讀ㄔㄥˊ、著手讀ㄓㄨㄛˊ、處置讀ㄔㄨˇ。</div>
+</div>
+<div class="q" id="ch1-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>融會貫通</li>
+<li><span class="ol">(B)</span>融會灌通</li>
+<li><span class="ol">(C)</span>溶會貫通</li>
+<li><span class="ol">(D)</span>融匯貫通</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q2">解析</button><div class="exp" id="e-ch1-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>「融會貫通」的會是融合理解、貫是貫穿，不能寫成「灌」或「匯」。</div>
+</div>
+<div class="q" id="ch1-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：他的解說ㄕㄥ　ㄉㄨㄥˋ（　　）有趣，讓抽象的道理變得ㄑㄧㄥ　ㄒㄧ（　　）易懂。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s1-q3">解析</button><div class="exp" id="e-ch1-s1-q3"><b>答案：</b>生動、清晰<br><b>解析：</b>「生動」指有活力、不呆板；「清晰」的晰是日部，指清楚分明。</div>
+</div>
+<div class="q" id="ch1-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">「他的話像一盆冷水，澆熄了大家的熱情。」這句話使用了什麼修辭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>譬喻</li>
+<li><span class="ol">(B)</span>設問</li>
+<li><span class="ol">(C)</span>排比</li>
+<li><span class="ol">(D)</span>類疊</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q4">解析</button><div class="exp" id="e-ch1-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>用「像」把話比作冷水，是譬喻；「澆熄熱情」則把抽象的情緒具體化。</div>
+</div>
+<div class="q" id="ch1-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一句使用了<strong>排比</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>讀書要專心，做事要用心，待人要真心。</li>
+<li><span class="ol">(B)</span>他跑得比風還快。</li>
+<li><span class="ol">(C)</span>難道我們就這樣算了嗎？</li>
+<li><span class="ol">(D)</span>窗外傳來一陣蟬鳴。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q5">解析</button><div class="exp" id="e-ch1-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>排比是三個以上結構相似的句子並列，用來加強語氣與節奏。</div>
+</div>
+<div class="q" id="ch1-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">「他做事一向（　　），從不因為困難就退縮。」括號中填入哪一個成語最恰當？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>鍥而不捨</li>
+<li><span class="ol">(B)</span>半途而廢</li>
+<li><span class="ol">(C)</span>虎頭蛇尾</li>
+<li><span class="ol">(D)</span>一曝十寒</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q6">解析</button><div class="exp" id="e-ch1-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>鍥而不捨形容有毅力、堅持到底，與「從不退縮」相合；其餘三個都是缺乏恆心。</div>
+</div>
+<div class="q" id="ch1-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請填入合適的關聯詞語：（　　　）努力練習，（　　　）能在關鍵時刻穩住表現。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s1-q7">解析</button><div class="exp" id="e-ch1-s1-q7"><b>答案：</b>只有、才（或：唯有、才）<br><b>解析：</b>「只有……才……」表示必要條件：沒有前者就不會有後者。</div>
+</div>
+<div class="q" id="ch1-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一句<strong>有語病</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>他大約十二歲左右。</li>
+<li><span class="ol">(B)</span>他大約十二歲。</li>
+<li><span class="ol">(C)</span>他今年十二歲。</li>
+<li><span class="ol">(D)</span>他快滿十二歲了。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q8">解析</button><div class="exp" id="e-ch1-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>「大約」和「左右」意思重複，只留一個即可。</div>
+</div>
+<div class="q" id="ch1-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請把下面的句子改寫成<strong>不改變原意</strong>的另一種說法：　沒有一個人不佩服他的毅力。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s1-q9">解析</button><div class="exp" id="e-ch1-s1-q9"><b>答案：</b>參考答案：每個人都佩服他的毅力。<br><b>解析：</b>「沒有一個人不……」是雙重否定，等於全部肯定，改寫時要把語氣拉平但意思不變。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　城市裡有一座老市場，屋頂會漏水，攤位也窄。市府提出改建計畫，攤商卻分成兩派：有人希望環境更好，有人擔心改建期間沒有收入。<br>　　後來市府辦了三場說明會，把工程分成兩期，讓攤商輪流搬到臨時攤位，改建期間也減收租金。雖然過程仍有爭執，但至少每個人的擔心都被說出來、被回應。<br>　　落成那天，一位賣菜的阿姨說：「重要的不是新市場多漂亮，是我們一起把話講開了。」</div></div>
+<div class="q" id="ch1-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">攤商為什麼會分成兩派？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>有人希望環境改善，有人擔心改建期間失去收入</li>
+<li><span class="ol">(B)</span>有人想搬家，有人不想</li>
+<li><span class="ol">(C)</span>有人喜歡漏水的屋頂</li>
+<li><span class="ol">(D)</span>有人不想繳租金</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q10">解析</button><div class="exp" id="e-ch1-s1-q10"><b>答案：</b>(A)<br><b>解析：</b>第一段直接寫出兩派的立場：期待更好的環境 vs 擔心沒有收入。</div>
+</div>
+<div class="q" id="ch1-s1-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">從市府的做法可以看出，解決公共爭議時最重要的是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>充分溝通，並設法照顧不同立場的需要</li>
+<li><span class="ol">(B)</span>誰的聲音大就聽誰的</li>
+<li><span class="ol">(C)</span>直接強制執行</li>
+<li><span class="ol">(D)</span>放棄不做</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q11">解析</button><div class="exp" id="e-ch1-s1-q11"><b>答案：</b>(A)<br><b>解析：</b>市府辦說明會、分期施工、減收租金，都是回應不同需求的具體作為，最後阿姨的話也點出溝通的價值。</div>
+</div>
+</div>
+<div class="sec" id="ch1-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">1-2　國語（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第五～八課；自然與人文類課文（字音字形、詞語辨析、摹寫、標點、長文閱讀）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
+<div class="q" id="ch1-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音<strong>正確</strong>的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「蜿」蜒 ㄨㄢ</li>
+<li><span class="ol">(B)</span>「湍」急 ㄊㄨㄢˋ</li>
+<li><span class="ol">(C)</span>「峽」谷 ㄒㄧㄚˋ</li>
+<li><span class="ol">(D)</span>「壑」 ㄏㄜ</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q1">解析</button><div class="exp" id="e-ch1-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>蜿蜒讀ㄨㄢ ㄧㄢˊ。湍急的湍讀ㄊㄨㄢ（一聲）、峽谷的峽讀ㄒㄧㄚˊ（二聲）、溝壑的壑讀ㄏㄜˋ（四聲）。</div>
+</div>
+<div class="q" id="ch1-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>得天獨厚</li>
+<li><span class="ol">(B)</span>得天獨候</li>
+<li><span class="ol">(C)</span>德天獨厚</li>
+<li><span class="ol">(D)</span>得天讀厚</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q2">解析</button><div class="exp" id="e-ch1-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>「得天獨厚」指擁有特別優越的先天條件，厚是豐厚的意思。</div>
+</div>
+<div class="q" id="ch1-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：這條溪流ㄨㄢ　ㄧㄢˊ（　　）穿過山谷，兩岸的岩壁ㄒㄩㄥˊ　ㄨㄟˇ（　　）壯觀。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s2-q3">解析</button><div class="exp" id="e-ch1-s2-q3"><b>答案：</b>蜿蜒、雄偉<br><b>解析：</b>「蜿蜒」形容彎彎曲曲；「雄偉」的雄是隹部，形容高大壯觀。</div>
+</div>
+<div class="q" id="ch1-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一句屬於<strong>聽覺摹寫</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>溪水嘩啦嘩啦地衝過石頭。</li>
+<li><span class="ol">(B)</span>峽谷兩側是灰白色的岩壁。</li>
+<li><span class="ol">(C)</span>空氣中飄著青苔的味道。</li>
+<li><span class="ol">(D)</span>石頭摸起來冰冰涼涼的。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q4">解析</button><div class="exp" id="e-ch1-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>嘩啦嘩啦是聲音，屬聽覺；其餘依序為視覺、嗅覺、觸覺。</div>
+</div>
+<div class="q" id="ch1-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">「大自然是最好的老師。」這句話使用了什麼修辭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>譬喻（隱喻）</li>
+<li><span class="ol">(B)</span>誇飾</li>
+<li><span class="ol">(C)</span>設問</li>
+<li><span class="ol">(D)</span>排比</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q5">解析</button><div class="exp" id="e-ch1-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>用「是」把大自然直接說成老師，屬於譬喻中的隱喻。</div>
+</div>
+<div class="q" id="ch1-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請填入合適的關聯詞語：（　　　）我們不好好保護，（　　　）美麗的景色也會消失。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s2-q6">解析</button><div class="exp" id="e-ch1-s2-q6"><b>答案：</b>如果、那麼（或：要是、就）<br><b>解析：</b>這是假設關係：先提出假設的情況，再說出可能的結果。</div>
+</div>
+<div class="q" id="ch1-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列句子的標點符號，使用<strong>正確</strong>的是哪一句？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>導覽員說：「請大家不要離開步道。」</li>
+<li><span class="ol">(B)</span>導覽員說「請大家不要離開步道。」：</li>
+<li><span class="ol">(C)</span>導覽員說：請大家不要離開步道「」</li>
+<li><span class="ol">(D)</span>導覽員說，「請大家不要離開步道」。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q7">解析</button><div class="exp" id="e-ch1-s2-q7"><b>答案：</b>(A)<br><b>解析：</b>引述說話內容先用冒號再用引號，句號放在下引號的裡面。</div>
+</div>
+<div class="q" id="ch1-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">「這片森林孕育了無數生命。」句中的「孕育」是什麼意思？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>養育、使成長</li>
+<li><span class="ol">(B)</span>破壞</li>
+<li><span class="ol">(C)</span>運送</li>
+<li><span class="ol">(D)</span>計算</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q8">解析</button><div class="exp" id="e-ch1-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>孕育本指懷胎生育，引申為培養、使某種事物產生並成長。</div>
+</div>
+<div class="q" id="ch1-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請把下面的句子<strong>縮寫</strong>成最精簡但保留主要意思的一句話：　在濃霧中緩緩前進的登山隊員，終於在天黑之前抵達了山屋。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s2-q9">解析</button><div class="exp" id="e-ch1-s2-q9"><b>答案：</b>參考答案：登山隊員抵達了山屋。<br><b>解析：</b>縮寫保留主語、動詞、賓語，刪去修飾語（在濃霧中、緩緩、終於、天黑之前）。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　臺灣的中央山脈像一道屏障，把來自海洋的水氣攔住。水氣被迫抬升、凝結，於是山區降下大量的雨。這些雨水滲進地底、匯成溪流，再流向平原。<br>　　我們每天打開水龍頭用的水，很可能就來自幾十公里外的一座山。森林裡的落葉與樹根像海綿一樣把水留住，慢慢釋放，讓溪流在不下雨的日子也不會乾涸。<br>　　所以保護山林，其實也是在保護自己的水杯。</div></div>
+<div class="q" id="ch1-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">根據本文，山區為什麼會降下大量的雨？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>水氣被山脈攔住後抬升凝結</li>
+<li><span class="ol">(B)</span>山上的樹木會製造雨水</li>
+<li><span class="ol">(C)</span>山上的氣溫特別高</li>
+<li><span class="ol">(D)</span>山上的風特別小</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q10">解析</button><div class="exp" id="e-ch1-s2-q10"><b>答案：</b>(A)<br><b>解析：</b>第一段說明中央山脈攔住海洋來的水氣，水氣被迫抬升、凝結而降雨（地形雨）。</div>
+</div>
+<div class="q" id="ch1-s2-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">作者把森林裡的落葉與樹根比喻成「海綿」，是要說明什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>森林能吸收並慢慢釋放水分，穩定溪流</li>
+<li><span class="ol">(B)</span>森林很柔軟可以躺</li>
+<li><span class="ol">(C)</span>落葉可以拿來洗東西</li>
+<li><span class="ol">(D)</span>樹根會把水全部吸乾</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q11">解析</button><div class="exp" id="e-ch1-s2-q11"><b>答案：</b>(A)<br><b>解析：</b>海綿吸水後會慢慢釋出，比喻森林涵養水源的功能，使溪流不易乾涸。</div>
+</div>
+</div>
+<div class="sec" id="ch1-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">1-3　國語（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第五～八課；人物與議論類課文（形音義、成語、句型變換、語病、長文閱讀）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
+<div class="q" id="ch1-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，兩個讀音<strong>相同</strong>的是哪一組？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「省」錢／節「省」</li>
+<li><span class="ol">(B)</span>「分」開／「分」量</li>
+<li><span class="ol">(C)</span>「將」來／「將」領</li>
+<li><span class="ol">(D)</span>「相」信／「相」片</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q1">解析</button><div class="exp" id="e-ch1-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>省錢、節省都讀ㄕㄥˇ（反省才讀ㄒㄧㄥˇ）。分開讀ㄈㄣ、分量讀ㄈㄣˋ；將來讀ㄐㄧㄤ、將領讀ㄐㄧㄤˋ；相信讀ㄒㄧㄤ、相片讀ㄒㄧㄤˋ。</div>
+</div>
+<div class="q" id="ch1-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>身體力行</li>
+<li><span class="ol">(B)</span>身體立行</li>
+<li><span class="ol">(C)</span>深體力行</li>
+<li><span class="ol">(D)</span>身禮力行</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q2">解析</button><div class="exp" id="e-ch1-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>「身體力行」指親身去做、努力實踐，體是身體的體。</div>
+</div>
+<div class="q" id="ch1-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出「」中字的注音：他「毅」然放下手邊的工作，趕去「馳」援災區。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s3-q3">解析</button><div class="exp" id="e-ch1-s3-q3"><b>答案：</b>毅ㄧˋ、馳ㄔˊ<br><b>解析：</b>「毅」讀ㄧˋ，指果決堅定；「馳」讀ㄔˊ，馬部，本義是快跑。</div>
+</div>
+<div class="q" id="ch1-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">「捨己為人」這個成語，最適合形容什麼樣的行為？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>犧牲自己的利益去幫助別人</li>
+<li><span class="ol">(B)</span>只顧自己不管別人</li>
+<li><span class="ol">(C)</span>替自己找藉口</li>
+<li><span class="ol">(D)</span>把責任推給別人</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q4">解析</button><div class="exp" id="e-ch1-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>捨己為人是放下自身利益去成全他人，常用來形容志工、救難人員。</div>
+</div>
+<div class="q" id="ch1-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一句<strong>沒有</strong>語病？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>他的建議讓我受益良多。</li>
+<li><span class="ol">(B)</span>透過他的建議，讓我受益良多。</li>
+<li><span class="ol">(C)</span>經由他的建議，使我受益良多。</li>
+<li><span class="ol">(D)</span>在他的建議下，使我受益良多。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q5">解析</button><div class="exp" id="e-ch1-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>「透過／經由／在……下」搭配「讓／使」會使句子缺少主語，是常見的語病。</div>
+</div>
+<div class="q" id="ch1-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請把句子改寫成<strong>被動句</strong>：　志工們清理了整條街道的垃圾。→＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s3-q6">解析</button><div class="exp" id="e-ch1-s3-q6"><b>答案：</b>整條街道的垃圾被志工們清理乾淨了。<br><b>解析：</b>被動句把承受動作的對象放句首，用「被」帶出動作者，意思不變。</div>
+</div>
+<div class="q" id="ch1-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一句話<strong>最客觀</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>這次淨灘活動共有 120 人參加，撿了 35 袋垃圾。</li>
+<li><span class="ol">(B)</span>這次淨灘活動辦得非常成功。</li>
+<li><span class="ol">(C)</span>這次淨灘活動很無聊。</li>
+<li><span class="ol">(D)</span>參加淨灘的人都很偉大。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q7">解析</button><div class="exp" id="e-ch1-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>客觀敘述使用可查證的數據；其餘三句都是主觀評價。</div>
+</div>
+<div class="q" id="ch1-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">「一分耕耘，一分收穫」與下列哪一句意思最接近？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>天下沒有白吃的午餐</li>
+<li><span class="ol">(B)</span>坐享其成</li>
+<li><span class="ol">(C)</span>不勞而獲</li>
+<li><span class="ol">(D)</span>守株待兔</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q8">解析</button><div class="exp" id="e-ch1-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>兩者都強調要付出才有收穫；其餘三個都是不勞而獲的意思。</div>
+</div>
+<div class="q" id="ch1-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請用「不但……而且……」造一個<strong>與公共議題有關</strong>的句子。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s3-q9">解析</button><div class="exp" id="e-ch1-s3-q9"><b>答案：</b>參考答案：垃圾分類不但可以減少垃圾量，而且能讓資源重新被利用。<br><b>解析：</b>「不但……而且……」是遞進關係，後面那件事要比前面更進一層。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　村子裡的圖書室原本只在週末開放，因為沒有人力。後來一位退休的護理師提議：「我每週三下午有空，可以來顧兩小時。」<br>　　消息傳開後，又有農夫、學生、家庭主婦陸續加入，排出一張輪值表。半年後，圖書室從一週開兩天變成每天下午都開。<br>　　有人問她怎麼有辦法號召這麼多人。她說：「我沒有號召誰，我只是先把自己的兩小時拿出來。」</div></div>
+<div class="q" id="ch1-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">圖書室的開放時間為什麼能夠增加？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>居民陸續投入擔任志工並排出輪值表</li>
+<li><span class="ol">(B)</span>政府撥了很多經費</li>
+<li><span class="ol">(C)</span>把書全部搬走了</li>
+<li><span class="ol">(D)</span>改成收費才開放</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q10">解析</button><div class="exp" id="e-ch1-s3-q10"><b>答案：</b>(A)<br><b>解析：</b>第二段說明退休護理師帶頭後，農夫、學生、家庭主婦陸續加入並排班。</div>
+</div>
+<div class="q" id="ch1-s3-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">「我沒有號召誰，我只是先把自己的兩小時拿出來。」這句話想表達什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>以身作則的行動，比呼籲更有影響力</li>
+<li><span class="ol">(B)</span>號召別人是沒有用的</li>
+<li><span class="ol">(C)</span>兩小時很短不算什麼</li>
+<li><span class="ol">(D)</span>只有退休的人才能當志工</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q11">解析</button><div class="exp" id="e-ch1-s3-q11"><b>答案：</b>(A)<br><b>解析：</b>她強調自己只是先付出，卻因此帶動更多人參與，凸顯身教與行動的力量。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch2">
+<div class="chap-head"><div class="chap-n">第 2 章</div><h2 class="chap-t">數學</h2><div class="chap-s">擴分約分與通分・異分母分數加減・多邊形面積｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：計算題請完整列式；分數答案要<strong>約分到最簡</strong>、假分數可寫成帶分數；面積題要寫出公式與單位（平方公分）。</div>
+<div class="sec" id="ch2-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">2-1　數學（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 擴分、約分與通分／第四單元 異分母分數的加減／第五單元 多邊形面積　<b>配分</b>選擇每題 7 分、填充每格 7 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">把 18/24 化成最簡分數：＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q1">解析</button><div class="exp" id="e-ch2-s1-q1"><b>答案：</b>3/4<br><b>解析：</b>18 和 24 的最大公因數是 6，分子分母同除以 6 得 3/4。</div>
+</div>
+<div class="q" id="ch2-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">把 2/5 擴分成分母是 20 的分數：＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q2">解析</button><div class="exp" id="e-ch2-s1-q2"><b>答案：</b>8/20<br><b>解析：</b>20÷5＝4，分子分母同乘以 4：2×4＝8，得 8/20。</div>
+</div>
+<div class="q" id="ch2-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">1/3 和 1/4 的公分母，最小是多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>12</li>
+<li><span class="ol">(B)</span>7</li>
+<li><span class="ol">(C)</span>24</li>
+<li><span class="ol">(D)</span>3</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q3">解析</button><div class="exp" id="e-ch2-s1-q3"><b>答案：</b>(A)<br><b>解析：</b>公分母要取兩個分母的最小公倍數，3 和 4 的最小公倍數是 12。</div>
+</div>
+<div class="q" id="ch2-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">計算（化成最簡）：1/2 ＋ 1/3 ＝ ＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q4">解析</button><div class="exp" id="e-ch2-s1-q4"><b>答案：</b>5/6<br><b>解析：</b>通分成 3/6＋2/6＝5/6，已是最簡分數。</div>
+</div>
+<div class="q" id="ch2-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">計算（化成最簡）：3/4 － 2/5 ＝ ＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q5">解析</button><div class="exp" id="e-ch2-s1-q5"><b>答案：</b>7/20<br><b>解析：</b>通分成 15/20－8/20＝7/20。</div>
+</div>
+<div class="q" id="ch2-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">計算（化成最簡）：2/3 ＋ 5/6 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q6">解析</button><div class="exp" id="e-ch2-s1-q6"><b>答案：</b>3/2（＝1又1/2）<br><b>解析：</b>通分成 4/6＋5/6＝9/6，約分後是 3/2，也可寫成 1又1/2。</div>
+</div>
+<div class="q" id="ch2-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">一個三角形的底 14 公分、高 9 公分，面積是多少平方公分？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q7">解析</button><div class="exp" id="e-ch2-s1-q7"><b>答案：</b>63 平方公分<br><b>解析：</b>三角形面積＝底×高÷2＝14×9÷2＝63（平方公分）。</div>
+</div>
+<div class="q" id="ch2-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">一個平行四邊形的底 11 公分、高 8 公分，面積是多少平方公分？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q8">解析</button><div class="exp" id="e-ch2-s1-q8"><b>答案：</b>88 平方公分<br><b>解析：</b>平行四邊形面積＝底×高＝11×8＝88（平方公分），不用除以 2。</div>
+</div>
+<div class="q" id="ch2-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">一個梯形的上底 6 公分、下底 10 公分、高 7 公分，面積是多少平方公分？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q9">解析</button><div class="exp" id="e-ch2-s1-q9"><b>答案：</b>56 平方公分<br><b>解析：</b>梯形面積＝(上底＋下底)×高÷2＝(6＋10)×7÷2＝16×7÷2＝56（平方公分）。</div>
+</div>
+<div class="q" id="ch2-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">一瓶果汁有 3/4 公升，喝掉 1/3 公升，還剩多少公升？（化成最簡）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q10">解析</button><div class="exp" id="e-ch2-s1-q10"><b>答案：</b>5/12 公升<br><b>解析：</b>通分：9/12－4/12＝5/12（公升）。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">2-2　數學（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 分數的擴約通分／第四單元 異分母分數加減／第五單元 面積　<b>配分</b>選擇每題 7 分、填充每格 7 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">把 20/32 化成最簡分數：＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q1">解析</button><div class="exp" id="e-ch2-s2-q1"><b>答案：</b>5/8<br><b>解析：</b>20 和 32 的最大公因數是 4，同除以 4 得 5/8。</div>
+</div>
+<div class="q" id="ch2-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一個分數和 3/5 一樣大？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>9/15</li>
+<li><span class="ol">(B)</span>5/3</li>
+<li><span class="ol">(C)</span>3/15</li>
+<li><span class="ol">(D)</span>6/15</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q2">解析</button><div class="exp" id="e-ch2-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>3/5 分子分母同乘 3 得 9/15，兩者相等（等值分數）。</div>
+</div>
+<div class="q" id="ch2-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">計算（化成最簡）：2/3 ＋ 1/4 ＝ ＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q3">解析</button><div class="exp" id="e-ch2-s2-q3"><b>答案：</b>11/12<br><b>解析：</b>通分成 8/12＋3/12＝11/12。</div>
+</div>
+<div class="q" id="ch2-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">計算（化成最簡）：5/6 － 1/2 ＝ ＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q4">解析</button><div class="exp" id="e-ch2-s2-q4"><b>答案：</b>1/3<br><b>解析：</b>通分成 5/6－3/6＝2/6，約分得 1/3。</div>
+</div>
+<div class="q" id="ch2-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">計算（化成最簡）：1又1/2 ＋ 2/3 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q5">解析</button><div class="exp" id="e-ch2-s2-q5"><b>答案：</b>13/6（＝2又1/6）<br><b>解析：</b>1又1/2＝3/2；通分 9/6＋4/6＝13/6＝2又1/6。</div>
+</div>
+<div class="q" id="ch2-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">比較 5/8 和 3/5 的大小，正確的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>5/8 ＞ 3/5</li>
+<li><span class="ol">(B)</span>5/8 ＜ 3/5</li>
+<li><span class="ol">(C)</span>5/8 ＝ 3/5</li>
+<li><span class="ol">(D)</span>無法比較</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q6">解析</button><div class="exp" id="e-ch2-s2-q6"><b>答案：</b>(A)<br><b>解析：</b>通分成 25/40 和 24/40，25＞24，所以 5/8＞3/5。</div>
+</div>
+<div class="q" id="ch2-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">一個三角形的底 16 公分、高 7 公分，面積是多少平方公分？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q7">解析</button><div class="exp" id="e-ch2-s2-q7"><b>答案：</b>56 平方公分<br><b>解析：</b>16×7÷2＝56（平方公分）。</div>
+</div>
+<div class="q" id="ch2-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">一個梯形的上底 8 公分、下底 12 公分、高 5 公分，面積是多少平方公分？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q8">解析</button><div class="exp" id="e-ch2-s2-q8"><b>答案：</b>50 平方公分<br><b>解析：</b>(8＋12)×5÷2＝20×5÷2＝50（平方公分）。</div>
+</div>
+<div class="q" id="ch2-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">媽媽買了 7/8 公斤的麵粉，做麵包用掉 1/4 公斤，還剩多少公斤？（化成最簡）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q9">解析</button><div class="exp" id="e-ch2-s2-q9"><b>答案：</b>5/8 公斤<br><b>解析：</b>通分：7/8－2/8＝5/8（公斤）。</div>
+</div>
+<div class="q" id="ch2-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">一塊三角形的花圃，底 20 公尺、高 12 公尺。如果每平方公尺要種 4 株花，一共要種幾株？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q10">解析</button><div class="exp" id="e-ch2-s2-q10"><b>答案：</b>480 株<br><b>解析：</b>面積＝20×12÷2＝120（平方公尺）；120×4＝480（株）。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">2-3　數學（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 通分與約分／第四單元 異分母分數加減／第五單元 多邊形面積　<b>配分</b>選擇每題 7 分、填充每格 7 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">把 24/36 化成最簡分數：＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q1">解析</button><div class="exp" id="e-ch2-s3-q1"><b>答案：</b>2/3<br><b>解析：</b>24 和 36 的最大公因數是 12，同除以 12 得 2/3。</div>
+</div>
+<div class="q" id="ch2-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">1/6 和 3/8 通分後，公分母最小是＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q2">解析</button><div class="exp" id="e-ch2-s3-q2"><b>答案：</b>24<br><b>解析：</b>6 和 8 的最小公倍數是 24，通分後是 4/24 和 9/24。</div>
+</div>
+<div class="q" id="ch2-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">計算（化成最簡）：3/8 ＋ 1/6 ＝ ＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q3">解析</button><div class="exp" id="e-ch2-s3-q3"><b>答案：</b>13/24<br><b>解析：</b>通分成 9/24＋4/24＝13/24。</div>
+</div>
+<div class="q" id="ch2-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">計算（化成最簡）：7/10 － 1/4 ＝ ＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q4">解析</button><div class="exp" id="e-ch2-s3-q4"><b>答案：</b>9/20<br><b>解析：</b>通分成 14/20－5/20＝9/20。</div>
+</div>
+<div class="q" id="ch2-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列關於「約分」的說明，何者<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>分子分母同時除以相同的數，分數大小不變</li>
+<li><span class="ol">(B)</span>分子分母同時減去相同的數</li>
+<li><span class="ol">(C)</span>只把分母除以某個數</li>
+<li><span class="ol">(D)</span>約分後分數會變小</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q5">解析</button><div class="exp" id="e-ch2-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>約分是同除以公因數，屬於等值分數的變換，大小不變。</div>
+</div>
+<div class="q" id="ch2-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">計算（化成最簡）：2又1/4 － 5/6 ＝ ？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q6">解析</button><div class="exp" id="e-ch2-s3-q6"><b>答案：</b>17/12（＝1又5/12）<br><b>解析：</b>2又1/4＝9/4；通分 27/12－10/12＝17/12＝1又5/12。</div>
+</div>
+<div class="q" id="ch2-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">一個平行四邊形的底 15 公分、高 6 公分，面積是多少平方公分？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q7">解析</button><div class="exp" id="e-ch2-s3-q7"><b>答案：</b>90 平方公分<br><b>解析：</b>平行四邊形面積＝底×高＝15×6＝90（平方公分）。</div>
+</div>
+<div class="q" id="ch2-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">一個三角形的面積是 48 平方公分，底是 12 公分，高是多少公分？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q8">解析</button><div class="exp" id="e-ch2-s3-q8"><b>答案：</b>8 公分<br><b>解析：</b>由面積＝底×高÷2 反推：高＝面積×2÷底＝48×2÷12＝8（公分）。</div>
+</div>
+<div class="q" id="ch2-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">一條緞帶長 5/6 公尺，做卡片用掉 1/3 公尺，做花束用掉 1/4 公尺。還剩多少公尺？（化成最簡）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q9">解析</button><div class="exp" id="e-ch2-s3-q9"><b>答案：</b>1/4 公尺<br><b>解析：</b>通分成 10/12－4/12－3/12＝3/12＝1/4（公尺）。</div>
+</div>
+<div class="q" id="ch2-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">一塊梯形的菜園，上底 9 公尺、下底 15 公尺、高 8 公尺。這塊菜園的面積是多少平方公尺？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q10">解析</button><div class="exp" id="e-ch2-s3-q10"><b>答案：</b>96 平方公尺<br><b>解析：</b>(9＋15)×8÷2＝24×8÷2＝96（平方公尺）。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch3">
+<div class="chap-head"><div class="chap-n">第 3 章</div><h2 class="chap-t">自然與生活科技</h2><div class="chap-s">花的構造・授粉與傳播・植物的無性繁殖・觀察與實驗｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；簡答題請寫出「現象＋原因」。<strong>觀念提醒</strong>：花是植物的繁殖器官，授粉→受精→結果→種子傳播，是植物繁衍後代的完整流程。</div>
+<div class="sec" id="ch3-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">3-1　自然（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第二單元 植物的奧祕（花的構造、授粉與結果、種子傳播、無性繁殖）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">一朵完整的花，由外而內包含哪四個部分？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>花萼、花瓣、雄蕊、雌蕊</li>
+<li><span class="ol">(B)</span>根、莖、葉、果實</li>
+<li><span class="ol">(C)</span>花瓣、葉柄、種子、果皮</li>
+<li><span class="ol">(D)</span>雄蕊、葉脈、花萼、根毛</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q1">解析</button><div class="exp" id="e-ch3-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>完整花的四大構造是花萼（保護花苞）、花瓣（吸引昆蟲）、雄蕊（產生花粉）、雌蕊（接受花粉）。</div>
+</div>
+<div class="q" id="ch3-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">花粉是由花的哪一個部分產生的？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>雄蕊的花藥</li>
+<li><span class="ol">(B)</span>雌蕊的柱頭</li>
+<li><span class="ol">(C)</span>花萼</li>
+<li><span class="ol">(D)</span>花瓣</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q2">解析</button><div class="exp" id="e-ch3-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>雄蕊由花藥與花絲組成，花藥裡面產生花粉；雌蕊的柱頭則負責接收花粉。</div>
+</div>
+<div class="q" id="ch3-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">花粉從雄蕊傳到雌蕊柱頭的過程叫做＿＿；授粉後，子房會發育成＿＿，胚珠發育成＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s1-q3">解析</button><div class="exp" id="e-ch3-s1-q3"><b>答案：</b>授粉、果實、種子<br><b>解析：</b>授粉→受精→子房變果實、胚珠變種子，這是植物有性繁殖的基本流程。</div>
+</div>
+<div class="q" id="ch3-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一種<strong>不是</strong>幫助植物授粉的媒介？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>磁鐵</li>
+<li><span class="ol">(B)</span>昆蟲</li>
+<li><span class="ol">(C)</span>風</li>
+<li><span class="ol">(D)</span>鳥類</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q4">解析</button><div class="exp" id="e-ch3-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>常見的授粉媒介有昆蟲（蜜蜂、蝴蝶）、風、鳥、水等；磁鐵與授粉無關。</div>
+</div>
+<div class="q" id="ch3-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">蒲公英的種子上有白色絨毛，這樣的構造和哪一種傳播方式有關？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>靠風傳播</li>
+<li><span class="ol">(B)</span>靠水傳播</li>
+<li><span class="ol">(C)</span>靠動物吃下傳播</li>
+<li><span class="ol">(D)</span>靠彈力彈出</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q5">解析</button><div class="exp" id="e-ch3-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>絨毛可以增加空氣阻力，讓種子隨風飄得更遠；椰子靠水、鬼針草靠附著動物、鳳仙花靠彈力。</div>
+</div>
+<div class="q" id="ch3-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">下列哪一種是植物的<strong>無性繁殖</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>用馬鈴薯的塊莖長出新植株</li>
+<li><span class="ol">(B)</span>用種子播種</li>
+<li><span class="ol">(C)</span>靠昆蟲授粉結果</li>
+<li><span class="ol">(D)</span>種子隨風飄落發芽</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q6">解析</button><div class="exp" id="e-ch3-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>無性繁殖不需要種子，直接用根、莖、葉等營養器官繁殖，例如塊莖、扦插、嫁接。</div>
+</div>
+<div class="q" id="ch3-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">把植物的枝條剪下插入土中使它長根的方法叫＿＿；把兩種植物接在一起的方法叫＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s1-q7">解析</button><div class="exp" id="e-ch3-s1-q7"><b>答案：</b>扦插、嫁接<br><b>解析：</b>兩者都是無性繁殖，優點是能保留母株的優良特性，且結果較快。</div>
+</div>
+<div class="q" id="ch3-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">為什麼有些花的顏色鮮豔、還會分泌花蜜？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>為了吸引昆蟲或鳥類前來幫忙授粉</li>
+<li><span class="ol">(B)</span>為了讓人類觀賞</li>
+<li><span class="ol">(C)</span>為了嚇走天敵</li>
+<li><span class="ol">(D)</span>為了製造更多養分</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q8">解析</button><div class="exp" id="e-ch3-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>鮮豔的花瓣與花蜜是吸引授粉者的「廣告」，這是植物與動物互利的關係。</div>
+</div>
+<div class="q" id="ch3-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">如果一片果園裡的蜜蜂大量消失，可能會發生什麼事？請說明。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s1-q9">解析</button><div class="exp" id="e-ch3-s1-q9"><b>答案：</b>參考答案：因為許多果樹需要蜜蜂幫忙授粉，蜜蜂消失會使授粉不完全，結出的果實變少、品質變差，農民的收成也會減少。<br><b>解析：</b>能連結「授粉媒介減少→授粉不足→結果減少」即可得分。</div>
+</div>
+<div class="q" id="ch3-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請設計一個簡單的實驗，證明「花需要授粉才會結果」。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s1-q10">解析</button><div class="exp" id="e-ch3-s1-q10"><b>答案：</b>參考答案：選同一株植物上大小相近的兩朵花苞，一朵套上紗網不讓昆蟲接觸（不授粉），另一朵讓它自然授粉；其他條件（陽光、水分、位置）都相同，過一段時間後比較哪一朵結出果實。<br><b>解析：</b>重點在變因控制：只改變「有沒有授粉」，其餘條件都要相同，並要有對照組。</div>
+</div>
+</div>
+<div class="sec" id="ch3-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">3-2　自然（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第二單元 植物的繁殖（花的構造與功能、授粉方式、種子傳播、繁殖與生活）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">花萼的主要功能是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>在花苞時期保護裡面的構造</li>
+<li><span class="ol">(B)</span>產生花粉</li>
+<li><span class="ol">(C)</span>吸引昆蟲</li>
+<li><span class="ol">(D)</span>發育成種子</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q1">解析</button><div class="exp" id="e-ch3-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>花萼位在最外層，花還是花苞時包住並保護內部的花瓣與蕊。</div>
+</div>
+<div class="q" id="ch3-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">雌蕊由哪三個部分組成？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>柱頭、花柱、子房</li>
+<li><span class="ol">(B)</span>花藥、花絲、柱頭</li>
+<li><span class="ol">(C)</span>花瓣、花萼、子房</li>
+<li><span class="ol">(D)</span>根、莖、葉</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q2">解析</button><div class="exp" id="e-ch3-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>雌蕊＝柱頭（接花粉）＋花柱（通道）＋子房（內有胚珠，日後成為果實）。</div>
+</div>
+<div class="q" id="ch3-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">靠昆蟲授粉的花，通常花朵＿＿＿（鮮豔／不明顯）、會分泌＿＿；靠風授粉的花則相反。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s2-q3">解析</button><div class="exp" id="e-ch3-s2-q3"><b>答案：</b>鮮豔、花蜜<br><b>解析：</b>蟲媒花靠顏色與蜜吸引昆蟲；風媒花（如稻、玉米）花朵不顯眼，但花粉量大又輕。</div>
+</div>
+<div class="q" id="ch3-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一種植物的種子，主要靠<strong>動物</strong>傳播？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>鬼針草</li>
+<li><span class="ol">(B)</span>蒲公英</li>
+<li><span class="ol">(C)</span>鳳仙花</li>
+<li><span class="ol">(D)</span>椰子</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q4">解析</button><div class="exp" id="e-ch3-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>鬼針草的種子有倒鉤，會勾在動物毛皮或衣服上被帶走；蒲公英靠風、鳳仙花靠彈力、椰子靠水。</div>
+</div>
+<div class="q" id="ch3-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">椰子的果實外層厚而輕，這樣的構造最有利於哪一種傳播？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>靠海水漂流傳播</li>
+<li><span class="ol">(B)</span>靠風飄送</li>
+<li><span class="ol">(C)</span>靠昆蟲搬運</li>
+<li><span class="ol">(D)</span>靠彈力彈出</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q5">解析</button><div class="exp" id="e-ch3-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>厚而充滿纖維的外殼能浮在水面並保護種子，讓椰子隨洋流漂到遠方的海岸。</div>
+</div>
+<div class="q" id="ch3-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">下列哪一項<strong>不是</strong>無性繁殖的方式？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>播種</li>
+<li><span class="ol">(B)</span>扦插</li>
+<li><span class="ol">(C)</span>嫁接</li>
+<li><span class="ol">(D)</span>分株</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q6">解析</button><div class="exp" id="e-ch3-s2-q6"><b>答案：</b>(A)<br><b>解析：</b>播種要用種子，屬於有性繁殖；扦插、嫁接、分株、壓條都是無性繁殖。</div>
+</div>
+<div class="q" id="ch3-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">無性繁殖的優點是可以保留母株的＿＿＿＿，而且開花結果的時間通常比較＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s2-q7">解析</button><div class="exp" id="e-ch3-s2-q7"><b>答案：</b>優良特性、快<br><b>解析：</b>因為新植株與母株的遺傳完全相同，農業上常用來大量繁殖品質一致的作物。</div>
+</div>
+<div class="q" id="ch3-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">觀察花的構造時，下列哪一個做法<strong>最恰當</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>用鑷子小心剝開，由外而內依序觀察並畫下來</li>
+<li><span class="ol">(B)</span>用力把整朵花捏碎</li>
+<li><span class="ol">(C)</span>把花放進嘴巴嘗味道</li>
+<li><span class="ol">(D)</span>只用眼睛看，不做任何紀錄</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q8">解析</button><div class="exp" id="e-ch3-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>解剖觀察要輕柔並依序進行，同時繪圖標示各部位名稱，這是科學觀察的基本方法。</div>
+</div>
+<div class="q" id="ch3-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">為什麼植物需要把種子傳播到比較遠的地方？請說明。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s2-q9">解析</button><div class="exp" id="e-ch3-s2-q9"><b>答案：</b>參考答案：如果種子都掉在母株附近，幼苗會和母株搶奪陽光、水分與養分，而且長得太密容易一起被病蟲害或天災影響；傳播到遠處可以找到新的生長空間，提高存活機會。<br><b>解析：</b>能答出「避免競爭」或「擴展生存空間、提高存活率」即可。</div>
+</div>
+<div class="q" id="ch3-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">農夫想要大量種出同一種甜度的葡萄，你會建議他用哪一種繁殖方式？為什麼？</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s2-q10">解析</button><div class="exp" id="e-ch3-s2-q10"><b>答案：</b>參考答案：建議用扦插或嫁接等無性繁殖，因為新植株的遺傳和母株相同，可以保留同樣的甜度與品質；若用種子播種，後代的性狀可能出現差異。<br><b>解析：</b>能連結「無性繁殖＝遺傳相同＝品質一致」即可得分。</div>
+</div>
+</div>
+<div class="sec" id="ch3-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">3-3　自然（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第二單元 植物的繁殖（花的解剖觀察、授粉實驗判讀、種子傳播與適應）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一組「構造與功能」的配對<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>雄蕊—產生花粉</li>
+<li><span class="ol">(B)</span>花萼—吸引昆蟲</li>
+<li><span class="ol">(C)</span>子房—行光合作用</li>
+<li><span class="ol">(D)</span>花瓣—接受花粉</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q1">解析</button><div class="exp" id="e-ch3-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>雄蕊產生花粉、花瓣吸引昆蟲、花萼保護花苞、柱頭接受花粉、子房發育成果實。</div>
+</div>
+<div class="passage"><div class="passage-t">實驗紀錄（第 2～4 題）</div><div class="passage-b">　　小婷在同一株絲瓜上選了三朵大小相近的雌花，做了以下處理：<br><br>　　組別　　處理方式　　　　　　　　　　結果（兩週後）<br>　　甲　　　套袋，不授粉　　　　　　　　花朵枯萎，沒有結果<br>　　乙　　　套袋，用毛筆人工授粉　　　　結出絲瓜<br>　　丙　　　不套袋，讓昆蟲自然授粉　　　結出絲瓜</div></div>
+<div class="q" id="ch3-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">這個實驗最主要想探討什麼問題？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>授粉會不會影響植物結果</li>
+<li><span class="ol">(B)</span>陽光會不會影響植物生長</li>
+<li><span class="ol">(C)</span>水量會不會影響開花</li>
+<li><span class="ol">(D)</span>土壤會不會影響花的顏色</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q2">解析</button><div class="exp" id="e-ch3-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>三組唯一不同的處理是「有沒有授粉、由誰授粉」，所以探討的是授粉與結果的關係。</div>
+</div>
+<div class="q" id="ch3-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">甲組沒有結果，最合理的解釋是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>因為套袋阻擋昆蟲，又沒有人工授粉，花沒有完成授粉</li>
+<li><span class="ol">(B)</span>因為套袋讓花晒不到太陽</li>
+<li><span class="ol">(C)</span>因為那朵花本來就是壞的</li>
+<li><span class="ol">(D)</span>因為澆水太多</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q3">解析</button><div class="exp" id="e-ch3-s3-q3"><b>答案：</b>(A)<br><b>解析：</b>甲組唯一缺少的條件就是授粉，因此可推論沒有授粉就無法結果。</div>
+</div>
+<div class="q" id="ch3-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">為什麼乙組要「套袋」再用毛筆人工授粉？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>排除昆蟲的影響，確定是人工授粉造成的結果</li>
+<li><span class="ol">(B)</span>讓花長得比較大</li>
+<li><span class="ol">(C)</span>避免花被雨淋溼</li>
+<li><span class="ol">(D)</span>讓花的顏色更鮮豔</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q4">解析</button><div class="exp" id="e-ch3-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>套袋是為了控制變因，確保結果來自研究者的人工授粉，而不是昆蟲。</div>
+</div>
+<div class="q" id="ch3-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">這個實驗中，甲組扮演的是＿＿組；三組的陽光、水分與位置都必須＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s3-q5">解析</button><div class="exp" id="e-ch3-s3-q5"><b>答案：</b>對照（控制）、相同<br><b>解析：</b>沒有經過處理的那一組是對照組，用來和實驗組比較；其他條件都要一致，比較才公平。</div>
+</div>
+<div class="q" id="ch3-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">絲瓜、南瓜等植物同一株上有雄花與雌花，這樣的花稱為什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>單性花</li>
+<li><span class="ol">(B)</span>完全花</li>
+<li><span class="ol">(C)</span>兩性花</li>
+<li><span class="ol">(D)</span>無性花</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q6">解析</button><div class="exp" id="e-ch3-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>只有雄蕊或只有雌蕊的花叫單性花；同時具備雌雄蕊的是兩性花。</div>
+</div>
+<div class="q" id="ch3-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一項是「種子構造與傳播方式」的正確配對？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>絨毛—靠風傳播</li>
+<li><span class="ol">(B)</span>倒鉤—靠風傳播</li>
+<li><span class="ol">(C)</span>厚而輕的外殼—靠昆蟲傳播</li>
+<li><span class="ol">(D)</span>果肉香甜—靠彈力傳播</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q7">解析</button><div class="exp" id="e-ch3-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>絨毛靠風、倒鉤靠附著動物、厚而輕的外殼靠水、香甜果肉靠動物吃下後排出。</div>
+</div>
+<div class="q" id="ch3-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一種花，最可能是<strong>風媒花</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>稻子的花</li>
+<li><span class="ol">(B)</span>玫瑰</li>
+<li><span class="ol">(C)</span>百合</li>
+<li><span class="ol">(D)</span>向日葵</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q8">解析</button><div class="exp" id="e-ch3-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>風媒花的花朵小而不顯眼、沒有花蜜，但花粉輕又多，例如稻、玉米、小麥；玫瑰、百合、向日葵都靠昆蟲授粉。</div>
+</div>
+<div class="q" id="ch3-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請根據上面的紀錄表，寫出<strong>一個</strong>可以下的結論，並說明理由。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s3-q9">解析</button><div class="exp" id="e-ch3-s3-q9"><b>答案：</b>參考答案：結論是「絲瓜的雌花必須經過授粉才會結果」。因為甲組沒有授粉就沒有結果，乙、丙兩組不論是人工或昆蟲授粉都結出了絲瓜，三組其他條件都相同。<br><b>解析：</b>結論要有資料支持，並說明是根據哪幾組的比較得出的。</div>
+</div>
+<div class="q" id="ch3-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">如果農夫種的絲瓜園附近昆蟲很少，他可以怎麼做？請提出一個具體方法。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s3-q10">解析</button><div class="exp" id="e-ch3-s3-q10"><b>答案：</b>參考答案：可以用毛筆進行人工授粉，把雄花的花粉輕輕沾到雌花的柱頭上；也可以在園區旁種植蜜源植物或放置蜂箱，吸引授粉昆蟲。<br><b>解析：</b>能提出人工授粉或增加授粉者其中一種具體做法即可。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch4">
+<div class="chap-head"><div class="chap-n">第 4 章</div><h2 class="chap-t">社會</h2><div class="chap-s">臺灣的自然資源・原住民族與早期歷史・族群互動｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題寫在橫線上；簡答題請寫出完整句子與理由。本冊接續第一次段考的「位置、地形與氣候」，主題進入資源利用與臺灣早期的歷史。</div>
+<div class="sec" id="ch4-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">4-1　社會（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 臺灣的自然資源／第四單元 臺灣的早期住民（資源利用、原住民族、史前文化）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一項<strong>不是</strong>臺灣的自然資源？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>進口的石油</li>
+<li><span class="ol">(B)</span>森林</li>
+<li><span class="ol">(C)</span>漁業資源</li>
+<li><span class="ol">(D)</span>溫泉</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q1">解析</button><div class="exp" id="e-ch4-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>石油幾乎全靠進口，不是本地的自然資源；森林、漁業與溫泉則是臺灣既有的資源。</div>
+</div>
+<div class="q" id="ch4-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">森林除了提供木材，還有什麼重要功能？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>涵養水源、保持水土並提供生物棲地</li>
+<li><span class="ol">(B)</span>增加地震次數</li>
+<li><span class="ol">(C)</span>讓氣溫升高</li>
+<li><span class="ol">(D)</span>阻止河流形成</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q2">解析</button><div class="exp" id="e-ch4-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>森林的根系抓住土壤、落葉層吸水慢放，是重要的水源涵養與防災屏障。</div>
+</div>
+<div class="q" id="ch4-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">臺灣位於板塊交界處，因此＿＿資源豐富，但也常發生＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s1-q3">解析</button><div class="exp" id="e-ch4-s1-q3"><b>答案：</b>溫泉（地熱）、地震<br><b>解析：</b>板塊活動同時帶來地熱與地震，是同一個地質作用的兩面。</div>
+</div>
+<div class="q" id="ch4-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">臺灣最早的住民是下列哪一群人？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>原住民族</li>
+<li><span class="ol">(B)</span>荷蘭人</li>
+<li><span class="ol">(C)</span>西班牙人</li>
+<li><span class="ol">(D)</span>漢人移民</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q4">解析</button><div class="exp" id="e-ch4-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>原住民族在漢人與外來政權到達之前，已在臺灣生活數千年，屬南島語族。</div>
+</div>
+<div class="q" id="ch4-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">考古學家在臺灣發現長濱文化、圓山文化等遺址，這些屬於什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>史前文化的遺跡</li>
+<li><span class="ol">(B)</span>近代工廠遺址</li>
+<li><span class="ol">(C)</span>外國人蓋的城堡</li>
+<li><span class="ol">(D)</span>現代藝術作品</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q5">解析</button><div class="exp" id="e-ch4-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>這些遺址留下石器、陶器與貝塚，證明臺灣在文字紀錄之前就有人類活動。</div>
+</div>
+<div class="q" id="ch4-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">原住民族屬於＿＿語族，各族有不同的語言、祭典與生活方式，例如＿＿族的豐年祭。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s1-q6">解析</button><div class="exp" id="e-ch4-s1-q6"><b>答案：</b>南島、阿美<br><b>解析：</b>南島語族分布極廣，臺灣被認為是重要的原鄉之一；各族祭典不同，如阿美族豐年祭、布農族打耳祭。</div>
+</div>
+<div class="q" id="ch4-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列對原住民族文化的敘述，何者<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>各族有各自的語言與傳統，應受到尊重</li>
+<li><span class="ol">(B)</span>所有原住民族的文化完全相同</li>
+<li><span class="ol">(C)</span>原住民族沒有自己的語言</li>
+<li><span class="ol">(D)</span>原住民族的文化已經完全消失</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q7">解析</button><div class="exp" id="e-ch4-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>臺灣目前有十六個中央政府認定的原住民族，語言與文化各具特色，都是重要的文化資產。</div>
+</div>
+<div class="q" id="ch4-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">為什麼要保存原住民族的語言與祭典？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>語言與文化一旦消失就難以復原，是全體社會的資產</li>
+<li><span class="ol">(B)</span>因為可以賺很多錢</li>
+<li><span class="ol">(C)</span>因為政府規定必須這樣</li>
+<li><span class="ol">(D)</span>因為其他國家都這麼做</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q8">解析</button><div class="exp" id="e-ch4-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>語言承載著一個族群看世界的方式，文化多樣性也是社會共同的財富。</div>
+</div>
+<div class="q" id="ch4-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請說明「為什麼臺灣的自然資源需要節制使用」。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s1-q9">解析</button><div class="exp" id="e-ch4-s1-q9"><b>答案：</b>參考答案：因為臺灣面積小、資源有限，森林、漁業與地下水如果過度開採或捕撈，就無法自然恢復，會影響下一代的使用，也可能造成土石流、地層下陷等災害。<br><b>解析：</b>能連結「資源有限」「恢復需要時間」或「過度使用引發災害」即可。</div>
+</div>
+<div class="q" id="ch4-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請舉出<strong>一項</strong>你在生活中可以做到、有助於珍惜自然資源的行為，並說明理由。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s1-q10">解析</button><div class="exp" id="e-ch4-s1-q10"><b>答案：</b>參考答案：隨手關燈與縮短淋浴時間，因為發電與供水都需要消耗自然資源，減少浪費就是減少對環境的負擔。<br><b>解析：</b>能提出具體行為並說明它和資源之間的關聯即可。</div>
+</div>
+</div>
+<div class="sec" id="ch4-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">4-2　社會（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 臺灣的原住民族／第四單元 大航海時代的臺灣（族群文化、荷西時期、鄭氏時期）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">十七世紀時，哪兩個歐洲國家曾在臺灣建立據點？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>荷蘭與西班牙</li>
+<li><span class="ol">(B)</span>英國與法國</li>
+<li><span class="ol">(C)</span>德國與義大利</li>
+<li><span class="ol">(D)</span>美國與加拿大</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q1">解析</button><div class="exp" id="e-ch4-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>荷蘭人主要在南部（大員、熱蘭遮城），西班牙人則在北部（雞籠、淡水）建立據點。</div>
+</div>
+<div class="q" id="ch4-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">荷蘭人來到臺灣的主要目的是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>發展貿易並取得轉口的據點</li>
+<li><span class="ol">(B)</span>來觀光旅遊</li>
+<li><span class="ol">(C)</span>來讀書</li>
+<li><span class="ol">(D)</span>來避難</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q2">解析</button><div class="exp" id="e-ch4-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>大航海時代的歐洲國家在亞洲尋找貿易據點，臺灣位置適中，成為轉口貿易的重要位置。</div>
+</div>
+<div class="q" id="ch4-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">鄭成功驅逐＿＿人後，在臺灣建立政權，並招募漢人來臺＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s2-q3">解析</button><div class="exp" id="e-ch4-s2-q3"><b>答案：</b>荷蘭、開墾<br><b>解析：</b>鄭氏時期大量漢人移入，開墾農田並引進農業技術，改變了臺灣的人口與土地利用。</div>
+</div>
+<div class="q" id="ch4-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一項是清領時期臺灣社會的重要特徵？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>漢人大量移入開墾，並興建水圳灌溉</li>
+<li><span class="ol">(B)</span>完全沒有人居住</li>
+<li><span class="ol">(C)</span>只有外國人居住</li>
+<li><span class="ol">(D)</span>農業完全消失</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q4">解析</button><div class="exp" id="e-ch4-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>清領時期是臺灣移墾社會的形成期，八堡圳、瑠公圳等水利工程也在此時興建。</div>
+</div>
+<div class="q" id="ch4-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">「南島語族」和臺灣原住民族的關係是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>臺灣原住民族屬於南島語族</li>
+<li><span class="ol">(B)</span>南島語族是歐洲的族群</li>
+<li><span class="ol">(C)</span>兩者完全無關</li>
+<li><span class="ol">(D)</span>南島語族是近年才移入臺灣的</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q5">解析</button><div class="exp" id="e-ch4-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>南島語族分布於太平洋與印度洋島嶼，臺灣被許多學者認為是南島語族擴散的重要原鄉。</div>
+</div>
+<div class="q" id="ch4-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">不同族群在臺灣長期互動，彼此在飲食、語言與信仰上互相＿＿，形成今日多元的文化，我們應該互相＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s2-q6">解析</button><div class="exp" id="e-ch4-s2-q6"><b>答案：</b>影響、尊重<br><b>解析：</b>文化交流是雙向的，尊重差異才能讓多元文化共存。</div>
+</div>
+<div class="q" id="ch4-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一項是原住民族傳統的祭典？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>布農族的打耳祭</li>
+<li><span class="ol">(B)</span>端午節划龍舟</li>
+<li><span class="ol">(C)</span>中秋節烤肉</li>
+<li><span class="ol">(D)</span>西洋情人節</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q7">解析</button><div class="exp" id="e-ch4-s2-q7"><b>答案：</b>(A)<br><b>解析：</b>打耳祭是布農族重要的傳統祭儀；阿美族有豐年祭、達悟族有飛魚祭。</div>
+</div>
+<div class="q" id="ch4-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">研究臺灣早期歷史時，下列哪一種資料<strong>最直接</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>當時留下的文獻、地圖與考古出土的器物</li>
+<li><span class="ol">(B)</span>現代電視劇的情節</li>
+<li><span class="ol">(C)</span>網路上的匿名貼文</li>
+<li><span class="ol">(D)</span>同學之間的傳言</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q8">解析</button><div class="exp" id="e-ch4-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>第一手史料（文獻、地圖、器物）最直接；戲劇與傳言可能經過改編或失真。</div>
+</div>
+<div class="q" id="ch4-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">為什麼臺灣在大航海時代會受到外國勢力的重視？請說明。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s2-q9">解析</button><div class="exp" id="e-ch4-s2-q9"><b>答案：</b>參考答案：因為臺灣位在東亞海上交通的要衝，往北可到日本、往南可到東南亞、往西鄰近中國大陸，很適合作為貿易與補給的中繼站。<br><b>解析：</b>能答出「位置適中／海上交通要衝／貿易中繼」即可得分。</div>
+</div>
+<div class="q" id="ch4-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">我們可以怎麼做，來尊重不同族群的文化？請寫出兩點。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s2-q10">解析</button><div class="exp" id="e-ch4-s2-q10"><b>答案：</b>參考答案：（1）主動認識不同族群的語言、節慶與飲食，不用刻板印象看待別人；（2）參加文化活動時遵守當地的規矩，不隨意拍照或喧鬧，也不取笑與自己不同的習慣。<br><b>解析：</b>能提出「認識了解」與「行為尊重」兩個面向最完整。</div>
+</div>
+</div>
+<div class="sec" id="ch4-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">4-3　社會（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 臺灣的資源與環境／第四單元 早期臺灣（資源利用、史前文化、族群互動）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">臺灣的水資源主要來自哪裡？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>降雨（梅雨與颱風）匯集成河川與水庫</li>
+<li><span class="ol">(B)</span>從國外進口</li>
+<li><span class="ol">(C)</span>地下的石油</li>
+<li><span class="ol">(D)</span>海水直接飲用</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q1">解析</button><div class="exp" id="e-ch4-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>臺灣年雨量雖多，但集中在夏季，必須靠水庫調節；海水需淡化處理才能飲用，成本高。</div>
+</div>
+<div class="q" id="ch4-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一項是「永續利用資源」的做法？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>漁業訂定休漁期，讓魚群有時間繁殖</li>
+<li><span class="ol">(B)</span>一次把魚全部捕光</li>
+<li><span class="ol">(C)</span>砍掉所有森林蓋房子</li>
+<li><span class="ol">(D)</span>把工業廢水直接排入河川</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q2">解析</button><div class="exp" id="e-ch4-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>永續利用是在滿足現在需求的同時，也讓資源有恢復的機會。</div>
+</div>
+<div class="q" id="ch4-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">臺灣山高坡陡，若在山坡地＿＿＿＿，大雨時容易發生＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s3-q3">解析</button><div class="exp" id="e-ch4-s3-q3"><b>答案：</b>過度開發（濫墾濫伐）、土石流<br><b>解析：</b>植被被移除後，土壤失去固著力，遇到大雨就容易崩塌。</div>
+</div>
+<div class="q" id="ch4-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">考古學家挖出貝塚、石器與陶器，最能說明什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>當時的人如何生活與取得食物</li>
+<li><span class="ol">(B)</span>當時的天氣預報</li>
+<li><span class="ol">(C)</span>當時的政治制度細節</li>
+<li><span class="ol">(D)</span>當時的網路使用情形</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q4">解析</button><div class="exp" id="e-ch4-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>貝塚顯示食用貝類、石器顯示工具技術、陶器顯示炊煮與儲存，都是生活方式的證據。</div>
+</div>
+<div class="q" id="ch4-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列關於臺灣原住民族的敘述，何者<strong>錯誤</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>各族的語言與文化完全相同</li>
+<li><span class="ol">(B)</span>是臺灣最早的住民</li>
+<li><span class="ol">(C)</span>屬於南島語族</li>
+<li><span class="ol">(D)</span>各族有不同的傳統祭典</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q5">解析</button><div class="exp" id="e-ch4-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>各族語言差異很大，祭典、服飾與社會制度也不同，不能一概而論。</div>
+</div>
+<div class="q" id="ch4-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">早期漢人移民來臺開墾時，最需要解決的問題是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>水源與土地的取得</li>
+<li><span class="ol">(B)</span>網路訊號</li>
+<li><span class="ol">(C)</span>汽車停車位</li>
+<li><span class="ol">(D)</span>電力供應</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q6">解析</button><div class="exp" id="e-ch4-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>農業社會最重要的是水與地，因此水圳的興建與土地的開墾是當時的核心工作。</div>
+</div>
+<div class="q" id="ch4-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">不同族群相處時，難免因為土地或資源產生＿＿，因此需要透過溝通與制度來＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s3-q7">解析</button><div class="exp" id="e-ch4-s3-q7"><b>答案：</b>衝突、化解（協調）<br><b>解析：</b>歷史上族群互動既有合作也有衝突，理解過去有助於現在的相互理解。</div>
+</div>
+<div class="q" id="ch4-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一項最能表現「文化資產保存」的行動？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>修復老街建築並保留原有的樣貌</li>
+<li><span class="ol">(B)</span>把老房子全部拆掉蓋新大樓</li>
+<li><span class="ol">(C)</span>把古物丟掉</li>
+<li><span class="ol">(D)</span>禁止任何人參觀古蹟</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q8">解析</button><div class="exp" id="e-ch4-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>保存不等於封存，適當修復與活化再利用，能讓文化資產繼續被使用與認識。</div>
+</div>
+<div class="q" id="ch4-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請說明「為什麼臺灣需要興建水庫」。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s3-q9">解析</button><div class="exp" id="e-ch4-s3-q9"><b>答案：</b>參考答案：因為臺灣降雨集中在夏季，河川又短促流急，雨水很快流入海裡。水庫可以在多雨時把水儲存起來，等到缺水的季節再放出來使用，穩定供應民生與農業用水。<br><b>解析：</b>能連結「降雨時間不均」「河短流急」與「調節儲水」即可。</div>
+</div>
+<div class="q" id="ch4-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請舉出<strong>一項</strong>你認為家鄉最值得保存的文化或自然資產，並說明理由。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s3-q10">解析</button><div class="exp" id="e-ch4-s3-q10"><b>答案：</b>參考答案：我認為家鄉的百年老樹最值得保存，因為它是居民共同的記憶，也提供遮蔭與生物棲地，一旦砍掉就再也長不回來。<br><b>解析：</b>能指出具體對象並說明它的價值（記憶、生態、教育、觀光）即可。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch5">
+<div class="chap-head"><div class="chap-n">第 5 章</div><h2 class="chap-t">英語 English</h2><div class="chap-s">日常作息與時間・頻率副詞・can 的能力表達・閱讀理解｜康軒／南一／翰林／何嘉仁 四版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題注意動詞形式與大小寫；寫作題要寫出完整句子。<strong>本章重點</strong>：談習慣用現在簡單式（第三人稱單數動詞加 -s），談正在做的事用現在進行式。</div>
+<div class="sec" id="ch5-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">5-1　英語（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>日常作息、What time do you…?、頻率副詞 always／usually／sometimes／never　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch5-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">A: What time do you get up?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I get up at six thirty.</li>
+<li><span class="ol">(B)</span>I'm six thirty.</li>
+<li><span class="ol">(C)</span>It's six thirty o'clock.</li>
+<li><span class="ol">(D)</span>Yes, I do.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q1">解析</button><div class="exp" id="e-ch5-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>問「幾點做某事」要用 at＋時刻回答；It's 是用來報現在幾點。</div>
+</div>
+<div class="q" id="ch5-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">I ＿ eat breakfast. I think it's very important.（總是）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>always</li>
+<li><span class="ol">(B)</span>never</li>
+<li><span class="ol">(C)</span>seldom</li>
+<li><span class="ol">(D)</span>hardly</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q2">解析</button><div class="exp" id="e-ch5-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>always＝總是；never＝從不、seldom／hardly＝很少，與後半句的語氣不合。</div>
+</div>
+<div class="q" id="ch5-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請填入正確的動詞形式：My brother ＿＿＿＿ his teeth after dinner.（brush）</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s1-q3">解析</button><div class="exp" id="e-ch5-s1-q3"><b>答案：</b>brushes<br><b>解析：</b>主詞 My brother 是第三人稱單數，動詞字尾 sh 要加 -es。</div>
+</div>
+<div class="q" id="ch5-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>She usually goes to bed at nine.</li>
+<li><span class="ol">(B)</span>She usually go to bed at nine.</li>
+<li><span class="ol">(C)</span>She usually going to bed at nine.</li>
+<li><span class="ol">(D)</span>She usually is go to bed at nine.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q4">解析</button><div class="exp" id="e-ch5-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>現在簡單式的第三人稱單數要加 -s／-es；頻率副詞放在一般動詞前面。</div>
+</div>
+<div class="q" id="ch5-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: How often do you exercise?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Three times a week.</li>
+<li><span class="ol">(B)</span>At seven o'clock.</li>
+<li><span class="ol">(C)</span>It's Monday.</li>
+<li><span class="ol">(D)</span>Yes, I do.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q5">解析</button><div class="exp" id="e-ch5-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>How often 問頻率，要回答次數（once／twice／three times a week）。</div>
+</div>
+<div class="q" id="ch5-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請寫出中文意思：I never drink coffee. →＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s1-q6">解析</button><div class="exp" id="e-ch5-s1-q6"><b>答案：</b>我從不喝咖啡。<br><b>解析：</b>never 本身就是否定，句子不需要再加 don't。</div>
+</div>
+<div class="q" id="ch5-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一個是「洗澡」的英文？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>take a shower</li>
+<li><span class="ol">(B)</span>brush my teeth</li>
+<li><span class="ol">(C)</span>wash my face</li>
+<li><span class="ol">(D)</span>go to bed</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q7">解析</button><div class="exp" id="e-ch5-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>take a shower＝淋浴洗澡；brush my teeth 刷牙、wash my face 洗臉、go to bed 上床睡覺。</div>
+</div>
+<div class="q" id="ch5-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">A: Do you always walk to school?　B: ＿＿＿＿（有時候）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>No, sometimes I take the bus.</li>
+<li><span class="ol">(B)</span>Yes, I never walk.</li>
+<li><span class="ol">(C)</span>No, I always walk.</li>
+<li><span class="ol">(D)</span>Yes, I don't.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q8">解析</button><div class="exp" id="e-ch5-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>回答要合乎邏輯：否定 always 之後補充 sometimes 的情形最自然。</div>
+</div>
+<div class="q" id="ch5-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請把句子改成否定句：He watches TV after dinner. → He ＿＿＿＿＿＿＿ TV after dinner.</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s1-q9">解析</button><div class="exp" id="e-ch5-s1-q9"><b>答案：</b>doesn't watch<br><b>解析：</b>第三人稱單數的否定用 doesn't＋原形動詞，watches 要變回 watch。</div>
+</div>
+<div class="q" id="ch5-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用英文寫出你每天的一個習慣（含頻率副詞）。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s1-q10">解析</button><div class="exp" id="e-ch5-s1-q10"><b>答案：</b>參考答案：I usually do my homework after school.<br><b>解析：</b>評分重點：頻率副詞放在一般動詞前、動詞形式正確、句首大寫、句末句點。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">5-2　英語（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>現在進行式、What are you doing?、動詞 -ing 變化　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch5-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">A: What are you doing?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I'm washing the dishes.</li>
+<li><span class="ol">(B)</span>I wash the dishes.</li>
+<li><span class="ol">(C)</span>I'm dishes.</li>
+<li><span class="ol">(D)</span>Yes, I am.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q1">解析</button><div class="exp" id="e-ch5-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>問「正在做什麼」，要用 be 動詞＋動詞-ing 回答。</div>
+</div>
+<div class="q" id="ch5-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">My parents ＿ watching TV in the living room.</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>are</li>
+<li><span class="ol">(B)</span>is</li>
+<li><span class="ol">(C)</span>am</li>
+<li><span class="ol">(D)</span>be</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q2">解析</button><div class="exp" id="e-ch5-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>My parents 是複數主詞，be 動詞用 are。</div>
+</div>
+<div class="q" id="ch5-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出動詞的 -ing 形式：run → ＿＿＿＿＿；write → ＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s2-q3">解析</button><div class="exp" id="e-ch5-s2-q3"><b>答案：</b>running、writing<br><b>解析：</b>run 是短母音＋單子音要重複字尾；write 字尾是不發音的 e 要去掉再加 ing。</div>
+</div>
+<div class="q" id="ch5-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>The baby is sleeping now.</li>
+<li><span class="ol">(B)</span>The baby sleeping now.</li>
+<li><span class="ol">(C)</span>The baby is sleep now.</li>
+<li><span class="ol">(D)</span>The baby are sleeping now.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q4">解析</button><div class="exp" id="e-ch5-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>現在進行式＝be 動詞＋動詞-ing，兩者缺一不可；主詞單數用 is。</div>
+</div>
+<div class="q" id="ch5-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: Is your sister doing her homework?　B: ＿＿＿＿（沒有）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>No, she isn't.</li>
+<li><span class="ol">(B)</span>No, she doesn't.</li>
+<li><span class="ol">(C)</span>No, she don't.</li>
+<li><span class="ol">(D)</span>No, she not is.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q5">解析</button><div class="exp" id="e-ch5-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>be 動詞問句用 be 動詞否定回答：No, she isn't.</div>
+</div>
+<div class="q" id="ch5-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請把句子改成現在進行式：They play basketball. → They ＿＿＿ ＿＿＿＿＿＿＿ basketball.</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s2-q6">解析</button><div class="exp" id="e-ch5-s2-q6"><b>答案：</b>are playing<br><b>解析：</b>They 搭配 are，play 加 -ing 成 playing（母音＋y 直接加）。</div>
+</div>
+<div class="q" id="ch5-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一句是在描述<strong>現在正在發生</strong>的事？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Look! The dog is running.</li>
+<li><span class="ol">(B)</span>The dog runs every morning.</li>
+<li><span class="ol">(C)</span>The dog can run fast.</li>
+<li><span class="ol">(D)</span>The dog ran yesterday.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q7">解析</button><div class="exp" id="e-ch5-s2-q7"><b>答案：</b>(A)<br><b>解析：</b>Look! 加現在進行式表示此刻正在發生；第二句是習慣、第三句講能力、第四句是過去。</div>
+</div>
+<div class="q" id="ch5-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">請寫出中文意思：My mom is cooking dinner in the kitchen. →＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s2-q8">解析</button><div class="exp" id="e-ch5-s2-q8"><b>答案：</b>我媽媽正在廚房煮晚餐。<br><b>解析：</b>進行式要把「正在」翻出來；in the kitchen＝在廚房裡。</div>
+</div>
+<div class="q" id="ch5-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">A: What is he doing?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>He is riding a bike.</li>
+<li><span class="ol">(B)</span>He rides a bike.</li>
+<li><span class="ol">(C)</span>He is ride a bike.</li>
+<li><span class="ol">(D)</span>He riding a bike.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q9">解析</button><div class="exp" id="e-ch5-s2-q9"><b>答案：</b>(A)<br><b>解析：</b>主詞 He 用 is，動詞 ride 去 e 加 ing 成 riding。</div>
+</div>
+<div class="q" id="ch5-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用現在進行式寫一句話，描述你此刻正在做的事。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s2-q10">解析</button><div class="exp" id="e-ch5-s2-q10"><b>答案：</b>參考答案：I am taking an English test.<br><b>解析：</b>評分重點：主詞與 be 動詞一致、動詞加 -ing、句首大寫、句末句點。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">5-3　英語（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>can 的能力與請求、才藝與運動單字、Wh- 問句　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch5-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">A: Can you play the violin?　B: ＿＿＿＿（會）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Yes, I can.</li>
+<li><span class="ol">(B)</span>Yes, I do.</li>
+<li><span class="ol">(C)</span>Yes, I am.</li>
+<li><span class="ol">(D)</span>Yes, I play.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q1">解析</button><div class="exp" id="e-ch5-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>Can 問句要用 can 回答；肯定 Yes, I can.、否定 No, I can't.</div>
+</div>
+<div class="q" id="ch5-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>He can swim very well.</li>
+<li><span class="ol">(B)</span>He can swims very well.</li>
+<li><span class="ol">(C)</span>He cans swim very well.</li>
+<li><span class="ol">(D)</span>He can swimming very well.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q2">解析</button><div class="exp" id="e-ch5-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>can 後面一定接原形動詞，can 本身也不隨主詞變化。</div>
+</div>
+<div class="q" id="ch5-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把句子改成否定句：I can ride a bike. → I ＿＿＿＿＿ ride a bike.</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s3-q3">解析</button><div class="exp" id="e-ch5-s3-q3"><b>答案：</b>can't（cannot）<br><b>解析：</b>can 的否定是 cannot，縮寫成 can't，後面仍接原形動詞。</div>
+</div>
+<div class="q" id="ch5-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">「彈鋼琴」的英文是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>play the piano</li>
+<li><span class="ol">(B)</span>play piano game</li>
+<li><span class="ol">(C)</span>playing a piano</li>
+<li><span class="ol">(D)</span>piano play</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q4">解析</button><div class="exp" id="e-ch5-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>樂器前要加 the：play the piano／play the guitar；球類則不加：play basketball。</div>
+</div>
+<div class="q" id="ch5-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: ＿＿ can you do?　B: I can dance and draw.</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>What</li>
+<li><span class="ol">(B)</span>Who</li>
+<li><span class="ol">(C)</span>Where</li>
+<li><span class="ol">(D)</span>When</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q5">解析</button><div class="exp" id="e-ch5-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>回答的是「會做什麼事」，問句要用 What；Wh- 問句不能用 Yes/No 回答。</div>
+</div>
+<div class="q" id="ch5-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請寫出中文意思：My sister can speak English, but she can't speak Japanese. →＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s3-q6">解析</button><div class="exp" id="e-ch5-s3-q6"><b>答案：</b>我姊姊（妹妹）會說英語，但是她不會說日語。<br><b>解析：</b>but 表示轉折；can 是會、can't 是不會。</div>
+</div>
+<div class="q" id="ch5-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">A: Can Tom and Mary play badminton?　B: ＿＿＿＿（不會）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>No, they can't.</li>
+<li><span class="ol">(B)</span>No, he can't.</li>
+<li><span class="ol">(C)</span>No, we can't.</li>
+<li><span class="ol">(D)</span>No, they aren't.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q7">解析</button><div class="exp" id="e-ch5-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>主詞是兩個人要用 they，且問句用 can，所以否定回答是 No, they can't.</div>
+</div>
+<div class="q" id="ch5-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一個單字<strong>不是</strong>運動？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>kitchen</li>
+<li><span class="ol">(B)</span>baseball</li>
+<li><span class="ol">(C)</span>swimming</li>
+<li><span class="ol">(D)</span>tennis</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q8">解析</button><div class="exp" id="e-ch5-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>kitchen 是廚房；baseball、swimming、tennis 都是運動。</div>
+</div>
+<div class="q" id="ch5-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請把句子改成問句：You can speak Taiwanese. → ＿＿＿＿ you speak Taiwanese?</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s3-q9">解析</button><div class="exp" id="e-ch5-s3-q9"><b>答案：</b>Can<br><b>解析：</b>含 can 的句子改問句時，把 can 移到句首，句末改問號。</div>
+</div>
+<div class="q" id="ch5-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用 can 和 can't 各寫一句話，說明你會與不會做的事。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s3-q10">解析</button><div class="exp" id="e-ch5-s3-q10"><b>答案：</b>參考答案：I can play basketball. I can't play the violin.<br><b>解析：</b>評分重點：can／can't 後接原形動詞、兩句意思不同、句首大寫、句末句點。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s4">
+<div class="sec-head"><span class="pub">何嘉仁版</span><span class="sec-t">5-4　英語（何嘉仁版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>長母音 ee／ea、字尾 -ing 發音、日常作息、閱讀理解　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch5-s4-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一組單字的畫線部分發音<strong>相同</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>see / tea</li>
+<li><span class="ol">(B)</span>see / red</li>
+<li><span class="ol">(C)</span>tea / bed</li>
+<li><span class="ol">(D)</span>red / bee</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q1">解析</button><div class="exp" id="e-ch5-s4-q1"><b>答案：</b>(A)<br><b>解析：</b>ee 和 ea 常都發長音 /iː/，例如 see、tea、green、eat；red、bed 是短母音 /e/。</div>
+</div>
+<div class="q" id="ch5-s4-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一個單字的母音<strong>不是</strong>長音 /iː/？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>bread</li>
+<li><span class="ol">(B)</span>meat</li>
+<li><span class="ol">(C)</span>green</li>
+<li><span class="ol">(D)</span>sleep</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q2">解析</button><div class="exp" id="e-ch5-s4-q2"><b>答案：</b>(A)<br><b>解析：</b>bread 的 ea 例外地發短母音 /e/；meat、green、sleep 都是 /iː/。</div>
+</div>
+<div class="q" id="ch5-s4-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請依照發音規則拼出單字：/iː/ 音 ＋ t，意思是「吃」→ ＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s4-q3">解析</button><div class="exp" id="e-ch5-s4-q3"><b>答案：</b>eat<br><b>解析：</b>eat 的 ea 發長音 /iː/，是最常見的 ea 組合之一。</div>
+</div>
+<div class="q" id="ch5-s4-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">A: What do you do every morning?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I brush my teeth and wash my face.</li>
+<li><span class="ol">(B)</span>I'm brushing my teeth.</li>
+<li><span class="ol">(C)</span>I brushed my teeth.</li>
+<li><span class="ol">(D)</span>Yes, I do.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q4">解析</button><div class="exp" id="e-ch5-s4-q4"><b>答案：</b>(A)<br><b>解析：</b>問每天的習慣要用現在簡單式回答，不是進行式或過去式。</div>
+</div>
+<div class="q" id="ch5-s4-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>She always eats breakfast at seven.</li>
+<li><span class="ol">(B)</span>She always eat breakfast at seven.</li>
+<li><span class="ol">(C)</span>She is always eat breakfast.</li>
+<li><span class="ol">(D)</span>She always eating breakfast.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q5">解析</button><div class="exp" id="e-ch5-s4-q5"><b>答案：</b>(A)<br><b>解析：</b>第三人稱單數現在簡單式動詞加 -s；頻率副詞放在一般動詞前。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 6～8 題）</div><div class="passage-b">　　My name is Amy. I get up at six thirty every morning.<br>　　I eat breakfast at seven and go to school at seven twenty. I usually walk to school with my friend Nick.<br>　　After school, I do my homework first. Then I play the piano for thirty minutes. I go to bed at nine thirty. I never stay up late.</div></div>
+<div class="q" id="ch5-s4-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">What time does Amy go to school?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>At seven twenty.</li>
+<li><span class="ol">(B)</span>At six thirty.</li>
+<li><span class="ol">(C)</span>At seven.</li>
+<li><span class="ol">(D)</span>At nine thirty.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q6">解析</button><div class="exp" id="e-ch5-s4-q6"><b>答案：</b>(A)<br><b>解析：</b>文中寫 go to school at seven twenty（七點二十分上學）。</div>
+</div>
+<div class="q" id="ch5-s4-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">What does Amy do after school?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>She does her homework first, then plays the piano.</li>
+<li><span class="ol">(B)</span>She goes to bed.</li>
+<li><span class="ol">(C)</span>She eats breakfast.</li>
+<li><span class="ol">(D)</span>She stays up late.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q7">解析</button><div class="exp" id="e-ch5-s4-q7"><b>答案：</b>(A)<br><b>解析：</b>文中寫放學後先做功課，接著彈三十分鐘鋼琴。</div>
+</div>
+<div class="q" id="ch5-s4-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">根據短文，下列哪一句<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Amy 從不熬夜。</li>
+<li><span class="ol">(B)</span>Amy 每天九點就寢。</li>
+<li><span class="ol">(C)</span>Amy 自己一個人走路上學。</li>
+<li><span class="ol">(D)</span>Amy 放學後先彈鋼琴才寫功課。</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q8">解析</button><div class="exp" id="e-ch5-s4-q8"><b>答案：</b>(A)<br><b>解析：</b>文末寫 I never stay up late.（從不熬夜）；她九點半睡、和 Nick 一起走路、先寫功課再彈琴。</div>
+</div>
+<div class="q" id="ch5-s4-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請仿照短文，用英文寫出你早上的一個作息（含時間）。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s4-q9">解析</button><div class="exp" id="e-ch5-s4-q9"><b>答案：</b>參考答案：I get up at seven o'clock every morning.<br><b>解析：</b>評分重點：動詞形式正確、介系詞 at＋時刻、句首大寫、句末句點。</div>
+</div>
+</div>
+</section>
+<section class="sheet key"><h2 class="h-page">解答本</h2><p class="pf">本頁提供快速對答；詳細解析請點選題目下方的「解析」按鈕。</p>
+<h3 class="key-ch">第 1 章　國語</h3>
+<div class="key-sec"><div class="key-t">1-1　康軒版　第5~8課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 生動、清晰</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 只有、才（或：唯有、才）</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：每個人都佩服他的毅力。</li><li><b>10.</b> (A)</li><li><b>11.</b> (A)</li></ol></div>
+<div class="key-sec"><div class="key-t">1-2　南一版　第5~8課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 蜿蜒、雄偉</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 如果、那麼（或：要是、就）</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：登山隊員抵達了山屋。</li><li><b>10.</b> (A)</li><li><b>11.</b> (A)</li></ol></div>
+<div class="key-sec"><div class="key-t">1-3　翰林版　第5~8課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 毅ㄧˋ、馳ㄔˊ</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 整條街道的垃圾被志工們清理乾淨了。</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：垃圾分類不但可以減少垃圾量，而且能讓資源重新被利用。</li><li><b>10.</b> (A)</li><li><b>11.</b> (A)</li></ol></div>
+<h3 class="key-ch">第 2 章　數學</h3>
+<div class="key-sec"><div class="key-t">2-1　康軒版　分數・面積</div><ol class="key-list"><li><b>1.</b> 3/4</li><li><b>2.</b> 8/20</li><li><b>3.</b> (A)</li><li><b>4.</b> 5/6</li><li><b>5.</b> 7/20</li><li><b>6.</b> 3/2（＝1又1/2）</li><li><b>7.</b> 63 平方公分</li><li><b>8.</b> 88 平方公分</li><li><b>9.</b> 56 平方公分</li><li><b>10.</b> 5/12 公升</li></ol></div>
+<div class="key-sec"><div class="key-t">2-2　南一版　分數・面積</div><ol class="key-list"><li><b>1.</b> 5/8</li><li><b>2.</b> (A)</li><li><b>3.</b> 11/12</li><li><b>4.</b> 1/3</li><li><b>5.</b> 13/6（＝2又1/6）</li><li><b>6.</b> (A)</li><li><b>7.</b> 56 平方公分</li><li><b>8.</b> 50 平方公分</li><li><b>9.</b> 5/8 公斤</li><li><b>10.</b> 480 株</li></ol></div>
+<div class="key-sec"><div class="key-t">2-3　翰林版　分數・面積</div><ol class="key-list"><li><b>1.</b> 2/3</li><li><b>2.</b> 24</li><li><b>3.</b> 13/24</li><li><b>4.</b> 9/20</li><li><b>5.</b> (A)</li><li><b>6.</b> 17/12（＝1又5/12）</li><li><b>7.</b> 90 平方公分</li><li><b>8.</b> 8 公分</li><li><b>9.</b> 1/4 公尺</li><li><b>10.</b> 96 平方公尺</li></ol></div>
+<h3 class="key-ch">第 3 章　自然與生活科技</h3>
+<div class="key-sec"><div class="key-t">3-1　康軒版　植物的繁殖</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 授粉、果實、種子</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 扦插、嫁接</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為許多果樹需要蜜蜂幫忙授粉，蜜蜂消失會使授粉不完全，結出的果實變少、品質變差，農民的收成也會減少。</li><li><b>10.</b> 參考答案：選同一株植物上大小相近的兩朵花苞，一朵套上紗網不讓昆蟲接觸（不授粉），另一朵讓它自然授粉；其他條件（陽光、水分、位置）都相同，過一段時間後比較哪一朵結出果實。</li></ol></div>
+<div class="key-sec"><div class="key-t">3-2　南一版　植物的繁殖</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 鮮豔、花蜜</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 優良特性、快</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：如果種子都掉在母株附近，幼苗會和母株搶奪陽光、水分與養分，而且長得太密容易一起被病蟲害或天災影響；傳播到遠處可以找到新的生長空間，提高存活機會。</li><li><b>10.</b> 參考答案：建議用扦插或嫁接等無性繁殖，因為新植株的遺傳和母株相同，可以保留同樣的甜度與品質；若用種子播種，後代的性狀可能出現差異。</li></ol></div>
+<div class="key-sec"><div class="key-t">3-3　翰林版　植物的繁殖</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> (A)</li><li><b>4.</b> (A)</li><li><b>5.</b> 對照（控制）、相同</li><li><b>6.</b> (A)</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：結論是「絲瓜的雌花必須經過授粉才會結果」。因為甲組沒有授粉就沒有結果，乙、丙兩組不論是人工或昆蟲授粉都結出了絲瓜，三組其他條件都相同。</li><li><b>10.</b> 參考答案：可以用毛筆進行人工授粉，把雄花的花粉輕輕沾到雌花的柱頭上；也可以在園區旁種植蜜源植物或放置蜂箱，吸引授粉昆蟲。</li></ol></div>
+<h3 class="key-ch">第 4 章　社會</h3>
+<div class="key-sec"><div class="key-t">4-1　康軒版　資源與早期歷史</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 溫泉（地熱）、地震</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 南島、阿美</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為臺灣面積小、資源有限，森林、漁業與地下水如果過度開採或捕撈，就無法自然恢復，會影響下一代的使用，也可能造成土石流、地層下陷等災害。</li><li><b>10.</b> 參考答案：隨手關燈與縮短淋浴時間，因為發電與供水都需要消耗自然資源，減少浪費就是減少對環境的負擔。</li></ol></div>
+<div class="key-sec"><div class="key-t">4-2　南一版　族群與早期歷史</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 荷蘭、開墾</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 影響、尊重</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為臺灣位在東亞海上交通的要衝，往北可到日本、往南可到東南亞、往西鄰近中國大陸，很適合作為貿易與補給的中繼站。</li><li><b>10.</b> 參考答案：（1）主動認識不同族群的語言、節慶與飲食，不用刻板印象看待別人；（2）參加文化活動時遵守當地的規矩，不隨意拍照或喧鬧，也不取笑與自己不同的習慣。</li></ol></div>
+<div class="key-sec"><div class="key-t">4-3　翰林版　資源與早期歷史</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 過度開發（濫墾濫伐）、土石流</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 衝突、化解（協調）</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為臺灣降雨集中在夏季，河川又短促流急，雨水很快流入海裡。水庫可以在多雨時把水儲存起來，等到缺水的季節再放出來使用，穩定供應民生與農業用水。</li><li><b>10.</b> 參考答案：我認為家鄉的百年老樹最值得保存，因為它是居民共同的記憶，也提供遮蔭與生物棲地，一旦砍掉就再也長不回來。</li></ol></div>
+<h3 class="key-ch">第 5 章　英語 English</h3>
+<div class="key-sec"><div class="key-t">5-1　康軒版　作息與頻率</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> brushes</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 我從不喝咖啡。</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> doesn't watch</li><li><b>10.</b> 參考答案：I usually do my homework after school.</li></ol></div>
+<div class="key-sec"><div class="key-t">5-2　南一版　現在進行式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> running、writing</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> are playing</li><li><b>7.</b> (A)</li><li><b>8.</b> 我媽媽正在廚房煮晚餐。</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：I am taking an English test.</li></ol></div>
+<div class="key-sec"><div class="key-t">5-3　翰林版　can 與才藝</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> can't（cannot）</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 我姊姊（妹妹）會說英語，但是她不會說日語。</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> Can</li><li><b>10.</b> 參考答案：I can play basketball. I can't play the violin.</li></ol></div>
+<div class="key-sec"><div class="key-t">5-4　何嘉仁版　發音與閱讀</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> eat</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：I get up at seven o'clock every morning.</li></ol></div>
+</section>
+</div>
+<div class="pagefoot"></div>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.exp-btn'); if(!b) return;
+  var el=document.getElementById('e-'+b.dataset.t);
+  el.classList.toggle('on');
+  b.textContent=el.classList.contains('on')?'收合解析':'解析';
+});
+function allExp(on){
+  document.querySelectorAll('.exp').forEach(function(el){el.classList.toggle('on',on)});
+  document.querySelectorAll('.exp-btn').forEach(function(b){b.textContent=on?'收合解析':'解析'});
+}
+</script>
+</body>
+</html>

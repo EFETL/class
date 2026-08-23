@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>國小六年級 上學期 第二次段考 跨版本綜合題本</title>
+<style>
+:root{--ink:#22201d;--ink2:#5b544c;--line:#d9d0c2;--paper:#fdfaf4;--band:#1f5f6b;--band2:#c8663a;--soft:#f4efe5;--acc:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;background:#e8e3d9;color:var(--ink);
+ font-family:"Noto Sans TC","PingFang TC","Heiti TC",system-ui,sans-serif;font-size:16px;line-height:1.9}
+.book{max-width:820px;margin:0 auto;padding:24px 12px 80px}
+.sheet{background:var(--paper);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08);
+ padding:38px 40px 46px;margin:0 0 26px}
+h2.h-page{font-size:24px;margin:0 0 18px;padding-bottom:10px;border-bottom:3px solid var(--band)}
+.pf{margin:.5em 0;color:var(--ink2);font-size:15px}
+/* 封面 */
+.cover{text-align:center;padding:64px 40px 54px;background:linear-gradient(180deg,#fffdf8,#f6efe2)}
+.cv-band{display:inline-block;background:var(--band);color:#fff;padding:6px 20px;border-radius:999px;font-size:14px;letter-spacing:2px}
+.cv-title{font-size:40px;line-height:1.35;margin:22px 0 6px;letter-spacing:2px}
+.cv-sub{font-size:18px;color:var(--ink2)}
+.cv-line{width:96px;height:4px;background:var(--band2);margin:24px auto 28px;border-radius:2px}
+.cv-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;max-width:520px;margin:0 auto;text-align:left;font-size:15px}
+.cv-meta div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 14px}
+.cv-meta span{display:block;font-size:12px;color:var(--band);letter-spacing:1px}
+.cv-name{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:34px 0 8px;font-size:15px}
+.cv-foot{margin-top:26px;color:var(--ink2);font-size:13px}
+/* 對照表 */
+table.ref{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+table.ref th{background:var(--band);color:#fff;padding:8px 6px;border:1px solid #b9ab97}
+table.ref td{border:1px solid var(--line);padding:7px 8px;vertical-align:top}
+table.ref td.reg{background:var(--soft);font-weight:700;text-align:center;white-space:nowrap}
+/* 目錄 */
+ol.toc{list-style:none;margin:0;padding:0;counter-reset:none}
+ol.toc>li{margin:0 0 14px;border-bottom:1px dashed var(--line);padding-bottom:12px}
+ol.toc>li>a{display:grid;grid-template-columns:74px 1fr;gap:2px 10px;text-decoration:none;color:var(--ink)}
+.tc-n{color:var(--band2);font-weight:700}
+.tc-t{font-size:19px;font-weight:700}
+.tc-d{grid-column:2;color:var(--ink2);font-size:13px}
+ol.toc ul{list-style:none;margin:8px 0 0 74px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
+ol.toc ul a{color:var(--ink2);text-decoration:none;font-size:14px}
+ol.toc a:hover{color:var(--acc)}
+/* 章 */
+.chap-head{border-left:8px solid var(--band);padding:6px 0 6px 16px;margin-bottom:16px}
+.chap-n{color:var(--band2);font-weight:700;letter-spacing:2px}
+.chap-t{font-size:28px;margin:2px 0 4px}
+.chap-s{color:var(--ink2);font-size:14px}
+.chap-intro{background:var(--soft);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--ink2);margin-bottom:22px}
+.sec{margin:26px 0 34px}
+.sec-head{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--line);padding-bottom:8px}
+.pub{background:var(--band2);color:#fff;border-radius:6px;padding:2px 10px;font-size:13px;white-space:nowrap}
+.sec-t{font-size:19px;font-weight:700}
+.scope{font-size:13px;color:var(--ink2);margin:8px 0 16px}
+.scope b{color:var(--band);margin-right:6px}
+.scope b+b{margin-left:10px}
+/* 題目 */
+.q{margin:0 0 16px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;page-break-inside:avoid;break-inside:avoid}
+.q-h{display:flex;gap:9px}
+.q-n{flex:0 0 auto;min-width:26px;height:26px;border-radius:50%;background:var(--band);color:#fff;
+ display:inline-flex;align-items:center;justify-content:center;font-size:13px;margin-top:3px}
+.q-t{flex:1}
+ol.opts{list-style:none;margin:8px 0 0 35px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}
+ol.opts li{font-size:15px}
+.ol{color:var(--band2);font-weight:700;margin-right:5px}
+.passage{background:var(--soft);border-left:5px solid var(--band);border-radius:8px;padding:12px 16px;margin:0 0 16px}
+.passage-t{font-weight:700;margin-bottom:6px}
+.passage-b{font-size:15px;line-height:2.1;white-space:pre-wrap}
+.ansline{margin:14px 0 4px 35px;border-bottom:1.5px solid var(--line);height:26px}
+.ansline.tall{height:52px;border-bottom:1.5px solid var(--line);
+ background:repeating-linear-gradient(transparent,transparent 25px,var(--line) 25px,var(--line) 26px)}
+.workbox{margin:10px 0 4px 35px;border:1.5px dashed var(--line);border-radius:8px;height:110px;position:relative}
+.wb-tag{position:absolute;top:6px;left:10px;font-size:12px;color:#b4a894}
+.exp-btn{margin:10px 0 0 35px;background:#fff;border:1.5px solid var(--acc);color:var(--acc);
+ border-radius:999px;padding:3px 15px;font-size:13px;cursor:pointer}
+.exp-btn:hover{background:var(--acc);color:#fff}
+.exp{display:none;margin:10px 0 0 35px;background:#f0f7f5;border-left:4px solid var(--acc);
+ border-radius:0 8px 8px 0;padding:10px 14px;font-size:14px}
+.exp.on{display:block}
+.exp b{color:var(--acc)}
+/* 注音（低年級）：直排在國字右側，臺灣課本排法；字級加大讓小朋友看得清楚 */
+.rubyzone{font-size:21px;line-height:2.7}
+.zy{display:inline-flex;align-items:center;vertical-align:baseline;margin-right:1.5px}
+.zc{display:inline-block}
+.zz{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+ font-size:.56em;line-height:1;color:#554d43;margin-left:1.5px;font-style:normal;white-space:nowrap}
+.zs{font-style:normal;display:block;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:0}
+.zt,.zl{font-style:normal;display:block;text-align:center;line-height:.9}
+.rubyzone .q-t,.rubyzone ol.opts li{line-height:2.5}
+.rubyzone ol.opts{gap:14px 20px;font-size:1em}
+.rubyzone .q{padding:14px 16px}
+@media print{.rubyzone{font-size:15pt;line-height:2.5}.zz{color:#222}}
+/* 解答本 */
+.key-ch{margin:22px 0 8px;font-size:20px;border-bottom:2px solid var(--line);padding-bottom:5px}
+.key-sec{margin:0 0 14px}
+.key-t{font-size:14px;color:var(--band);font-weight:700;margin-bottom:4px}
+ol.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px 12px;font-size:14px}
+/* 頁碼（螢幕不顯示，列印才出現） */
+.pagefoot{display:none}
+/* 工具列 */
+.bar{position:sticky;top:0;z-index:9;background:rgba(253,250,244,.96);backdrop-filter:blur(6px);
+ border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+ max-width:820px;margin:0 auto;border-radius:0 0 12px 12px}
+.bar b{font-size:14px;margin-right:4px}
+.bar button,.bar a{background:var(--band);color:#fff;border:0;border-radius:8px;padding:6px 13px;
+ font-size:13px;cursor:pointer;text-decoration:none}
+.bar button.ghost{background:#fff;color:var(--band);border:1.5px solid var(--band)}
+@media(max-width:640px){
+ .sheet{padding:24px 18px 30px}.cv-title{font-size:30px}
+ .cv-meta,ol.opts,ol.toc ul{grid-template-columns:1fr}
+ .ansline,.workbox,.exp,.exp-btn,ol.opts{margin-left:0}
+}
+/* 列印 */
+@media print{
+ @page{size:A4;margin:16mm 14mm 18mm}
+ body{background:#fff;font-size:12.5pt;line-height:1.75}
+ .book{max-width:none;padding:0}
+ .bar,.exp-btn,.no-print{display:none!important}
+ .exp{display:none!important}
+ .sheet{box-shadow:none;border-radius:0;padding:0;margin:0;background:#fff;break-after:page;page-break-after:always}
+ .sheet:last-child{break-after:auto;page-break-after:auto}
+ .cover{padding-top:40mm}
+ .q{border-color:#bbb}
+ .pagefoot{display:block;position:fixed;bottom:0;right:0;font-size:10pt;color:#555}
+ .pagefoot::after{counter-increment:page;content:"— " counter(page) " —"}
+}
+</style>
+<style>:root{--band:#3f6b3a;--band2:#c25b45}</style>
+</head>
+<body>
+<div class="bar no-print">
+  <b>國小六年級 上學期 第二次段考 跨版本綜合題本</b>
+  <button class="ghost" onclick="allExp(true)">顯示全部解析</button>
+  <button class="ghost" onclick="allExp(false)">收合全部解析</button>
+  <button onclick="window.print()">列印 / 存成 PDF</button>
+  <a href="#toc-top">回目錄</a>
+  <a href="../exams.html" style="background:#fff;color:var(--band);border:1.5px solid var(--band)">← 回題庫首頁</a>
+</div>
+<div class="book" id="toc-top">
+<section class="sheet cover">
+  <div class="cv-band">安親班自編・小六・第二次段考</div>
+  <h1 class="cv-title">國小六年級 上學期 第二次段考 跨版本綜合題本</h1>
+  <div class="cv-sub">國語・數學・自然・社會・英語　五科合訂本</div>
+  <div class="cv-line"></div>
+  <div class="cv-meta">
+    <div><span>適用年級</span>六年級（上學期）</div>
+    <div><span>適用版本</span>康軒・南一・翰林・何嘉仁</div>
+    <div><span>科目</span>國語／數學／自然／社會／英語</div>
+    <div><span>取材範圍</span>第二次段考（期中 2）常見範圍</div>
+  </div>
+  <div class="cv-name">
+    <div>班級 ____________</div><div>座號 ________</div><div>姓名 ________________</div>
+  </div>
+  <div class="cv-foot">安親班自編教材　小六 第二次段考　©本題本題目全數自編，僅供班內教學使用</div>
+</section>
+<section class="sheet"><h2 class="h-page">編輯說明</h2>
+<p class="pf"><strong>一、這本書是什麼。</strong> 這是<strong>第二次段考（期中 2）</strong>的合訂題本，不是單張考卷。全書把國語、數學、自然、社會、英語五科放進同一本，每一科底下再依 <strong>康軒、南一、翰林、何嘉仁</strong> 分節出題，讓同一間安親班裡使用不同版本的孩子，可以各自翻到自己的那一節作答，老師只要備一本書。</p>
+<p class="pf"><strong>二、題目從哪裡來。</strong> 全書題目 <strong>100% 自編</strong>，沒有抄錄任何學校的段考原卷。我們以「中小學題庫網（tcool.cc）」上北、中、南共 9 所國小的段考卷紀錄，來確認 <strong>各年級各科目實際採用的版本、段考次數與命題範圍</strong>，再依照這個範圍與十二年國教課綱自行命題，避免版權問題。各校版本對照見下一頁。</p>
+<p class="pf"><strong>三、怎麼使用。</strong> 螢幕上點每一題下方的「解析」可展開答案與說明；按上方「列印 / 存成 PDF」時，<strong>解析會自動隱藏</strong>，印出來就是乾淨的作答題本，答案統一收在書末「解答本」。列印請用 Chrome 或 Edge，頁碼才會出現在頁尾。</p>
+<p class="pf"><strong>四、進度提醒。</strong> 六上第二次段考三家版本的核心範圍相當一致：數學為「比與比值、圓周長與圓面積」，自然為「簡單機械」，社會為「經濟活動與消費」，英語為「過去式與比較級」。各校進度仍有差異，實際範圍請以任課老師公布為準；若某一節超出貴班進度，直接略過即可。</p>
+<p class="pf"><strong>五、配分建議。</strong> 每一節可獨立當成一份小考（滿分 100 分）；若要組成一份完整段考卷，建議：國語 30 分＋數學 30 分＋自然 20 分＋社會 20 分，英語另外單獨計分。</p>
+</section>
+<section class="sheet"><h2 class="h-page">導讀：北、中、南九校版本對照表</h2>
+<p class="pf">資料來源：中小學題庫網（tcool.cc）各校段考卷之「學校／年級科目／出版社」欄位彙整（統計至 114 學年度）。<strong>本表只用來確認命題範圍與版本分布，題目仍為自編。</strong> 空白代表該站目前查無該校此科的段考紀錄，不代表學校沒教。</p>
+<table class="ref"><thead><tr><th>區域</th><th>縣市</th><th>學校</th><th>國語</th><th>數學</th><th>自然</th><th>社會</th><th>英語</th></tr></thead><tbody>
+<tr><td class="reg">北部</td><td>臺北市</td><td>民權國小</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒</td><td>康軒／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">北部</td><td>桃園市</td><td>大華國小</td><td>康軒／南一／翰林</td><td>康軒／翰林</td><td>南一／翰林</td><td>康軒／翰林</td><td>康軒／何嘉仁</td></tr>
+<tr><td class="reg">北部</td><td>基隆市</td><td>東光國小</td><td>康軒／翰林</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林</td></tr>
+<tr><td class="reg">中部</td><td>臺中市</td><td>大墩國小</td><td>康軒／南一／翰林</td><td>康軒／南一</td><td>康軒</td><td>康軒／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">中部</td><td>彰化縣</td><td>成功國小</td><td>康軒／南一</td><td>南一</td><td>南一／翰林</td><td>康軒／翰林</td><td>何嘉仁</td></tr>
+<tr><td class="reg">中部</td><td>南投縣</td><td>社寮國小</td><td>康軒／南一／翰林</td><td>康軒</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林</td></tr>
+<tr><td class="reg">南部</td><td>臺南市</td><td>和順國小</td><td>康軒／南一／翰林</td><td>康軒／南一／翰林</td><td>南一／翰林</td><td>康軒／南一／翰林</td><td>康軒／翰林／何嘉仁</td></tr>
+<tr><td class="reg">南部</td><td>高雄市</td><td>獅湖國小</td><td>康軒／翰林</td><td>康軒／南一</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td class="reg">南部</td><td>高雄市</td><td>永安國小</td><td>康軒／翰林</td><td>康軒／南一／翰林</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>統計</td><td>—</td><td>四家版本占比</td><td>康軒最高，南一、翰林次之</td><td>三家並用</td><td>康軒／翰林為主</td><td>康軒／翰林為主</td><td><strong>英語才會出現何嘉仁</strong></td></tr>
+</tbody></table></section>
+<section class="sheet"><h2 class="h-page">目錄</h2><ol class="toc">
+<li><a href="#ch1"><span class="tc-n">第 1 章</span><span class="tc-t">國語</span><span class="tc-d">形音義・成語典故・修辭綜合・語病與句型・長文閱讀｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch1-s1">1-1　康軒版　第5~8課</a></li>
+<li><a href="#ch1-s2">1-2　南一版　第5~8課</a></li>
+<li><a href="#ch1-s3">1-3　翰林版　第5~8課</a></li>
+</ul></li>
+<li><a href="#ch2"><span class="tc-n">第 2 章</span><span class="tc-t">數學</span><span class="tc-d">比與比值・圓周長與圓面積・縮圖與比例尺｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch2-s1">2-1　康軒版　比・圓・比例尺</a></li>
+<li><a href="#ch2-s2">2-2　南一版　比・圓・比例尺</a></li>
+<li><a href="#ch2-s3">2-3　翰林版　比・圓・比例尺</a></li>
+</ul></li>
+<li><a href="#ch3"><span class="tc-n">第 3 章</span><span class="tc-t">自然與生活科技</span><span class="tc-d">槓桿・滑輪・輪軸與斜面・省力與費距離｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch3-s1">3-1　康軒版　簡單機械</a></li>
+<li><a href="#ch3-s2">3-2　南一版　簡單機械</a></li>
+<li><a href="#ch3-s3">3-3　翰林版　簡單機械</a></li>
+</ul></li>
+<li><a href="#ch4"><span class="tc-n">第 4 章</span><span class="tc-t">社會</span><span class="tc-d">經濟活動與分工・消費與理財・市場與價格・消費者權益｜康軒／南一／翰林 三版分節</span></a><ul>
+<li><a href="#ch4-s1">4-1　康軒版　經濟與消費</a></li>
+<li><a href="#ch4-s2">4-2　南一版　經濟與消費</a></li>
+<li><a href="#ch4-s3">4-3　翰林版　經濟與理財</a></li>
+</ul></li>
+<li><a href="#ch5"><span class="tc-n">第 5 章</span><span class="tc-t">英語 English</span><span class="tc-d">過去式綜合・be going to 與 will・比較級與最高級・閱讀理解｜康軒／南一／翰林／何嘉仁 四版分節</span></a><ul>
+<li><a href="#ch5-s1">5-1　康軒版　過去式</a></li>
+<li><a href="#ch5-s2">5-2　南一版　未來式</a></li>
+<li><a href="#ch5-s3">5-3　翰林版　比較級</a></li>
+<li><a href="#ch5-s4">5-4　何嘉仁版　發音與過去式</a></li>
+</ul></li>
+</ol></section>
+<section class="sheet chap" id="ch1">
+<div class="chap-head"><div class="chap-n">第 1 章</div><h2 class="chap-t">國語</h2><div class="chap-s">形音義・成語典故・修辭綜合・語病與句型・長文閱讀｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題寫在橫線上；改寫題請寫成通順完整的句子。本冊取材以第五～八課為主，閱讀題兼含記敘與議論。</div>
+<div class="sec" id="ch1-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">1-1　國語（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第五～八課；議論與傳記類課文（破音字、成語、修辭、語病、長文閱讀）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
+<div class="q" id="ch1-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音<strong>正確</strong>的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「說」服 ㄕㄨㄟˋ</li>
+<li><span class="ol">(B)</span>「模」範 ㄇㄨˊ</li>
+<li><span class="ol">(C)</span>「載」重 ㄗㄞˇ</li>
+<li><span class="ol">(D)</span>「稱」職 ㄔㄥ</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q1">解析</button><div class="exp" id="e-ch1-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>說服讀ㄕㄨㄟˋ ㄈㄨˊ。模範的模讀ㄇㄛˊ、載重的載讀ㄗㄞˋ、稱職的稱讀ㄔㄥˋ。</div>
+</div>
+<div class="q" id="ch1-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>集思廣益</li>
+<li><span class="ol">(B)</span>集思廣義</li>
+<li><span class="ol">(C)</span>集私廣益</li>
+<li><span class="ol">(D)</span>積思廣益</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q2">解析</button><div class="exp" id="e-ch1-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>「集思廣益」指集合眾人的想法以獲得更多助益，益是好處。</div>
+</div>
+<div class="q" id="ch1-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：面對批評，他選擇ㄎㄜˋ　ㄍㄨㄢ（　　）檢視，而不是急著ㄅㄧㄢˋ　ㄐㄧㄝˇ（　　）。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s1-q3">解析</button><div class="exp" id="e-ch1-s1-q3"><b>答案：</b>客觀、辯解<br><b>解析：</b>「客觀」相對於主觀；「辯解」的辯是言部（用言語說明），不要寫成「辨」。</div>
+</div>
+<div class="q" id="ch1-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">「他的沉默，比任何一句反駁都更有力量。」這句話使用了什麼修辭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>映襯</li>
+<li><span class="ol">(B)</span>設問</li>
+<li><span class="ol">(C)</span>排比</li>
+<li><span class="ol">(D)</span>類疊</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q4">解析</button><div class="exp" id="e-ch1-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>把「沉默」與「反駁」這兩種相對的情況並列比較，凸顯效果，屬於映襯（對比）。</div>
+</div>
+<div class="q" id="ch1-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一句<strong>有語病</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>為了防止這種錯誤不再發生，我們加強了檢查。</li>
+<li><span class="ol">(B)</span>為了防止這種錯誤發生，我們加強了檢查。</li>
+<li><span class="ol">(C)</span>我們加強檢查，以免這種錯誤再度發生。</li>
+<li><span class="ol">(D)</span>我們加強檢查，避免同樣的錯誤發生。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q5">解析</button><div class="exp" id="e-ch1-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>「防止」本身已含否定，再加「不再」變成雙重否定，意思剛好相反。</div>
+</div>
+<div class="q" id="ch1-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">「這項發明（　　），改變了許多人的生活。」括號中填入哪一個成語最恰當？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>影響深遠</li>
+<li><span class="ol">(B)</span>曇花一現</li>
+<li><span class="ol">(C)</span>無關痛癢</li>
+<li><span class="ol">(D)</span>微不足道</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q6">解析</button><div class="exp" id="e-ch1-s1-q6"><b>答案：</b>(A)<br><b>解析：</b>後句說「改變了許多人的生活」，前面要填程度相符的「影響深遠」。</div>
+</div>
+<div class="q" id="ch1-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">請填入合適的關聯詞語：（　　　）證據不足，我們（　　　）不能任意下結論。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s1-q7">解析</button><div class="exp" id="e-ch1-s1-q7"><b>答案：</b>既然、就（或：因為、所以）<br><b>解析：</b>前句提出既定事實，後句推出應有的態度，可用「既然……就……」。</div>
+</div>
+<div class="q" id="ch1-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列各組詞語，<strong>意思相反</strong>的是哪一組？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>客觀－主觀</li>
+<li><span class="ol">(B)</span>批評－評論</li>
+<li><span class="ol">(C)</span>理性－理智</li>
+<li><span class="ol">(D)</span>謙虛－虛心</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q8">解析</button><div class="exp" id="e-ch1-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>客觀與主觀相反；其餘三組都是意思相近的詞。</div>
+</div>
+<div class="q" id="ch1-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請把下面的句子改寫成<strong>主動句</strong>：　這個問題被大家熱烈地討論著。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s1-q9">解析</button><div class="exp" id="e-ch1-s1-q9"><b>答案：</b>參考答案：大家熱烈地討論著這個問題。<br><b>解析：</b>被動改主動要把動作者（大家）放到句首當主語，意思不變。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　有人主張，小學生就應該學習寫程式；也有人認為，這個年紀更該多讀書、多跑步。<br>　　支持者說，程式是未來的語言，愈早接觸愈容易上手。反對者則回應：真正稀缺的不是技術，而是把問題想清楚的能力；技術會過時，思考不會。<br>　　也許問題從來不是「該不該學」，而是「為什麼學」。如果只是為了不落人後，那麼再新的技能，也只是換一種形式的焦慮。</div></div>
+<div class="q" id="ch1-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">反對者認為，比學程式更重要的是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>把問題想清楚的思考能力</li>
+<li><span class="ol">(B)</span>背更多單字</li>
+<li><span class="ol">(C)</span>學會更多程式語言</li>
+<li><span class="ol">(D)</span>提早準備考試</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q10">解析</button><div class="exp" id="e-ch1-s1-q10"><b>答案：</b>(A)<br><b>解析：</b>第二段寫「真正稀缺的不是技術，而是把問題想清楚的能力」。</div>
+</div>
+<div class="q" id="ch1-s1-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">作者最後提出的看法是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>重點在於學習的動機，而不只是學不學</li>
+<li><span class="ol">(B)</span>應該完全禁止小學生學程式</li>
+<li><span class="ol">(C)</span>所有小學生都必須學程式</li>
+<li><span class="ol">(D)</span>學習新技能一定會帶來焦慮</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s1-q11">解析</button><div class="exp" id="e-ch1-s1-q11"><b>答案：</b>(A)<br><b>解析：</b>末段把問題從「該不該學」轉到「為什麼學」，並提醒為了不落人後而學只是換一種焦慮。</div>
+</div>
+</div>
+<div class="sec" id="ch1-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">1-2　國語（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第五～八課；說明與環境類課文（形音義、詞語辨析、修辭、標點、長文閱讀）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
+<div class="q" id="ch1-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，注音<strong>正確</strong>的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「熾」熱 ㄔˋ</li>
+<li><span class="ol">(B)</span>「湮」滅 ㄧㄡ</li>
+<li><span class="ol">(C)</span>「剝」削 ㄅㄠ</li>
+<li><span class="ol">(D)</span>「間」歇 ㄐㄧㄢ</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q1">解析</button><div class="exp" id="e-ch1-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>熾熱讀ㄔˋ。湮滅讀ㄧㄢ、剝削讀ㄅㄛ ㄒㄩㄝˋ、間歇讀ㄐㄧㄢˋ。</div>
+</div>
+<div class="q" id="ch1-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>息息相關</li>
+<li><span class="ol">(B)</span>習習相關</li>
+<li><span class="ol">(C)</span>息息相觀</li>
+<li><span class="ol">(D)</span>悉悉相關</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q2">解析</button><div class="exp" id="e-ch1-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>「息息相關」的息是呼吸，形容關係非常密切，一呼一吸都相連。</div>
+</div>
+<div class="q" id="ch1-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把注音寫成國字：氣候變遷與每個人的生活ㄒㄧˊ　ㄒㄧˊ（　　）相關，需要各國ㄒㄧㄝˊ　ㄌㄧˋ（　　）合作。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s2-q3">解析</button><div class="exp" id="e-ch1-s2-q3"><b>答案：</b>息息、協力<br><b>解析：</b>「協力」的協是十部，指共同出力；不要寫成「脅」。</div>
+</div>
+<div class="q" id="ch1-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">「冰川一年比一年後退，像一位逐漸消瘦的老人。」這句話使用了什麼修辭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>譬喻</li>
+<li><span class="ol">(B)</span>設問</li>
+<li><span class="ol">(C)</span>排比</li>
+<li><span class="ol">(D)</span>誇飾</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q4">解析</button><div class="exp" id="e-ch1-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>用「像」把冰川比作消瘦的老人，是譬喻；也帶有擬人的色彩。</div>
+</div>
+<div class="q" id="ch1-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一句使用了<strong>層遞</strong>修辭？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>一個人改變，一個家庭改變，整個社區也跟著改變。</li>
+<li><span class="ol">(B)</span>天空是藍的。</li>
+<li><span class="ol">(C)</span>他跑得很快。</li>
+<li><span class="ol">(D)</span>窗外下著雨。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q5">解析</button><div class="exp" id="e-ch1-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>層遞是依大小、輕重或先後依序排列，由個人到家庭再到社區，範圍逐層擴大。</div>
+</div>
+<div class="q" id="ch1-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請填入合適的關聯詞語：（　　　）我們現在不採取行動，（　　　）將來要付出更大的代價。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s2-q6">解析</button><div class="exp" id="e-ch1-s2-q6"><b>答案：</b>如果、就（或：要是、便）<br><b>解析：</b>這是假設關係：先設想情況，再說出後果。</div>
+</div>
+<div class="q" id="ch1-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列句子的標點符號，使用<strong>正確</strong>的是哪一句？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>科學家指出：「未來十年是關鍵。」</li>
+<li><span class="ol">(B)</span>科學家指出「未來十年是關鍵。」：</li>
+<li><span class="ol">(C)</span>科學家指出：未來十年是關鍵「」</li>
+<li><span class="ol">(D)</span>科學家指出，「未來十年是關鍵」。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q7">解析</button><div class="exp" id="e-ch1-s2-q7"><b>答案：</b>(A)<br><b>解析：</b>引述說話內容先用冒號再用引號，句號放在下引號的裡面。</div>
+</div>
+<div class="q" id="ch1-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">「杯水車薪」這個成語，用來形容什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>幫助太少，無法解決問題</li>
+<li><span class="ol">(B)</span>力量非常強大</li>
+<li><span class="ol">(C)</span>做事很有效率</li>
+<li><span class="ol">(D)</span>資源非常豐富</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q8">解析</button><div class="exp" id="e-ch1-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>用一杯水去救一車著火的柴，比喻力量太小、無濟於事。</div>
+</div>
+<div class="q" id="ch1-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請把下面的句子<strong>縮寫</strong>成最精簡但保留主要意思的一句話：　來自世界各地的科學家們，在會議上共同提出了減少碳排放的具體建議。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s2-q9">解析</button><div class="exp" id="e-ch1-s2-q9"><b>答案：</b>參考答案：科學家提出了減碳建議。<br><b>解析：</b>縮寫保留主語、動詞、賓語，刪去修飾語（來自世界各地、在會議上、共同、具體）。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　一件棉 T 恤，從種棉花到送到你手上，大約要用掉兩千七百公升的水，相當於一個人三年的飲用量。<br>　　快時尚讓衣服變得便宜，也變得容易被丟棄。有研究指出，一件衣服平均只被穿七到十次就被淘汰。這些被丟掉的衣服，多數並沒有被回收，而是進了掩埋場或被燒掉。<br>　　把一件衣服多穿一年，可以減少約四分之一的碳足跡。原來，最環保的衣服，往往就是你衣櫃裡已經有的那一件。</div></div>
+<div class="q" id="ch1-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">根據本文，一件衣服平均被穿幾次就被淘汰？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>七到十次</li>
+<li><span class="ol">(B)</span>一百次</li>
+<li><span class="ol">(C)</span>三年</li>
+<li><span class="ol">(D)</span>二十七次</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q10">解析</button><div class="exp" id="e-ch1-s2-q10"><b>答案：</b>(A)<br><b>解析：</b>第二段明確指出「平均只被穿七到十次就被淘汰」。</div>
+</div>
+<div class="q" id="ch1-s2-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">「最環保的衣服，往往就是你衣櫃裡已經有的那一件。」這句話的意思是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>延長既有衣物的使用，比買新的環保衣服更有效</li>
+<li><span class="ol">(B)</span>應該買更多標榜環保的衣服</li>
+<li><span class="ol">(C)</span>衣櫃裡的衣服都是環保材質</li>
+<li><span class="ol">(D)</span>不需要洗衣服</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s2-q11">解析</button><div class="exp" id="e-ch1-s2-q11"><b>答案：</b>(A)<br><b>解析：</b>呼應前一句「多穿一年可減少約四分之一碳足跡」，強調減量與延長使用才是根本。</div>
+</div>
+</div>
+<div class="sec" id="ch1-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">1-3　國語（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第五～八課；人物與生活哲思類課文（形音義、成語、句型變換、客觀敘述、長文閱讀）　<b>配分</b>選擇每題 7 分、填充每格 5 分、寫作題 12 分</div>
+<div class="q" id="ch1-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列「」中的字，兩個讀音<strong>相同</strong>的是哪一組？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>「勉」勵／「勉」強</li>
+<li><span class="ol">(B)</span>「處」理／到「處」</li>
+<li><span class="ol">(C)</span>「率」領／效「率」</li>
+<li><span class="ol">(D)</span>「重」新／「重」量</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q1">解析</button><div class="exp" id="e-ch1-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>勉勵、勉強的「勉」都讀ㄇㄧㄢˇ。處理讀ㄔㄨˇ、到處讀ㄔㄨˋ；率領讀ㄕㄨㄞˋ、效率讀ㄌㄩˋ；重新讀ㄔㄨㄥˊ、重量讀ㄓㄨㄥˋ。</div>
+</div>
+<div class="q" id="ch1-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列詞語<strong>完全沒有</strong>錯別字的是哪一個？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>腳踏實地</li>
+<li><span class="ol">(B)</span>腳踏石地</li>
+<li><span class="ol">(C)</span>腳塌實地</li>
+<li><span class="ol">(D)</span>腳踏實的</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q2">解析</button><div class="exp" id="e-ch1-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>「腳踏實地」形容做事踏實不浮誇，實是實在的實。</div>
+</div>
+<div class="q" id="ch1-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出「」中字的注音：他默默「耕」耘了十年，終於「嶄」露頭角。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s3-q3">解析</button><div class="exp" id="e-ch1-s3-q3"><b>答案：</b>耕ㄍㄥ、嶄ㄓㄢˇ<br><b>解析：</b>「耕」讀ㄍㄥ，耒部；「嶄露頭角」的嶄讀ㄓㄢˇ，形容才能開始顯露。</div>
+</div>
+<div class="q" id="ch1-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">「青出於藍」這個成語，用來形容什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>學生的成就超越老師</li>
+<li><span class="ol">(B)</span>顏色非常鮮豔</li>
+<li><span class="ol">(C)</span>天空很藍</li>
+<li><span class="ol">(D)</span>做事半途而廢</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q4">解析</button><div class="exp" id="e-ch1-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>典出「青，取之於藍，而青於藍」，比喻後輩勝過前輩。</div>
+</div>
+<div class="q" id="ch1-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一句<strong>沒有</strong>語病？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>這次經驗讓我明白，堅持是有意義的。</li>
+<li><span class="ol">(B)</span>透過這次經驗，讓我明白堅持是有意義的。</li>
+<li><span class="ol">(C)</span>經由這次經驗，使我明白堅持是有意義的。</li>
+<li><span class="ol">(D)</span>在這次經驗下，使我明白堅持是有意義的。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q5">解析</button><div class="exp" id="e-ch1-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>「透過／經由／在……下」加上「讓／使」會讓句子失去主語，是常見語病。</div>
+</div>
+<div class="q" id="ch1-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請把句子改寫成<strong>問句</strong>（保持原意）：　我們應該重新檢視這個計畫。→＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch1-s3-q6">解析</button><div class="exp" id="e-ch1-s3-q6"><b>答案：</b>參考答案：我們是不是應該重新檢視這個計畫呢？<br><b>解析：</b>改成問句要加疑問語詞、句末改問號，語氣改變但意思不變。</div>
+</div>
+<div class="q" id="ch1-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一句話<strong>最客觀</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>這項計畫實施三年，參與人數從 120 人增加到 480 人。</li>
+<li><span class="ol">(B)</span>這項計畫非常成功。</li>
+<li><span class="ol">(C)</span>這項計畫辦得很糟。</li>
+<li><span class="ol">(D)</span>這項計畫是我看過最好的。</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q7">解析</button><div class="exp" id="e-ch1-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>客觀敘述使用可查證的數據與時間；其餘三句都是主觀評價。</div>
+</div>
+<div class="q" id="ch1-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">「與其臨淵羨魚，不如退而結網」這句話的意思最接近下列哪一項？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>與其空想羨慕，不如實際準備行動</li>
+<li><span class="ol">(B)</span>羨慕別人是好事</li>
+<li><span class="ol">(C)</span>釣魚比織網重要</li>
+<li><span class="ol">(D)</span>不必做任何準備</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q8">解析</button><div class="exp" id="e-ch1-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>站在水邊羨慕魚，不如回去把網織好——強調實際準備勝過空想。</div>
+</div>
+<div class="q" id="ch1-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請用「不是……而是……」造一個完整的句子。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch1-s3-q9">解析</button><div class="exp" id="e-ch1-s3-q9"><b>答案：</b>參考答案：真正困難的不是開始，而是每天都能持續下去。<br><b>解析：</b>「不是……而是……」用來先否定一個說法，再提出真正的重點，前後要形成對照。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 10～11 題）</div><div class="passage-b">　　學校的資源回收室原本堆得雜亂無章，常有同學把沒洗過的飲料杯直接丟進紙類箱。<br>　　六年二班的同學做了一次調查：一週內，紙類箱裡有三成的東西根本不能回收。他們沒有貼標語罵人，而是重新設計了標示——在每個箱子上貼出「可以」與「不可以」的實物照片，並在旁邊放了一桶清水。<br>　　一個月後，錯誤率降到不到一成。老師問他們祕訣，班長說：「我們只是讓正確的做法變得比較容易。」</div></div>
+<div class="q" id="ch1-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">六年二班用什麼方法改善回收的錯誤率？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>重新設計標示並提供清洗用水</li>
+<li><span class="ol">(B)</span>貼標語責罵同學</li>
+<li><span class="ol">(C)</span>把回收箱移走</li>
+<li><span class="ol">(D)</span>請老師處罰同學</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q10">解析</button><div class="exp" id="e-ch1-s3-q10"><b>答案：</b>(A)<br><b>解析：</b>第二段寫他們貼出實物照片標示，並在旁邊放一桶清水，讓沖洗變得方便。</div>
+</div>
+<div class="q" id="ch1-s3-q11">
+<div class="q-h"><span class="q-n">11</span><span class="q-t">「我們只是讓正確的做法變得比較容易。」這句話的重點是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>改善行為要從降低執行的難度著手</li>
+<li><span class="ol">(B)</span>責罵才是最有效的方法</li>
+<li><span class="ol">(C)</span>規則愈多愈好</li>
+<li><span class="ol">(D)</span>做不到就算了</li>
+</ol>
+<button class="exp-btn" data-t="ch1-s3-q11">解析</button><div class="exp" id="e-ch1-s3-q11"><b>答案：</b>(A)<br><b>解析：</b>他們不靠道德勸說，而是改變環境設計，讓人自然做出正確選擇，這正是解決問題的關鍵。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch2">
+<div class="chap-head"><div class="chap-n">第 2 章</div><h2 class="chap-t">數學</h2><div class="chap-s">比與比值・圓周長與圓面積・縮圖與比例尺｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：計算題請完整列式；圓的題目圓周率一律用 <strong>3.14</strong>，答案要寫單位（公分／平方公分）。比的題目要看清楚問的是「比」還是「比值」。</div>
+<div class="sec" id="ch2-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">2-1　數學（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 比與比值／第四單元 圓周長與圓面積／第五單元 縮圖與比例尺　<b>配分</b>選擇每題 7 分、填充每格 7 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">12 : 18 的比值化成最簡分數是多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>2/3</li>
+<li><span class="ol">(B)</span>3/2</li>
+<li><span class="ol">(C)</span>12/18</li>
+<li><span class="ol">(D)</span>6</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q1">解析</button><div class="exp" id="e-ch2-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>比值＝前項÷後項＝12/18，分子分母同除以 6 得 2/3。</div>
+</div>
+<div class="q" id="ch2-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">把 0.6 : 2.4 化成最簡整數比：＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q2">解析</button><div class="exp" id="e-ch2-s1-q2"><b>答案：</b>1 : 4<br><b>解析：</b>兩項同乘 10 得 6 : 24，再同除以 6 得 1 : 4。</div>
+</div>
+<div class="q" id="ch2-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">下列哪一個比和 4 : 6 <strong>相等</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>6 : 9</li>
+<li><span class="ol">(B)</span>6 : 4</li>
+<li><span class="ol">(C)</span>4 : 8</li>
+<li><span class="ol">(D)</span>2 : 4</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q3">解析</button><div class="exp" id="e-ch2-s1-q3"><b>答案：</b>(A)<br><b>解析：</b>4 : 6 化簡是 2 : 3；6 : 9 化簡也是 2 : 3，兩者相等。</div>
+</div>
+<div class="q" id="ch2-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">一個圓的半徑是 8 公分，圓周長是多少公分？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q4">解析</button><div class="exp" id="e-ch2-s1-q4"><b>答案：</b>50.24 公分<br><b>解析：</b>圓周長＝2×半徑×圓周率＝2×8×3.14＝50.24（公分）。</div>
+</div>
+<div class="q" id="ch2-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">一個圓的半徑是 8 公分，圓面積是多少平方公分？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q5">解析</button><div class="exp" id="e-ch2-s1-q5"><b>答案：</b>200.96 平方公分<br><b>解析：</b>圓面積＝半徑×半徑×圓周率＝8×8×3.14＝200.96（平方公分）。</div>
+</div>
+<div class="q" id="ch2-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">一個圓的直徑是 20 公分，圓周長是多少公分？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q6">解析</button><div class="exp" id="e-ch2-s1-q6"><b>答案：</b>62.8 公分<br><b>解析：</b>圓周長＝直徑×圓周率＝20×3.14＝62.8（公分）。用直徑時不必再乘 2。</div>
+</div>
+<div class="q" id="ch2-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">地圖上的比例尺是 1 : 50000，圖上 3 公分代表實際多少公尺？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>1500 公尺</li>
+<li><span class="ol">(B)</span>150 公尺</li>
+<li><span class="ol">(C)</span>15000 公尺</li>
+<li><span class="ol">(D)</span>500 公尺</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s1-q7">解析</button><div class="exp" id="e-ch2-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>3×50000＝150000（公分）＝1500（公尺）。換算時記得公分要除以 100 才是公尺。</div>
+</div>
+<div class="q" id="ch2-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">把一個圖形放大成原來的 2 倍，邊長變成原來的＿＿倍，面積變成原來的＿＿倍。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s1-q8">解析</button><div class="exp" id="e-ch2-s1-q8"><b>答案：</b>2、4<br><b>解析：</b>長度放大 2 倍，面積是長×寬，所以變成 2×2＝4 倍。</div>
+</div>
+<div class="q" id="ch2-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">果汁和水以 2 : 5 混合，若用了 6 杯果汁，需要加幾杯水？共可調出幾杯飲料？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q9">解析</button><div class="exp" id="e-ch2-s1-q9"><b>答案：</b>水 15 杯；共 21 杯<br><b>解析：</b>2 : 5＝6 : ？，前項乘 3，後項也乘 3 得 15（杯）；總量 6＋15＝21（杯）。</div>
+</div>
+<div class="q" id="ch2-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">一個圓形花圃的半徑是 5 公尺，要在花圃周圍圍上柵欄，柵欄至少要多長？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s1-q10">解析</button><div class="exp" id="e-ch2-s1-q10"><b>答案：</b>31.4 公尺<br><b>解析：</b>周圍長度就是圓周長＝2×5×3.14＝31.4（公尺）。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">2-2　數學（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 比、比值與相等的比／第四單元 圓／第五單元 縮放圖與比例尺　<b>配分</b>選擇每題 7 分、填充每格 7 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">15 : 25 化成最簡整數比是＿＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q1">解析</button><div class="exp" id="e-ch2-s2-q1"><b>答案：</b>3 : 5<br><b>解析：</b>前後項同除以最大公因數 5，得 3 : 5。</div>
+</div>
+<div class="q" id="ch2-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">班上男生 18 人、女生 12 人，男生對全班人數的比是多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>18 : 30</li>
+<li><span class="ol">(B)</span>18 : 12</li>
+<li><span class="ol">(C)</span>12 : 18</li>
+<li><span class="ol">(D)</span>30 : 18</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q2">解析</button><div class="exp" id="e-ch2-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>全班 18＋12＝30 人，男生對全班是 18 : 30（化簡為 3 : 5）。要看清楚比的是「對全班」還是「對女生」。</div>
+</div>
+<div class="q" id="ch2-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">一個圓的半徑是 10 公分，圓面積是多少平方公分？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q3">解析</button><div class="exp" id="e-ch2-s2-q3"><b>答案：</b>314 平方公分<br><b>解析：</b>10×10×3.14＝314（平方公分）。</div>
+</div>
+<div class="q" id="ch2-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">一個圓的直徑是 14 公分，圓周長是多少公分？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q4">解析</button><div class="exp" id="e-ch2-s2-q4"><b>答案：</b>43.96 公分<br><b>解析：</b>直徑×圓周率＝14×3.14＝43.96（公分）。</div>
+</div>
+<div class="q" id="ch2-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">圓周率大約是多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>3.14</li>
+<li><span class="ol">(B)</span>3.41</li>
+<li><span class="ol">(C)</span>1.34</li>
+<li><span class="ol">(D)</span>4.13</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q5">解析</button><div class="exp" id="e-ch2-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>圓周率是圓周長÷直徑的固定比值，約等於 3.14（π）。</div>
+</div>
+<div class="q" id="ch2-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">半徑 6 公分的圓，直徑是＿＿公分；圓周長是＿＿＿＿公分。（圓周率用 3.14）</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s2-q6">解析</button><div class="exp" id="e-ch2-s2-q6"><b>答案：</b>12、37.68<br><b>解析：</b>直徑＝半徑×2＝12（公分）；圓周長＝12×3.14＝37.68（公分）。</div>
+</div>
+<div class="q" id="ch2-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">比例尺 1 : 1000 的地圖上，實際 50 公尺的距離會畫成幾公分？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>5 公分</li>
+<li><span class="ol">(B)</span>50 公分</li>
+<li><span class="ol">(C)</span>0.5 公分</li>
+<li><span class="ol">(D)</span>500 公分</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s2-q7">解析</button><div class="exp" id="e-ch2-s2-q7"><b>答案：</b>(A)<br><b>解析：</b>50 公尺＝5000 公分；5000÷1000＝5（公分）。</div>
+</div>
+<div class="q" id="ch2-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">一張長 12 公分、寬 8 公分的圖片，縮小成原來的 1/2，新的長和寬各是多少？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q8">解析</button><div class="exp" id="e-ch2-s2-q8"><b>答案：</b>長 6 公分、寬 4 公分<br><b>解析：</b>縮放圖的每一邊都要乘相同的倍數：12×1/2＝6、8×1/2＝4（公分）。</div>
+</div>
+<div class="q" id="ch2-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">糖和水以 1 : 4 的比調成糖水，若要調出 250 公克的糖水，需要糖幾公克？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q9">解析</button><div class="exp" id="e-ch2-s2-q9"><b>答案：</b>50 公克<br><b>解析：</b>糖水分成 1＋4＝5 份，每份 250÷5＝50（公克）；糖占 1 份＝50 公克。</div>
+</div>
+<div class="q" id="ch2-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">一個圓形時鐘的半徑是 15 公分，鐘面的面積是多少平方公分？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s2-q10">解析</button><div class="exp" id="e-ch2-s2-q10"><b>答案：</b>706.5 平方公分<br><b>解析：</b>15×15×3.14＝225×3.14＝706.5（平方公分）。</div>
+</div>
+</div>
+<div class="sec" id="ch2-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">2-3　數學（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 比與比值／第四單元 圓周率與圓面積／第五單元 縮放圖與比例尺　<b>配分</b>選擇每題 7 分、填充每格 7 分、計算與應用每題 12 分</div>
+<div class="q" id="ch2-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">把 3/4 : 1/2 化成最簡整數比：＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q1">解析</button><div class="exp" id="e-ch2-s3-q1"><b>答案：</b>3 : 2<br><b>解析：</b>兩項同乘 4 得 3 : 2（1/2×4＝2）。分數比也可以先通分再比較分子。</div>
+</div>
+<div class="q" id="ch2-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列敘述何者<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>比值是一個數，比是兩個量的關係</li>
+<li><span class="ol">(B)</span>比和比值完全相同</li>
+<li><span class="ol">(C)</span>比值一定大於 1</li>
+<li><span class="ol">(D)</span>比不能化簡</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q2">解析</button><div class="exp" id="e-ch2-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>比（a : b）表示兩量的關係；比值（a÷b）是一個具體的數，可以用分數或小數表示。</div>
+</div>
+<div class="q" id="ch2-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">一個圓的半徑是 12 公分，圓周長與圓面積各是多少？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q3">解析</button><div class="exp" id="e-ch2-s3-q3"><b>答案：</b>圓周長 75.36 公分；圓面積 452.16 平方公分<br><b>解析：</b>周長＝2×12×3.14＝75.36（公分）；面積＝12×12×3.14＝452.16（平方公分）。注意單位不同。</div>
+</div>
+<div class="q" id="ch2-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">一個圓的圓周長是 31.4 公分，它的直徑是多少公分？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q4">解析</button><div class="exp" id="e-ch2-s3-q4"><b>答案：</b>10 公分<br><b>解析：</b>由圓周長＝直徑×3.14 反推：直徑＝31.4÷3.14＝10（公分）。</div>
+</div>
+<div class="q" id="ch2-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">半圓形的周長，應該怎麼計算？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>圓周長的一半再加上直徑</li>
+<li><span class="ol">(B)</span>只算圓周長的一半</li>
+<li><span class="ol">(C)</span>圓周長加直徑</li>
+<li><span class="ol">(D)</span>圓面積的一半</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q5">解析</button><div class="exp" id="e-ch2-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>半圓的邊界包含弧線（圓周的一半）與直線（直徑），兩者都要算進周長。</div>
+</div>
+<div class="q" id="ch2-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">比例尺 1 : 25000 表示圖上 1 公分代表實際＿＿＿＿＿公分，也就是＿＿＿公尺。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch2-s3-q6">解析</button><div class="exp" id="e-ch2-s3-q6"><b>答案：</b>25000、250<br><b>解析：</b>25000 公分÷100＝250 公尺。</div>
+</div>
+<div class="q" id="ch2-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">把一個正方形縮小成原來的 1/3，面積會變成原來的幾分之幾？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>1/9</li>
+<li><span class="ol">(B)</span>1/3</li>
+<li><span class="ol">(C)</span>1/6</li>
+<li><span class="ol">(D)</span>3</li>
+</ol>
+<button class="exp-btn" data-t="ch2-s3-q7">解析</button><div class="exp" id="e-ch2-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>邊長變 1/3，面積＝邊長×邊長，所以變成 1/3×1/3＝1/9。</div>
+</div>
+<div class="q" id="ch2-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">哥哥和弟弟的年齡比是 5 : 3，兩人年齡合起來是 32 歲。哥哥幾歲？</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q8">解析</button><div class="exp" id="e-ch2-s3-q8"><b>答案：</b>20 歲<br><b>解析：</b>共 5＋3＝8 份，每份 32÷8＝4（歲）；哥哥 5 份＝20 歲，弟弟 3 份＝12 歲。</div>
+</div>
+<div class="q" id="ch2-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">一個圓形餐桌的直徑是 1.2 公尺，桌面面積是多少平方公尺？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q9">解析</button><div class="exp" id="e-ch2-s3-q9"><b>答案：</b>1.1304 平方公尺<br><b>解析：</b>半徑＝1.2÷2＝0.6（公尺）；面積＝0.6×0.6×3.14＝1.1304（平方公尺）。</div>
+</div>
+<div class="q" id="ch2-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">操場上有一個半徑 20 公尺的圓形跑道，小明沿著跑道跑了 3 圈，共跑了多少公尺？（圓周率用 3.14）</span></div>
+<div class="workbox"><span class="wb-tag">計算/作答區</span></div>
+<button class="exp-btn" data-t="ch2-s3-q10">解析</button><div class="exp" id="e-ch2-s3-q10"><b>答案：</b>376.8 公尺<br><b>解析：</b>一圈＝2×20×3.14＝125.6（公尺）；3 圈＝125.6×3＝376.8（公尺）。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch3">
+<div class="chap-head"><div class="chap-n">第 3 章</div><h2 class="chap-t">自然與生活科技</h2><div class="chap-s">槓桿・滑輪・輪軸與斜面・省力與費距離｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；簡答題請寫出「現象＋原因」。<strong>核心觀念</strong>：簡單機械可以省力或改變施力方向，但<strong>省力就要多移動距離</strong>，功不會憑空減少。</div>
+<div class="sec" id="ch3-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">3-1　自然（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第二單元 簡單機械（槓桿三要素、滑輪、輪軸、斜面與生活應用）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">槓桿有哪三個要素？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>支點、施力點、抗力點</li>
+<li><span class="ol">(B)</span>起點、中點、終點</li>
+<li><span class="ol">(C)</span>上點、中點、下點</li>
+<li><span class="ol">(D)</span>正極、負極、開關</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q1">解析</button><div class="exp" id="e-ch3-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>支點是轉動的中心，施力點是我們用力的地方，抗力點是承受重物的地方。</div>
+</div>
+<div class="q" id="ch3-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">使用槓桿時，什麼情況下比較省力？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>施力臂比抗力臂長</li>
+<li><span class="ol">(B)</span>抗力臂比施力臂長</li>
+<li><span class="ol">(C)</span>兩臂一樣長</li>
+<li><span class="ol">(D)</span>和力臂長度無關</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q2">解析</button><div class="exp" id="e-ch3-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>施力臂愈長愈省力（力矩＝力×力臂），但相對地要移動比較長的距離。</div>
+</div>
+<div class="q" id="ch3-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">剪刀是＿＿＿的應用，支點在＿＿＿＿之間（兩刃交會處）。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s1-q3">解析</button><div class="exp" id="e-ch3-s1-q3"><b>答案：</b>槓桿、施力點與抗力點<br><b>解析：</b>剪刀屬於第一類槓桿；剪厚紙板時把東西放靠近支點會比較省力。</div>
+</div>
+<div class="q" id="ch3-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">定滑輪的主要功能是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>改變施力的方向，但不省力</li>
+<li><span class="ol">(B)</span>省一半的力</li>
+<li><span class="ol">(C)</span>既省力又省距離</li>
+<li><span class="ol">(D)</span>增加物體的重量</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q4">解析</button><div class="exp" id="e-ch3-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>定滑輪固定不動，只改變施力方向（往下拉即可把東西升起），施力大小不變。</div>
+</div>
+<div class="q" id="ch3-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">動滑輪的特點是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>可以省力，但要拉比較長的繩子</li>
+<li><span class="ol">(B)</span>可以省力也省距離</li>
+<li><span class="ol">(C)</span>只能改變方向</li>
+<li><span class="ol">(D)</span>完全沒有作用</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q5">解析</button><div class="exp" id="e-ch3-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>動滑輪隨物體一起移動，理想狀況可省一半的力，但要拉兩倍長度的繩子。</div>
+</div>
+<div class="q" id="ch3-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">門把、方向盤都是＿＿的應用；轉動半徑較＿＿的輪，比較省力。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s1-q6">解析</button><div class="exp" id="e-ch3-s1-q6"><b>答案：</b>輪軸、大<br><b>解析：</b>輪軸可視為旋轉的槓桿，半徑愈大相當於施力臂愈長，因此比較省力。</div>
+</div>
+<div class="q" id="ch3-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">把重物沿著斜面推上高處，和直接垂直抬起來相比：</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>比較省力，但要移動比較長的距離</li>
+<li><span class="ol">(B)</span>比較省力，距離也比較短</li>
+<li><span class="ol">(C)</span>比較費力</li>
+<li><span class="ol">(D)</span>完全一樣</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q7">解析</button><div class="exp" id="e-ch3-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>斜面愈長愈緩就愈省力，但移動距離也愈長，總共做的功大致相同。</div>
+</div>
+<div class="q" id="ch3-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一項<strong>不是</strong>簡單機械的應用？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>用手機拍照</li>
+<li><span class="ol">(B)</span>用起子開油漆桶蓋</li>
+<li><span class="ol">(C)</span>用剪刀剪紙</li>
+<li><span class="ol">(D)</span>用斜坡把行李箱推上車</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s1-q8">解析</button><div class="exp" id="e-ch3-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>起子（槓桿）、剪刀（槓桿）、斜坡（斜面）都是簡單機械；手機拍照屬於光學與電子裝置。</div>
+</div>
+<div class="q" id="ch3-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">為什麼工人搬重物上卡車時，常常會架一塊長木板？請說明。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s1-q9">解析</button><div class="exp" id="e-ch3-s1-q9"><b>答案：</b>參考答案：因為長木板形成斜面，可以用比較小的力把重物推上去；雖然要推的距離比較長，但比直接垂直抬起輕鬆許多。<br><b>解析：</b>能同時說出「省力」與「距離變長」兩點最完整。</div>
+</div>
+<div class="q" id="ch3-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請設計一個實驗，比較「支點位置不同時，撬起重物需要的力有什麼差別」。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s1-q10">解析</button><div class="exp" id="e-ch3-s1-q10"><b>答案：</b>參考答案：用同一根木棒和同一個重物，把支點分別放在靠近重物與遠離重物的位置，用彈簧秤測量每次需要的施力大小，其他條件都保持相同，再比較數據。<br><b>解析：</b>重點在變因控制：只改變支點位置，並用彈簧秤量化施力，才能客觀比較。</div>
+</div>
+</div>
+<div class="sec" id="ch3-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">3-2　自然（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第二單元 生活中的簡單機械（槓桿分類、滑輪組合、輪軸與齒輪、省力概念）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一個工具，使用時<strong>支點在中間</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>剪刀</li>
+<li><span class="ol">(B)</span>釣魚竿</li>
+<li><span class="ol">(C)</span>掃把</li>
+<li><span class="ol">(D)</span>筷子</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q1">解析</button><div class="exp" id="e-ch3-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>剪刀的支點（螺絲處）位於施力點與抗力點之間，屬於第一類槓桿。</div>
+</div>
+<div class="q" id="ch3-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">用鑷子夾東西時，感覺比較費力，這是因為什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>施力臂比抗力臂短</li>
+<li><span class="ol">(B)</span>施力臂比抗力臂長</li>
+<li><span class="ol">(C)</span>沒有支點</li>
+<li><span class="ol">(D)</span>鑷子太輕</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q2">解析</button><div class="exp" id="e-ch3-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>鑷子屬於費力槓桿，雖然費力，卻能讓夾取的動作更精細、移動距離更大。</div>
+</div>
+<div class="q" id="ch3-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">使用簡單機械時，省了力就要多移動＿＿＿；因為＿＿並不會憑空減少。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s2-q3">解析</button><div class="exp" id="e-ch3-s2-q3"><b>答案：</b>距離、功<br><b>解析：</b>功＝力×距離。機械可以改變力與距離的分配，但不能創造能量。</div>
+</div>
+<div class="q" id="ch3-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">旗桿頂端的滑輪屬於哪一種？主要作用是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>定滑輪；改變施力方向</li>
+<li><span class="ol">(B)</span>動滑輪；省一半力</li>
+<li><span class="ol">(C)</span>輪軸；增加速度</li>
+<li><span class="ol">(D)</span>斜面；省力</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q4">解析</button><div class="exp" id="e-ch3-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>旗桿上的滑輪固定不動，讓我們站在地面往下拉就能把旗子升上去。</div>
+</div>
+<div class="q" id="ch3-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">把定滑輪和動滑輪組合起來使用，最主要的好處是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>同時省力又能改變施力方向</li>
+<li><span class="ol">(B)</span>可以不用出力</li>
+<li><span class="ol">(C)</span>可以讓物體變輕</li>
+<li><span class="ol">(D)</span>可以縮短繩子長度</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q5">解析</button><div class="exp" id="e-ch3-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>滑輪組結合兩者的優點：動滑輪省力、定滑輪改變方向，常見於起重機。</div>
+</div>
+<div class="q" id="ch3-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">腳踏車的哪一個部分，運用了「輪軸」的原理？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>把手與前輪的轉向機構</li>
+<li><span class="ol">(B)</span>車燈</li>
+<li><span class="ol">(C)</span>坐墊</li>
+<li><span class="ol">(D)</span>鈴鐺</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q6">解析</button><div class="exp" id="e-ch3-s2-q6"><b>答案：</b>(A)<br><b>解析：</b>轉動較大的把手（輪）就能帶動較小的軸轉向，是輪軸的典型應用；踏板與齒輪也是。</div>
+</div>
+<div class="q" id="ch3-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">齒輪中，大齒輪帶動小齒輪時，小齒輪轉得比較＿＿；這可以用來改變＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s2-q7">解析</button><div class="exp" id="e-ch3-s2-q7"><b>答案：</b>快、轉速（速度）<br><b>解析：</b>齒數少的齒輪轉一圈需要的時間短，因此轉速較快；齒輪組可調整速度與力量的分配。</div>
+</div>
+<div class="q" id="ch3-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">下列哪一項敘述<strong>錯誤</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>所有的槓桿都能省力</li>
+<li><span class="ol">(B)</span>有些槓桿費力但省距離</li>
+<li><span class="ol">(C)</span>滑輪可以組合使用</li>
+<li><span class="ol">(D)</span>斜面愈緩愈省力</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s2-q8">解析</button><div class="exp" id="e-ch3-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>槓桿依支點位置分成省力、費力與等臂三種，鑷子、筷子就是費力槓桿。</div>
+</div>
+<div class="q" id="ch3-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">為什麼用長柄的螺絲起子開油漆桶蓋，比用短柄的容易？</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s2-q9">解析</button><div class="exp" id="e-ch3-s2-q9"><b>答案：</b>參考答案：因為長柄相當於加長了施力臂，在支點與抗力點不變的情況下，施力臂愈長就愈省力，所以比較容易撬開。<br><b>解析：</b>能連結「施力臂變長→省力」即可得分。</div>
+</div>
+<div class="q" id="ch3-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請舉出<strong>兩個</strong>生活中運用簡單機械的例子，並說明各屬於哪一種。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s2-q10">解析</button><div class="exp" id="e-ch3-s2-q10"><b>答案：</b>參考答案：（1）指甲剪是槓桿的應用；（2）停車場的斜坡是斜面的應用。（也可寫門把＝輪軸、窗簾拉繩＝滑輪）<br><b>解析：</b>能舉出兩個例子並正確歸類即可。</div>
+</div>
+</div>
+<div class="sec" id="ch3-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">3-3　自然（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第二單元 簡單機械（實驗數據判讀、力臂與施力關係、機械組合）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch3-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一組「工具與原理」的配對<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>斜坡—斜面</li>
+<li><span class="ol">(B)</span>剪刀—滑輪</li>
+<li><span class="ol">(C)</span>門把—槓桿的第三類</li>
+<li><span class="ol">(D)</span>旗桿滑輪—輪軸</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q1">解析</button><div class="exp" id="e-ch3-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>斜坡是斜面、剪刀是槓桿、門把是輪軸、旗桿上的是定滑輪。</div>
+</div>
+<div class="passage"><div class="passage-t">實驗紀錄（第 2～4 題）</div><div class="passage-b">　　小恩用同一根木棒撬起同一個 20 公斤的重物，只改變支點的位置，並用彈簧秤測量施力：<br><br>　　組別　支點到重物的距離　支點到施力點的距離　測得的施力<br>　　甲　　10 公分　　　　　　20 公分　　　　　　　　100 牛頓<br>　　乙　　10 公分　　　　　　40 公分　　　　　　　　 50 牛頓<br>　　丙　　10 公分　　　　　　80 公分　　　　　　　　 25 牛頓</div></div>
+<div class="q" id="ch3-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">根據紀錄，施力臂與所需施力之間有什麼關係？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>施力臂愈長，需要的施力愈小</li>
+<li><span class="ol">(B)</span>施力臂愈長，需要的施力愈大</li>
+<li><span class="ol">(C)</span>兩者沒有關係</li>
+<li><span class="ol">(D)</span>施力臂長度不影響結果</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q2">解析</button><div class="exp" id="e-ch3-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>從 20→40→80 公分，施力由 100→50→25 牛頓，明顯呈現「臂加倍、力減半」的關係。</div>
+</div>
+<div class="q" id="ch3-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">如果把支點到施力點的距離再加長到 160 公分，預測需要的施力最接近多少？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>約 12.5 牛頓</li>
+<li><span class="ol">(B)</span>約 50 牛頓</li>
+<li><span class="ol">(C)</span>約 100 牛頓</li>
+<li><span class="ol">(D)</span>約 200 牛頓</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q3">解析</button><div class="exp" id="e-ch3-s3-q3"><b>答案：</b>(A)<br><b>解析：</b>依照規律，力臂加倍施力減半：25÷2＝12.5（牛頓）。</div>
+</div>
+<div class="q" id="ch3-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">這個實驗中，必須保持<strong>不變</strong>的條件是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>重物的重量與支點到重物的距離</li>
+<li><span class="ol">(B)</span>彈簧秤的顏色</li>
+<li><span class="ol">(C)</span>實驗的日期</li>
+<li><span class="ol">(D)</span>操作者的身高</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q4">解析</button><div class="exp" id="e-ch3-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>要研究施力臂的影響，就必須固定重量與抗力臂，只改變施力臂這一項。</div>
+</div>
+<div class="q" id="ch3-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">雖然使用長力臂比較省力，但施力點要移動的＿＿＿也會變長，因此＿＿並沒有減少。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch3-s3-q5">解析</button><div class="exp" id="e-ch3-s3-q5"><b>答案：</b>距離、功<br><b>解析：</b>功＝力×距離，機械只是改變力與距離的分配。</div>
+</div>
+<div class="q" id="ch3-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">下列哪一個是「費力但省距離」的例子？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>用鑷子夾郵票</li>
+<li><span class="ol">(B)</span>用起子撬桶蓋</li>
+<li><span class="ol">(C)</span>用斜坡推重物</li>
+<li><span class="ol">(D)</span>用動滑輪吊重物</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q6">解析</button><div class="exp" id="e-ch3-s3-q6"><b>答案：</b>(A)<br><b>解析：</b>鑷子與筷子屬於費力槓桿，好處是手只要小幅移動，前端就能有較大的移動與精細控制。</div>
+</div>
+<div class="q" id="ch3-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">起重機能吊起很重的東西，主要運用了什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>滑輪組（定滑輪加動滑輪）</li>
+<li><span class="ol">(B)</span>放大鏡</li>
+<li><span class="ol">(C)</span>電磁波</li>
+<li><span class="ol">(D)</span>浮力</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q7">解析</button><div class="exp" id="e-ch3-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>起重機用多組滑輪省力，並配合馬達與鋼索作業。</div>
+</div>
+<div class="q" id="ch3-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">腳踏車的踏板與齒輪，主要運用了哪一種簡單機械？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>輪軸</li>
+<li><span class="ol">(B)</span>滑輪</li>
+<li><span class="ol">(C)</span>斜面</li>
+<li><span class="ol">(D)</span>楔子</li>
+</ol>
+<button class="exp-btn" data-t="ch3-s3-q8">解析</button><div class="exp" id="e-ch3-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>踏板繞著中軸轉動，半徑較大的踏板圓周相當於「輪」、中軸是「軸」，屬於輪軸的應用。</div>
+</div>
+<div class="q" id="ch3-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請根據上面的紀錄表，寫出<strong>一個</strong>結論並說明理由。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s3-q9">解析</button><div class="exp" id="e-ch3-s3-q9"><b>答案：</b>參考答案：結論是「在重量與抗力臂固定時，施力臂愈長需要的施力愈小」。理由是三組唯一改變的是支點到施力點的距離，而施力隨著它加長而規律地減少（100→50→25 牛頓）。<br><b>解析：</b>結論要有數據支持，並說明是根據哪一個變因的改變得出的。</div>
+</div>
+<div class="q" id="ch3-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請說明「為什麼簡單機械不能同時省力又省距離」。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch3-s3-q10">解析</button><div class="exp" id="e-ch3-s3-q10"><b>答案：</b>參考答案：因為功等於施力乘以移動的距離，機械只能改變兩者的分配，不能創造能量。所以省了力就必須多移動距離，反之亦然。<br><b>解析：</b>能說出「功守恆／能量不會憑空產生」的概念即可。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch4">
+<div class="chap-head"><div class="chap-n">第 4 章</div><h2 class="chap-t">社會</h2><div class="chap-s">經濟活動與分工・消費與理財・市場與價格・消費者權益｜康軒／南一／翰林 三版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題寫在橫線上；簡答題請寫出立場與理由。本冊接續第一次段考的「政府與民主」，主題進入經濟生活。</div>
+<div class="sec" id="ch4-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">4-1　社會（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 經濟活動／第四單元 消費與理財（生產分配消費、分工、需要與想要）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一組是完整的經濟活動流程？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>生產→分配→消費</li>
+<li><span class="ol">(B)</span>消費→生產→分配</li>
+<li><span class="ol">(C)</span>分配→消費→生產</li>
+<li><span class="ol">(D)</span>生產→消費→分配</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q1">解析</button><div class="exp" id="e-ch4-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>先生產出商品或服務，再透過運送與交易分配到各地，最後由消費者使用。</div>
+</div>
+<div class="q" id="ch4-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">「需要」和「想要」有什麼不同？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>需要是生活必需，想要是可有可無</li>
+<li><span class="ol">(B)</span>兩者完全相同</li>
+<li><span class="ol">(C)</span>想要比需要更重要</li>
+<li><span class="ol">(D)</span>需要是指價格便宜的東西</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q2">解析</button><div class="exp" id="e-ch4-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>食物、衣物、住所是需要；名牌球鞋、最新款手機多半屬於想要。分清楚才能理性消費。</div>
+</div>
+<div class="q" id="ch4-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">把工作依照專長分開來做，可以提高＿＿＿，這叫做＿＿。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s1-q3">解析</button><div class="exp" id="e-ch4-s1-q3"><b>答案：</b>效率、分工<br><b>解析：</b>分工讓每個人專精於某項工作，再透過交換取得所需，是現代經濟的基礎。</div>
+</div>
+<div class="q" id="ch4-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一項是「理性消費」的表現？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>購物前先想清楚是需要還是想要，並比較價格</li>
+<li><span class="ol">(B)</span>看到廣告就馬上下單</li>
+<li><span class="ol">(C)</span>跟著同學買一樣的東西</li>
+<li><span class="ol">(D)</span>把零用錢一次花光</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q4">解析</button><div class="exp" id="e-ch4-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>理性消費包含辨別需求、蒐集資訊、比較價格與考量自身能力。</div>
+</div>
+<div class="q" id="ch4-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">儲蓄最主要的好處是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>累積資金以因應未來的需要或突發狀況</li>
+<li><span class="ol">(B)</span>讓錢自動變多很多倍</li>
+<li><span class="ol">(C)</span>可以完全不必工作</li>
+<li><span class="ol">(D)</span>避免繳稅</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q5">解析</button><div class="exp" id="e-ch4-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>儲蓄能建立緩衝，面對突發支出或未來目標（升學、旅行）時比較從容。</div>
+</div>
+<div class="q" id="ch4-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">購物時應該保留＿＿＿＿，萬一商品有問題才能作為＿＿＿的憑證。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s1-q6">解析</button><div class="exp" id="e-ch4-s1-q6"><b>答案：</b>發票（收據）、退換貨<br><b>解析：</b>發票是交易證明，也是消費爭議時主張權益的依據。</div>
+</div>
+<div class="q" id="ch4-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一項屬於「服務」而不是「商品」？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>理髮師幫你剪頭髮</li>
+<li><span class="ol">(B)</span>一雙球鞋</li>
+<li><span class="ol">(C)</span>一本書</li>
+<li><span class="ol">(D)</span>一包餅乾</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q7">解析</button><div class="exp" id="e-ch4-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>商品是看得見、摸得到的物品；服務是提供勞務，例如剪髮、看病、教學。</div>
+</div>
+<div class="q" id="ch4-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">廣告的目的是什麼？我們應該如何看待？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>目的是促銷，我們要理性判斷、不盲目相信</li>
+<li><span class="ol">(B)</span>廣告都是客觀事實，可以完全相信</li>
+<li><span class="ol">(C)</span>廣告完全沒有用</li>
+<li><span class="ol">(D)</span>廣告只會出現在電視上</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s1-q8">解析</button><div class="exp" id="e-ch4-s1-q8"><b>答案：</b>(A)<br><b>解析：</b>廣告是商業訊息，會強調優點、淡化缺點，消費者要主動查證比較。</div>
+</div>
+<div class="q" id="ch4-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請說明「為什麼我們需要分工合作」，並舉一個例子。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s1-q9">解析</button><div class="exp" id="e-ch4-s1-q9"><b>答案：</b>參考答案：因為一個人不可能樣樣都會、也做不完所有的事。透過分工，農夫種稻、司機運送、店員販賣，每個人做自己擅長的部分，效率提高，大家都能買到需要的東西。<br><b>解析：</b>能說出「效率提高」「專業化」並舉出具體例子即可。</div>
+</div>
+<div class="q" id="ch4-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">如果你有 500 元零用錢，你會怎麼規劃？請寫出你的分配方式與理由。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s1-q10">解析</button><div class="exp" id="e-ch4-s1-q10"><b>答案：</b>參考答案：我會先存下 200 元作為未來的目標基金，200 元用於必要的文具與交通，剩下 100 元才用來買想要的東西，這樣既能滿足需求也能培養儲蓄習慣。<br><b>解析：</b>能區分「需要／想要／儲蓄」三個部分並說明理由即可。</div>
+</div>
+</div>
+<div class="sec" id="ch4-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">4-2　社會（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 市場與價格／第四單元 消費者權益（供需、交易、廣告與消費保護）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">當某種水果因為颱風而大量減產時，價格通常會怎麼變化？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>上升，因為供給減少而需求不變</li>
+<li><span class="ol">(B)</span>下降，因為沒有人要買</li>
+<li><span class="ol">(C)</span>不變，價格和產量無關</li>
+<li><span class="ol">(D)</span>變成免費</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q1">解析</button><div class="exp" id="e-ch4-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>供給減少而需求不變時，價格會上升；這就是市場的價格機制。</div>
+</div>
+<div class="q" id="ch4-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一種情況，商品價格最可能下跌？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>盛產期大量上市，供給遠大於需求</li>
+<li><span class="ol">(B)</span>原料短缺</li>
+<li><span class="ol">(C)</span>運費大漲</li>
+<li><span class="ol">(D)</span>需求突然增加</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q2">解析</button><div class="exp" id="e-ch4-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>供給大於需求時，賣方為了銷售會降價求售。</div>
+</div>
+<div class="q" id="ch4-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">買賣雙方交易的場所或機制稱為＿＿；價格會受到＿＿與＿＿的影響。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s2-q3">解析</button><div class="exp" id="e-ch4-s2-q3"><b>答案：</b>市場、供給、需求<br><b>解析：</b>市場不一定是實體場所，網路購物平台也是市場的一種。</div>
+</div>
+<div class="q" id="ch4-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">買到有瑕疵的商品時，最適當的做法是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>帶著發票與商品向店家反映，必要時向消保單位申訴</li>
+<li><span class="ol">(B)</span>自認倒楣丟掉</li>
+<li><span class="ol">(C)</span>在網路上匿名謾罵</li>
+<li><span class="ol">(D)</span>把商品破壞後退回</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q4">解析</button><div class="exp" id="e-ch4-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>依消費者保護法，消費者有權要求更換、修理或退費，發票是重要憑證。</div>
+</div>
+<div class="q" id="ch4-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">網路購物有「七天鑑賞期」，它的意義是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>讓消費者在收到商品後有合理時間確認是否符合需要</li>
+<li><span class="ol">(B)</span>可以隨意使用七天再退回</li>
+<li><span class="ol">(C)</span>商品保固七天</li>
+<li><span class="ol">(D)</span>七天內都可以殺價</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q5">解析</button><div class="exp" id="e-ch4-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>因為網購無法事先檢視實物，法律給予猶豫期；但鑑賞期不等於試用期，商品需保持完整。</div>
+</div>
+<div class="q" id="ch4-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">面對誇大不實的廣告，我們應該＿＿＿＿資訊，並比較不同來源，避免＿＿＿消費。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s2-q6">解析</button><div class="exp" id="e-ch4-s2-q6"><b>答案：</b>查證、衝動<br><b>解析：</b>查證來源、比較評價與價格，是媒體素養在消費上的實際運用。</div>
+</div>
+<div class="q" id="ch4-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一項<strong>不是</strong>消費者的權利？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>要求商家免費贈送額外商品</li>
+<li><span class="ol">(B)</span>獲得正確的商品資訊</li>
+<li><span class="ol">(C)</span>購買安全無虞的商品</li>
+<li><span class="ol">(D)</span>在權益受損時申訴求償</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q7">解析</button><div class="exp" id="e-ch4-s2-q7"><b>答案：</b>(A)<br><b>解析：</b>消費者有知的權利、安全的權利與求償的權利，但不能要求額外的無償贈與。</div>
+</div>
+<div class="q" id="ch4-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">使用電子支付或信用卡消費時，最需要注意什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>量入為出，記得這仍然是在花自己的錢</li>
+<li><span class="ol">(B)</span>可以先花再說，反正不用馬上付</li>
+<li><span class="ol">(C)</span>密碼可以告訴朋友</li>
+<li><span class="ol">(D)</span>不必核對帳單</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s2-q8">解析</button><div class="exp" id="e-ch4-s2-q8"><b>答案：</b>(A)<br><b>解析：</b>非現金支付容易讓人低估花費，更需要記帳與核對帳單，避免超支。</div>
+</div>
+<div class="q" id="ch4-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請說明「為什麼同樣的商品在不同地方售價會不一樣」。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s2-q9">解析</button><div class="exp" id="e-ch4-s2-q9"><b>答案：</b>參考答案：因為各地的成本不同（運費、租金、人事）、供給與需求也不同，加上商家的經營策略（促銷、服務）不一樣，所以售價會有差異。<br><b>解析：</b>能舉出成本、供需或經營策略其中兩項即可。</div>
+</div>
+<div class="q" id="ch4-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">看到「限時特價，只剩最後三件」的廣告時，你會怎麼判斷？請寫出你的做法。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s2-q10">解析</button><div class="exp" id="e-ch4-s2-q10"><b>答案：</b>參考答案：我會先想清楚自己是不是真的需要，再查查其他商店的價格與商品評價，確認是不是真的比較便宜，不會因為「限時」「最後」這些字眼就急著下單。<br><b>解析：</b>能提出「辨別需求」與「查證比價」兩個步驟即可。</div>
+</div>
+</div>
+<div class="sec" id="ch4-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">4-3　社會（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>第三單元 生活中的經濟／第四單元 理財與權益（產業分工、金融機構、儲蓄與風險）　<b>配分</b>選擇每題 8 分、填充每格 5 分、簡答每題 10 分</div>
+<div class="q" id="ch4-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">銀行提供的服務<strong>不包括</strong>下列哪一項？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>審判民眾的糾紛</li>
+<li><span class="ol">(B)</span>保管存款</li>
+<li><span class="ol">(C)</span>辦理貸款</li>
+<li><span class="ol">(D)</span>匯款與轉帳</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q1">解析</button><div class="exp" id="e-ch4-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>審判是法院的職權；銀行提供存款、貸款、匯兌等金融服務。</div>
+</div>
+<div class="q" id="ch4-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">把錢存在銀行，除了安全之外還有什麼好處？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>可以獲得利息</li>
+<li><span class="ol">(B)</span>可以不用繳稅</li>
+<li><span class="ol">(C)</span>錢會自動變成兩倍</li>
+<li><span class="ol">(D)</span>可以隨意領別人的錢</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q2">解析</button><div class="exp" id="e-ch4-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>存款會依約定利率產生利息，但利率高低會隨經濟情況調整。</div>
+</div>
+<div class="q" id="ch4-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">保險的原理是把風險分攤給＿＿＿人，讓個人在意外發生時的＿＿＿變小。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s3-q3">解析</button><div class="exp" id="e-ch4-s3-q3"><b>答案：</b>多數、損失<br><b>解析：</b>多數人共同繳費形成資金池，少數遭遇事故的人得到理賠，這就是風險分攤。</div>
+</div>
+<div class="q" id="ch4-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一項屬於「固定支出」？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>每個月的房租</li>
+<li><span class="ol">(B)</span>偶爾買的飲料</li>
+<li><span class="ol">(C)</span>臨時的醫療費用</li>
+<li><span class="ol">(D)</span>朋友的生日禮物</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q4">解析</button><div class="exp" id="e-ch4-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>固定支出是每期金額與時間都固定的費用，例如房租、學費、保費。</div>
+</div>
+<div class="q" id="ch4-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">記帳最主要的好處是什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>清楚知道錢花到哪裡，才能調整消費習慣</li>
+<li><span class="ol">(B)</span>可以讓收入變多</li>
+<li><span class="ol">(C)</span>可以不用繳費</li>
+<li><span class="ol">(D)</span>可以避免所有支出</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q5">解析</button><div class="exp" id="e-ch4-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>記帳讓收支透明化，是理財規劃的第一步。</div>
+</div>
+<div class="q" id="ch4-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">「量入為出」的意思是：支出不要超過＿＿；這是理財最基本的原則之一。</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch4-s3-q6">解析</button><div class="exp" id="e-ch4-s3-q6"><b>答案：</b>收入<br><b>解析：</b>長期入不敷出會累積債務，因此先確認收入，再規劃支出與儲蓄。</div>
+</div>
+<div class="q" id="ch4-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一項是「詐騙」常見的手法？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>聲稱中獎但要先匯手續費</li>
+<li><span class="ol">(B)</span>商店開立統一發票</li>
+<li><span class="ol">(C)</span>銀行提供定期存款</li>
+<li><span class="ol">(D)</span>超商代收水電費</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q7">解析</button><div class="exp" id="e-ch4-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>要求先付款、催促決定、要求提供帳號密碼，都是詐騙的常見特徵。</div>
+</div>
+<div class="q" id="ch4-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">接到自稱是銀行人員、要求提供提款卡密碼的電話，應該怎麼做？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>拒絕提供並掛斷，主動打銀行官方電話查證</li>
+<li><span class="ol">(B)</span>立刻提供密碼</li>
+<li><span class="ol">(C)</span>照對方指示到 ATM 操作</li>
+<li><span class="ol">(D)</span>把密碼寫在紙上寄過去</li>
+</ol>
+<button class="exp-btn" data-t="ch4-s3-q8">解析</button><div class="exp" id="e-ch4-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>任何機構都不會用電話索取密碼；查證要用自己查到的官方電話，不要回撥對方給的號碼。</div>
+</div>
+<div class="q" id="ch4-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請說明「為什麼不能把提款卡密碼告訴別人」。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s3-q9">解析</button><div class="exp" id="e-ch4-s3-q9"><b>答案：</b>參考答案：因為密碼是提領存款的唯一憑證，一旦外洩，別人就能盜領帳戶裡的錢；而且提供密碼可能被用來從事不法行為，自己也可能因此惹上麻煩。<br><b>解析：</b>能說出「財產損失」與「可能涉入犯罪」其中一點並說明即可。</div>
+</div>
+<div class="q" id="ch4-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請寫出<strong>兩項</strong>你可以做到的理財好習慣，並簡單說明理由。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch4-s3-q10">解析</button><div class="exp" id="e-ch4-s3-q10"><b>答案：</b>參考答案：（1）每個月先把零用錢的一部分存起來，養成先儲蓄再消費的習慣；（2）購物前列清單並記帳，避免衝動購買、也能知道錢花去哪裡。<br><b>解析：</b>能提出具體習慣並說明它的作用即可。</div>
+</div>
+</div>
+</section>
+<section class="sheet chap" id="ch5">
+<div class="chap-head"><div class="chap-n">第 5 章</div><h2 class="chap-t">英語 English</h2><div class="chap-s">過去式綜合・be going to 與 will・比較級與最高級・閱讀理解｜康軒／南一／翰林／何嘉仁 四版分節</div></div>
+<div class="chap-intro"><strong>作答方式</strong>：選擇題把答案寫在括號內；填充題注意動詞變化與拼字。<strong>本章重點</strong>：Did／didn't 後面的動詞回原形；比較兩者用比較級（-er／more），三者以上用最高級（the -est／the most）。</div>
+<div class="sec" id="ch5-s1">
+<div class="sec-head"><span class="pub">康軒版</span><span class="sec-t">5-1　英語（康軒版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>一般動詞過去式綜合、What did you do…?、時間副詞　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch5-s1-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">A: What did you do last night?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I watched a movie.</li>
+<li><span class="ol">(B)</span>I watch a movie.</li>
+<li><span class="ol">(C)</span>I am watching a movie.</li>
+<li><span class="ol">(D)</span>I will watch a movie.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q1">解析</button><div class="exp" id="e-ch5-s1-q1"><b>答案：</b>(A)<br><b>解析：</b>last night 是過去時間，要用過去式 watched 回答。</div>
+</div>
+<div class="q" id="ch5-s1-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>She didn't go to school yesterday.</li>
+<li><span class="ol">(B)</span>She didn't went to school yesterday.</li>
+<li><span class="ol">(C)</span>She don't went to school yesterday.</li>
+<li><span class="ol">(D)</span>She wasn't go to school yesterday.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q2">解析</button><div class="exp" id="e-ch5-s1-q2"><b>答案：</b>(A)<br><b>解析：</b>過去否定用 didn't＋原形動詞，所以是 didn't go。</div>
+</div>
+<div class="q" id="ch5-s1-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出過去式：teach → ＿＿＿＿＿；drink → ＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s1-q3">解析</button><div class="exp" id="e-ch5-s1-q3"><b>答案：</b>taught、drank<br><b>解析：</b>這兩個都是不規則動詞：teach→taught、drink→drank。</div>
+</div>
+<div class="q" id="ch5-s1-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">A: Did you finish your homework?　B: ＿＿＿＿（完成了）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Yes, I did.</li>
+<li><span class="ol">(B)</span>Yes, I do.</li>
+<li><span class="ol">(C)</span>Yes, I was.</li>
+<li><span class="ol">(D)</span>Yes, I am.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q4">解析</button><div class="exp" id="e-ch5-s1-q4"><b>答案：</b>(A)<br><b>解析：</b>Did 問句用 did 回答；否定是 No, I didn't.</div>
+</div>
+<div class="q" id="ch5-s1-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">下列哪一個時間副詞，<strong>不能</strong>和過去式一起使用？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>next week</li>
+<li><span class="ol">(B)</span>yesterday</li>
+<li><span class="ol">(C)</span>last month</li>
+<li><span class="ol">(D)</span>three days ago</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q5">解析</button><div class="exp" id="e-ch5-s1-q5"><b>答案：</b>(A)<br><b>解析：</b>next week 指未來，要搭配 will 或 be going to；其餘三個都是過去時間。</div>
+</div>
+<div class="q" id="ch5-s1-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請把句子改成過去式：We visit our grandparents. → We ＿＿＿＿＿＿ our grandparents.</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s1-q6">解析</button><div class="exp" id="e-ch5-s1-q6"><b>答案：</b>visited<br><b>解析：</b>visit 是規則動詞，字尾直接加 -ed。</div>
+</div>
+<div class="q" id="ch5-s1-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">A: Where did you go last summer?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I went to Kenting.</li>
+<li><span class="ol">(B)</span>I go to Kenting.</li>
+<li><span class="ol">(C)</span>I am going to Kenting.</li>
+<li><span class="ol">(D)</span>Yes, I did.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q7">解析</button><div class="exp" id="e-ch5-s1-q7"><b>答案：</b>(A)<br><b>解析：</b>Where 問地點且用 did，回答要用過去式 went；Wh- 問句不能用 Yes/No 回答。</div>
+</div>
+<div class="q" id="ch5-s1-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">請寫出中文意思：I bought a new backpack last week. →＿＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s1-q8">解析</button><div class="exp" id="e-ch5-s1-q8"><b>答案：</b>我上星期買了一個新書包。<br><b>解析：</b>bought 是 buy 的過去式；last week＝上星期。</div>
+</div>
+<div class="q" id="ch5-s1-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">下列哪一組「原形—過去式」的配對<strong>錯誤</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>see → seed</li>
+<li><span class="ol">(B)</span>eat → ate</li>
+<li><span class="ol">(C)</span>take → took</li>
+<li><span class="ol">(D)</span>have → had</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s1-q9">解析</button><div class="exp" id="e-ch5-s1-q9"><b>答案：</b>(A)<br><b>解析：</b>see 的過去式是 saw，不是 seed；其餘三組都正確。</div>
+</div>
+<div class="q" id="ch5-s1-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用過去式寫一句話，說出你昨天做的一件事。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s1-q10">解析</button><div class="exp" id="e-ch5-s1-q10"><b>答案：</b>參考答案：I played badminton with my brother yesterday.<br><b>解析：</b>評分重點：動詞用過去式、句首大寫、句末句點，最好加上時間副詞。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s2">
+<div class="sec-head"><span class="pub">南一版</span><span class="sec-t">5-2　英語（南一版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>be going to 與 will、未來計畫、時間副詞　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch5-s2-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">A: What are you going to do this weekend?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>I'm going to visit my grandma.</li>
+<li><span class="ol">(B)</span>I visited my grandma.</li>
+<li><span class="ol">(C)</span>I was at my grandma's.</li>
+<li><span class="ol">(D)</span>Yes, I am going.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q1">解析</button><div class="exp" id="e-ch5-s2-q1"><b>答案：</b>(A)<br><b>解析：</b>be going to＋原形動詞用來說已經計畫好的事，問未來就要用未來的說法回答。</div>
+</div>
+<div class="q" id="ch5-s2-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">I ＿ going to buy a new bike next month.</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>am</li>
+<li><span class="ol">(B)</span>is</li>
+<li><span class="ol">(C)</span>are</li>
+<li><span class="ol">(D)</span>was</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q2">解析</button><div class="exp" id="e-ch5-s2-q2"><b>答案：</b>(A)<br><b>解析：</b>主詞 I 搭配 am；be going to 的 be 動詞要和主詞一致。</div>
+</div>
+<div class="q" id="ch5-s2-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請把句子改成未來式（用 will）：I help you. → I ＿＿＿＿ help you.</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s2-q3">解析</button><div class="exp" id="e-ch5-s2-q3"><b>答案：</b>will<br><b>解析：</b>will＋原形動詞表示未來，常用於當下決定或預測。</div>
+</div>
+<div class="q" id="ch5-s2-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一個句子<strong>正確</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>They are going to play baseball tomorrow.</li>
+<li><span class="ol">(B)</span>They are going to played baseball tomorrow.</li>
+<li><span class="ol">(C)</span>They is going to play baseball tomorrow.</li>
+<li><span class="ol">(D)</span>They going to play baseball tomorrow.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q4">解析</button><div class="exp" id="e-ch5-s2-q4"><b>答案：</b>(A)<br><b>解析：</b>be going to 後接原形動詞；主詞 They 用 are，be 動詞不能省略。</div>
+</div>
+<div class="q" id="ch5-s2-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: Is she going to join the club?　B: ＿＿＿＿（是的）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Yes, she is.</li>
+<li><span class="ol">(B)</span>Yes, she does.</li>
+<li><span class="ol">(C)</span>Yes, she will be.</li>
+<li><span class="ol">(D)</span>Yes, she going.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q5">解析</button><div class="exp" id="e-ch5-s2-q5"><b>答案：</b>(A)<br><b>解析：</b>be going to 的問句以 be 動詞開頭，回答也用 be 動詞。</div>
+</div>
+<div class="q" id="ch5-s2-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請填入正確的時間副詞：I'm going to see the dentist ＿＿＿＿＿＿＿.（明天）</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s2-q6">解析</button><div class="exp" id="e-ch5-s2-q6"><b>答案：</b>tomorrow<br><b>解析：</b>未來式常搭配 tomorrow、next week、this weekend 等未來時間。</div>
+</div>
+<div class="q" id="ch5-s2-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一句是在說<strong>未來的計畫</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>We are going to have a picnic on Sunday.</li>
+<li><span class="ol">(B)</span>We had a picnic last Sunday.</li>
+<li><span class="ol">(C)</span>We are having lunch now.</li>
+<li><span class="ol">(D)</span>We have a picnic every year.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q7">解析</button><div class="exp" id="e-ch5-s2-q7"><b>答案：</b>(A)<br><b>解析：</b>be going to 表示計畫；第二句過去、第三句現在進行、第四句習慣。</div>
+</div>
+<div class="q" id="ch5-s2-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">請寫出中文意思：I'm going to study English every day. →＿＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s2-q8">解析</button><div class="exp" id="e-ch5-s2-q8"><b>答案：</b>我打算每天讀英文。<br><b>解析：</b>be going to 帶有「打算、預計」的意味，比 will 更強調事先的計畫。</div>
+</div>
+<div class="q" id="ch5-s2-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">A: What will the weather be like tomorrow?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>It will be sunny.</li>
+<li><span class="ol">(B)</span>It was sunny.</li>
+<li><span class="ol">(C)</span>It is sunny yesterday.</li>
+<li><span class="ol">(D)</span>Yes, it will.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s2-q9">解析</button><div class="exp" id="e-ch5-s2-q9"><b>答案：</b>(A)<br><b>解析：</b>問明天的天氣要用未來式 will be 回答；Wh- 問句不用 Yes/No。</div>
+</div>
+<div class="q" id="ch5-s2-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用 be going to 寫一句話，說出你這個週末的計畫。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s2-q10">解析</button><div class="exp" id="e-ch5-s2-q10"><b>答案：</b>參考答案：I am going to visit the library this weekend.<br><b>解析：</b>評分重點：be 動詞與主詞一致、going to 後接原形動詞、句首大寫、句末句點。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s3">
+<div class="sec-head"><span class="pub">翰林版</span><span class="sec-t">5-3　英語（翰林版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>比較級與最高級、形容詞、比較句型　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch5-s3-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">My bag is ＿ than yours.（大）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>bigger</li>
+<li><span class="ol">(B)</span>big</li>
+<li><span class="ol">(C)</span>biggest</li>
+<li><span class="ol">(D)</span>more big</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q1">解析</button><div class="exp" id="e-ch5-s3-q1"><b>答案：</b>(A)<br><b>解析：</b>兩者相比用比較級；big 是短母音＋單子音，要重複字尾成 bigger，後面接 than。</div>
+</div>
+<div class="q" id="ch5-s3-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">He is the ＿ student in our class.（最高）</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>tallest</li>
+<li><span class="ol">(B)</span>taller</li>
+<li><span class="ol">(C)</span>most tall</li>
+<li><span class="ol">(D)</span>tall</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q2">解析</button><div class="exp" id="e-ch5-s3-q2"><b>答案：</b>(A)<br><b>解析：</b>三者以上相比用最高級，前面加 the：the tallest。</div>
+</div>
+<div class="q" id="ch5-s3-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請寫出比較級與最高級：happy → ＿＿＿＿＿ / ＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s3-q3">解析</button><div class="exp" id="e-ch5-s3-q3"><b>答案：</b>happier / happiest<br><b>解析：</b>字尾是「子音＋y」要改 y 為 i，再加 -er／-est。</div>
+</div>
+<div class="q" id="ch5-s3-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一個形容詞的比較級要用 <strong>more</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>interesting</li>
+<li><span class="ol">(B)</span>tall</li>
+<li><span class="ol">(C)</span>short</li>
+<li><span class="ol">(D)</span>fast</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q4">解析</button><div class="exp" id="e-ch5-s3-q4"><b>答案：</b>(A)<br><b>解析：</b>三個音節以上的長形容詞用 more／most：more interesting、most interesting。</div>
+</div>
+<div class="q" id="ch5-s3-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">A: Which is heavier, the book or the pencil case?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>The book is heavier.</li>
+<li><span class="ol">(B)</span>The book is heaviest.</li>
+<li><span class="ol">(C)</span>The book is heavy than.</li>
+<li><span class="ol">(D)</span>The book heavier.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q5">解析</button><div class="exp" id="e-ch5-s3-q5"><b>答案：</b>(A)<br><b>解析：</b>兩者比較用比較級，且句子要有 be 動詞。</div>
+</div>
+<div class="q" id="ch5-s3-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">請填入正確的形式：This movie is ＿＿＿＿ than that one.（有趣）</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s3-q6">解析</button><div class="exp" id="e-ch5-s3-q6"><b>答案：</b>more interesting<br><b>解析：</b>interesting 是長形容詞，比較級用 more interesting。</div>
+</div>
+<div class="q" id="ch5-s3-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">下列哪一組「原級—比較級」<strong>錯誤</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>good → gooder</li>
+<li><span class="ol">(B)</span>good → better</li>
+<li><span class="ol">(C)</span>hot → hotter</li>
+<li><span class="ol">(D)</span>easy → easier</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q7">解析</button><div class="exp" id="e-ch5-s3-q7"><b>答案：</b>(A)<br><b>解析：</b>good 是不規則變化：good→better→best，沒有 gooder 這個字。</div>
+</div>
+<div class="q" id="ch5-s3-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">A: Who is the fastest runner in your class?　B: ＿＿＿＿</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Tom is.</li>
+<li><span class="ol">(B)</span>Tom does.</li>
+<li><span class="ol">(C)</span>Tom fast.</li>
+<li><span class="ol">(D)</span>Yes, he is.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s3-q8">解析</button><div class="exp" id="e-ch5-s3-q8"><b>答案：</b>(A)<br><b>解析：</b>Who 問句用「人＋be 動詞」簡答，例如 Tom is.</div>
+</div>
+<div class="q" id="ch5-s3-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請寫出中文意思：Winter is colder than autumn in Taiwan. →＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s3-q9">解析</button><div class="exp" id="e-ch5-s3-q9"><b>答案：</b>在臺灣，冬天比秋天冷。<br><b>解析：</b>colder than＝比……更冷；比較的兩者要清楚。</div>
+</div>
+<div class="q" id="ch5-s3-q10">
+<div class="q-h"><span class="q-n">10</span><span class="q-t">請用比較級寫一句話，比較兩樣你身邊的東西。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s3-q10">解析</button><div class="exp" id="e-ch5-s3-q10"><b>答案：</b>參考答案：My pencil case is smaller than my book.<br><b>解析：</b>評分重點：比較級形式正確、要有 than、句首大寫、句末句點。</div>
+</div>
+</div>
+<div class="sec" id="ch5-s4">
+<div class="sec-head"><span class="pub">何嘉仁版</span><span class="sec-t">5-4　英語（何嘉仁版）第二次段考</span></div>
+<div class="scope"><b>對應單元</b>r 控制母音（ar／or／er）、過去式綜合、閱讀理解　<b>配分</b>選擇每題 8 分、填充每格 5 分、寫作題 10 分</div>
+<div class="q" id="ch5-s4-q1">
+<div class="q-h"><span class="q-n">1</span><span class="q-t">下列哪一組畫線部分的發音<strong>相同</strong>？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>car / far</li>
+<li><span class="ol">(B)</span>car / for</li>
+<li><span class="ol">(C)</span>bird / bear</li>
+<li><span class="ol">(D)</span>work / walk</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q1">解析</button><div class="exp" id="e-ch5-s4-q1"><b>答案：</b>(A)<br><b>解析：</b>car、far 都是 ar 的 /ɑr/ 音；for 是 /ɔr/、bird 是 /ɜr/、work 雖含 or 卻讀 /ɜr/。</div>
+</div>
+<div class="q" id="ch5-s4-q2">
+<div class="q-h"><span class="q-n">2</span><span class="q-t">下列哪一個單字含有 <strong>/ɜr/</strong>（像 bird 的音）？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>her</li>
+<li><span class="ol">(B)</span>hard</li>
+<li><span class="ol">(C)</span>horse</li>
+<li><span class="ol">(D)</span>star</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q2">解析</button><div class="exp" id="e-ch5-s4-q2"><b>答案：</b>(A)<br><b>解析：</b>her 的 er 發 /ɜr/；hard、star 是 /ɑr/，horse 是 /ɔr/。</div>
+</div>
+<div class="q" id="ch5-s4-q3">
+<div class="q-h"><span class="q-n">3</span><span class="q-t">請依發音提示拼出單字：/st/ ＋ ar，意思是「星星」→ ＿＿＿＿</span></div>
+<div class="ansline"></div>
+<button class="exp-btn" data-t="ch5-s4-q3">解析</button><div class="exp" id="e-ch5-s4-q3"><b>答案：</b>star<br><b>解析：</b>star 的 ar 發 /ɑr/，同類的還有 car、farm、park。</div>
+</div>
+<div class="q" id="ch5-s4-q4">
+<div class="q-h"><span class="q-n">4</span><span class="q-t">下列哪一個單字<strong>不是</strong> ar /ɑr/ 的音？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>warm</li>
+<li><span class="ol">(B)</span>park</li>
+<li><span class="ol">(C)</span>farm</li>
+<li><span class="ol">(D)</span>dark</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q4">解析</button><div class="exp" id="e-ch5-s4-q4"><b>答案：</b>(A)<br><b>解析：</b>warm 的 ar 在 w 後面讀作 /ɔr/，是常見的例外；park、farm、dark 都是 /ɑr/。</div>
+</div>
+<div class="q" id="ch5-s4-q5">
+<div class="q-h"><span class="q-n">5</span><span class="q-t">I ＿ my homework before dinner yesterday.</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>finished</li>
+<li><span class="ol">(B)</span>finish</li>
+<li><span class="ol">(C)</span>am finishing</li>
+<li><span class="ol">(D)</span>will finish</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q5">解析</button><div class="exp" id="e-ch5-s4-q5"><b>答案：</b>(A)<br><b>解析：</b>yesterday 表示過去，用過去式 finished。</div>
+</div>
+<div class="passage"><div class="passage-t">閱讀測驗（第 6～8 題）</div><div class="passage-b">　　Last Saturday was Earth Day. My class went to the park near our school.<br>　　We picked up trash for two hours. We found many plastic bottles, cans, and old newspapers. We put them into different bags for recycling.<br>　　I was tired, but I felt happy. Our teacher said, "A clean park starts with clean hands." Next month, we are going to do it again.</div></div>
+<div class="q" id="ch5-s4-q6">
+<div class="q-h"><span class="q-n">6</span><span class="q-t">What did the class do last Saturday?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>They picked up trash in the park.</li>
+<li><span class="ol">(B)</span>They planted trees.</li>
+<li><span class="ol">(C)</span>They had a picnic.</li>
+<li><span class="ol">(D)</span>They stayed at school.</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q6">解析</button><div class="exp" id="e-ch5-s4-q6"><b>答案：</b>(A)<br><b>解析：</b>文中寫 We picked up trash for two hours.（撿了兩小時的垃圾）。</div>
+</div>
+<div class="q" id="ch5-s4-q7">
+<div class="q-h"><span class="q-n">7</span><span class="q-t">How did the writer feel after the activity?</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>Tired but happy</li>
+<li><span class="ol">(B)</span>Angry</li>
+<li><span class="ol">(C)</span>Bored</li>
+<li><span class="ol">(D)</span>Afraid</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q7">解析</button><div class="exp" id="e-ch5-s4-q7"><b>答案：</b>(A)<br><b>解析：</b>文中寫 I was tired, but I felt happy.</div>
+</div>
+<div class="q" id="ch5-s4-q8">
+<div class="q-h"><span class="q-n">8</span><span class="q-t">根據短文，他們下個月要做什麼？</span></div>
+<ol class="opts">
+<li><span class="ol">(A)</span>再做一次淨園活動</li>
+<li><span class="ol">(B)</span>去旅行</li>
+<li><span class="ol">(C)</span>考試</li>
+<li><span class="ol">(D)</span>搬家</li>
+</ol>
+<button class="exp-btn" data-t="ch5-s4-q8">解析</button><div class="exp" id="e-ch5-s4-q8"><b>答案：</b>(A)<br><b>解析：</b>最後一句 Next month, we are going to do it again.（下個月要再做一次）。</div>
+</div>
+<div class="q" id="ch5-s4-q9">
+<div class="q-h"><span class="q-n">9</span><span class="q-t">請用過去式寫一句話，說出你曾經做過的一件環保行動。</span></div>
+<div class="ansline tall"></div>
+<button class="exp-btn" data-t="ch5-s4-q9">解析</button><div class="exp" id="e-ch5-s4-q9"><b>答案：</b>參考答案：I recycled paper and bottles at school last week.<br><b>解析：</b>評分重點：動詞用過去式、句首大寫、句末句點，加上時間副詞更完整。</div>
+</div>
+</div>
+</section>
+<section class="sheet key"><h2 class="h-page">解答本</h2><p class="pf">本頁提供快速對答；詳細解析請點選題目下方的「解析」按鈕。</p>
+<h3 class="key-ch">第 1 章　國語</h3>
+<div class="key-sec"><div class="key-t">1-1　康軒版　第5~8課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 客觀、辯解</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 既然、就（或：因為、所以）</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：大家熱烈地討論著這個問題。</li><li><b>10.</b> (A)</li><li><b>11.</b> (A)</li></ol></div>
+<div class="key-sec"><div class="key-t">1-2　南一版　第5~8課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 息息、協力</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 如果、就（或：要是、便）</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：科學家提出了減碳建議。</li><li><b>10.</b> (A)</li><li><b>11.</b> (A)</li></ol></div>
+<div class="key-sec"><div class="key-t">1-3　翰林版　第5~8課</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 耕ㄍㄥ、嶄ㄓㄢˇ</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 參考答案：我們是不是應該重新檢視這個計畫呢？</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：真正困難的不是開始，而是每天都能持續下去。</li><li><b>10.</b> (A)</li><li><b>11.</b> (A)</li></ol></div>
+<h3 class="key-ch">第 2 章　數學</h3>
+<div class="key-sec"><div class="key-t">2-1　康軒版　比・圓・比例尺</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> 1 : 4</li><li><b>3.</b> (A)</li><li><b>4.</b> 50.24 公分</li><li><b>5.</b> 200.96 平方公分</li><li><b>6.</b> 62.8 公分</li><li><b>7.</b> (A)</li><li><b>8.</b> 2、4</li><li><b>9.</b> 水 15 杯；共 21 杯</li><li><b>10.</b> 31.4 公尺</li></ol></div>
+<div class="key-sec"><div class="key-t">2-2　南一版　比・圓・比例尺</div><ol class="key-list"><li><b>1.</b> 3 : 5</li><li><b>2.</b> (A)</li><li><b>3.</b> 314 平方公分</li><li><b>4.</b> 43.96 公分</li><li><b>5.</b> (A)</li><li><b>6.</b> 12、37.68</li><li><b>7.</b> (A)</li><li><b>8.</b> 長 6 公分、寬 4 公分</li><li><b>9.</b> 50 公克</li><li><b>10.</b> 706.5 平方公分</li></ol></div>
+<div class="key-sec"><div class="key-t">2-3　翰林版　比・圓・比例尺</div><ol class="key-list"><li><b>1.</b> 3 : 2</li><li><b>2.</b> (A)</li><li><b>3.</b> 圓周長 75.36 公分；圓面積 452.16 平方公分</li><li><b>4.</b> 10 公分</li><li><b>5.</b> (A)</li><li><b>6.</b> 25000、250</li><li><b>7.</b> (A)</li><li><b>8.</b> 20 歲</li><li><b>9.</b> 1.1304 平方公尺</li><li><b>10.</b> 376.8 公尺</li></ol></div>
+<h3 class="key-ch">第 3 章　自然與生活科技</h3>
+<div class="key-sec"><div class="key-t">3-1　康軒版　簡單機械</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 槓桿、施力點與抗力點</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 輪軸、大</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為長木板形成斜面，可以用比較小的力把重物推上去；雖然要推的距離比較長，但比直接垂直抬起輕鬆許多。</li><li><b>10.</b> 參考答案：用同一根木棒和同一個重物，把支點分別放在靠近重物與遠離重物的位置，用彈簧秤測量每次需要的施力大小，其他條件都保持相同，再比較數據。</li></ol></div>
+<div class="key-sec"><div class="key-t">3-2　南一版　簡單機械</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 距離、功</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> 快、轉速（速度）</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為長柄相當於加長了施力臂，在支點與抗力點不變的情況下，施力臂愈長就愈省力，所以比較容易撬開。</li><li><b>10.</b> 參考答案：（1）指甲剪是槓桿的應用；（2）停車場的斜坡是斜面的應用。（也可寫門把＝輪軸、窗簾拉繩＝滑輪）</li></ol></div>
+<div class="key-sec"><div class="key-t">3-3　翰林版　簡單機械</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> (A)</li><li><b>4.</b> (A)</li><li><b>5.</b> 距離、功</li><li><b>6.</b> (A)</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：結論是「在重量與抗力臂固定時，施力臂愈長需要的施力愈小」。理由是三組唯一改變的是支點到施力點的距離，而施力隨著它加長而規律地減少（100→50→25 牛頓）。</li><li><b>10.</b> 參考答案：因為功等於施力乘以移動的距離，機械只能改變兩者的分配，不能創造能量。所以省了力就必須多移動距離，反之亦然。</li></ol></div>
+<h3 class="key-ch">第 4 章　社會</h3>
+<div class="key-sec"><div class="key-t">4-1　康軒版　經濟與消費</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 效率、分工</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 發票（收據）、退換貨</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為一個人不可能樣樣都會、也做不完所有的事。透過分工，農夫種稻、司機運送、店員販賣，每個人做自己擅長的部分，效率提高，大家都能買到需要的東西。</li><li><b>10.</b> 參考答案：我會先存下 200 元作為未來的目標基金，200 元用於必要的文具與交通，剩下 100 元才用來買想要的東西，這樣既能滿足需求也能培養儲蓄習慣。</li></ol></div>
+<div class="key-sec"><div class="key-t">4-2　南一版　經濟與消費</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 市場、供給、需求</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 查證、衝動</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為各地的成本不同（運費、租金、人事）、供給與需求也不同，加上商家的經營策略（促銷、服務）不一樣，所以售價會有差異。</li><li><b>10.</b> 參考答案：我會先想清楚自己是不是真的需要，再查查其他商店的價格與商品評價，確認是不是真的比較便宜，不會因為「限時」「最後」這些字眼就急著下單。</li></ol></div>
+<div class="key-sec"><div class="key-t">4-3　翰林版　經濟與理財</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> 多數、損失</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> 收入</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：因為密碼是提領存款的唯一憑證，一旦外洩，別人就能盜領帳戶裡的錢；而且提供密碼可能被用來從事不法行為，自己也可能因此惹上麻煩。</li><li><b>10.</b> 參考答案：（1）每個月先把零用錢的一部分存起來，養成先儲蓄再消費的習慣；（2）購物前列清單並記帳，避免衝動購買、也能知道錢花去哪裡。</li></ol></div>
+<h3 class="key-ch">第 5 章　英語 English</h3>
+<div class="key-sec"><div class="key-t">5-1　康軒版　過去式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> taught、drank</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> visited</li><li><b>7.</b> (A)</li><li><b>8.</b> 我上星期買了一個新書包。</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：I played badminton with my brother yesterday.</li></ol></div>
+<div class="key-sec"><div class="key-t">5-2　南一版　未來式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> will</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> tomorrow</li><li><b>7.</b> (A)</li><li><b>8.</b> 我打算每天讀英文。</li><li><b>9.</b> (A)</li><li><b>10.</b> 參考答案：I am going to visit the library this weekend.</li></ol></div>
+<div class="key-sec"><div class="key-t">5-3　翰林版　比較級</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> happier / happiest</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> more interesting</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 在臺灣，冬天比秋天冷。</li><li><b>10.</b> 參考答案：My pencil case is smaller than my book.</li></ol></div>
+<div class="key-sec"><div class="key-t">5-4　何嘉仁版　發音與過去式</div><ol class="key-list"><li><b>1.</b> (A)</li><li><b>2.</b> (A)</li><li><b>3.</b> star</li><li><b>4.</b> (A)</li><li><b>5.</b> (A)</li><li><b>6.</b> (A)</li><li><b>7.</b> (A)</li><li><b>8.</b> (A)</li><li><b>9.</b> 參考答案：I recycled paper and bottles at school last week.</li></ol></div>
+</section>
+</div>
+<div class="pagefoot"></div>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.exp-btn'); if(!b) return;
+  var el=document.getElementById('e-'+b.dataset.t);
+  el.classList.toggle('on');
+  b.textContent=el.classList.contains('on')?'收合解析':'解析';
+});
+function allExp(on){
+  document.querySelectorAll('.exp').forEach(function(el){el.classList.toggle('on',on)});
+  document.querySelectorAll('.exp-btn').forEach(function(b){b.textContent=on?'收合解析':'解析'});
+}
+</script>
+</body>
+</html>
