@@ -30,6 +30,22 @@
   table.schools td{border:1px solid var(--line);padding:9px 10px;vertical-align:top}
   table.schools td.reg{text-align:center;font-weight:800;white-space:nowrap;background:#fafbff}
   .tablewrap{overflow-x:auto}
+  .grade-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+  .gradecard{display:flex;flex-direction:column;text-decoration:none;color:inherit;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:16px 14px 14px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s}
+  .gradecard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
+  .gradecard .gname{font-size:20px;font-weight:900;color:var(--primary)}
+  .gradecard .gnum{margin-top:4px;font-size:13px;font-weight:800;color:var(--ink)}
+  .gradecard .gdesc{margin-top:8px;font-size:12.5px;color:var(--ink-soft);line-height:1.7}
+  .gradecard .glinks{margin-top:auto;padding-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+  .gradecard .glinks span{font-size:12.5px;font-weight:800;color:var(--primary);
+    background:var(--primary-soft);border-radius:999px;padding:4px 11px}
+  .gradecard.zhuyin{border-color:var(--sun)}
+  .gradecard.zhuyin .gname{color:#a5670a}
+  .gradecard.zhuyin .glinks span{color:#a5670a;background:var(--sun-soft)}
+  @media(max-width:1000px){.grade-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.grade-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:1000px){.bank-grid,.bank-grid.g3{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:640px){.bank-grid,.bank-grid.g3{grid-template-columns:1fr}}
 </style>
@@ -74,8 +90,9 @@
       <p>國語・數學・自然・社會・英語五科，依 <b>康軒／南一／翰林／何嘉仁</b> 分節出題。<br>
          線上點「解析」看答案，按「列印」解析自動隱藏，印出來就是乾淨的作答題本。<br><b>小一、小二題本每個國字都標了注音</b>，孩子可以自己把題目念出來。</p>
       <div class="btn-row">
-        <a class="btn big" href="#by-version">依版本選書 →</a>
-        <a class="btn ghost big" href="#rounds">每回 30 題練習卷</a>
+        <a class="btn big" href="#by-grade-index">依年級選書 →</a>
+        <a class="btn sun big" href="#low">小一・小二注音版</a>
+        <a class="btn ghost big" href="#by-version">依版本選書</a>
       </div>
       <div class="stats">
         <div class="stat"><b>44</b><span>本題本</span></div>
@@ -91,6 +108,58 @@
     </div>
   </div>
 </header>
+
+<!-- ========== 依年級找書 ========== -->
+<section class="section tight" id="by-grade-index">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">一到六年級都有</span>
+      <h2 class="h-en">依年級找書</h2>
+      <p class="h-zh">先挑年級，再挑要哪一種題本</p>
+      <p class="lead"><b>小一、小二</b>是國語・數學・生活三科、<b>每個國字都標注音</b>的綜合練習；
+         <b>小三到小六</b>是五科、四個版本，段考題本與每回 30 題練習卷都有。</p>
+    </div>
+
+    <div class="grade-grid reveal" style="margin-top:28px">
+      <a class="gradecard zhuyin" href="#low">
+        <span class="gname">小一</span>
+        <span class="gnum">4 本・1,080 題</span>
+        <span class="gdesc">國語・數學・生活<br>三版本｜<b>全題目注音</b></span>
+        <span class="glinks"><span>上學期 2 回</span><span>下學期 2 回</span></span>
+      </a>
+      <a class="gradecard zhuyin" href="#low">
+        <span class="gname">小二</span>
+        <span class="gnum">4 本・1,080 題</span>
+        <span class="gdesc">國語・數學・生活<br>三版本｜<b>全題目注音</b></span>
+        <span class="glinks"><span>上學期 2 回</span><span>下學期 2 回</span></span>
+      </a>
+      <a class="gradecard" href="#by-grade">
+        <span class="gname">小三</span>
+        <span class="gnum">8 本・8,647 題</span>
+        <span class="gdesc">國語・數學・自然<br>社會・英語 五科</span>
+        <span class="glinks"><span>上學期</span><span>下學期</span><span>每回 30 題</span></span>
+      </a>
+      <a class="gradecard" href="#by-grade">
+        <span class="gname">小四</span>
+        <span class="gnum">8 本・8,647 題</span>
+        <span class="gdesc">國語・數學・自然<br>社會・英語 五科</span>
+        <span class="glinks"><span>上學期</span><span>下學期</span><span>每回 30 題</span></span>
+      </a>
+      <a class="gradecard" href="#by-grade">
+        <span class="gname">小五</span>
+        <span class="gnum">8 本・8,647 題</span>
+        <span class="gdesc">國語・數學・自然<br>社會・英語 五科</span>
+        <span class="glinks"><span>上學期</span><span>下學期</span><span>每回 30 題</span></span>
+      </a>
+      <a class="gradecard" href="#by-grade">
+        <span class="gname">小六</span>
+        <span class="gnum">8 本・8,647 題</span>
+        <span class="gdesc">國語・數學・自然<br>社會・英語 五科</span>
+        <span class="glinks"><span>上學期</span><span>下學期</span><span>每回 30 題</span></span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- ========== 版本冊 ========== -->
 <section class="section" id="by-version">
@@ -799,6 +868,7 @@
       <div>
         <h5>五科題庫</h5>
         <ul>
+          <li><a href="exams.html#by-grade-index">依年級找書</a></li>
           <li><a href="exams.html#by-version">依版本選書</a></li>
           <li><a href="exams.html#low">低年級注音版</a></li>
           <li><a href="exams.html#low-spring">低年級下學期注音版</a></li>
