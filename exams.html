@@ -44,6 +44,9 @@
   .gradecard.zhuyin{border-color:var(--sun)}
   .gradecard.zhuyin .gname{color:#a5670a}
   .gradecard.zhuyin .glinks span{color:#a5670a;background:var(--sun-soft)}
+  .lowcard{display:grid;grid-template-columns:auto 1fr auto;gap:26px;align-items:center}
+  @media(max-width:820px){.lowcard{grid-template-columns:1fr;justify-items:center;text-align:center;gap:18px}
+    .lowcard img{width:96px;height:96px}}
   @media(max-width:1000px){.grade-grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:560px){.grade-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:1000px){.bank-grid,.bank-grid.g3{grid-template-columns:repeat(2,1fr)}}
@@ -74,6 +77,7 @@
       <a href="stage.html">教學舞台</a>
       <a href="english.html">英文教室</a>
       <a href="toolbox.html">課堂工具箱</a>
+      <a href="low.html">低年級題庫</a>
       <a href="exams.html" class="on">五科題庫</a>
       <a href="pro.html">資深老師</a>
     </div>
@@ -91,7 +95,7 @@
          線上點「解析」看答案，按「列印」解析自動隱藏，印出來就是乾淨的作答題本。<br><b>小一、小二題本每個國字都標了注音</b>，孩子可以自己把題目念出來。</p>
       <div class="btn-row">
         <a class="btn big" href="#by-grade-index">依年級選書 →</a>
-        <a class="btn sun big" href="#low">小一・小二注音版</a>
+        <a class="btn sun big" href="low.html">小一・小二注音版</a>
         <a class="btn ghost big" href="#by-version">依版本選書</a>
       </div>
       <div class="stats">
@@ -121,13 +125,13 @@
     </div>
 
     <div class="grade-grid reveal" style="margin-top:28px">
-      <a class="gradecard zhuyin" href="#low">
+      <a class="gradecard zhuyin" href="low.html">
         <span class="gname">小一</span>
         <span class="gnum">4 本・1,080 題</span>
         <span class="gdesc">國語・數學・生活<br>三版本｜<b>全題目注音</b></span>
         <span class="glinks"><span>上學期 2 回</span><span>下學期 2 回</span></span>
       </a>
-      <a class="gradecard zhuyin" href="#low">
+      <a class="gradecard zhuyin" href="low.html">
         <span class="gname">小二</span>
         <span class="gnum">4 本・1,080 題</span>
         <span class="gdesc">國語・數學・生活<br>三版本｜<b>全題目注音</b></span>
@@ -218,132 +222,24 @@
 </section>
 
 
-<!-- ========== 低年級注音版 ========== -->
-<section class="section" id="low">
+<!-- ========== 低年級導引 ========== -->
+<section class="section tight" id="low">
   <div class="wrap">
-    <div class="center">
-      <span class="eyebrow">低年級・全題目注音</span>
-      <h2 class="h-en">低年級：每個國字都有注音</h2>
-      <p class="h-zh">小一、小二題本 — 注音直排在國字右邊</p>
-      <p class="lead">低年級的孩子常常不是不會算、不會想，而是<b>看不懂題目</b>。
-         這四本的題目與選項<b>每一個國字都標了注音</b>，孩子可以自己把題目念出來，
-         考的是理解與運算，不是識字量。<br>
-         國語・數學・生活三科，各依 <b>康軒／南一／翰林</b> 分節，
-         <b>每一節都是 30 題</b>；第 1 回與第 2 回題目完全不重複。</p>
-    </div>
-
-    <div class="bank-grid reveal" style="margin-top:34px">
-      <a class="bookcard" href="exams/elementary-g1-round1-exam-book.html">
-        <span class="spine" style="background:#3f6fae"></span>
-        <span class="in">
-          <span class="tag">小一・第 1 回</span>
-          <h3>一年級<br>第 1 回綜合練習</h3>
-          <p>10 以內的數與加減、注音與生字、校園與身體、季節與安全，全題目注音。</p>
-          <span class="meta"><span>題數 <b>270</b></span><span>列印 <b>70 頁</b></span></span>
-          <span class="go">打開題本 →</span>
-        </span>
-      </a>
-      <a class="bookcard" href="exams/elementary-g1-round2-exam-book.html">
-        <span class="spine" style="background:#3f6fae"></span>
-        <span class="in">
-          <span class="tag">小一・第 2 回</span>
-          <h3>一年級<br>第 2 回綜合練習</h3>
-          <p>與第 1 回題目完全不重複，適合隔一段時間再測，檢查有沒有進步。</p>
-          <span class="meta"><span>題數 <b>270</b></span><span>列印 <b>70 頁</b></span></span>
-          <span class="go">打開題本 →</span>
-        </span>
-      </a>
-      <a class="bookcard" href="exams/elementary-g2-round1-exam-book.html">
-        <span class="spine" style="background:#4a7c59"></span>
-        <span class="in">
-          <span class="tag mint">小二・第 1 回</span>
-          <h3>二年級<br>第 1 回綜合練習</h3>
-          <p>二位數加減與乘法概念、部首筆畫與量詞、社區職業與環保，全題目注音。</p>
-          <span class="meta"><span>題數 <b>270</b></span><span>列印 <b>69 頁</b></span></span>
-          <span class="go">打開題本 →</span>
-        </span>
-      </a>
-      <a class="bookcard" href="exams/elementary-g2-round2-exam-book.html">
-        <span class="spine" style="background:#4a7c59"></span>
-        <span class="in">
-          <span class="tag mint">小二・第 2 回</span>
-          <h3>二年級<br>第 2 回綜合練習</h3>
-          <p>與第 1 回題目完全不重複，數字與題材全部換過，可當成複習卷。</p>
-          <span class="meta"><span>題數 <b>270</b></span><span>列印 <b>70 頁</b></span></span>
-          <span class="go">打開題本 →</span>
-        </span>
-      </a>
-    </div>
-
-    <div class="panel reveal" style="margin-top:26px">
-      <span class="tag sun">為什麼低年級沒有自然和社會</span>
-      <p style="color:var(--ink-soft);margin:10px 0 0">
-        依十二年國教課綱，一、二年級<b>沒有自然與社會兩科</b>，而是合併成
-        <b>「生活課程」</b>（統整自然科學、社會、藝術與生活技能）。因此低年級題本是
-        <b>國語・數學・生活</b>三科；英語則多數學校三年級才開始，故不列入。
-      </p>
+    <div class="panel reveal lowcard">
+      <img src="assets/img/g1-hands-up.svg" alt="低年級" width="120" height="120" style="border-radius:14px">
+      <div>
+        <span class="tag sun">小一・小二</span>
+        <h3 style="margin:8px 0 8px;font-size:22px">低年級題庫搬到自己的頁面了</h3>
+        <p style="color:var(--ink-soft);line-height:1.9;margin:0">
+          小一、小二是<b>國語・數學・生活三科</b>（課綱在低年級沒有自然與社會，合併成「生活課程」；
+          英語多數學校三年級才開始），而且<b>每個國字都標注音</b>，
+          和這一頁的五科題本規格不同，所以獨立成一頁。上下學期各兩回，共 <b>8 本、2,160 題</b>。</p>
+      </div>
+      <a class="btn sun" href="low.html">打開低年級題庫 →</a>
     </div>
   </div>
 </section>
 
-
-<section class="section tight" id="low-spring">
-  <div class="wrap">
-    <div class="center">
-      <span class="eyebrow">低年級・下學期・全題目注音</span>
-      <h2 class="h-en">低年級下學期題本</h2>
-      <p class="h-zh">小一、小二下學期 — 每本 270 題，一樣每個國字都有注音</p>
-      <p class="lead">接在上學期兩回之後的<b>下學期（第二冊、第四冊）</b>練習題本。
-         數學換成<b>小一 100 以內的數與二位數加減、小二 1000 以內的數與三位數加減和九九乘法</b>；
-         國語換上一整份<b>下學期新生字</b>（與上學期 40 個字完全不同）；
-         生活則是我的成長、影子與光、社區與公共設施、傳統童玩等新主題。
-         題目與上學期兩回<b>完全不重複</b>，四本之間也零重疊。</p>
-    </div>
-
-    <div class="bank-grid reveal" style="margin-top:34px">
-      <a class="bookcard" href="exams/elementary-g1-spring-round1-exam-book.html">
-        <span class="spine" style="background:#c25a7c"></span>
-        <span class="in">
-          <span class="tag">小一下・第 1 回</span>
-          <h3>一年級下學期<br>第 1 回綜合練習</h3>
-          <p>100 以內的數與二位數加減、幾點鐘與幾點半、下學期新生字、我的成長與影子和光。</p>
-          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
-          <span class="go">打開題本 →</span>
-        </span>
-      </a>
-      <a class="bookcard" href="exams/elementary-g1-spring-round2-exam-book.html">
-        <span class="spine" style="background:#c25a7c"></span>
-        <span class="in">
-          <span class="tag">小一下・第 2 回</span>
-          <h3>一年級下學期<br>第 2 回綜合練習</h3>
-          <p>與第 1 回題目完全不重複，數字與題材全部換過，可以隔一段時間再測。</p>
-          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
-          <span class="go">打開題本 →</span>
-        </span>
-      </a>
-      <a class="bookcard" href="exams/elementary-g2-spring-round1-exam-book.html">
-        <span class="spine" style="background:#2f7a8c"></span>
-        <span class="in">
-          <span class="tag mint">小二下・第 1 回</span>
-          <h3>二年級下學期<br>第 1 回綜合練習</h3>
-          <p>1000 以內的數與三位數加減、九九乘法與平分、公分公尺、社區與傳統童玩。</p>
-          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
-          <span class="go">打開題本 →</span>
-        </span>
-      </a>
-      <a class="bookcard" href="exams/elementary-g2-spring-round2-exam-book.html">
-        <span class="spine" style="background:#2f7a8c"></span>
-        <span class="in">
-          <span class="tag mint">小二下・第 2 回</span>
-          <h3>二年級下學期<br>第 2 回綜合練習</h3>
-          <p>與第 1 回題目完全不重複，時間計算、平面圖形與統計題材全部換過。</p>
-          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
-          <span class="go">打開題本 →</span>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- ========== 中高年級每回 30 題 ========== --><section class="section" id="rounds">
   <div class="wrap">
@@ -870,8 +766,7 @@
         <ul>
           <li><a href="exams.html#by-grade-index">依年級找書</a></li>
           <li><a href="exams.html#by-version">依版本選書</a></li>
-          <li><a href="exams.html#low">低年級注音版</a></li>
-          <li><a href="exams.html#low-spring">低年級下學期注音版</a></li>
+          <li><a href="low.html">低年級題庫（小一・小二）</a></li>
           <li><a href="exams.html#rounds">中高年級 30 題練習卷</a></li>
           <li><a href="exams.html#by-grade">第一次段考題本</a></li>
           <li><a href="exams.html#mid2">第二次段考題本</a></li>

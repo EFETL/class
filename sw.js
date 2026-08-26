@@ -11,6 +11,7 @@ const SHELL_FILES = [
   '/',
   '/index.html',
   '/exams.html',
+  '/low.html',
   '/stage.html',
   '/english.html',
   '/toolbox.html',

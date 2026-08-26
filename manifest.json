@@ -11,20 +11,84 @@
   "orientation": "any",
   "background_color": "#f7f8fc",
   "theme_color": "#4c5fd5",
-  "categories": ["education"],
+  "categories": [
+    "education"
+  ],
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
-    { "name": "五科題庫", "short_name": "題庫", "url": "/exams.html",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
-    { "name": "教學舞台", "short_name": "舞台", "url": "/stage.html",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
-    { "name": "英文教室", "short_name": "英文", "url": "/english.html",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
-    { "name": "課堂工具箱", "short_name": "工具箱", "url": "/toolbox.html",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] }
+    {
+      "name": "五科題庫",
+      "short_name": "題庫",
+      "url": "/exams.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "低年級題庫",
+      "short_name": "低年級",
+      "url": "/low.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "教學舞台",
+      "short_name": "舞台",
+      "url": "/stage.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "英文教室",
+      "short_name": "英文",
+      "url": "/english.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "課堂工具箱",
+      "short_name": "工具箱",
+      "url": "/toolbox.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }

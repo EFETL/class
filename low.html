@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>低年級題庫｜星光教學舞台</title>
+<meta name="description" content="小一、小二的國語・數學・生活三科練習題本，每個國字都標注音，上下學期各兩回、共 8 本 2,160 題，可線上看解析也可以直接列印。">
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .bank-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .bookcard{display:flex;flex-direction:column;text-decoration:none;color:inherit;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .bookcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .bookcard .spine{height:8px}
+  .bookcard .in{padding:22px 22px 24px;display:flex;flex-direction:column;gap:6px;height:100%}
+  .bookcard .tag{align-self:flex-start;margin-bottom:6px}
+  .bookcard h3{margin:0;font-size:19px;font-weight:800}
+  .bookcard p{margin:8px 0 0;font-size:14.5px;color:var(--ink-soft);line-height:1.75}
+  .bookcard .meta{margin-top:auto;padding-top:14px;font-size:13px;color:var(--ink-soft);
+    display:flex;gap:12px;flex-wrap:wrap}
+  .bookcard .meta b{color:var(--ink)}
+  .bookcard .go{margin-top:12px;font-weight:800;font-size:14.5px}
+  .subj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .subj{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 22px;box-shadow:var(--shadow)}
+  .subj h4{margin:10px 0 8px;font-size:19px}
+  .subj p{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.8}
+  .subj .ico{font-size:30px;line-height:1}
+  .zy-demo{display:inline-flex;align-items:flex-start;gap:2px;font-size:34px;font-weight:700;
+    line-height:1.1;background:var(--sun-soft);border-radius:12px;padding:14px 18px}
+  .zy-demo i{font-style:normal;font-size:13px;color:#a5670a;line-height:1.15;
+    display:flex;flex-direction:column;padding-top:3px}
+  .zycard{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+  @media(max-width:820px){.zycard{grid-template-columns:1fr;justify-items:center;text-align:center;gap:18px}}
+  @media(max-width:1000px){.bank-grid{grid-template-columns:repeat(2,1fr)}
+    .subj-grid{grid-template-columns:1fr}}
+  @media(max-width:640px){.bank-grid{grid-template-columns:1fr}}
+</style>
+<!-- EFETL-PWA -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#4c5fd5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="星光舞台">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
+<!-- /EFETL-PWA -->
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html">
+      <img class="logo" src="assets/img/logo.svg" alt="星光教學舞台">
+      <span>星光教學舞台</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">首頁</a>
+      <a href="stage.html">教學舞台</a>
+      <a href="english.html">英文教室</a>
+      <a href="toolbox.html">課堂工具箱</a>
+      <a href="low.html" class="on">低年級題庫</a>
+      <a href="exams.html">五科題庫</a>
+      <a href="pro.html">資深老師</a>
+    </div>
+    <button class="sfx-toggle"><span class="sfx-ico">🔊</span><span class="sfx-txt">音效開</span></button>
+  </div>
+</nav>
+
+<!-- ========== Hero ========== -->
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">✏️ 小一・小二・全題目注音</span>
+      <h1>字還認不多，<br><span class="hl">但題目要看得懂。</span></h1>
+      <p>低年級的孩子常常不是不會算、不會想，而是<b>看不懂題目</b>。
+         這裡的每一本，題目與選項的<b>每一個國字右邊都標了注音</b>，孩子可以自己把題目念出來，
+         考的是理解與運算，不是識字量。</p>
+      <div class="btn-row">
+        <a class="btn big" href="#autumn">上學期題本 →</a>
+        <a class="btn sun big" href="#spring">下學期題本</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>8</b><span>本題本</span></div>
+        <div class="stat"><b>2,160</b><span>題自編題目</span></div>
+        <div class="stat"><b>3</b><span>科目</span></div>
+        <div class="stat"><b>3</b><span>版本</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="assets/img/g1-hands-up.svg" alt="低年級插畫" width="460" height="380">
+      <img class="floaty a" src="assets/img/deco-star.svg" alt="" aria-hidden="true">
+      <img class="floaty b" src="assets/img/deco-pencil.svg" alt="" aria-hidden="true">
+    </div>
+  </div>
+</header>
+
+<!-- ========== 為什麼是三科 ========== -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">先講清楚</span>
+      <h2 class="h-en">低年級是三科，不是五科</h2>
+      <p class="h-zh">國語・數學・生活</p>
+      <p class="lead">這不是少做了兩科。<b>十二年國教課綱在低年級沒有自然與社會</b>，
+         這兩塊合併成一門「<b>生活課程</b>」；<b>英語</b>則多數學校<b>三年級才開始</b>。
+         所以小一、小二就是國語、數學、生活三科——五科題庫是小三以上才有。</p>
+    </div>
+
+    <div class="subj-grid reveal">
+      <div class="subj">
+        <div class="ico">📖</div>
+        <h4>國語</h4>
+        <p>注音與拼讀、生字的字音字形與筆畫、語詞、量詞、部首、反義詞、標點與生活用語。
+           三家版本的生字表本來就不同，所以三節涵蓋的字不一樣，可以互相當作補充練習。</p>
+      </div>
+      <div class="subj">
+        <div class="ico">🔢</div>
+        <h4>數學</h4>
+        <p>小一從 10 以內的數與加減，到下學期 100 以內的二位數加減、時間、長度與立體形狀；
+           小二從二位數加減與乘法概念，到下學期三位數加減、九九乘法與平分、公分公尺。
+           <b>答案與解析全部由程式計算並逐題驗算。</b></p>
+      </div>
+      <div class="subj">
+        <div class="ico">🌱</div>
+        <h4>生活</h4>
+        <p>校園與人物、我的身體、家人與生活自理、季節與天氣、動植物、安全與情緒、
+           資源回收；下學期再加上我的成長、影子與光、社區與公共設施、傳統童玩。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 注音怎麼看 ========== -->
+<section class="section tight" id="zhuyin">
+  <div class="wrap">
+    <div class="panel reveal zycard">
+      <div class="zy-demo">貓<i><span>ㄇㄠ</span><span>ˊ</span></i></div>
+      <div>
+        <span class="tag sun">全題目注音</span>
+        <h3 style="margin:8px 0 10px;font-size:21px">注音直排在國字右邊，跟課本一樣</h3>
+        <p style="color:var(--ink-soft);line-height:1.9;margin:0">
+          聲調符號放在注音右側中間、輕聲點放在最上面，和臺灣課本的排法一致。
+          破音字與變調都特別校正過——「<b>一起</b>」念ㄧˋ、「<b>一共</b>」念ㄧˊ、「<b>不夠</b>」念ㄅㄨˊ，
+          「<b>長</b>方形」念ㄔㄤˊ、「<b>數</b>一數」念ㄕㄨˇ。
+          問注音的題目，引號裡的字<b>不標注音</b>，才不會把答案印在題幹上。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 上學期 ========== -->
+<section class="section" id="autumn">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">上學期・第一冊／第三冊</span>
+      <h2 class="h-en">上學期題本</h2>
+      <p class="h-zh">小一、小二各兩回，每本 270 題</p>
+      <p class="lead">國語・數學・生活三科，各依 <b>康軒／南一／翰林</b> 分節，
+         <b>每一節都是 30 題</b>，可以單獨當成一份小考。第 1 回與第 2 回題目完全不重複。</p>
+    </div>
+    <div class="bank-grid reveal" style="margin-top:34px">
+      <a class="bookcard" href="exams/elementary-g1-round1-exam-book.html">
+        <span class="spine" style="background:#3f6fae"></span>
+        <span class="in">
+          <span class="tag">小一・第 1 回</span>
+          <h3>一年級上學期<br>第 1 回</h3>
+          <p>10 以內的數與加減、注音與生字、校園與身體、季節與安全。</p>
+          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-g1-round2-exam-book.html">
+        <span class="spine" style="background:#3f6fae"></span>
+        <span class="in">
+          <span class="tag">小一・第 2 回</span>
+          <h3>一年級上學期<br>第 2 回</h3>
+          <p>與第 1 回題目完全不重複，適合隔一段時間再測，檢查有沒有進步。</p>
+          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-g2-round1-exam-book.html">
+        <span class="spine" style="background:#4a7c59"></span>
+        <span class="in">
+          <span class="tag mint">小二・第 1 回</span>
+          <h3>二年級上學期<br>第 1 回</h3>
+          <p>二位數加減與乘法概念、部首筆畫與量詞、社區職業與環保。</p>
+          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-g2-round2-exam-book.html">
+        <span class="spine" style="background:#4a7c59"></span>
+        <span class="in">
+          <span class="tag mint">小二・第 2 回</span>
+          <h3>二年級上學期<br>第 2 回</h3>
+          <p>與第 1 回題目完全不重複，數字與題材全部換過，可當成複習卷。</p>
+          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 下學期 ========== -->
+<section class="section tight" id="spring">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">下學期・第二冊／第四冊</span>
+      <h2 class="h-en">下學期題本</h2>
+      <p class="h-zh">接在上學期兩回之後，題目完全不重複</p>
+      <p class="lead">數學換成<b>小一 100 以內的數與二位數加減、小二 1000 以內的數與三位數加減和九九乘法</b>；
+         國語換上一整份<b>下學期新生字</b>（與上學期 40 個字完全不同）；
+         生活則是我的成長、影子與光、社區與公共設施、傳統童玩等新主題。</p>
+    </div>
+    <div class="bank-grid reveal" style="margin-top:34px">
+      <a class="bookcard" href="exams/elementary-g1-spring-round1-exam-book.html">
+        <span class="spine" style="background:#c25a7c"></span>
+        <span class="in">
+          <span class="tag">小一下・第 1 回</span>
+          <h3>一年級下學期<br>第 1 回</h3>
+          <p>100 以內的數與二位數加減、幾點鐘與幾點半、下學期新生字、我的成長與影子和光。</p>
+          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-g1-spring-round2-exam-book.html">
+        <span class="spine" style="background:#c25a7c"></span>
+        <span class="in">
+          <span class="tag">小一下・第 2 回</span>
+          <h3>一年級下學期<br>第 2 回</h3>
+          <p>與第 1 回題目完全不重複，數字與題材全部換過。</p>
+          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-g2-spring-round1-exam-book.html">
+        <span class="spine" style="background:#2f7a8c"></span>
+        <span class="in">
+          <span class="tag mint">小二下・第 1 回</span>
+          <h3>二年級下學期<br>第 1 回</h3>
+          <p>1000 以內的數與三位數加減、九九乘法與平分、公分公尺、社區與傳統童玩。</p>
+          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+      <a class="bookcard" href="exams/elementary-g2-spring-round2-exam-book.html">
+        <span class="spine" style="background:#2f7a8c"></span>
+        <span class="in">
+          <span class="tag mint">小二下・第 2 回</span>
+          <h3>二年級下學期<br>第 2 回</h3>
+          <p>與第 1 回題目完全不重複，時間計算、平面圖形與統計題材全部換過。</p>
+          <span class="meta"><span>題數 <b>270</b></span><span>每節 <b>30 題</b></span></span>
+          <span class="go">打開題本 →</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 怎麼用 ========== -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">怎麼用</span>
+      <h2 class="h-en">螢幕上看解析，印出來就是考卷</h2>
+    </div>
+    <div class="subj-grid reveal">
+      <div class="subj">
+        <div class="ico">👀</div>
+        <h4>螢幕</h4>
+        <p>點每一題下方的「解析」看答案與說明；上方工具列可以一次展開或收合全部解析。</p>
+      </div>
+      <div class="subj">
+        <div class="ico">🖨️</div>
+        <h4>列印</h4>
+        <p>按上方「列印 / 存成 PDF」，<b>解析會自動隱藏</b>，印出來就是乾淨的作答題本，
+           答案統一收在書末「解答本」。請用 Chrome 或 Edge，頁碼才會出現在頁尾。</p>
+      </div>
+      <div class="subj">
+        <div class="ico">💯</div>
+        <h4>配分</h4>
+        <p>每一節 30 題、每題 3 分共 90 分，書寫工整 10 分，滿分 100 分。
+           建議作答時間每節 30～40 分鐘，中間可以休息。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 給小三以上 ========== -->
+<section class="section tight" id="upper">
+  <div class="wrap">
+    <div class="panel reveal center" style="padding:34px 28px">
+      <span class="tag mint">小三以上</span>
+      <h3 style="margin:10px 0 8px;font-size:22px">找中高年級的題本？</h3>
+      <p style="color:var(--ink-soft);line-height:1.9;margin:0 0 20px">
+        小三到小六是<b>國語・數學・自然・社會・英語五科</b>、四個版本，
+        段考題本與每回 30 題練習卷都在五科題庫。</p>
+      <a class="btn" href="exams.html">打開五科題庫 →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <img class="logo" src="assets/img/logo.svg" alt="">
+          <span>星光教學舞台</span>
+        </div>
+        <p>給安親班老師與國小英文老師的教學平台。</p>
+      </div>
+      <div>
+        <h5>教學</h5>
+        <ul>
+          <li><a href="stage.html">教學舞台</a></li>
+          <li><a href="english.html">英文教室</a></li>
+          <li><a href="toolbox.html">課堂工具箱</a></li>
+          <li><a href="pro.html">資深老師</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>題庫</h5>
+        <ul>
+          <li><a href="low.html">低年級題庫（小一・小二）</a></li>
+          <li><a href="low.html#autumn">低年級上學期</a></li>
+          <li><a href="low.html#spring">低年級下學期</a></li>
+          <li><a href="exams.html#by-grade-index">依年級找書</a></li>
+          <li><a href="exams.html#by-version">依版本選書</a></li>
+          <li><a href="exams.html#rounds">中高年級 30 題練習卷</a></li>
+          <li><a href="exams.html#by-grade">第一次段考題本</a></li>
+          <li><a href="exams.html#mid2">第二次段考題本</a></li>
+          <li><a href="exams.html#final">期末考題本</a></li>
+          <li><a href="exams.html#spring1">下學期第一次段考題本</a></li>
+          <li><a href="exams.html#spring2">下學期第二次段考題本</a></li>
+          <li><a href="exams.html#spring3">下學期期末考題本</a></li>
+          <li><a href="exams.html#how">命題依據</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>聯絡</h5>
+        <ul>
+          <li>教務信箱 · office@example.edu.tw</li>
+          <li>電話 · (04) 0000-0000</li>
+          <li>地址 · 台灣・彰化縣</li>
+          <li>上課時間 · 週一至週五 15:30–20:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 星光教學舞台．題目全數自編，僅供班內教學使用。</span>
+      <span>為認真的老師而做 🌟</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
