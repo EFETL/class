@@ -1,0 +1,30 @@
+{
+  "name": "星光教學舞台",
+  "short_name": "星光舞台",
+  "description": "安親老師與國小英文老師的上課平台：五步驟教學流程、老師逐字腳本、課堂工具箱，以及一到六年級五科自編題庫，離線也能翻。",
+  "lang": "zh-Hant",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f8fc",
+  "theme_color": "#4c5fd5",
+  "categories": ["education"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "五科題庫", "short_name": "題庫", "url": "/exams.html",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "教學舞台", "short_name": "舞台", "url": "/stage.html",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "英文教室", "short_name": "英文", "url": "/english.html",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "課堂工具箱", "short_name": "工具箱", "url": "/toolbox.html",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

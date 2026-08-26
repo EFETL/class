@@ -33,6 +33,16 @@
   @media(max-width:1000px){.bank-grid,.bank-grid.g3{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:640px){.bank-grid,.bank-grid.g3{grid-template-columns:1fr}}
 </style>
+<!-- EFETL-PWA -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#4c5fd5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="星光舞台">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
+<!-- /EFETL-PWA -->
 </head>
 <body>
 
@@ -820,5 +830,84 @@
 </footer>
 
 <script src="assets/js/site.js"></script>
+<!-- EFETL-INSTALL -->
+<div id="a2hs" hidden>
+  <img id="a2hs-icon" src="/icon-192.png" alt="">
+  <span id="a2hs-text"></span>
+  <button id="a2hs-go" type="button" hidden>安裝</button>
+  <button id="a2hs-x" type="button" aria-label="關閉">&times;</button>
+</div>
+<style>
+#a2hs{
+  position:fixed; left:50%; bottom:18px; transform:translateX(-50%);
+  display:flex; align-items:center; gap:12px;
+  width:min(94vw,560px); padding:12px 14px 12px 16px;
+  background:#fff; border:1px solid var(--line,#e6e8f2); border-radius:16px;
+  box-shadow:0 14px 38px rgba(31,35,64,.18);
+  color:var(--ink,#1f2340); font-size:.95rem; line-height:1.55; z-index:9999;
+}
+#a2hs[hidden]{display:none}
+#a2hs-icon{width:38px; height:38px; border-radius:10px; flex:0 0 auto}
+#a2hs-text{flex:1 1 auto}
+#a2hs button{
+  font:inherit; cursor:pointer; border-radius:10px; white-space:nowrap;
+  padding:9px 18px; font-weight:700;
+  background:var(--primary,#4c5fd5); color:#fff; border:1px solid var(--primary,#4c5fd5);
+}
+#a2hs button:hover{background:var(--primary-dark,#3a49aa); border-color:var(--primary-dark,#3a49aa)}
+#a2hs #a2hs-x{
+  padding:4px 10px; font-size:1.25rem; line-height:1; font-weight:400;
+  background:none; color:var(--ink-soft,#5b6079); border-color:transparent;
+}
+#a2hs #a2hs-x:hover{background:var(--bg,#f7f8fc); color:var(--ink,#1f2340)}
+@media (max-width:520px){
+  #a2hs{font-size:.88rem; padding:10px 10px 10px 12px; gap:9px; bottom:12px}
+  #a2hs-icon{width:32px; height:32px}
+  #a2hs button{padding:8px 14px}
+}
+</style>
+<script>
+(function(){
+  var bar=document.getElementById('a2hs'), txt=document.getElementById('a2hs-text'),
+      go=document.getElementById('a2hs-go'), x=document.getElementById('a2hs-x');
+  // 已經是 App 模式就不用再提示
+  var standalone = window.matchMedia('(display-mode: standalone)').matches
+                || window.navigator.standalone === true;
+  if(standalone) return;
+  try{ if(localStorage.getItem('a2hs-dismissed')==='1') return; }catch(e){}
+
+  x.addEventListener('click', function(){
+    bar.hidden=true;
+    try{ localStorage.setItem('a2hs-dismissed','1'); }catch(e){}
+  });
+
+  var prompt=null;
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault(); prompt=e;
+    txt.textContent='裝成 App：像手機程式一樣打開，離線也能翻題本';
+    go.hidden=false; bar.hidden=false;
+  });
+  go.addEventListener('click', function(){
+    if(!prompt) return;
+    bar.hidden=true; prompt.prompt(); prompt=null;
+    try{ localStorage.setItem('a2hs-dismissed','1'); }catch(e){}
+  });
+  window.addEventListener('appinstalled', function(){
+    bar.hidden=true;
+    try{ localStorage.setItem('a2hs-dismissed','1'); }catch(e){}
+  });
+
+  // iOS Safari 沒有 beforeinstallprompt，改給手動加到主畫面的步驟
+  var ua=navigator.userAgent;
+  var notApple=/Android|CriOS|FxiOS|EdgiOS|OPiOS/.test(ua);
+  var iOS=!notApple && (/iPad|iPhone|iPod/.test(ua)
+          || (/Macintosh/.test(ua) && navigator.maxTouchPoints>1));
+  if(iOS && /Safari/.test(ua) && !/Chrome/.test(ua)){
+    txt.innerHTML='裝成 App：點下方 <strong>分享</strong> ↑ →「<strong>加入主畫面</strong>」';
+    bar.hidden=false;
+  }
+})();
+</script>
+<!-- /EFETL-INSTALL -->
 </body>
 </html>
