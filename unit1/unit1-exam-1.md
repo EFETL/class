@@ -45,10 +45,10 @@
 15. A: Is it going to rain?  B: ____
    (A) I'm going to go fishing.　(B) He needs a hat.　(C) It's a bucket.　(D) I'm not sure.
 16. What is this?  這是什麼？
-   ![](img/towel.png)
+   ![](img/towel-r1.png)
    (A) a hat　(B) a tent　(C) a swimsuit　(D) a towel
 17. What is this?  這是什麼？
-   ![](img/tent.png)
+   ![](img/tent-r1.png)
    (A) a tent　(B) a helmet　(C) a bucket　(D) a towel
 
 ## 四、文法測驗
