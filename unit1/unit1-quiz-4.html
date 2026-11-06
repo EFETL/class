@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit 1 The Great Outdoors — 第四回｜山上與海邊 What Do I Need?</title>
+<style>
+:root{--c:#e96443}
+*{box-sizing:border-box}body{margin:0;font:17px/1.6 -apple-system,"PingFang TC","Noto Sans TC",sans-serif;background:#f4f5fb;color:#222}
+header{position:sticky;top:0;z-index:5;background:var(--c);color:#fff;padding:10px 14px}
+header b{font-size:17px}#bar{height:6px;background:rgba(255,255,255,.35);border-radius:3px;margin-top:6px}#fill{height:100%;width:0;background:#fff;border-radius:3px;transition:width .2s}
+main{max-width:760px;margin:0 auto;padding:12px}
+h2{font-size:19px;margin:22px 0 4px;color:var(--c)}.desc{color:#666;font-size:16px;margin:0 0 8px}
+.q{background:#fff;border-radius:12px;padding:12px 14px;margin:10px 0;box-shadow:0 1px 4px #0001}
+.passage{border-left:5px solid var(--c);background:#fff;padding:10px 14px;border-radius:6px;font-size:17px}
+.opt{display:block;width:100%;text-align:left;font:inherit;background:#fff;border:2px solid #ddd;border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer}
+.opt.ok{border-color:#2e9e4f;background:#e8f7ed}.opt.bad{border-color:#d33;background:#fdecec}
+.play{font:inherit;background:var(--c);color:#fff;border:0;border-radius:20px;padding:8px 16px;margin-bottom:6px}
+select,input[type=text]{font:inherit;padding:8px;border:2px solid #ddd;border-radius:8px;width:100%;margin-top:6px}
+.chip{display:inline-block;font:inherit;border:2px solid var(--c);background:#fff;color:var(--c);border-radius:18px;padding:5px 12px;margin:4px 4px 0 0}
+.chip.used{opacity:.3}.ans{min-height:44px;border-bottom:2px dashed #aaa;margin:6px 0;padding:4px 0}
+.small{font:inherit;border:1px solid #bbb;background:#f6f6f6;border-radius:8px;padding:6px 12px;margin-right:6px}
+.fb{margin-top:6px;font-size:16px}.fb.ok{color:#2e9e4f}.fb.bad{color:#d33}
+#submit{display:block;margin:24px auto;font:inherit;font-weight:700;background:var(--c);color:#fff;border:0;border-radius:28px;padding:14px 30px}
+#ov{display:none;position:fixed;inset:0;background:#000a;z-index:9;align-items:center;justify-content:center}
+#ov div{background:#fff;border-radius:16px;padding:26px;text-align:center;max-width:320px}#ov .s{font-size:48px;color:var(--c);font-weight:800}
+a.back{color:#fff;font-size:16px;float:right}
+</style></head><body>
+<header><a class="back" href="index.html">回選單</a><b>Unit 1 · 第四回｜山上與海邊 What Do I Need?</b><div id="stat" style="font-size:16px"></div><div id="bar"><div id="fill"></div></div></header>
+<main id="m"></main>
+<button id="submit">📝 交卷 / 查看成績</button>
+<div id="ov"><div><div>你的成績</div><div class="s" id="sc"></div><p id="gl"></p><button class="small" onclick="location.reload()">重新作答</button> <button class="small" onclick="document.getElementById('ov').style.display='none'">看解答</button></div></div>
+<script>
+const S=[{"id": "listen", "name": "一、聽力測驗", "desc": "按「🔊 播放」聽句子（可重複聽），選出正確答案。", "type": "mc", "items": [{"audio": "A: I'm going to go to the mountains. What do I need? B: You need a flashlight.", "q": "What does A need?", "o": ["a swimsuit", "a flashlight", "a towel", "sunscreen"], "a": 1}, {"audio": "A: I'm going to go to the beach. What do I need? B: You need a towel.", "q": "Where is A going?", "o": ["the circus", "the mountains", "the beach", "school"], "a": 2}, {"audio": "A: What does she need? B: She needs a hat and sunglasses.", "q": "What does she need?", "o": ["a hat and sunglasses", "a tent and a sleeping bag", "a bat and a mitt", "a towel and a swimsuit"], "a": 0}, {"audio": "A: What do they need? B: They need helmets.", "q": "What do they need?", "o": ["helmets", "hats", "towels", "tents"], "a": 0}, {"audio": "A: Does he need an umbrella? B: No, he doesn't. He needs a bag.", "q": "What does he need?", "o": ["a bag", "a towel", "an umbrella", "a hat"], "a": 0}]}, {"id": "tf", "name": "二、是非題", "desc": "閱讀短文，判斷句子是 True（對）或 False（錯）。", "type": "tf", "passage": "Sam is going to go camping in the mountains. He needs a tent, a sleeping bag and a flashlight. Lily is going to go to the beach. She needs a swimsuit, a towel and sunscreen. Lily doesn't need a tent.", "items": [{"q": "Sam is going to the beach.", "a": false}, {"q": "Sam needs a flashlight.", "a": true}, {"q": "Lily needs sunscreen.", "a": true}, {"q": "Lily needs a tent.", "a": false}, {"q": "Sam needs a swimsuit.", "a": false}]}, {"id": "mc", "name": "三、選擇題", "desc": "選出最適合的答案。", "type": "mc", "items": [{"q": "You need a ____ when you go to bed in a tent.", "o": ["sleeping bag", "towel", "bucket", "swimsuit"], "a": 0}, {"q": "You need ____ to protect your eyes from the sun.", "o": ["a flashlight", "a bat", "a tent", "sunglasses"], "a": 3}, {"q": "You put ____ on your skin at the beach.", "o": ["sunscreen", "a racket", "a helmet", "a mitt"], "a": 0}, {"q": "You wear a ____ to swim.", "o": ["tent", "swimsuit", "sleeping bag", "flashlight"], "a": 1}, {"q": "A: I'm going to go to the mountains. What do I need?  B: ____", "o": ["I need a flashlight.", "They need a hat.", "You need a flashlight.", "He needs a towel."], "a": 2}, {"img": "sleepingbag-hr", "q": "What is this?  這是什麼？", "o": ["a tent", "a towel", "a swimsuit", "a sleeping bag"], "a": 3}, {"img": "sunglasses-hr", "q": "What is this?  這是什麼？", "o": ["a hat", "a flashlight", "sunglasses", "sunscreen"], "a": 2}]}, {"id": "gram", "name": "四、文法測驗", "desc": "選出文法正確的答案。", "type": "mc", "items": [{"q": "What does he ____?", "o": ["needs", "need", "needed", "needing"], "a": 1}, {"q": "She ____ a towel.", "o": ["are need", "needing", "need", "needs"], "a": 3}, {"q": "They ____ sunglasses.", "o": ["needs", "needing", "is need", "need"], "a": 3}, {"q": "Does she need a hat? No, she ____.", "o": ["isn't", "aren't", "doesn't", "don't"], "a": 2}, {"q": "I'm going ____ go to the beach.", "o": ["for", "to", "on", "at"], "a": 1}]}, {"id": "match", "name": "五、配合題", "desc": "左邊的題目要配右邊哪一個？用下拉選單選出代號。", "type": "match", "opts": ["毛巾", "太陽眼鏡", "帳篷", "手電筒", "防曬乳"], "items": [{"q": "a towel", "a": 0}, {"q": "a tent", "a": 2}, {"q": "a flashlight", "a": 3}, {"q": "sunglasses", "a": 1}, {"q": "sunscreen", "a": 4}]}, {"id": "rewrite", "name": "六、句子改寫", "desc": "依照提示改寫句子，直接輸入完整句子（注意大小寫與標點可忽略）。", "type": "text", "items": [{"h": "改成疑問句", "q": "He needs an umbrella.", "a": ["Does he need an umbrella?"]}, {"h": "主詞改成 They，a helmet 改成複數", "q": "She needs a helmet.", "a": ["They need helmets."]}, {"h": "改成否定句", "q": "You need a flashlight.", "a": ["You don't need a flashlight.", "You do not need a flashlight."]}, {"h": "改成疑問句", "q": "They need towels.", "a": ["Do they need towels?"]}, {"h": "主詞改成 He", "q": "I need a hat.", "a": ["He needs a hat."]}]}, {"id": "reorder", "name": "七、句子重組", "desc": "依序點選單字，排成正確的句子。", "type": "order", "items": [{"w": ["need?", "What", "I", "do"], "a": ["What do I need?"]}, {"w": ["need", "a", "flashlight.", "You"], "a": ["You need a flashlight."]}, {"w": ["a", "needs", "hat.", "She"], "a": ["She needs a hat."]}, {"w": ["need", "They", "helmets."], "a": ["They need helmets."]}, {"w": ["go", "I'm", "beach.", "to", "to", "going", "the"], "a": ["I'm going to go to the beach."]}]}];const L='ABCDE';
+const norm=t=>t.toLowerCase().replace(/[’']/g,"'").replace(/i'm/g,'i am').replace(/he's/g,'he is').replace(/she's/g,'she is').replace(/it's/g,'it is').replace(/we're/g,'we are').replace(/they're/g,'they are').replace(/you're/g,'you are').replace(/isn't/g,'is not').replace(/aren't/g,'are not').replace(/doesn't/g,'does not').replace(/don't/g,'do not').replace(/how's/g,'how is').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+let total=0,answered=0,score=0;const chk=[];
+function say(t,n){speechSynthesis.cancel();const go=()=>{const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.8;speechSynthesis.speak(u)};go();}
+const m=document.getElementById('m');
+function upd(){document.getElementById('stat').textContent=`已作答 ${answered}/${total}　目前得分 ${Math.round(score/total*100)}`;document.getElementById('fill').style.width=answered/total*100+'%'}
+function mark(el,ok,txt){el.querySelector('.fb')?.remove();const f=document.createElement('div');f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'✅ 答對了':'❌ 正確答案：'+txt;el.appendChild(f)}
+S.forEach(sec=>{
+ m.insertAdjacentHTML('beforeend',`<h2>${sec.name}</h2><p class="desc">${sec.desc}</p>`+(sec.passage?`<div class="passage">${sec.passage}</div>`:''));
+ if(sec.type==='match'){m.insertAdjacentHTML('beforeend','<div class="q">'+sec.opts.map((o,k)=>`<div>(${L[k]}) ${o}</div>`).join('')+'</div>')}
+ sec.items.forEach((it,idx)=>{total++;const no=total;const d=document.createElement('div');d.className='q';let done=false;
+  const fin=(ok,txt)=>{if(done)return;done=true;answered++;if(ok)score++;mark(d,ok,txt);upd()};
+  d.insertAdjacentHTML('beforeend',`<div><b>${no}.</b> ${it.audio?'':(it.q||'')}${it.audio?it.q:''}</div>`+(it.img?`<img src="img/${it.img}.png" alt="" style="display:block;height:110px;margin:8px 0;image-rendering:auto">`:''));
+  if(it.audio){const b=document.createElement('button');b.className='play';b.textContent='🔊 播放';b.onclick=()=>say(it.audio);d.prepend(b)}
+  if(sec.type==='mc'||sec.type==='tf'){const opts=sec.type==='tf'?['True（對）','False（錯）']:it.o;const ai=sec.type==='tf'?(it.a?0:1):it.a;
+   opts.forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.textContent=(sec.type==='tf'?'':'('+L[k]+') ')+t;b.onclick=()=>{if(done)return;const ok=k===ai;b.classList.add(ok?'ok':'bad');if(!ok)d.querySelectorAll('.opt')[ai].classList.add('ok');fin(ok,opts[ai])};d.appendChild(b)});}
+  if(sec.type==='match'){const s=document.createElement('select');s.innerHTML='<option value="">請選擇</option>'+sec.opts.map((o,k)=>`<option value="${k}">(${L[k]})</option>`).join('');s.onchange=()=>{if(done)return;const ok=+s.value===it.a;s.disabled=true;fin(ok,'('+L[it.a]+') '+sec.opts[it.a])};d.appendChild(s)}
+  if(sec.type==='text'){d.firstChild.innerHTML=`<b>${no}.</b> （${it.h}）${it.q}`;const i=document.createElement('input');i.type='text';i.autocapitalize='off';i.placeholder='輸入完整句子';d.appendChild(i);const b=document.createElement('button');b.className='small';b.style.marginTop='8px';b.textContent='檢查';b.onclick=()=>{if(done||!i.value.trim())return;i.disabled=true;fin(it.a.map(norm).includes(norm(i.value)),it.a[0])};d.appendChild(b)}
+  if(sec.type==='order'){d.firstChild.innerHTML=`<b>${no}.</b> 重組句子`;const ans=document.createElement('div');ans.className='ans';const pool=document.createElement('div');let picked=[];
+   it.w.forEach(w=>{const c=document.createElement('button');c.className='chip';c.textContent=w;c.onclick=()=>{if(done||c.classList.contains('used'))return;c.classList.add('used');picked.push([w,c]);ans.textContent=picked.map(x=>x[0]).join(' ')};pool.appendChild(c)});
+   const undo=document.createElement('button');undo.className='small';undo.textContent='↩ 退回';undo.onclick=()=>{if(done||!picked.length)return;picked.pop()[1].classList.remove('used');ans.textContent=picked.map(x=>x[0]).join(' ')};
+   const ck=document.createElement('button');ck.className='small';ck.textContent='檢查';ck.onclick=()=>{if(done||picked.length<it.w.length)return;fin(it.a.map(norm).includes(norm(picked.map(x=>x[0]).join(' '))),it.a[0])};
+   d.append(ans,pool,undo,ck)}
+  m.appendChild(d)})});
+upd();
+document.getElementById('submit').onclick=()=>{const sc=Math.round(score/total*100);document.getElementById('sc').textContent=sc;document.getElementById('gl').textContent=answered<total?`還有 ${total-answered} 題沒作答（算 0 分）`:(sc>=90?'太棒了！':sc>=70?'不錯喔，再加油！':'再複習一次單字和句型吧！');document.getElementById('ov').style.display='flex'};
+</script></body></html>
