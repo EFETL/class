@@ -45,10 +45,10 @@
 15. A: I'm going to go to the mountains. What do I need?  B: ____
    (A) I need a flashlight.　(B) They need a hat.　(C) You need a flashlight.　(D) He needs a towel.
 16. What is this?  這是什麼？
-   ![](img/sleepingbag.png)
+   ![](img/sleepingbag-hr.png)
    (A) a tent　(B) a towel　(C) a swimsuit　(D) a sleeping bag
 17. What is this?  這是什麼？
-   ![](img/sunglasses.png)
+   ![](img/sunglasses-hr.png)
    (A) a hat　(B) a flashlight　(C) sunglasses　(D) sunscreen
 
 ## 四、文法測驗

@@ -45,10 +45,10 @@
 15. The ____ says it's going to snow.
    (A) towel　(B) racket　(C) newspaper　(D) tent
 16. What is this?  這是什麼？
-   ![](img/racket.png)
+   ![](img/racket-hr.png)
    (A) a fishing rod　(B) a bat　(C) a bucket　(D) a tennis racket
 17. What is this?  這是什麼？
-   ![](img/bucket.png)
+   ![](img/bucket-hr.png)
    (A) a helmet　(B) a bucket　(C) a tennis ball　(D) a mitt
 
 ## 四、文法測驗

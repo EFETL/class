@@ -45,10 +45,10 @@
 15. He ____ a tennis ball and a tennis racket.
    (A) has　(B) are　(C) have　(D) is
 16. What is this?  這是什麼？
-   ![](img/mitt.png)
+   ![](img/mitt-hr.png)
    (A) a bat　(B) a mitt　(C) a bucket　(D) a helmet
 17. What is this?  這是什麼？
-   ![](img/fishingrod.png)
+   ![](img/fishingrod-hr.png)
    (A) a skateboard　(B) a tennis racket　(C) a fishing rod　(D) a bat
 
 ## 四、文法測驗

@@ -45,10 +45,10 @@
 15. A: Is it going to rain?  B: I ____ not.
    (A) am hope　(B) hopes　(C) hope　(D) hoping
 16. How is the weather in the picture?  圖中天氣如何？
-   ![](img/cold.png)
+   ![](img/cold-hr.png)
    (A) warm　(B) cold　(C) foggy　(D) hot
 17. How is the weather in the picture?  圖中天氣如何？
-   ![](img/foggy.png)
+   ![](img/foggy-hr.png)
    (A) cool　(B) humid　(C) foggy　(D) hot
 
 ## 四、文法測驗
