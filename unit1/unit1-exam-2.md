@@ -44,66 +44,72 @@
    (A) eye　(B) foot　(C) head　(D) hand
 15. He ____ a tennis ball and a tennis racket.
    (A) has　(B) are　(C) have　(D) is
+16. What is this?  這是什麼？
+   ![](img/mitt.png)
+   (A) a bat　(B) a mitt　(C) a bucket　(D) a helmet
+17. What is this?  這是什麼？
+   ![](img/fishingrod.png)
+   (A) a skateboard　(B) a tennis racket　(C) a fishing rod　(D) a bat
 
 ## 四、文法測驗
 
 選出文法正確的答案。
 
-16. I ____ going to go fishing.
-   (A) am　(B) is　(C) be　(D) are
-17. What ____ you going to do?
-   (A) does　(B) am　(C) is　(D) are
-18. He ____ a bat and a mitt.
-   (A) has　(B) do　(C) have　(D) are
-19. ___ you going to play tennis with Gus?
-   (A) Am　(B) Does　(C) Are　(D) Is
-20. I'm going to go ____ after school.
+18. I ____ going to go fishing.
+   (A) am　(B) be　(C) is　(D) are
+19. What ____ you going to do?
+   (A) am　(B) does　(C) are　(D) is
+20. He ____ a bat and a mitt.
+   (A) have　(B) do　(C) are　(D) has
+21. ___ you going to play tennis with Gus?
+   (A) Is　(B) Does　(C) Are　(D) Am
+22. I'm going to go ____ after school.
    (A) skateboarding　(B) skateboards　(C) to skateboard　(D) skateboard
 
 ## 五、配合題
 
 左邊的題目要配右邊哪一個？用下拉選單選出代號。
 
-- (A) 水桶
-- (B) 棒球手套
+- (A) 棒球手套
+- (B) 安全帽
 - (C) 釣竿
-- (D) 安全帽
-- (E) 球棒
+- (D) 球棒
+- (E) 水桶
 
-21. a mitt　（　）
-22. a bat　（　）
-23. a helmet　（　）
-24. a fishing rod　（　）
-25. a bucket　（　）
+23. a mitt　（　）
+24. a bat　（　）
+25. a helmet　（　）
+26. a fishing rod　（　）
+27. a bucket　（　）
 
 ## 六、句子改寫
 
 依照提示改寫句子，直接輸入完整句子（注意大小寫與標點可忽略）。
 
-26. (改成疑問句) You are going to play tennis today.
+28. (改成疑問句) You are going to play tennis today.
    → ______________________________
-27. (改成否定句) I'm going to go skateboarding.
+29. (改成否定句) I'm going to go skateboarding.
    → ______________________________
-28. (主詞改成 She) I have a skateboard and a helmet.
+30. (主詞改成 She) I have a skateboard and a helmet.
    → ______________________________
-29. (改成疑問句) He has a bat.
+31. (改成疑問句) He has a bat.
    → ______________________________
-30. (改成否定句) We're going to play baseball.
+32. (改成否定句) We're going to play baseball.
    → ______________________________
 
 ## 七、句子重組
 
 依序點選單字，排成正確的句子。
 
-31. What / you / to / are / going / do?
+33. going / What / are / you / to / do?
    → ______________________________
-32. play / He's / going / to / baseball.
+34. baseball. / going / play / to / He's
    → ______________________________
-33. has / and / a / mitt. / bat / a / He
+35. a / a / bat / has / He / and / mitt.
    → ______________________________
-34. I'm / fishing. / going / go / to
+36. fishing. / I'm / going / go / to
    → ______________________________
-35. I / a / helmet. / and / have / a / skateboard
+37. and / I / helmet. / skateboard / a / have / a
    → ______________________________
 
 ---
@@ -122,22 +128,22 @@
 
 **二、是非題**　6. F　7. T　8. T　9. F　10. F
 
-**三、選擇題**　11. D　12. A　13. D　14. C　15. A
+**三、選擇題**　11. D　12. A　13. D　14. C　15. A　16. B　17. C
 
-**四、文法測驗**　16. A　17. D　18. A　19. C　20. A
+**四、文法測驗**　18. A　19. C　20. D　21. C　22. A
 
-**五、配合題**　21. B　22. E　23. D　24. C　25. A
+**五、配合題**　23. A　24. D　25. B　26. C　27. E
 
 **六、句子改寫**　
-- 26. Are you going to play tennis today?
-- 27. I'm not going to go skateboarding.
-- 28. She has a skateboard and a helmet.
-- 29. Does he have a bat?
-- 30. We're not going to play baseball.
+- 28. Are you going to play tennis today?
+- 29. I'm not going to go skateboarding.
+- 30. She has a skateboard and a helmet.
+- 31. Does he have a bat?
+- 32. We're not going to play baseball.
 
 **七、句子重組**　
-- 31. What are you going to do?
-- 32. He's going to play baseball.
-- 33. He has a bat and a mitt.
-- 34. I'm going to go fishing.
-- 35. I have a skateboard and a helmet.
+- 33. What are you going to do?
+- 34. He's going to play baseball.
+- 35. He has a bat and a mitt.
+- 36. I'm going to go fishing.
+- 37. I have a skateboard and a helmet.

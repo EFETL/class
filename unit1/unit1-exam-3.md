@@ -44,66 +44,72 @@
    (A) excited　(B) foggy　(C) not sure　(D) cold
 15. A: Is it going to rain?  B: I ____ not.
    (A) am hope　(B) hopes　(C) hope　(D) hoping
+16. How is the weather in the picture?  圖中天氣如何？
+   ![](img/cold.png)
+   (A) warm　(B) cold　(C) foggy　(D) hot
+17. How is the weather in the picture?  圖中天氣如何？
+   ![](img/foggy.png)
+   (A) cool　(B) humid　(C) foggy　(D) hot
 
 ## 四、文法測驗
 
 選出文法正確的答案。
 
-16. How's the weather ____ to be tomorrow?
-   (A) goes　(B) go　(C) is going　(D) going
-17. It's going ____ be cool.
-   (A) at　(B) for　(C) to　(D) in
-18. ____ it going to rain tomorrow?
-   (A) Do　(B) Are　(C) Is　(D) Does
-19. We ____ going to go camping tomorrow.
-   (A) am　(B) be　(C) are　(D) is
-20. It ____ going to snow.
-   (A) aren't　(B) isn't　(C) am not　(D) don't
+18. How's the weather ____ to be tomorrow?
+   (A) go　(B) is going　(C) goes　(D) going
+19. It's going ____ be cool.
+   (A) for　(B) in　(C) at　(D) to
+20. ____ it going to rain tomorrow?
+   (A) Does　(B) Do　(C) Are　(D) Is
+21. We ____ going to go camping tomorrow.
+   (A) am　(B) be　(C) is　(D) are
+22. It ____ going to snow.
+   (A) am not　(B) isn't　(C) don't　(D) aren't
 
 ## 五、配合題
 
 左邊的題目要配右邊哪一個？用下拉選單選出代號。
 
-- (A) 寒冷的
-- (B) 溫暖的
-- (C) 有霧的
-- (D) 涼爽的
-- (E) 潮濕的
+- (A) 有霧的
+- (B) 寒冷的
+- (C) 溫暖的
+- (D) 潮濕的
+- (E) 涼爽的
 
-21. cool　（　）
-22. cold　（　）
-23. humid　（　）
-24. foggy　（　）
-25. warm　（　）
+23. cool　（　）
+24. cold　（　）
+25. humid　（　）
+26. foggy　（　）
+27. warm　（　）
 
 ## 六、句子改寫
 
 依照提示改寫句子，直接輸入完整句子（注意大小寫與標點可忽略）。
 
-26. (改成疑問句) It is going to rain tomorrow.
+28. (改成疑問句) It is going to rain tomorrow.
    → ______________________________
-27. (改成否定句) It's going to be cold.
+29. (改成否定句) It's going to be cold.
    → ______________________________
-28. (改成疑問句) The weather is going to be hot.
+30. (改成疑問句) The weather is going to be hot.
    → ______________________________
-29. (改成否定句) We're going to go camping.
+31. (改成否定句) We're going to go camping.
    → ______________________________
-30. (用 tomorrow 改成未來式) It is foggy today.
+32. (用 tomorrow 改成未來式) It is foggy today.
    → ______________________________
 
 ## 七、句子重組
 
 依序點選單字，排成正確的句子。
 
-31. be / It's / to / going / cold.
+33. going / to / cold. / It's / be
    → ______________________________
-32. to / rain? / it / Is / going
+34. going / it / to / rain? / Is
    → ______________________________
-33. hope / not. / I
+35. hope / I / not.
    → ______________________________
-34. to / tomorrow. / go / camping / We're / going
+36. camping / We're / going / tomorrow. / to / go
    → ______________________________
-35. to / weather / the / going / How's / be / tomorrow?
+37. the / weather / going / How's / tomorrow? / be / to
    → ______________________________
 
 ---
@@ -122,22 +128,22 @@
 
 **二、是非題**　6. T　7. F　8. T　9. F　10. F
 
-**三、選擇題**　11. D　12. A　13. D　14. C　15. C
+**三、選擇題**　11. D　12. A　13. D　14. C　15. C　16. B　17. C
 
-**四、文法測驗**　16. D　17. C　18. C　19. C　20. B
+**四、文法測驗**　18. D　19. D　20. D　21. D　22. B
 
-**五、配合題**　21. D　22. A　23. E　24. C　25. B
+**五、配合題**　23. E　24. B　25. D　26. A　27. C
 
 **六、句子改寫**　
-- 26. Is it going to rain tomorrow?
-- 27. It's not going to be cold.
-- 28. Is the weather going to be hot?
-- 29. We're not going to go camping.
-- 30. It is going to be foggy tomorrow.
+- 28. Is it going to rain tomorrow?
+- 29. It's not going to be cold.
+- 30. Is the weather going to be hot?
+- 31. We're not going to go camping.
+- 32. It is going to be foggy tomorrow.
 
 **七、句子重組**　
-- 31. It's going to be cold.
-- 32. Is it going to rain?
-- 33. I hope not.
-- 34. We're going to go camping tomorrow.
-- 35. How's the weather going to be tomorrow?
+- 33. It's going to be cold.
+- 34. Is it going to rain?
+- 35. I hope not.
+- 36. We're going to go camping tomorrow.
+- 37. How's the weather going to be tomorrow?

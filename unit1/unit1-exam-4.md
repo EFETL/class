@@ -44,66 +44,72 @@
    (A) tent　(B) swimsuit　(C) sleeping bag　(D) flashlight
 15. A: I'm going to go to the mountains. What do I need?  B: ____
    (A) I need a flashlight.　(B) They need a hat.　(C) You need a flashlight.　(D) He needs a towel.
+16. What is this?  這是什麼？
+   ![](img/sleepingbag.png)
+   (A) a tent　(B) a towel　(C) a swimsuit　(D) a sleeping bag
+17. What is this?  這是什麼？
+   ![](img/sunglasses.png)
+   (A) a hat　(B) a flashlight　(C) sunglasses　(D) sunscreen
 
 ## 四、文法測驗
 
 選出文法正確的答案。
 
-16. What does he ____?
-   (A) needing　(B) needed　(C) needs　(D) need
-17. She ____ a towel.
-   (A) needing　(B) are need　(C) need　(D) needs
-18. They ____ sunglasses.
-   (A) need　(B) needs　(C) needing　(D) is need
-19. Does she need a hat? No, she ____.
-   (A) aren't　(B) isn't　(C) don't　(D) doesn't
-20. I'm going ____ go to the beach.
-   (A) to　(B) on　(C) at　(D) for
+18. What does he ____?
+   (A) needs　(B) need　(C) needed　(D) needing
+19. She ____ a towel.
+   (A) are need　(B) needing　(C) need　(D) needs
+20. They ____ sunglasses.
+   (A) needs　(B) needing　(C) is need　(D) need
+21. Does she need a hat? No, she ____.
+   (A) isn't　(B) aren't　(C) doesn't　(D) don't
+22. I'm going ____ go to the beach.
+   (A) for　(B) to　(C) on　(D) at
 
 ## 五、配合題
 
 左邊的題目要配右邊哪一個？用下拉選單選出代號。
 
-- (A) 手電筒
+- (A) 毛巾
 - (B) 太陽眼鏡
 - (C) 帳篷
-- (D) 毛巾
+- (D) 手電筒
 - (E) 防曬乳
 
-21. a towel　（　）
-22. a tent　（　）
-23. a flashlight　（　）
-24. sunglasses　（　）
-25. sunscreen　（　）
+23. a towel　（　）
+24. a tent　（　）
+25. a flashlight　（　）
+26. sunglasses　（　）
+27. sunscreen　（　）
 
 ## 六、句子改寫
 
 依照提示改寫句子，直接輸入完整句子（注意大小寫與標點可忽略）。
 
-26. (改成疑問句) He needs an umbrella.
+28. (改成疑問句) He needs an umbrella.
    → ______________________________
-27. (主詞改成 They，a helmet 改成複數) She needs a helmet.
+29. (主詞改成 They，a helmet 改成複數) She needs a helmet.
    → ______________________________
-28. (改成否定句) You need a flashlight.
+30. (改成否定句) You need a flashlight.
    → ______________________________
-29. (改成疑問句) They need towels.
+31. (改成疑問句) They need towels.
    → ______________________________
-30. (主詞改成 He) I need a hat.
+32. (主詞改成 He) I need a hat.
    → ______________________________
 
 ## 七、句子重組
 
 依序點選單字，排成正確的句子。
 
-31. do / What / need? / I
+33. need? / What / I / do
    → ______________________________
-32. You / flashlight. / need / a
+34. need / a / flashlight. / You
    → ______________________________
-33. hat. / She / a / needs
+35. a / needs / hat. / She
    → ______________________________
-34. need / helmets. / They
+36. need / They / helmets.
    → ______________________________
-35. to / the / go / I'm / going / beach. / to
+37. go / I'm / beach. / to / to / going / the
    → ______________________________
 
 ---
@@ -122,22 +128,22 @@
 
 **二、是非題**　6. F　7. T　8. T　9. F　10. F
 
-**三、選擇題**　11. A　12. D　13. A　14. B　15. C
+**三、選擇題**　11. A　12. D　13. A　14. B　15. C　16. D　17. C
 
-**四、文法測驗**　16. D　17. D　18. A　19. D　20. A
+**四、文法測驗**　18. B　19. D　20. D　21. C　22. B
 
-**五、配合題**　21. D　22. C　23. A　24. B　25. E
+**五、配合題**　23. A　24. C　25. D　26. B　27. E
 
 **六、句子改寫**　
-- 26. Does he need an umbrella?
-- 27. They need helmets.
-- 28. You don't need a flashlight.
-- 29. Do they need towels?
-- 30. He needs a hat.
+- 28. Does he need an umbrella?
+- 29. They need helmets.
+- 30. You don't need a flashlight.
+- 31. Do they need towels?
+- 32. He needs a hat.
 
 **七、句子重組**　
-- 31. What do I need?
-- 32. You need a flashlight.
-- 33. She needs a hat.
-- 34. They need helmets.
-- 35. I'm going to go to the beach.
+- 33. What do I need?
+- 34. You need a flashlight.
+- 35. She needs a hat.
+- 36. They need helmets.
+- 37. I'm going to go to the beach.

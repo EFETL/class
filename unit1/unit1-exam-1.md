@@ -44,66 +44,72 @@
    (A) excited　(B) warm　(C) hot　(D) cool
 15. A: Is it going to rain?  B: ____
    (A) I'm going to go fishing.　(B) He needs a hat.　(C) It's a bucket.　(D) I'm not sure.
+16. What is this?  這是什麼？
+   ![](img/towel.png)
+   (A) a hat　(B) a tent　(C) a swimsuit　(D) a towel
+17. What is this?  這是什麼？
+   ![](img/tent.png)
+   (A) a tent　(B) a helmet　(C) a bucket　(D) a towel
 
 ## 四、文法測驗
 
 選出文法正確的答案。
 
-16. She ____ going to play tennis today.
-   (A) is　(B) be　(C) are　(D) am
-17. What does she ____?  She needs a hat.
-   (A) needs　(B) to need　(C) needing　(D) need
-18. They ____ helmets.
-   (A) needing　(B) needs　(C) need　(D) is need
-19. I'm not going ____ study with Sue.
-   (A) in　(B) to　(C) for　(D) at
-20. ____ he need an umbrella?
-   (A) Do　(B) Are　(C) Is　(D) Does
+18. She ____ going to play tennis today.
+   (A) be　(B) am　(C) is　(D) are
+19. What does she ____?  She needs a hat.
+   (A) to need　(B) needs　(C) need　(D) needing
+20. They ____ helmets.
+   (A) needs　(B) needing　(C) is need　(D) need
+21. I'm not going ____ study with Sue.
+   (A) for　(B) to　(C) in　(D) at
+22. ____ he need an umbrella?
+   (A) Is　(B) Does　(C) Do　(D) Are
 
 ## 五、配合題
 
 左邊的題目要配右邊哪一個？用下拉選單選出代號。
 
-- (A) She needs a hat.
-- (B) I'm going to go skateboarding.
-- (C) I hope not.
-- (D) It's going to be hot.
-- (E) No, he doesn't.
+- (A) I'm going to go skateboarding.
+- (B) She needs a hat.
+- (C) No, he doesn't.
+- (D) I hope not.
+- (E) It's going to be hot.
 
-21. What are you going to do?　（　）
-22. What does she need?　（　）
-23. How's the weather going to be?　（　）
-24. Is it going to rain?　（　）
-25. Does he need an umbrella?　（　）
+23. What are you going to do?　（　）
+24. What does she need?　（　）
+25. How's the weather going to be?　（　）
+26. Is it going to rain?　（　）
+27. Does he need an umbrella?　（　）
 
 ## 六、句子改寫
 
 依照提示改寫句子，直接輸入完整句子（注意大小寫與標點可忽略）。
 
-26. (改成否定句) I'm going to play tennis with you.
+28. (改成否定句) I'm going to play tennis with you.
    → ______________________________
-27. (改成疑問句) He is going to play tennis with May today.
+29. (改成疑問句) He is going to play tennis with May today.
    → ______________________________
-28. (主詞改成 He) I have a bat and a mitt.
+30. (主詞改成 He) I have a bat and a mitt.
    → ______________________________
-29. (主詞改成 They，a hat 改成複數) She needs a hat.
+31. (主詞改成 They，a hat 改成複數) She needs a hat.
    → ______________________________
-30. (改成否定句) He needs an umbrella.
+32. (改成否定句) He needs an umbrella.
    → ______________________________
 
 ## 七、句子重組
 
 依序點選單字，排成正確的句子。
 
-31. I'm / to / skateboarding. / going / go
+33. to / go / going / skateboarding. / I'm
    → ______________________________
-32. the / be? / to / How's / weather / going
+34. the / weather / going / to / be? / How's
    → ______________________________
-33. needs / a / She / hat.
+35. She / hat. / needs / a
    → ______________________________
-34. play / to / tennis / going / with / you. / I'm / not
+36. with / not / tennis / to / going / you. / play / I'm
    → ______________________________
-35. with / today? / play / tennis / me / to / going / you / Are
+37. tennis / Are / me / play / to / today? / you / going / with
    → ______________________________
 
 ---
@@ -122,22 +128,22 @@
 
 **二、是非題**　6. F　7. T　8. F　9. T　10. F
 
-**三、選擇題**　11. D　12. D　13. B　14. A　15. D
+**三、選擇題**　11. D　12. D　13. B　14. A　15. D　16. D　17. A
 
-**四、文法測驗**　16. A　17. D　18. C　19. B　20. D
+**四、文法測驗**　18. C　19. C　20. D　21. B　22. B
 
-**五、配合題**　21. B　22. A　23. D　24. C　25. E
+**五、配合題**　23. A　24. B　25. E　26. D　27. C
 
 **六、句子改寫**　
-- 26. I'm not going to play tennis with you.
-- 27. Is he going to play tennis with May today?
-- 28. He has a bat and a mitt.
-- 29. They need hats.
-- 30. He doesn't need an umbrella.
+- 28. I'm not going to play tennis with you.
+- 29. Is he going to play tennis with May today?
+- 30. He has a bat and a mitt.
+- 31. They need hats.
+- 32. He doesn't need an umbrella.
 
 **七、句子重組**　
-- 31. I'm going to go skateboarding.
-- 32. How's the weather going to be?
-- 33. She needs a hat.
-- 34. I'm not going to play tennis with you.
-- 35. Are you going to play tennis with me today?
+- 33. I'm going to go skateboarding.
+- 34. How's the weather going to be?
+- 35. She needs a hat.
+- 36. I'm not going to play tennis with you.
+- 37. Are you going to play tennis with me today?
