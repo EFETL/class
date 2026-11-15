@@ -8,8 +8,10 @@ import { COAST } from './coast.js';
 import { PHOTOS } from './photos.js';
 import {
   LANDFORMS, RIDGES, HILLBANDS, CONES, ZONES, HILL_LABELS, PEAKS, ISLANDS, SPOTS,
-  REGIONS, RAIN, SEASONS, MONTH_RAIN, RAIN_LEVELS, TRIBES,
+  REGIONS, RAIN, SEASONS, MONTH_RAIN, RAIN_LEVELS, TRIBES, HAKKA,
 } from './data.js';
+import { COUNTIES } from './counties.js';
+import { initFeatures, PROFILES } from './features.js';
 
 // ================= 座標：1 單位 = 1 公里 =================
 const LON0 = 121.0, LAT0 = 23.7;
@@ -272,6 +274,7 @@ function hypso(e, out) {
 const SEA_COLOR = C('#1d4f7a');
 
 // ================= 場景 =================
+let feat = null;   // 第二批功能（features.js），啟動時建立
 const state = { mode: 'terrain', color: 'landform', level: 'elem', exag: 6, focus: null, flood: 0, raining: false, rising: false, month: 7, city: 'kaohsiung' };
 const wrap = $('#scene');
 const renderer = new THREE.WebGLRenderer({ antialias: !SAVER, powerPreference: 'low-power' });
@@ -311,7 +314,8 @@ renderer.domElement.addEventListener('pointerup', e => {
   tap.n = Math.max(0, tap.n - 1);
   if (!tap.t || performance.now() - tap.t > 450 || Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > 8) return;
   tap.t = 0;
-  const order = ['tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot'];
+  if (feat && feat.onTap(e)) return;
+  const order = ['current', 'hakka', 'tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot'];
   for (const kind of order) for (const l of labels[kind]) {
     if (!l.onClick || !l.o.visible || l.el.style.display === 'none' || l.el.classList.contains('hid')) continue;
     const r = l.el.getBoundingClientRect();
@@ -330,7 +334,7 @@ sea.rotation.x = -Math.PI / 2; sea.position.set(-150, 0, -20); world.add(sea);
 const mat = new THREE.MeshLambertMaterial({ vertexColors: true });
 const M = buildMain();
 const mainGeo = gridGeometry(M.nx, M.nz, x => px(G.lon0) + x * (px(G.lon1) - px(G.lon0)) / (M.nx - 1), z => pz(G.lat1) + z * (pz(G.lat0) - pz(G.lat1)) / (M.nz - 1), M.elev);
-world.add(new THREE.Mesh(mainGeo, mat));
+const mainMesh = new THREE.Mesh(mainGeo, mat); world.add(mainMesh);
 // 原住民族分布：每一格找最近的分布圈（距離 / 半徑 < 1 才算）
 const ZKM = []; TRIBES.forEach((t, ti) => t.zones.forEach(([lon, lat, r]) => ZKM.push([px(lon), pz(lat), r, ti])));
 // 圈內一定算；圈和圈之間的山區（海拔 500 公尺以上）就近補滿，讓分布區連成一片；西部平原、丘陵不上色
@@ -342,8 +346,24 @@ function tribeAt(x, z, e) {
 }
 M.tribe = new Int8Array(M.elev.length).fill(-1);
 for (let i = 0; i < M.elev.length; i++) if (M.mask[i]) M.tribe[i] = tribeAt(px(M.lonA[i]), pz(M.latA[i]), M.elev[i]);
+// 縣市（內政部縣市界）：每一格屬於哪個縣市，北中南東與客家分布都用它
+const CNAMES = Object.keys(COUNTIES);
+const CBOX = CNAMES.map(n => { const b = [1e9, 1e9, -1e9, -1e9]; COUNTIES[n].forEach(r => r.forEach(([x, y]) => { b[0] = Math.min(b[0], x); b[1] = Math.min(b[1], y); b[2] = Math.max(b[2], x); b[3] = Math.max(b[3], y); })); return b; });
+function countyAt(lon, lat) {
+  for (let k = 0; k < CNAMES.length; k++) { const b = CBOX[k]; if (lon < b[0] || lon > b[2] || lat < b[1] || lat > b[3]) continue; if (COUNTIES[CNAMES[k]].some(r => inPoly(lon, lat, r))) return k; }
+  return -1;
+}
+const REG_OF = { '基隆市': 'N', '台北市': 'N', '新北市': 'N', '桃園市': 'N', '新竹市': 'N', '新竹縣': 'N', '宜蘭縣': 'N', '苗栗縣': 'C', '台中市': 'C', '彰化縣': 'C', '南投縣': 'C', '雲林縣': 'C',
+  '嘉義市': 'S', '嘉義縣': 'S', '台南市': 'S', '高雄市': 'S', '屏東縣': 'S', '澎湖縣': 'S', '花蓮縣': 'E', '台東縣': 'E', '金門縣': 'O', '連江縣': 'O' };
+M.county = new Int8Array(M.elev.length).fill(-1);
+for (let i = 0; i < M.elev.length; i++) if (M.mask[i]) M.county[i] = countyAt(M.lonA[i], M.latA[i]);
+for (let pass = 0; pass < 4; pass++) for (let i = 0; i < M.elev.length; i++) {   // 海岸線兩套資料對不齊的地方，就近補上
+  if (!M.mask[i] || M.county[i] >= 0) continue;
+  for (const d of [1, -1, M.nx, -M.nx]) { const j = i + d; if (j >= 0 && j < M.county.length && M.county[j] >= 0) { M.county[i] = M.county[j]; break; } }
+}
+for (let i = 0; i < M.elev.length; i++) if (M.county[i] >= 0) M.reg[i] = REG_OF[CNAMES[M.county[i]]];
 const islandParts = [];
-ISLANDS.forEach(isl => buildIsland(isl).forEach(p => { p.tribe = TRIBES.findIndex(t => t.island === isl.id); islandParts.push(p); world.add(new THREE.Mesh(p.g, mat)); }));
+ISLANDS.forEach(isl => buildIsland(isl).forEach(p => { p.tribe = TRIBES.findIndex(t => t.island === isl.id); p.county = countyAt(isl.lon, isl.lat); islandParts.push(p); world.add(new THREE.Mesh(p.g, mat)); }));
 // 東沙環礁的珊瑚礁圈
 ISLANDS.filter(i => i.atoll).forEach(i => {
   const [lon, lat, r] = i.atoll;
@@ -361,8 +381,15 @@ flood.rotation.x = -Math.PI / 2; flood.position.set(-150, 0, -20); flood.visible
 const tmp = new THREE.Color(), tmp2 = new THREE.Color();
 const FOCUS_CLS = { plain: 1, hill: 2, tableland: 3, basin: 4, mountain: 5 };
 const NO_TRIBE = C('#e9e4d4');
-function colorFor(e, cls, reg, out, tribe = -1) {
+const HK_LO = C('#b5dd8c'), HK_HI = C('#1b5e20');
+function colorFor(e, cls, reg, out, tribe = -1, county = -1) {
   if (!cls) return out.copy(SEA_COLOR);
+  if (state.color === 'hakka') {
+    const pct = county >= 0 ? HAKKA.top5[CNAMES[county]] : null;
+    if (pct) out.copy(HK_LO).lerp(HK_HI, Math.min(1, Math.max(0, (pct - 28) / 40))); else out.copy(NO_TRIBE);
+    out.multiplyScalar(0.84 + 0.28 * Math.min(1, e / 3200));
+    return out;
+  }
   if (state.color === 'tribe') {
     if (tribe >= 0 && (!state.tribeFocus || TRIBES[tribe].id === state.tribeFocus)) out.set(TRIBES[tribe].c); else out.copy(NO_TRIBE);
     out.multiplyScalar(0.82 + 0.3 * Math.min(1, e / 3200));
@@ -372,15 +399,16 @@ function colorFor(e, cls, reg, out, tribe = -1) {
   else if (state.color === 'region') { out.set(REGIONS[reg].color); out.lerp(tmp2.set('#ffffff'), Math.min(0.35, e / 9000)); out.multiplyScalar(0.85 + 0.25 * Math.min(1, e / 3000)); }
   else { out.copy(LF_COLOR[cls]); const k = cls === 5 ? Math.min(1, (e - 1000) / 2900) : 0; out.lerp(tmp2.set(k > 0.9 ? '#ffffff' : '#5a3a28'), k * 0.45); }
   if (state.focus && FOCUS_CLS[state.focus] !== cls) out.lerp(tmp2.set('#cfcfcf'), 0.78);
+  else if (state.focus && state.color === 'landform' && state.mode === 'terrain') out.lerp(tmp2.set('#3a3a3a'), 0.7);   // 浮起來之後留下的「位置」
   return out;
 }
 function paint() {
   const col = mainGeo.attributes.color.array;
-  for (let i = 0; i < M.elev.length; i++) { colorFor(M.elev[i], M.cls[i], M.reg[i], tmp, M.tribe[i]); col[i * 3] = tmp.r; col[i * 3 + 1] = tmp.g; col[i * 3 + 2] = tmp.b; }
+  for (let i = 0; i < M.elev.length; i++) { colorFor(M.elev[i], M.cls[i], M.reg[i], tmp, M.tribe[i], M.county[i]); col[i * 3] = tmp.r; col[i * 3 + 1] = tmp.g; col[i * 3 + 2] = tmp.b; }
   mainGeo.attributes.color.needsUpdate = true;
   islandParts.forEach(p => {
     const a = p.g.attributes.color.array;
-    for (let i = 0; i < p.N; i++) { colorFor(p.elev[i], p.mask[i] ? p.cls[i] : 0, p.region, tmp, p.tribe); a[i * 3] = tmp.r; a[i * 3 + 1] = tmp.g; a[i * 3 + 2] = tmp.b; }
+    for (let i = 0; i < p.N; i++) { colorFor(p.elev[i], p.mask[i] ? p.cls[i] : 0, p.region, tmp, p.tribe, p.county); a[i * 3] = tmp.r; a[i * 3 + 1] = tmp.g; a[i * 3 + 2] = tmp.b; }
     p.g.attributes.color.needsUpdate = true;
   });
 }
@@ -402,7 +430,7 @@ function spotHeight(lon, lat) {
 }
 
 // ================= 標籤 =================
-const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [], tribe: [], sea: [] };
+const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [], tribe: [], sea: [], current: [], hakka: [] };
 function addLabel(kind, html, lon, lat, hM, cls, onClick) {
   const el = document.createElement('div'); el.className = 'lb ' + cls; el.innerHTML = html;
   if (onClick) el.classList.add('clickable');
@@ -418,6 +446,12 @@ PEAKS.forEach(p => addLabel('peak', `▲ ${p.name}<small>${p.h.toLocaleString()}
 ISLANDS.forEach(i => addLabel('island', `🏝️ ${i.name}`, i.lon, i.lat, i.h + 400, 'island', () => showIsland(i)));
 SPOTS.forEach(s => { const h = spotHeight(s.lon, s.lat); s.h = h; s.lbl = addLabel('spot', `<span class="pin">${s.i}</span><span class="nm">${s.n}</span>`, s.lon, s.lat, h + 60, 'spot', () => showSpot(s)); });
 TRIBES.forEach(t => { t.lbl = addLabel('tribe', `<span class="tdot" style="background:${t.c}"></span><b>${t.n}</b><small>${t.v}</small>`, t.vlon, t.vlat, spotHeight(t.vlon, t.vlat) + 80, 'tribe', () => showTribe(t)); });
+Object.entries(HAKKA.top5).forEach(([name, pct], rank) => {
+  const rings = COUNTIES[name]; const big = rings.reduce((a, r) => r.length > a.length ? r : a, rings[0]);
+  const cx = big.reduce((a, p) => a + p[0], 0) / big.length, cy = big.reduce((a, p) => a + p[1], 0) / big.length;
+  addLabel('hakka', `<b>${rank + 1}. ${name.replace('台', '臺')}</b><small>客家人口 ${pct}%</small>`, cx, cy, (heightAt(cx, cy) || 100) + 300, 'hakka', () => showHakka());
+});
+HAKKA.areas.forEach(a => addLabel('hakka', `🏮 ${a.n}`, a.lon, a.lat, (heightAt(a.lon, a.lat) || 100) + 150, 'hakka-area', () => showHakka(a)));
 RAIN.forEach(c => addLabel('city', `☔ ${c.name}`, c.lon, c.lat, (heightAt(c.lon, c.lat) || 30) + 200, 'city', () => { state.city = c.id; $('#city').value = c.id; drawRain(); }));
 
 // ================= 海域名稱 =================
@@ -603,6 +637,14 @@ function renderTribes() {
   $('#tribeList').innerHTML = TRIBES.map((t, i) => `<button data-t="${t.id}" class="${state.tribeFocus === t.id ? 'on' : ''}"><span class="dot" style="background:${t.c}"></span><b>${i + 1}. ${t.n}${t.isNew ? ' <em class="new">2026 新核定</em>' : ''}</b><small>${t.where}</small></button>`).join('');
   $('#tribeList').querySelectorAll('button').forEach(b => b.onclick = () => showTribe(TRIBES.find(t => t.id === b.dataset.t)));
 }
+function showHakka(area) {
+  const rows = Object.entries(HAKKA.top5).map(([n, p], i) => `<div class="fl-row"><span class="dot" style="background:#${HK_LO.clone().lerp(HK_HI, Math.min(1, Math.max(0, (p - 28) / 40))).getHexString()}"></span>${n.replace('台', '臺')}<div class="bar"><i style="width:${p}%;background:#2e7d32"></i></div><b>${p}%</b></div>`).join('');
+  openInfo(`<div class="tag-lf" style="background:#2e7d32;color:#fff">🏮 客家</div><h3>${area ? area.n : '臺灣的客家人'}</h3>
+    ${area ? `<p>${area.d}</p>` : ''}<p>${txt(HAKKA)}</p>
+    <p><b>全臺客家人口：</b>${HAKKA.total}</p><p><b>客家人口比率前五名縣市：</b></p>${rows}
+    <p class="muted">資料來源：${HAKKA.source}。顏色越深，客家人口比率越高；其他縣市未上色。</p>`);
+  if (area) flyTo(area.lon, area.lat, 160);
+}
 function showPeak(p) {
   openInfo(`<div class="tag-lf" style="background:${LANDFORMS.mountain.color}">⛰️ 山地</div><h3>▲ ${p.name}</h3><p>高度 <b>${p.h.toLocaleString()} 公尺</b>＝ ${(p.h / 1000).toFixed(3)} 公里${p.note ? `，${p.note}` : ''}。</p>
     <p class="muted">${state.level === 'elem' ? '如果一層樓大約 3 公尺，' + p.name + '差不多有 ' + Math.round(p.h / 3).toLocaleString() + ' 層樓那麼高！' : '臺灣面積不大，卻有兩百多座 3,000 公尺以上的高山，是板塊擠壓形成的年輕山脈。'}</p>`);
@@ -627,8 +669,11 @@ function viewTop() { fly = { t: 0, p0: camera.position.clone(), p1: new THREE.Ve
 function viewAll() { fly = { t: 0, p0: camera.position.clone(), p1: new THREE.Vector3(px(119.4), 1050, pz(23.4) + 260), c0: controls.target.clone(), c1: new THREE.Vector3(px(119.4), 0, pz(23.4)) }; }
 
 // ================= UI =================
-function setFocus(f) { state.focus = state.focus === f ? null : f; document.querySelectorAll('.legend [data-lf]').forEach(b => b.classList.toggle('on', b.dataset.lf === state.focus)); paint(); }
-function setColor(c) { state.color = c; document.querySelectorAll('[data-color]').forEach(b => b.classList.toggle('on', b.dataset.color === c)); renderLegend(); paint(); }
+function setFocus(f) { state.focus = state.focus === f ? null : f; document.querySelectorAll('.legend [data-lf]').forEach(b => b.classList.toggle('on', b.dataset.lf === state.focus)); paint(); feat.setFloat(state.color === 'landform' && state.mode === 'terrain' ? state.focus : null); }
+function setColor(c) {
+  state.color = c; document.querySelectorAll('[data-color]').forEach(b => b.classList.toggle('on', b.dataset.color === c)); renderLegend(); paint();
+  if (feat) { feat.countyLines.visible = c === 'region' || c === 'hakka'; if (c !== 'landform') feat.setFloat(null); else if (state.focus) feat.setFloat(state.focus); }
+}
 function renderLegend() {
   const el = $('#legend');
   if (state.color === 'landform') el.innerHTML = ['plain', 'basin', 'tableland', 'hill', 'mountain'].map(k => `<button data-lf="${k}" class="${state.focus === k ? 'on' : ''}"><span class="dot" style="background:${LANDFORMS[k].color}"></span>${LANDFORMS[k].icon} ${LANDFORMS[k].name}</button>`).join('');
@@ -641,8 +686,15 @@ function setMode(m) {
   state.mode = m;
   document.querySelectorAll('.tabs [data-mode]').forEach(b => b.classList.toggle('on', b.dataset.mode === m));
   document.querySelectorAll('.pane').forEach(p => p.hidden = p.dataset.pane !== m);
-  if (m === 'tribes') { if (state.color !== 'tribe') state.prevColor = state.color; state.color = 'tribe'; renderTribes(); paint(); }
-  else if (state.color === 'tribe') { state.tribeFocus = null; setColor(state.prevColor || 'landform'); }
+  const ETH = ['tribe', 'hakka'];
+  if (m === 'tribes') { if (!ETH.includes(state.color)) state.prevColor = state.color; setEthnic(state.ethnic || 'tribe'); }
+  else if (ETH.includes(state.color)) { state.tribeFocus = null; setColor(state.prevColor || 'landform'); }
+  if (feat) {
+    feat.showCurrents(m === 'ocean');
+    if (m === 'ocean') feat.renderCurrents();
+    if (m !== 'terrain') { feat.setFloat(null); feat.closePlates(); feat.clearProfile(); }
+    else if (state.focus && state.color === 'landform') feat.setFloat(state.focus);
+  }
   const isRain = m === 'rain';
   rain.visible = clouds.visible = isRain && state.raining;
   labels.city.forEach(l => l.o.visible = isRain);
@@ -658,14 +710,15 @@ function renderSpotList() {
 }
 function applyToggles() {
   const on = (id) => $('#' + id).checked;
-  const tr = state.mode === 'tribes';
-  labels.lf.forEach(l => l.o.visible = on('tgLf') && !tr);
-  labels.peak.forEach(l => l.o.visible = on('tgPeak') && !tr);
-  labels.spot.forEach(l => l.o.visible = (on('tgSpot') || state.mode === 'spots') && !tr);
-  labels.tribe.forEach(l => l.o.visible = tr);
+  const tr = state.mode === 'tribes', oc = state.mode === 'ocean', quiet = tr || oc;
+  labels.lf.forEach(l => l.o.visible = on('tgLf') && !quiet);
+  labels.peak.forEach(l => l.o.visible = on('tgPeak') && !quiet);
+  labels.spot.forEach(l => l.o.visible = (on('tgSpot') || state.mode === 'spots') && !quiet);
+  labels.tribe.forEach(l => l.o.visible = tr && state.ethnic !== 'hakka');
+  labels.hakka.forEach(l => l.o.visible = tr && state.ethnic === 'hakka');
   labels.island.forEach(l => l.o.visible = on('tgIsland'));
   labels.ruler.forEach(l => l.o.visible = on('tgRuler'));
-  labels.sea.forEach(l => l.o.visible = on('tgSea'));
+  labels.sea.forEach(l => l.o.visible = on('tgSea') || oc);
   rulerGroup.visible = on('tgRuler');
 }
 function setLevel(l) {
@@ -704,6 +757,42 @@ const isPhone = () => window.innerWidth <= 900;
 if (isPhone()) document.body.classList.add('panel-min');
 document.querySelectorAll('.tabs [data-mode]').forEach(b => b.addEventListener('click', () => { document.body.classList.remove('panel-min'); layout(); }));
 
+// 族群：原住民族／客家
+function setEthnic(e) {
+  state.ethnic = e; state.tribeFocus = null;
+  document.querySelectorAll('#ethChips [data-eth]').forEach(b => b.classList.toggle('on', b.dataset.eth === e));
+  $('#tribeBox').hidden = e !== 'tribe'; $('#hakkaBox').hidden = e !== 'hakka';
+  if (e === 'tribe') renderTribes();
+  setColor(e); applyToggles();
+}
+document.querySelectorAll('#ethChips [data-eth]').forEach(b => b.onclick = () => { setEthnic(b.dataset.eth); if (b.dataset.eth === 'hakka') showHakka(); else info.classList.remove('show'); });
+$('#hakkaAreas').innerHTML = HAKKA.areas.map((a, i) => `<button class="chip" data-ha="${i}">🏮 ${a.n}</button>`).join('');
+$('#hakkaAreas').querySelectorAll('[data-ha]').forEach(b => b.onclick = () => showHakka(HAKKA.areas[+b.dataset.ha]));
+// 海洋分頁
+$('#seaBtns').innerHTML = SEAS.map((s, i) => `<button class="chip" data-sea="${i}">🌊 ${s.n}</button>`).join('');
+$('#seaBtns').querySelectorAll('[data-sea]').forEach(b => b.onclick = () => { const sea = SEAS[+b.dataset.sea]; flyTo(sea.lon, sea.lat, 420, 0.8); labels.sea[+b.dataset.sea].onClick(); });
+$('#oceanIslands').innerHTML = ['guishan', 'keelungislet', 'daqiu', 'lanyu', 'green', 'liuqiu', 'penghu', 'dongsha'].map(id => { const i = ISLANDS.find(x => x.id === id); return `<button data-isl2="${id}">${i.name}</button>`; }).join('');
+$('#oceanIslands').querySelectorAll('[data-isl2]').forEach(b => b.onclick = () => showIsland(ISLANDS.find(i => i.id === b.dataset.isl2)));
+// 地形分頁：剖面圖、板塊
+$('#profBtns').innerHTML = PROFILES.map((p, i) => `<button class="chip" data-prof="${i}">${p.n}</button>`).join('') + '<button class="chip" id="btnPick">✏️ 自己選兩點</button>';
+$('#profBtns').querySelectorAll('[data-prof]').forEach(b => b.onclick = () => { const p = PROFILES[+b.dataset.prof]; feat.drawProfile(p.a, p.b, p.n); });
+$('#btnPick').onclick = () => { if (isPhone()) { document.body.classList.add('panel-min'); layout(); } feat.startPick(); };
+$('#btnPlates').onclick = () => { if (isPhone()) { document.body.classList.add('panel-min'); layout(); } feat.openPlates(); };
+// 電腦：方向鍵與 ◀ ▶ ▲ ▼ 按鈕也能移動地圖
+controls.listenToKeyEvents(window); controls.keyPanSpeed = 28;
+function panBy(dx, dz) {
+  fly = null;
+  const d = camera.position.distanceTo(controls.target) * 0.15;
+  const fwd = new THREE.Vector3(); camera.getWorldDirection(fwd); fwd.y = 0; fwd.normalize();
+  const right = new THREE.Vector3().crossVectors(fwd, new THREE.Vector3(0, 1, 0)).normalize();
+  const mv = right.multiplyScalar(dx * d).add(fwd.multiplyScalar(dz * d));
+  camera.position.add(mv); controls.target.add(mv); controls.update(); wake();
+}
+[['panL', -1, 0], ['panR', 1, 0], ['panU', 0, 1], ['panD', 0, -1]].forEach(([id, dx, dz]) => $('#' + id).onclick = () => panBy(dx, dz));
+
+feat = initFeatures({ scene, world, camera, controls, renderer, mainGeo, mainMesh, seaMesh: sea, M, G, px, pz, KX, KZ, heightAt, state, openInfo, info, $, LF_COLOR, CLS, labels, addLabel,
+  wake: (ms) => wake(ms), flyTo: (...a) => flyTo(...a) });
+
 // ================= 啟動 =================
 function resize() {
   const w = wrap.clientWidth, h = wrap.clientHeight;
@@ -741,7 +830,7 @@ wake(3000);
 // 標籤避免重疊：重要的先放（外島 > 地形名 > 山峰 > 雨量站 > 景點），被擋到的先藏起來
 function declutter() {
   const placed = [];
-  for (const kind of ['tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot']) {
+  for (const kind of ['current', 'hakka', 'tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot']) {
     for (const l of labels[kind]) {
       if (!l.o.visible || l.el.style.display === 'none') continue;
       l.el.classList.remove('hid');
@@ -760,7 +849,8 @@ renderer.setAnimationLoop(() => {
     if (fly.t >= 1) fly = null;
   }
   const moved = controls.update();
-  const animating = fly || rain.visible || (state.mode === 'rain' && state.rising) || moved;
+  const fbusy = feat.tick(dt);
+  const animating = fly || rain.visible || (state.mode === 'rain' && state.rising) || moved || fbusy;
   if (!animating && performance.now() > awakeUntil) return;   // 沒事就不畫
   if (animating) wake(400);
   if (rain.visible) stepRain(dt);
@@ -775,4 +865,4 @@ renderer.setAnimationLoop(() => {
   document.body.classList.toggle('far', dist > 420);
   renderer.render(scene, camera); labelR.render(scene, camera);
 });
-window.__tw = { state, M, SPOTS, camera, controls, setMode, setColor, flyTo, updateFlood };
+window.__tw = { state, M, SPOTS, camera, controls, setMode, setColor, flyTo, updateFlood, feat, setFocus, setEthnic };

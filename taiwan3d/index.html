@@ -114,6 +114,26 @@ body[data-level=elem] .junior-only{display:none}
 @media (pointer:coarse){.touch-only{display:block}.mouse-only{display:none}}
 .lb.sea{font-size:17px;font-weight:800;letter-spacing:3px;color:#0d47a1;text-shadow:0 0 4px #fff,0 0 4px #fff,0 0 8px #fff;font-style:italic}
 em.new{font-style:normal;font-size:11px;background:#ffe08a;color:#7a4b00;border-radius:6px;padding:1px 5px;margin-left:4px}
+.padbar{position:fixed;right:64px;bottom:64px;display:flex;flex-direction:column;align-items:center;gap:4px;z-index:15}
+.padbar>div{display:flex;gap:36px}
+.padbar button{width:38px;height:38px;border:0;border-radius:10px;background:#fff;font-size:15px;box-shadow:0 3px 12px #0002;cursor:pointer}
+@media (pointer:coarse){.padbar{display:none!important}}
+.pick{background:#fff3cd;border-radius:10px;padding:8px 10px;font-weight:700;color:#7a5200}
+.proflegend{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;margin:4px 0}
+.proflegend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.lb.profpin{background:#ff1744;color:#fff;font-weight:800;border-radius:50%;width:22px;height:22px;display:grid;place-items:center;font-size:13px}
+.lb.current{background:#ffffffee;border-radius:8px;padding:2px 8px 2px 20px;position:relative;font-weight:700;font-size:13px;box-shadow:0 1px 4px #0003;display:flex;flex-direction:column}
+.lb.current .cdot{position:absolute;left:6px;top:8px;width:10px;height:10px;border-radius:50%}
+.lb.current small{font-weight:500;color:#555;font-size:11px}
+.lb.current.sel{outline:3px solid #ff9800;transform:translateY(-60%) scale(1.12)}
+.lb.plate{font-weight:800;font-size:16px;padding:4px 10px;border-radius:10px;color:#fff;display:flex;flex-direction:column;align-items:center}
+.lb.plate small{font-size:12px;font-weight:600}
+.lb.plate.eu{background:#43a047e6}.lb.plate.ph{background:#8e24aae6}.lb.plate.bd{background:#d50000e6;font-size:13px}
+.lb.hakka{background:#ffffffee;border:2px solid #2e7d32;border-radius:8px;padding:2px 8px;display:flex;flex-direction:column;align-items:center;font-size:13px}
+.lb.hakka small{color:#2e7d32;font-weight:700}
+body.far .lb.hakka-area{display:none}
+.lb.hakka-area{background:#2e7d32;color:#fff;border-radius:8px;padding:2px 8px;font-weight:700;font-size:12.5px}
+#curList button.off{opacity:.4}
 .zoombar button{width:44px;height:44px;border:0;border-radius:12px;background:#fff;font-size:24px;font-weight:700;box-shadow:0 3px 12px #0002;cursor:pointer;touch-action:manipulation}
 .viewbar button{border:0;background:#fff;border-radius:10px;padding:9px 12px;font:inherit;font-size:14px;font-weight:700;box-shadow:0 3px 12px #0002;cursor:pointer}
 @media (max-width:900px){
@@ -136,7 +156,9 @@ em.new{font-style:normal;font-size:11px;background:#ffe08a;color:#7a4b00;border-
   #spotList li,#spotList ul.cards li>span:last-child,.spot-list li,.tribe-list button,.tribe-list button small,
   .tag-lf,.btn-sm,#floodHint,#monthInfo p,#rainTotal,.viewbar button,.tag,#floodVal small,.rg small,#panel small,#info small,em.new{font-size:16px!important}
   h3{font-size:20px} h4{font-size:17px}
-  .tabs button{font-size:16px!important}
+  .tabs{overflow-x:auto;scrollbar-width:none}
+  .tabs button{font-size:16px!important;flex:0 0 auto;padding:7px 10px}
+  .lb.current,.lb.hakka,.lb.hakka-area,.lb.plate,.lb.current small,.lb.plate small,.proflegend{font-size:16px!important}
   .rg{grid-template-columns:18px 56px 1fr}
   .fl-row{grid-template-columns:18px 52px 1fr 46px}
   #seasonBox .sea span,#seasonBox .sea i,#seasonBox .sea em{font-size:16px!important}
@@ -168,8 +190,9 @@ em.new{font-style:normal;font-size:11px;background:#ffe08a;color:#7a4b00;border-
   <div class="tabs">
     <button data-mode="terrain">⛰️ 地形</button>
     <button data-mode="rain">🌧️ 雨量</button>
+    <button data-mode="ocean">🌊 海洋</button>
+    <button data-mode="tribes">👥 族群</button>
     <button data-mode="spots">📍 景點</button>
-    <button data-mode="tribes">🪶 原住民</button>
     <button id="panelToggle" title="收合面板">☰</button>
   </div>
 
@@ -181,7 +204,12 @@ em.new{font-style:normal;font-size:11px;background:#ffe08a;color:#7a4b00;border-
       <button class="chip" data-color="height">高度分層設色</button>
     </div>
     <div id="legend" class="legend"></div>
-    <p class="muted">點一種地形，地圖上只會亮起那種地形；再點一次恢復。電腦：左鍵拖曳轉動、右鍵拖曳移動、滾輪放大縮小。手機／平板：一指拖曳轉動，兩指捏合放大縮小、兩指一起拖曳移動地圖；右邊也有 ＋／－ 按鈕。</p>
+    <p class="muted">點一種地形，那種地形會「浮起來」，看清楚它在哪裡；再點一次放回去。電腦：左鍵拖曳轉動、右鍵拖曳移動、滾輪放大縮小。手機／平板：一指拖曳轉動，兩指捏合放大縮小、兩指一起拖曳移動地圖；右邊也有 ＋／－ 按鈕。</p>
+    <h4>📈 地形剖面圖</h4>
+    <div class="row" id="profBtns"></div>
+    <p id="pickHint" class="pick" hidden></p>
+    <h4>🌋 板塊運動</h4>
+    <button class="bigbtn" id="btnPlates" style="background:#8e24aa">▶ 看臺灣怎麼被「擠」出來</button>
     <h4>外島</h4>
     <div class="isl" id="islandBtns"></div>
     <h4>顯示</h4>
@@ -225,11 +253,31 @@ em.new{font-style:normal;font-size:11px;background:#ffe08a;color:#7a4b00;border-
     <p class="note">🔎 這是「想像實驗」：真正的雨水會流進河川、流回大海，不會把山淹掉。我們用「水越積越高」來比一比：平原、盆地、台地、丘陵、山地，哪一種地形最低、哪一種最高。</p>
   </section>
 
-  <!-- 原住民族 -->
+  <!-- 族群：原住民族＋客家 -->
   <section class="pane" data-pane="tribes" hidden>
+    <div class="row" id="ethChips"><button class="chip" data-eth="tribe">🪶 原住民族</button><button class="chip" data-eth="hakka">🏮 客家</button></div>
+    <div id="hakkaBox" hidden>
+      <p>客家人約占臺灣人口的 <b>19.8%</b>（約 466.9 萬人）。地圖上顏色越深，代表那個縣市的客家人口比率越高。</p>
+      <div class="row" id="hakkaAreas"></div>
+      <p class="muted">資料來源：客家委員會 110 年全國客家人口暨語言基礎資料調查。</p>
+    </div>
+    <div id="tribeBox">
     <p>臺灣目前有 <b>17 個</b>政府認定的原住民族（2026 年 7 月新增西拉雅族）。地圖上的顏色是各族「主要分布地區」，旗子是代表部落。點一族就會飛過去。</p>
     <div id="tribeList" class="tribe-list"></div>
     <p class="muted">分布範圍為示意，參考原住民族委員會資料；現在也有許多族人住在都市。核定順序：阿美、泰雅、排灣、布農、卑南、魯凱、鄒、賽夏、雅美（達悟）、邵、噶瑪蘭、太魯閣、撒奇萊雅、賽德克、拉阿魯哇、卡那卡那富、西拉雅（2026 年 7 月 30 日行政院核定，第一個平埔族群）。</p>
+    </div>
+  </section>
+
+  <!-- 海洋 -->
+  <section class="pane" data-pane="ocean" hidden>
+    <h4>臺灣四周的海</h4>
+    <div class="row" id="seaBtns"></div>
+    <h4>洋流（箭頭是海水流動的方向）</h4>
+    <div class="row"><button class="chip" data-season="summer">☀️ 夏季</button><button class="chip" data-season="winter">❄️ 冬季</button></div>
+    <div id="curList" class="tribe-list"></div>
+    <p class="muted">點一條洋流，它會浮起來並說明。暖流（紅、橘）從南方帶來溫暖海水；寒流（藍）在冬天從北方南下。</p>
+    <h4>附近的觀光島嶼</h4>
+    <div class="isl" id="oceanIslands"></div>
   </section>
 
   <!-- 景點 -->
@@ -241,7 +289,8 @@ em.new{font-style:normal;font-size:11px;background:#ffe08a;color:#7a4b00;border-
 
 <aside id="info"></aside>
 
-<div id="hint" class="hint" hidden><b>怎麼操作地圖？</b><span class="touch-only">👆 一指拖曳：旋轉　✌️ 兩指：放大縮小、移動</span><span class="mouse-only">🖱️ 左鍵拖曳：旋轉　右鍵拖曳：移動　滾輪：放大縮小</span><small>點地名、景點可以看說明（點這裡關閉）</small></div>
+<div id="hint" class="hint" hidden><b>怎麼操作地圖？</b><span class="touch-only">👆 一指拖曳：旋轉　✌️ 兩指：放大縮小、移動</span><span class="mouse-only">🖱️ 左鍵拖曳：旋轉　右鍵拖曳（或方向鍵、◀▶▲▼）：移動　滾輪：放大縮小</span><small>點地名、景點可以看說明（點這裡關閉）</small></div>
+<div class="padbar mouse-only"><button id="panU" aria-label="往前">▲</button><div><button id="panL" aria-label="往左">◀</button><button id="panR" aria-label="往右">▶</button></div><button id="panD" aria-label="往後">▼</button></div>
 <div class="zoombar">
   <button id="btnHint" aria-label="操作說明">✋</button>
   <button id="zoomIn" aria-label="放大">＋</button>
@@ -253,6 +302,6 @@ em.new{font-style:normal;font-size:11px;background:#ffe08a;color:#7a4b00;border-
   <button id="btnAll">🌏 含外島全圖</button>
 </div>
 
-<script src="app.js?v=f6f0ac01"></script>
+<script src="app.js?v=2366701e"></script>
 </body>
 </html>
