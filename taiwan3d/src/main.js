@@ -112,7 +112,10 @@ function regionOf(lon, lat) {
 }
 
 // ================= 建立本島網格 =================
-const G = { lon0: 119.98, lon1: 122.06, lat0: 21.86, lat1: 25.34, step: 0.8 };
+// 手機／平板（觸控為主）自動降一級畫質；「省電模式」再降一級（存在這台裝置上）
+const MOBILE = window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 900;
+let SAVER = false; try { SAVER = localStorage.getItem('tw3d_saver') === '1'; } catch (e) {}
+const G = { lon0: 119.98, lon1: 122.06, lat0: 21.86, lat1: 25.34, step: SAVER ? 1.4 : MOBILE ? 1.1 : 0.8 };
 G.nx = Math.round((G.lon1 - G.lon0) * KX / G.step) + 1;
 G.nz = Math.round((G.lat1 - G.lat0) * KZ / G.step) + 1;
 
@@ -271,8 +274,8 @@ const SEA_COLOR = C('#1d4f7a');
 // ================= 場景 =================
 const state = { mode: 'terrain', color: 'landform', level: 'elem', exag: 6, focus: null, flood: 0, raining: false, rising: false, month: 7, city: 'kaohsiung' };
 const wrap = $('#scene');
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+const renderer = new THREE.WebGLRenderer({ antialias: !SAVER, powerPreference: 'low-power' });
+renderer.setPixelRatio(Math.min(SAVER ? 1 : MOBILE ? 1.5 : 2, window.devicePixelRatio));
 wrap.appendChild(renderer.domElement);
 const labelR = new CSS2DRenderer(); labelR.domElement.className = 'labels'; wrap.appendChild(labelR.domElement);
 const scene = new THREE.Scene();
@@ -308,7 +311,7 @@ renderer.domElement.addEventListener('pointerup', e => {
   tap.n = Math.max(0, tap.n - 1);
   if (!tap.t || performance.now() - tap.t > 450 || Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > 8) return;
   tap.t = 0;
-  const order = ['tribe', 'island', 'lf', 'peak', 'city', 'spot'];
+  const order = ['tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot'];
   for (const kind of order) for (const l of labels[kind]) {
     if (!l.onClick || !l.o.visible || l.el.style.display === 'none' || l.el.classList.contains('hid')) continue;
     const r = l.el.getBoundingClientRect();
@@ -334,7 +337,8 @@ const ZKM = []; TRIBES.forEach((t, ti) => t.zones.forEach(([lon, lat, r]) => ZKM
 function tribeAt(x, z, e) {
   let best = -1, bq = 1e9;
   for (const [zx, zz, r, ti] of ZKM) { const q = Math.hypot(x - zx, z - zz) / r; if (q < bq) { bq = q; best = ti; } }
-  return bq < 1 || (bq < 2.4 && e > 500) ? best : -1;
+  // 平埔族群（西拉雅）住在平原：平原上的圈與圈之間也補滿
+  return bq < 1 || (bq < 2.4 && e > 500) || (bq < 1.9 && TRIBES[best].plains) ? best : -1;
 }
 M.tribe = new Int8Array(M.elev.length).fill(-1);
 for (let i = 0; i < M.elev.length; i++) if (M.mask[i]) M.tribe[i] = tribeAt(px(M.lonA[i]), pz(M.latA[i]), M.elev[i]);
@@ -398,7 +402,7 @@ function spotHeight(lon, lat) {
 }
 
 // ================= 標籤 =================
-const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [], tribe: [] };
+const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [], tribe: [], sea: [] };
 function addLabel(kind, html, lon, lat, hM, cls, onClick) {
   const el = document.createElement('div'); el.className = 'lb ' + cls; el.innerHTML = html;
   if (onClick) el.classList.add('clickable');
@@ -415,6 +419,15 @@ ISLANDS.forEach(i => addLabel('island', `🏝️ ${i.name}`, i.lon, i.lat, i.h +
 SPOTS.forEach(s => { const h = spotHeight(s.lon, s.lat); s.h = h; s.lbl = addLabel('spot', `<span class="pin">${s.i}</span><span class="nm">${s.n}</span>`, s.lon, s.lat, h + 60, 'spot', () => showSpot(s)); });
 TRIBES.forEach(t => { t.lbl = addLabel('tribe', `<span class="tdot" style="background:${t.c}"></span><b>${t.n}</b><small>${t.v}</small>`, t.vlon, t.vlat, spotHeight(t.vlon, t.vlat) + 80, 'tribe', () => showTribe(t)); });
 RAIN.forEach(c => addLabel('city', `☔ ${c.name}`, c.lon, c.lat, (heightAt(c.lon, c.lat) || 30) + 200, 'city', () => { state.city = c.id; $('#city').value = c.id; drawRain(); }));
+
+// ================= 海域名稱 =================
+const SEAS = [
+  { n: '太平洋', lon: 122.55, lat: 23.0, d: '臺灣東邊是太平洋，是世界上最大的海洋。東部海岸離深海很近，海底很快就變得很深。', j: '臺灣東側為太平洋，大陸棚狹窄、海底陡降，近岸即為深海；黑潮沿東部海域北上，帶來豐富的遠洋魚類。' },
+  { n: '巴士海峽', lon: 120.9, lat: 21.35, d: '臺灣南邊、在臺灣和菲律賓之間的海峽，是船隻往來的重要通道。', j: '位於臺灣南端與菲律賓之間，連接太平洋與南海，是重要的國際航道，也是颱風常經過的海域。' },
+  { n: '臺灣海峽', lon: 119.75, lat: 24.15, d: '臺灣西邊、在臺灣和中國大陸之間的海。海水比較淺，澎湖群島就在這裡。', j: '介於臺灣與中國大陸之間，屬於淺海的大陸棚，平均水深不到 100 公尺；澎湖群島位於海峽中。' },
+  { n: '東海', lon: 121.6, lat: 25.95, d: '臺灣北邊的海，往北一直延伸到日本和中國大陸之間。', j: '位於臺灣北方、亞洲大陸東側的邊緣海，大部分屬於大陸棚。' },
+];
+SEAS.forEach(sea => addLabel('sea', `🌊 ${sea.n}`, sea.lon, sea.lat, 0, 'sea', () => openInfo(`<div class="tag-lf" style="background:#5aa9e6;color:#fff">海域</div><h3>🌊 ${sea.n}</h3><p>${state.level === 'elem' ? sea.d : sea.j}</p>`)));
 
 // ================= 比例尺：公尺、公里 =================
 const rulerGroup = new THREE.Group(); world.add(rulerGroup);
@@ -439,7 +452,7 @@ const rulerGroup = new THREE.Group(); world.add(rulerGroup);
 })();
 
 // ================= 雨 =================
-const DROPS = 5000;
+const DROPS = SAVER ? 800 : MOBILE ? 2500 : 5000;
 const rainGeo = new THREE.BufferGeometry();
 const rainPos = new Float32Array(DROPS * 6); rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPos, 3));
 const rain = new THREE.LineSegments(rainGeo, new THREE.LineBasicMaterial({ color: '#ffffff', transparent: true, opacity: 0.9 }));
@@ -517,15 +530,15 @@ function floodHint(L) {
 
 // ================= 雨量圖表 =================
 function drawRain() {
-  const c = RAIN.find(x => x.id === state.city), max = 550, W = 340, H = 170, bw = W / 12;
+  const c = RAIN.find(x => x.id === state.city), max = 550, W = 340, H = MOBILE ? 210 : 170, bw = W / 12;
   const bars = c.mm.map((v, m) => {
     const h = v / max * (H - 30), x = m * bw, sea = SEASONS.find(s => s.months.includes(m));
     return `<rect x="${x}" y="0" width="${bw}" height="${H - 18}" fill="${sea.color}" opacity="${m === state.month ? 0.55 : 0.18}"/>` +
       `<rect class="bar-m" data-m="${m}" x="${x + 3}" y="${H - 18 - h}" width="${bw - 6}" height="${h}" rx="3" fill="${m === state.month ? '#1565c0' : '#4a90d9'}"/>` +
-      `<text x="${x + bw / 2}" y="${H - 22 - h}" font-size="9" text-anchor="middle" fill="#234">${Math.round(v)}</text>` +
-      `<text x="${x + bw / 2}" y="${H - 5}" font-size="10" text-anchor="middle" fill="#345">${m + 1}月</text>`;
+      `<text x="${x + bw / 2}" y="${H - 22 - h}" font-size="${MOBILE ? 13 : 9}" text-anchor="middle" fill="#234">${Math.round(v)}</text>` +
+      `<text x="${x + bw / 2}" y="${H - 5}" font-size="${MOBILE ? 14 : 10}" text-anchor="middle" fill="#345">${MOBILE ? m + 1 : (m + 1) + '月'}</text>`;
   }).join('');
-  const lines = RAIN_LEVELS.slice(0, 3).map(l => { const y = H - 18 - l.mm / max * (H - 30); return `<line x1="0" x2="${W}" y1="${y}" y2="${y}" stroke="#c33" stroke-dasharray="3 3" stroke-width=".7"/><text x="${W - 2}" y="${y - 2}" font-size="8" text-anchor="end" fill="#c33">${l.mm}mm</text>`; }).join('');
+  const lines = RAIN_LEVELS.slice(0, 3).map(l => { const y = H - 18 - l.mm / max * (H - 30); return `<line x1="0" x2="${W}" y1="${y}" y2="${y}" stroke="#c33" stroke-dasharray="3 3" stroke-width=".7"/><text x="${W - 2}" y="${y - 2}" font-size="${MOBILE ? 12 : 8}" text-anchor="end" fill="#c33">${l.mm}mm</text>`; }).join('');
   $('#rainChart').innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%">${bars}${lines}</svg>`;
   $('#rainChart').querySelectorAll('.bar-m').forEach(b => b.addEventListener('click', () => setMonth(+b.dataset.m)));
   const total = c.mm.reduce((a, b) => a + b, 0);
@@ -544,7 +557,12 @@ function setMonth(m) { state.month = m; drawRain(); }
 
 // ================= 資訊卡 =================
 const info = $('#info');
-function openInfo(html) { info.innerHTML = `<button class="x" aria-label="關閉">✕</button>${html}`; info.classList.add('show'); info.querySelector('.x').onclick = () => info.classList.remove('show'); }
+function openInfo(html) {
+  info.innerHTML = `<button class="x" aria-label="關閉">✕</button>${html}`; info.classList.add('show'); info.scrollTop = 0;
+  info.querySelector('.x').onclick = () => info.classList.remove('show');
+  // 手機：打開說明卡時把下方面板收起來，地圖才看得到
+  if (isPhone()) { document.body.classList.add('panel-min'); layout(); }
+}
 const txt = (o) => state.level === 'elem' ? o.elem : o.junior;
 function examplesOf(type) {
   if (type === 'mountain') return RIDGES.map(r => r.name).concat(CONES.map(c => c.name));
@@ -576,13 +594,13 @@ function showTribe(t) {
   openInfo(`<div class="tag-lf" style="background:${t.c};color:#fff">🪶 原住民族</div><h3>${t.n}</h3>
     <p><b>住在哪裡：</b>${t.where}</p><p>${txt(t)}</p>
     <p class="muted">地圖上的代表部落：<b>${t.v}</b>。彩色範圍是主要分布地區的示意，不是精確的界線；現在也有很多族人住在城市裡。</p>
-    <button class="btn-sm" id="tribeAll">看全部 16 族</button>`);
+    <button class="btn-sm" id="tribeAll">看全部 17 族</button>`);
   $('#tribeAll').onclick = () => { state.tribeFocus = null; paint(); renderTribes(); info.classList.remove('show'); };
   const isl = t.island ? ISLANDS.find(i => i.id === t.island) : null;
   flyTo(t.vlon, t.vlat, isl ? 45 : 130);
 }
 function renderTribes() {
-  $('#tribeList').innerHTML = TRIBES.map((t, i) => `<button data-t="${t.id}" class="${state.tribeFocus === t.id ? 'on' : ''}"><span class="dot" style="background:${t.c}"></span><b>${i + 1}. ${t.n}</b><small>${t.where}</small></button>`).join('');
+  $('#tribeList').innerHTML = TRIBES.map((t, i) => `<button data-t="${t.id}" class="${state.tribeFocus === t.id ? 'on' : ''}"><span class="dot" style="background:${t.c}"></span><b>${i + 1}. ${t.n}${t.isNew ? ' <em class="new">2026 新核定</em>' : ''}</b><small>${t.where}</small></button>`).join('');
   $('#tribeList').querySelectorAll('button').forEach(b => b.onclick = () => showTribe(TRIBES.find(t => t.id === b.dataset.t)));
 }
 function showPeak(p) {
@@ -619,6 +637,7 @@ function renderLegend() {
   el.querySelectorAll('[data-lf]').forEach(b => b.onclick = () => { setFocus(b.dataset.lf); showLandform(b.dataset.lf); });
 }
 function setMode(m) {
+  if (state.mode !== m) info.classList.remove('show');
   state.mode = m;
   document.querySelectorAll('.tabs [data-mode]').forEach(b => b.classList.toggle('on', b.dataset.mode === m));
   document.querySelectorAll('.pane').forEach(p => p.hidden = p.dataset.pane !== m);
@@ -646,6 +665,7 @@ function applyToggles() {
   labels.tribe.forEach(l => l.o.visible = tr);
   labels.island.forEach(l => l.o.visible = on('tgIsland'));
   labels.ruler.forEach(l => l.o.visible = on('tgRuler'));
+  labels.sea.forEach(l => l.o.visible = on('tgSea'));
   rulerGroup.visible = on('tgRuler');
 }
 function setLevel(l) {
@@ -656,7 +676,12 @@ function setLevel(l) {
 document.querySelectorAll('.tabs [data-mode]').forEach(b => b.onclick = () => setMode(b.dataset.mode));
 document.querySelectorAll('[data-color]').forEach(b => b.onclick = () => setColor(b.dataset.color));
 document.querySelectorAll('.seg [data-level]').forEach(b => b.onclick = () => setLevel(b.dataset.level));
-['tgLf', 'tgPeak', 'tgSpot', 'tgIsland', 'tgRuler'].forEach(id => $('#' + id).onchange = applyToggles);
+['tgLf', 'tgPeak', 'tgSpot', 'tgIsland', 'tgRuler', 'tgSea'].forEach(id => $('#' + id).onchange = applyToggles);
+$('#tgSaver').checked = SAVER;
+$('#tgSaver').onchange = (e) => { try { localStorage.setItem('tw3d_saver', e.target.checked ? '1' : '0'); } catch (err) {} location.reload(); };
+// 手勢提示：第一次打開會出現，按 ✋ 可以再看一次
+function showHint() { const h = $('#hint'); h.hidden = false; h.classList.add('show'); clearTimeout(showHint.t); showHint.t = setTimeout(() => h.classList.remove('show'), 7000); }
+$('#btnHint').onclick = showHint; $('#hint').onclick = () => $('#hint').classList.remove('show');
 $('#exag').oninput = (e) => { state.exag = +e.target.value; world.scale.y = state.exag; $('#exagVal').textContent = '×' + state.exag; };
 $('#btnHome').onclick = viewHome; $('#btnTop').onclick = viewTop; $('#btnAll').onclick = viewAll;
 $('#islandBtns').innerHTML = ISLANDS.map(i => `<button data-isl="${i.id}">${i.name}</button>`).join('');
@@ -702,12 +727,21 @@ resize();
 camera.position.set(px(120.2), 330, pz(21.2)); controls.target.set(px(120.95), 0, pz(23.65));
 setColor('landform'); setLevel('elem'); setMode('terrain'); viewHome();
 $('#loading').remove();
+let seen = false; try { seen = localStorage.getItem('tw3d_hint') === '1'; localStorage.setItem('tw3d_hint', '1'); } catch (e) {}
+if (!seen) setTimeout(showHint, 1200);
 
 const clock = new THREE.Clock(); let floodTick = 0, frame = 0;
+// 「不動就不畫」：只有在使用者操作、相機移動或有動畫時才重畫，其餘時間讓手機休息（省電、不發燙）
+let awakeUntil = 0;
+const wake = (ms = 600) => { awakeUntil = Math.max(awakeUntil, performance.now() + ms); };
+['pointerdown', 'pointermove', 'pointerup', 'wheel', 'click', 'input', 'change', 'keydown', 'touchstart', 'touchmove'].forEach(t => window.addEventListener(t, () => wake(), { passive: true, capture: true }));
+window.addEventListener('resize', () => wake(1000));
+controls.addEventListener('change', () => wake());
+wake(3000);
 // 標籤避免重疊：重要的先放（外島 > 地形名 > 山峰 > 雨量站 > 景點），被擋到的先藏起來
 function declutter() {
   const placed = [];
-  for (const kind of ['tribe', 'island', 'lf', 'peak', 'city', 'spot']) {
+  for (const kind of ['tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot']) {
     for (const l of labels[kind]) {
       if (!l.o.visible || l.el.style.display === 'none') continue;
       l.el.classList.remove('hid');
@@ -725,7 +759,10 @@ renderer.setAnimationLoop(() => {
     camera.position.lerpVectors(fly.p0, fly.p1, k); controls.target.lerpVectors(fly.c0, fly.c1, k);
     if (fly.t >= 1) fly = null;
   }
-  controls.update();
+  const moved = controls.update();
+  const animating = fly || rain.visible || (state.mode === 'rain' && state.rising) || moved;
+  if (!animating && performance.now() > awakeUntil) return;   // 沒事就不畫
+  if (animating) wake(400);
   if (rain.visible) stepRain(dt);
   if (state.mode === 'rain' && state.rising && state.flood < 4000) {
     const mm = RAIN.find(c => c.id === state.city).mm[state.month];
