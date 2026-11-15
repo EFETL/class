@@ -297,6 +297,7 @@ export function initFeatures(ctx) {
   function openPlates() {
     ctx.mission && ctx.mission('plates');
     clearProfile();
+    document.body.classList.add('plates');   // 板塊動畫時隱藏景點等標記
     plate.group.visible = true; setPlateLabels(true); plate.t = 0; plate.playing = true; applyPlate();
     openInfo(`<div class="tag-lf" style="background:#8e24aa;color:#fff">🌋 板塊運動</div><h3>臺灣是怎麼「擠」出來的？</h3>
       <p id="plateYear" style="font-weight:800;color:#8e24aa"></p>
@@ -314,6 +315,7 @@ export function initFeatures(ctx) {
   function viewPlates() { flyTo(121.1, 23.4, 620, 0.95); }
   function closePlates() {
     if (!plate.group.visible) return;
+    document.body.classList.remove('plates');
     plate.group.visible = false; setPlateLabels(false); plate.playing = false; plate.t = 1; world.scale.y = state.exag; info.classList.remove('show'); wake();
   }
 
