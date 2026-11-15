@@ -8,8 +8,10 @@ import { COAST } from './coast.js';
 import { PHOTOS } from './photos.js';
 import {
   LANDFORMS, RIDGES, HILLBANDS, CONES, ZONES, HILL_LABELS, PEAKS, ISLANDS, SPOTS,
-  REGIONS, RAIN, SEASONS, MONTH_RAIN, RAIN_LEVELS, TRIBES, HAKKA, FESTIVALS,
+  REGIONS, RAIN, SEASONS, MONTH_RAIN, RAIN_LEVELS, TRIBES, HAKKA, FESTIVALS, CREATURES, VEG_ZONES,
 } from './data.js';
+import { creatureHTML, CREATURE_CSS } from './creatures.js';
+import { CPHOTOS } from './creaturePhotos.js';
 import { sceneHTML, FEST_CSS } from './festivals.js';
 import { COUNTIES } from './counties.js';
 import { initFeatures, PROFILES } from './features.js';
@@ -316,7 +318,7 @@ renderer.domElement.addEventListener('pointerup', e => {
   if (!tap.t || performance.now() - tap.t > 450 || Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > 8) return;
   tap.t = 0;
   if (feat && feat.onTap(e)) return;
-  const order = ['current', 'hakka', 'tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot'];
+  const order = ['current', 'hakka', 'tribe', 'creature', 'island', 'sea', 'lf', 'peak', 'city', 'spot'];
   for (const kind of order) for (const l of labels[kind]) {
     if (!l.onClick || !l.o.visible || l.el.style.display === 'none' || l.el.classList.contains('hid')) continue;
     const r = l.el.getBoundingClientRect();
@@ -396,6 +398,7 @@ function colorFor(e, cls, reg, out, tribe = -1, county = -1) {
     out.multiplyScalar(0.82 + 0.3 * Math.min(1, e / 3200));
     return out;
   }
+  if (state.color === 'veg') { const z = VEG_ZONES.find(v => e < v.to); out.set(z.c); out.multiplyScalar(0.85 + 0.25 * Math.min(1, e / 3500)); return out; }
   if (state.color === 'height') hypso(e, out);
   else if (state.color === 'region') { out.set(REGIONS[reg].color); out.lerp(tmp2.set('#ffffff'), Math.min(0.35, e / 9000)); out.multiplyScalar(0.85 + 0.25 * Math.min(1, e / 3000)); }
   else { out.copy(LF_COLOR[cls]); const k = cls === 5 ? Math.min(1, (e - 1000) / 2900) : 0; out.lerp(tmp2.set(k > 0.9 ? '#ffffff' : '#5a3a28'), k * 0.45); }
@@ -431,7 +434,7 @@ function spotHeight(lon, lat) {
 }
 
 // ================= 標籤 =================
-const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [], tribe: [], sea: [], current: [], hakka: [], fest: [] };
+const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [], tribe: [], sea: [], current: [], hakka: [], fest: [], creature: [] };
 function addLabel(kind, html, lon, lat, hM, cls, onClick) {
   const el = document.createElement('div'); el.className = 'lb ' + cls; el.innerHTML = html;
   if (onClick) el.classList.add('clickable');
@@ -492,6 +495,18 @@ function renderFestUI() {
   $('#festList').querySelectorAll('[data-fi]').forEach(b => b.onclick = () => { const f = FESTIVALS[+b.dataset.fi]; showTribe(f.tribe, f); });
   refreshFest();
 }
+{ const st = document.createElement('style'); st.textContent = CREATURE_CSS; document.head.appendChild(st); }
+CREATURES.forEach(c => {
+  const onSea = c.k === 'sea';
+  const h = onSea ? 0 : spotHeight(c.lon, c.lat) + 40;
+  c.lbl = addLabel('creature', creatureHTML(c), c.lon, c.lat, h, 'creature' + (c.k === 'plant' ? ' cr-plant' : ''), () => showCreature(c));
+  c.lbl.o.visible = false;
+});
+// 藍眼淚（馬祖海面閃爍的夜光蟲）
+const tears = addLabel('creature', Array.from({ length: 12 }, (_, i) => `<i style="left:${(i * 37) % 66}px;top:${(i * 23) % 36}px;animation-delay:${(i * 0.37) % 2.2}s"></i>`).join(''), 119.93, 26.19, 0, 'bluetears', () => openInfo(`<div class="tag-lf" style="background:#0288d1;color:#fff">🌊 海洋生物</div><h3>藍眼淚（夜光蟲）</h3><p>${state.level === 'elem' ? '春天到夏天（4～6 月最多）的晚上，馬祖海邊的海浪會發出藍色的光，那是一種很小很小的生物「夜光蟲」被海浪攪動時發的光。' : '渦鞭毛藻（夜光蟲）受海浪或船隻擾動時發出藍色生物螢光；每年 3～9 月出現，4～6 月為盛期，以馬祖北竿、大坵一帶最著名。大量繁殖時吸引丁香魚，再引來黑尾鷗、燕鷗捕食。'}</p>`));
+tears.o.visible = false;
+const showLife = (on) => { CREATURES.forEach(c => { c.lbl.o.visible = on && (state.lifeFilter === 'all' || state.lifeFilter === c.k || (state.lifeFilter === 'land' && c.k === 'air')); }); tears.o.visible = on && state.lifeFilter !== 'plant' && state.lifeFilter !== 'land'; };
+state.lifeFilter = 'all';
 RAIN.forEach(c => addLabel('city', `☔ ${c.name}`, c.lon, c.lat, (heightAt(c.lon, c.lat) || 30) + 200, 'city', () => { state.city = c.id; $('#city').value = c.id; drawRain(); }));
 
 // ================= 海域名稱 =================
@@ -691,6 +706,19 @@ function showHakka(area) {
     <p class="muted">資料來源：${HAKKA.source}。顏色越深，客家人口比率越高；其他縣市未上色。</p>`);
   if (area) flyTo(area.lon, area.lat, 160);
 }
+function showCreature(c) {
+  const ph = CPHOTOS[c.n];
+  const photo = ph ? `<figure class="ph"><img src="creatures/${ph.f}" alt="${c.n}" loading="lazy"><figcaption>📷 ${ph.a}・${ph.l}・<a href="${ph.u}" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>` : '';
+  const K = { land: '🦌 陸地動物', air: '🐦 天空', sea: '🐬 海洋生物', plant: '🌲 植物' }[c.k];
+  openInfo(`${photo}<div class="tag-lf" style="background:#43a047;color:#fff">${K}</div><h3>${c.n}</h3><p><b>住在哪裡：</b>${c.h}</p><p>${txt(c)}</p>`);
+  flyTo(c.lon, c.lat, c.k === 'sea' ? 120 : 90);
+}
+function renderLife() {
+  const G2 = [['land', '🦌 陸地動物'], ['air', '🐦 天空'], ['sea', '🐬 海洋生物'], ['plant', '🌲 植物']];
+  $('#lifeList').innerHTML = G2.map(([k, t]) => `<h4>${t}</h4><ul class="cards">${CREATURES.filter(c => c.k === k).map(c => `<li data-cr="${c.id}">${CPHOTOS[c.n] ? `<img src="creatures/${CPHOTOS[c.n].f}" alt="" loading="lazy">` : ''}<span>${c.n}</span></li>`).join('')}</ul>`).join('');
+  $('#lifeList').querySelectorAll('[data-cr]').forEach(li => li.onclick = () => showCreature(CREATURES.find(c => c.id === li.dataset.cr)));
+  $('#vegLegend').innerHTML = VEG_ZONES.map((v, i) => `<div><span class="dot" style="background:${v.c}"></span><span><b>${v.n}</b>（${i ? VEG_ZONES[i - 1].to.toLocaleString() : 0}${v.to > 5000 ? ' 公尺以上' : '～' + v.to.toLocaleString() + ' 公尺'}）<small>${v.d}</small></span></div>`).join('') + '<p class="muted">海拔越高越冷，植物就跟著改變，這叫「植物垂直分布」。各版本課本的分法略有不同。</p>';
+}
 function showPeak(p) {
   openInfo(`<div class="tag-lf" style="background:${LANDFORMS.mountain.color}">⛰️ 山地</div><h3>▲ ${p.name}</h3><p>高度 <b>${p.h.toLocaleString()} 公尺</b>＝ ${(p.h / 1000).toFixed(3)} 公里${p.note ? `，${p.note}` : ''}。</p>
     <p class="muted">${state.level === 'elem' ? '如果一層樓大約 3 公尺，' + p.name + '差不多有 ' + Math.round(p.h / 3).toLocaleString() + ' 層樓那麼高！' : '臺灣面積不大，卻有兩百多座 3,000 公尺以上的高山，是板塊擠壓形成的年輕山脈。'}</p>`);
@@ -733,6 +761,9 @@ function setMode(m) {
   document.querySelectorAll('.tabs [data-mode]').forEach(b => b.classList.toggle('on', b.dataset.mode === m));
   document.querySelectorAll('.pane').forEach(p => p.hidden = p.dataset.pane !== m);
   const ETH = ['tribe', 'hakka'];
+  if (m === 'life') { renderLife(); if ($('#vegToggle').checked && state.color !== 'veg') { state.prevColor2 = state.color; setColor('veg'); } }
+  else if (state.color === 'veg') setColor(state.prevColor2 || 'landform');
+  showLife(m === 'life');
   if (m === 'tribes') { if (!ETH.includes(state.color)) state.prevColor = state.color; setEthnic(state.ethnic || 'tribe'); }
   else if (ETH.includes(state.color)) { state.tribeFocus = null; setColor(state.prevColor || 'landform'); }
   if (feat) {
@@ -756,7 +787,7 @@ function renderSpotList() {
 }
 function applyToggles() {
   const on = (id) => $('#' + id).checked;
-  const tr = state.mode === 'tribes', oc = state.mode === 'ocean', quiet = tr || oc;
+  const tr = state.mode === 'tribes', oc = state.mode === 'ocean', quiet = tr || oc || state.mode === 'life';
   labels.lf.forEach(l => l.o.visible = on('tgLf') && !quiet);
   labels.peak.forEach(l => l.o.visible = on('tgPeak') && !quiet);
   labels.spot.forEach(l => l.o.visible = (on('tgSpot') || state.mode === 'spots') && !quiet);
@@ -804,6 +835,9 @@ const isPhone = () => window.innerWidth <= 900;
 if (isPhone()) document.body.classList.add('panel-min');
 document.querySelectorAll('.tabs [data-mode]').forEach(b => b.addEventListener('click', () => { document.body.classList.remove('panel-min'); layout(); }));
 
+// 生物分頁
+$('#vegToggle').onchange = (e) => { if (e.target.checked) { state.prevColor2 = state.color; setColor('veg'); } else setColor(state.prevColor2 || 'landform'); };
+document.querySelectorAll('[data-life]').forEach(b => b.onclick = () => { state.lifeFilter = b.dataset.life; document.querySelectorAll('[data-life]').forEach(x => x.classList.toggle('on', x === b)); showLife(true); wake(); });
 // 族群：原住民族／客家
 function setEthnic(e) {
   state.ethnic = e; state.tribeFocus = null;
@@ -882,7 +916,7 @@ wake(3000);
 // 標籤避免重疊：重要的先放（外島 > 地形名 > 山峰 > 雨量站 > 景點），被擋到的先藏起來
 function declutter() {
   const placed = [];
-  for (const kind of ['current', 'hakka', 'fest', 'tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot']) {
+  for (const kind of ['current', 'hakka', 'fest', 'tribe', 'creature', 'island', 'sea', 'lf', 'peak', 'city', 'spot']) {
     for (const l of labels[kind]) {
       if (!l.o.visible || l.el.style.display === 'none') continue;
       l.el.classList.remove('hid');

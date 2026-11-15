@@ -194,6 +194,7 @@ body.far .lb.hakka-area{display:none}
     <button data-mode="rain">🌧️ 雨量</button>
     <button data-mode="ocean">🌊 海洋</button>
     <button data-mode="tribes">👥 族群</button>
+    <button data-mode="life">🦌 生物</button>
     <button data-mode="spots">📍 景點</button>
     <button id="panelToggle" title="收合面板">☰</button>
   </div>
@@ -287,6 +288,16 @@ body.far .lb.hakka-area{display:none}
     <div class="isl" id="oceanIslands"></div>
   </section>
 
+  <!-- 生物 -->
+  <section class="pane" data-pane="life" hidden>
+    <p>臺灣從海邊到 3,952 公尺的高山，氣候差很多，所以有各種不同的動物和植物。點一種生物看照片和說明。</p>
+    <label class="toggles"><input type="checkbox" id="vegToggle" checked> 🌲 地圖改成「植物垂直分布」顏色</label>
+    <div id="vegLegend" class="veg-legend"></div>
+    <div class="row"><button class="chip on" data-life="all">全部</button><button class="chip" data-life="land">🦌 陸地與天空</button><button class="chip" data-life="sea">🐬 海洋</button><button class="chip" data-life="plant">🌲 植物</button></div>
+    <div id="lifeList"></div>
+    <p class="muted">照片來自 Wikimedia Commons（自由授權，點照片下方可看作者與授權）。</p>
+  </section>
+
   <!-- 景點 -->
   <section class="pane" data-pane="spots" hidden>
     <p class="muted">每一種地形附近都有特別的景點。點一下就會飛過去。</p>
@@ -309,6 +320,6 @@ body.far .lb.hakka-area{display:none}
   <button id="btnAll">🌏 含外島全圖</button>
 </div>
 
-<script src="app.js?v=5b05445c"></script>
+<script src="app.js?v=ba34fc8d"></script>
 </body>
 </html>
