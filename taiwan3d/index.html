@@ -94,6 +94,8 @@ body.far .lb.spot .nm, body.far .lb.peak small, body.far .lb.ruler-h{display:non
 .lb.ruler small{display:block;font-size:10.5px;color:#b22}
 .lb.ruler-hl{color:#a0410d}
 .lb.ruler-km{transform:translate(-50%,30%)}
+.festcard{padding-left:18px;margin:4px 0}.festcard li{margin:6px 0;line-height:1.5}.festcard li.hl{background:#fff3e0;border-radius:8px;padding:4px 6px}
+em.sacredtag{font-style:normal;font-size:12px;background:#ede7f6;color:#4527a0;border-radius:6px;padding:1px 5px}
 .tribe-list{display:grid;grid-template-columns:1fr;gap:5px;margin:8px 0}
 .tribe-list button{display:grid;grid-template-columns:18px 1fr;column-gap:8px;align-items:center;text-align:left;border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font:inherit;cursor:pointer}
 .tribe-list button small{grid-column:2;color:var(--muted);font-size:12px}
@@ -263,6 +265,11 @@ body.far .lb.hakka-area{display:none}
     </div>
     <div id="tribeBox">
     <p>臺灣目前有 <b>17 個</b>政府認定的原住民族（2026 年 7 月新增西拉雅族）。地圖上的顏色是各族「主要分布地區」，旗子是代表部落。點一族就會飛過去。</p>
+    <h4>📅 祭典月曆（點月份，看哪些族在辦祭典）</h4>
+    <div class="month-strip" id="monthStrip"></div>
+    <div class="fest-list" id="festList"></div>
+    <p class="muted">人物用各族代表色的「剪影」表示，不畫服飾花紋；🕯️ 是神聖祭典，畫面保持安靜。</p>
+    <h4>17 族分布</h4>
     <div id="tribeList" class="tribe-list"></div>
     <p class="muted">分布範圍為示意，參考原住民族委員會資料；現在也有許多族人住在都市。核定順序：阿美、泰雅、排灣、布農、卑南、魯凱、鄒、賽夏、雅美（達悟）、邵、噶瑪蘭、太魯閣、撒奇萊雅、賽德克、拉阿魯哇、卡那卡那富、西拉雅（2026 年 7 月 30 日行政院核定，第一個平埔族群）。</p>
     </div>
@@ -302,6 +309,6 @@ body.far .lb.hakka-area{display:none}
   <button id="btnAll">🌏 含外島全圖</button>
 </div>
 
-<script src="app.js?v=2366701e"></script>
+<script src="app.js?v=5b05445c"></script>
 </body>
 </html>

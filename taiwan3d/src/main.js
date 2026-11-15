@@ -8,8 +8,9 @@ import { COAST } from './coast.js';
 import { PHOTOS } from './photos.js';
 import {
   LANDFORMS, RIDGES, HILLBANDS, CONES, ZONES, HILL_LABELS, PEAKS, ISLANDS, SPOTS,
-  REGIONS, RAIN, SEASONS, MONTH_RAIN, RAIN_LEVELS, TRIBES, HAKKA,
+  REGIONS, RAIN, SEASONS, MONTH_RAIN, RAIN_LEVELS, TRIBES, HAKKA, FESTIVALS,
 } from './data.js';
+import { sceneHTML, FEST_CSS } from './festivals.js';
 import { COUNTIES } from './counties.js';
 import { initFeatures, PROFILES } from './features.js';
 
@@ -430,7 +431,7 @@ function spotHeight(lon, lat) {
 }
 
 // ================= 標籤 =================
-const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [], tribe: [], sea: [], current: [], hakka: [] };
+const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [], tribe: [], sea: [], current: [], hakka: [], fest: [] };
 function addLabel(kind, html, lon, lat, hM, cls, onClick) {
   const el = document.createElement('div'); el.className = 'lb ' + cls; el.innerHTML = html;
   if (onClick) el.classList.add('clickable');
@@ -452,6 +453,45 @@ Object.entries(HAKKA.top5).forEach(([name, pct], rank) => {
   addLabel('hakka', `<b>${rank + 1}. ${name.replace('台', '臺')}</b><small>客家人口 ${pct}%</small>`, cx, cy, (heightAt(cx, cy) || 100) + 300, 'hakka', () => showHakka());
 });
 HAKKA.areas.forEach(a => addLabel('hakka', `🏮 ${a.n}`, a.lon, a.lat, (heightAt(a.lon, a.lat) || 100) + 150, 'hakka-area', () => showHakka(a)));
+{ const st = document.createElement('style'); st.textContent = FEST_CSS; document.head.appendChild(st); }
+const monthsText = (m) => {
+  if (!m.length) return '日期依部落公告';
+  let runs = [[m[0], m[0]]];
+  for (let i = 1; i < m.length; i++) { const r = runs[runs.length - 1]; if (m[i] === r[1] % 12 + 1) r[1] = m[i]; else runs.push([m[i], m[i]]); }
+  return runs.map(([a, b]) => a === b ? `${a} 月` : `${a}～${b} 月`).join('、');
+};
+FESTIVALS.forEach(f => {
+  const t = TRIBES.find(x => x.id === f.t);
+  f.tribe = t;
+  f.lbl = addLabel('fest', sceneHTML(f.a, t.c, `${t.n.replace(/（.*）/, '')}・${f.n.replace(/（.*）/, '')}`, f.sacred), t.vlon, t.vlat, spotHeight(t.vlon, t.vlat) + 80, 'fest');
+  f.lbl.o.visible = false;
+});
+state.festMonth = new Date().getMonth() + 1;
+function refreshFest() {
+  const on = state.mode === 'tribes' && state.ethnic !== 'hakka';
+  const shown = new Set();
+  FESTIVALS.forEach(f => {
+    let v = on && f.m.includes(state.festMonth) && (!state.tribeFocus || state.tribeFocus === f.t) && !shown.has(f.t);
+    if (v) shown.add(f.t);
+    f._v = v;
+  });
+  // 點了某一族、但這個月沒有祭典：顯示牠的第一個祭典
+  if (on && state.tribeFocus && !shown.has(state.tribeFocus)) { const f = FESTIVALS.find(x => x.t === state.tribeFocus); if (f) f._v = true; }
+  FESTIVALS.forEach(f => { f.lbl.o.visible = !!f._v; });
+  // 有剪影動畫的族，名字已經寫在動畫下方，就把原本的名牌藏起來，避免疊在一起
+  const withScene = new Set(FESTIVALS.filter(f => f._v).map(f => f.t));
+  TRIBES.forEach(t => { if (t.lbl) t.lbl.o.visible = on && !withScene.has(t.id); });
+  if (typeof wake === 'function') wake(300);   // 啟動時重畫系統還沒建立，跳過即可
+}
+function renderFestUI() {
+  const now = new Date().getMonth() + 1;
+  $('#monthStrip').innerHTML = Array.from({ length: 12 }, (_, i) => `<button data-fm="${i + 1}" class="${state.festMonth === i + 1 ? 'on' : ''} ${now === i + 1 ? 'now' : ''}">${i + 1}月</button>`).join('');
+  $('#monthStrip').querySelectorAll('[data-fm]').forEach(b => b.onclick = () => { state.festMonth = +b.dataset.fm; state.tribeFocus = null; paint(); renderTribes(); });
+  const list = FESTIVALS.filter(f => f.m.includes(state.festMonth));
+  $('#festList').innerHTML = list.length ? list.map(f => `<button data-fi="${FESTIVALS.indexOf(f)}"><span class="dot" style="background:${f.tribe.c}"></span><b>${f.tribe.n.replace(/（.*）/, '')}・${f.n}${f.sacred ? ' 🕯️' : ''}</b><small>${monthsText(f.m)}${f.approx ? '（依部落而異）' : ''}</small></button>`).join('') : '<p class="muted">這個月沒有列出的祭典。</p>';
+  $('#festList').querySelectorAll('[data-fi]').forEach(b => b.onclick = () => { const f = FESTIVALS[+b.dataset.fi]; showTribe(f.tribe, f); });
+  refreshFest();
+}
 RAIN.forEach(c => addLabel('city', `☔ ${c.name}`, c.lon, c.lat, (heightAt(c.lon, c.lat) || 30) + 200, 'city', () => { state.city = c.id; $('#city').value = c.id; drawRain(); }));
 
 // ================= 海域名稱 =================
@@ -593,9 +633,10 @@ function setMonth(m) { state.month = m; drawRain(); }
 const info = $('#info');
 function openInfo(html) {
   info.innerHTML = `<button class="x" aria-label="關閉">✕</button>${html}`; info.classList.add('show'); info.scrollTop = 0;
-  info.querySelector('.x').onclick = () => info.classList.remove('show');
+  info.querySelector('.x').onclick = () => { info.classList.remove('show'); layout(); };
   // 手機：打開說明卡時把下方面板收起來，地圖才看得到
-  if (isPhone()) { document.body.classList.add('panel-min'); layout(); }
+  if (isPhone()) { document.body.classList.add('panel-min'); }
+  layout();
 }
 const txt = (o) => state.level === 'elem' ? o.elem : o.junior;
 function examplesOf(type) {
@@ -623,17 +664,22 @@ function showSpot(s) {
   openInfo(`${photoHTML(s.n)}<div class="tag-lf" style="background:${LANDFORMS[s.t]?.color || '#7fb3d5'}">${T_NAME[s.t]}</div><h3>${s.i} ${s.n}</h3><p>${s.d}</p>
     <p class="muted">這裡大約海拔 <b>${Math.round(s.h).toLocaleString()} 公尺</b>（${(s.h / 1000).toFixed(2)} 公里）${lfName(s.h, s.lon, s.lat) ? `，地圖上屬於「${lfName(s.h, s.lon, s.lat)}」` : ''}。</p>`);
 }
-function showTribe(t) {
+function showTribe(t, fest) {
   state.tribeFocus = t.id; paint(); renderTribes();
+  const fests = FESTIVALS.filter(f => f.t === t.id);
+  if (fest) { FESTIVALS.forEach(f => { f._force = f === fest; }); }
   openInfo(`<div class="tag-lf" style="background:${t.c};color:#fff">🪶 原住民族</div><h3>${t.n}</h3>
     <p><b>住在哪裡：</b>${t.where}</p><p>${txt(t)}</p>
+    ${fests.length ? `<p><b>📅 重要祭典：</b></p><ul class="festcard">${fests.map(f => `<li class="${f === fest ? 'hl' : ''}"><b>${f.n}</b>${f.sacred ? ' <em class="sacredtag">🕯️ 神聖祭典</em>' : ''}<br><small>${monthsText(f.m)}${f.approx ? '（依部落而異，以原民會與部落公告為準）' : ''}</small><br>${f.d}</li>`).join('')}</ul>` : ''}
     <p class="muted">地圖上的代表部落：<b>${t.v}</b>。彩色範圍是主要分布地區的示意，不是精確的界線；現在也有很多族人住在城市裡。</p>
     <button class="btn-sm" id="tribeAll">看全部 17 族</button>`);
   $('#tribeAll').onclick = () => { state.tribeFocus = null; paint(); renderTribes(); info.classList.remove('show'); };
+  if (fest) { FESTIVALS.forEach(f => { f.lbl.o.visible = f === fest; }); if (typeof wake === 'function') wake(300); }
   const isl = t.island ? ISLANDS.find(i => i.id === t.island) : null;
   flyTo(t.vlon, t.vlat, isl ? 45 : 130);
 }
 function renderTribes() {
+  if ($('#monthStrip')) renderFestUI();
   $('#tribeList').innerHTML = TRIBES.map((t, i) => `<button data-t="${t.id}" class="${state.tribeFocus === t.id ? 'on' : ''}"><span class="dot" style="background:${t.c}"></span><b>${i + 1}. ${t.n}${t.isNew ? ' <em class="new">2026 新核定</em>' : ''}</b><small>${t.where}</small></button>`).join('');
   $('#tribeList').querySelectorAll('button').forEach(b => b.onclick = () => showTribe(TRIBES.find(t => t.id === b.dataset.t)));
 }
@@ -716,6 +762,7 @@ function applyToggles() {
   labels.spot.forEach(l => l.o.visible = (on('tgSpot') || state.mode === 'spots') && !quiet);
   labels.tribe.forEach(l => l.o.visible = tr && state.ethnic !== 'hakka');
   labels.hakka.forEach(l => l.o.visible = tr && state.ethnic === 'hakka');
+  if (typeof refreshFest === 'function') refreshFest();
   labels.island.forEach(l => l.o.visible = on('tgIsland'));
   labels.ruler.forEach(l => l.o.visible = on('tgRuler'));
   labels.sea.forEach(l => l.o.visible = on('tgSea') || oc);
@@ -763,7 +810,7 @@ function setEthnic(e) {
   document.querySelectorAll('#ethChips [data-eth]').forEach(b => b.classList.toggle('on', b.dataset.eth === e));
   $('#tribeBox').hidden = e !== 'tribe'; $('#hakkaBox').hidden = e !== 'hakka';
   if (e === 'tribe') renderTribes();
-  setColor(e); applyToggles();
+  setColor(e); applyToggles(); refreshFest();
 }
 document.querySelectorAll('#ethChips [data-eth]').forEach(b => b.onclick = () => { setEthnic(b.dataset.eth); if (b.dataset.eth === 'hakka') showHakka(); else info.classList.remove('show'); });
 $('#hakkaAreas').innerHTML = HAKKA.areas.map((a, i) => `<button class="chip" data-ha="${i}">🏮 ${a.n}</button>`).join('');
@@ -804,7 +851,12 @@ function layout() {
   const w = wrap.clientWidth, h = wrap.clientHeight, r = $('#panel').getBoundingClientRect();
   const top = 52; // 上方標題列
   let ox = 0, oy = 0;
-  if (isPhone()) oy = Math.round((r.height - top) / 2);
+  if (isPhone()) {
+    // 手機：地圖中心放在「說明卡下緣」和「下方面板上緣」之間的空位
+    const topEdge = info.classList.contains('show') ? info.offsetTop + info.offsetHeight : top;
+    const bottomEdge = h - r.height;
+    oy = Math.round(h / 2 - (topEdge + bottomEdge) / 2);
+  }
   else if (!document.body.classList.contains('panel-min')) ox = -Math.round((r.right) / 2);
   else oy = 0;
   if (ox || oy) camera.setViewOffset(w, h, ox, oy, w, h); else camera.clearViewOffset();
@@ -830,7 +882,7 @@ wake(3000);
 // 標籤避免重疊：重要的先放（外島 > 地形名 > 山峰 > 雨量站 > 景點），被擋到的先藏起來
 function declutter() {
   const placed = [];
-  for (const kind of ['current', 'hakka', 'tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot']) {
+  for (const kind of ['current', 'hakka', 'fest', 'tribe', 'island', 'sea', 'lf', 'peak', 'city', 'spot']) {
     for (const l of labels[kind]) {
       if (!l.o.visible || l.el.style.display === 'none') continue;
       l.el.classList.remove('hid');
