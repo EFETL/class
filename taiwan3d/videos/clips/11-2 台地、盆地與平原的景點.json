@@ -1,0 +1,36 @@
+{
+ "file": "11-2 台地、盆地與平原的景點.mp4",
+ "title": "11-2 台地、盆地與平原的景點",
+ "segments": [
+  {
+   "say": "台地上有八卦山大佛，盆地裡有臺北 101。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=spots]"
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"八卦山大佛\"]"
+    ],
+    [
+     "wait",
+     4000
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"臺北 101\"]"
+    ]
+   ]
+  },
+  {
+   "say": "平原的海邊陽光充足，可以曬鹽，像七股鹽山。",
+   "act": [
+    [
+     "click",
+     "#spotList li[data-n=\"七股鹽山\"]"
+    ]
+   ]
+  }
+ ]
+}

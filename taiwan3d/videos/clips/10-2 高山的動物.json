@@ -1,0 +1,28 @@
+{
+ "file": "10-2 高山的動物.mp4",
+ "title": "10-2 高山的動物",
+ "segments": [
+  {
+   "say": "臺灣黑熊胸前有白色的 V 字，住在高山森林。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=life]"
+    ],
+    [
+     "click",
+     "#lifeList [data-cr=bear]"
+    ]
+   ]
+  },
+  {
+   "say": "櫻花鉤吻鮭只住在冰冷乾淨的七家灣溪，是國寶魚。",
+   "act": [
+    [
+     "click",
+     "#lifeList [data-cr=salmon]"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "file": "9-2 客家文化.mp4",
+ "title": "9-2 客家文化",
+ "segments": [
+  {
+   "say": "南部的高雄美濃、屏東六堆，還有花東縱谷，也有很多客家聚落。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#ethChips [data-eth=hakka]"
+    ],
+    [
+     "click",
+     "#hakkaAreas [data-ha=\"1\"]"
+    ]
+   ]
+  },
+  {
+   "say": "客家文化有擂茶、粄條、藍衫，還有春天滿山白色的油桐花。",
+   "act": [
+    [
+     "wait",
+     1000
+    ]
+   ]
+  }
+ ]
+}

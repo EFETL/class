@@ -1,0 +1,28 @@
+{
+ "file": "11-1 山地與丘陵的景點.mp4",
+ "title": "11-1 山地與丘陵的景點",
+ "segments": [
+  {
+   "say": "每一種地形附近，都有特別的景點。山地有阿里山的森林小火車。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=spots]"
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"阿里山森林遊樂區\"]"
+    ]
+   ]
+  },
+  {
+   "say": "丘陵有像月球表面的月世界。",
+   "act": [
+    [
+     "click",
+     "#spotList li[data-n=\"月世界\"]"
+    ]
+   ]
+  }
+ ]
+}

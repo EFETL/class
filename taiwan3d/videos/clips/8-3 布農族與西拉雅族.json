@@ -1,0 +1,28 @@
+{
+ "file": "8-3 布農族與西拉雅族.mp4",
+ "title": "8-3 布農族與西拉雅族",
+ "segments": [
+  {
+   "say": "住得最高的布農族，有很有名的八部合音和射耳祭。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#tribeList button[data-t=bunun]"
+    ]
+   ]
+  },
+  {
+   "say": "二〇二六年，西拉雅族成為第十七個原住民族，他們以前住在嘉南平原。",
+   "act": [
+    [
+     "click",
+     "#tribeList button[data-t=siraya]"
+    ]
+   ]
+  }
+ ]
+}

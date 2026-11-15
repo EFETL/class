@@ -1,0 +1,32 @@
+{
+ "file": "2-2 山地.mp4",
+ "title": "2-2 山地",
+ "segments": [
+  {
+   "say": "先看山地。山地很高，高度超過一千公尺。臺灣的山地在中間偏東邊，南北排成一長條，面積最大。",
+   "act": [
+    [
+     "click",
+     ".legend [data-lf=mountain]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(121.0,23.6,420,0.95)"
+    ]
+   ]
+  },
+  {
+   "say": "臺灣最高的山是玉山，有三千九百五十二公尺，差不多是一千三百層樓那麼高！",
+   "act": [
+    [
+     "label",
+     "玉山主峰"
+    ]
+   ]
+  }
+ ]
+}

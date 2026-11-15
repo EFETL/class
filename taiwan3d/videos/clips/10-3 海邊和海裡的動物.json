@@ -1,0 +1,28 @@
+{
+ "file": "10-3 海邊和海裡的動物.mp4",
+ "title": "10-3 海邊和海裡的動物",
+ "segments": [
+  {
+   "say": "冬天，黑面琵鷺會從北方飛來臺南過冬。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=life]"
+    ],
+    [
+     "click",
+     "#lifeList [data-cr=spoonbill]"
+    ]
+   ]
+  },
+  {
+   "say": "東部的海上，飛旋海豚會跳出海面轉圈圈。這些動物都需要我們一起保護。",
+   "act": [
+    [
+     "click",
+     "#lifeList [data-cr=spinner]"
+    ]
+   ]
+  }
+ ]
+}

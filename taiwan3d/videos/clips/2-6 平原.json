@@ -1,0 +1,40 @@
+{
+ "file": "2-6 平原.mp4",
+ "title": "2-6 平原",
+ "segments": [
+  {
+   "say": "平原又低又平又寬，最適合種稻米、蓋房子。",
+   "act": [
+    [
+     "click",
+     ".legend [data-lf=plain]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(120.3,23.3,220,0.95)"
+    ]
+   ]
+  },
+  {
+   "say": "臺灣最大的平原是嘉南平原。想一想：你住的地方，是哪一種地形呢？",
+   "act": [
+    [
+     "wait",
+     3000
+    ],
+    [
+     "click",
+     ".legend [data-lf=plain]"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ]
+   ]
+  }
+ ]
+}

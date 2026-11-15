@@ -1,0 +1,36 @@
+{
+ "file": "5-1 看懂雨量圖.mp4",
+ "title": "5-1 看懂雨量圖",
+ "segments": [
+  {
+   "say": "臺灣每一個月下的雨都不一樣。我們先看高雄的雨量圖，長條越高，雨越多。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "js",
+     "document.querySelector('.pane[data-pane=rain] .fold').open=true"
+    ]
+   ]
+  },
+  {
+   "say": "高雄的雨集中在夏天，八月最多；冬天幾乎不下雨。這叫做夏雨冬乾。",
+   "act": [
+    [
+     "js",
+     "document.querySelector('#rainChart .bar-m[data-m=\"7\"]').dispatchEvent(new MouseEvent('click'))"
+    ],
+    [
+     "wait",
+     3500
+    ],
+    [
+     "js",
+     "document.querySelector('#rainChart .bar-m[data-m=\"0\"]').dispatchEvent(new MouseEvent('click'))"
+    ]
+   ]
+  }
+ ]
+}

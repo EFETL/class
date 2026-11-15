@@ -1,0 +1,49 @@
+{
+ "file": "5-3 季節與下雨的原因.mp4",
+ "title": "5-3 季節與下雨的原因",
+ "segments": [
+  {
+   "say": "五、六月是梅雨季，全臺都容易下雨。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "click",
+     "#btnRain"
+    ],
+    [
+     "js",
+     "const s=document.getElementById('monthSel'); s.value='4'; s.dispatchEvent(new Event('change'))"
+    ]
+   ]
+  },
+  {
+   "say": "夏天有午後雷陣雨和颱風，南部和山區雨最多。",
+   "act": [
+    [
+     "js",
+     "const s=document.getElementById('monthSel'); s.value='7'; s.dispatchEvent(new Event('change'))"
+    ]
+   ]
+  },
+  {
+   "say": "冬天吹東北季風，北部、東北部溼溼冷冷。看看雲在哪裡，就知道哪裡在下雨。",
+   "act": [
+    [
+     "js",
+     "const s=document.getElementById('monthSel'); s.value='11'; s.dispatchEvent(new Event('change'))"
+    ],
+    [
+     "wait",
+     6000
+    ],
+    [
+     "click",
+     "#btnRain"
+    ]
+   ]
+  }
+ ]
+}

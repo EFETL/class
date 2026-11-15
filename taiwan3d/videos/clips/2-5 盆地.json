@@ -1,0 +1,36 @@
+{
+ "file": "2-5 盆地.mp4",
+ "title": "2-5 盆地",
+ "segments": [
+  {
+   "say": "盆地四周高、中間低平，形狀像一個臉盆。",
+   "act": [
+    [
+     "click",
+     ".legend [data-lf=basin]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(121.5,25.05,120,0.95)"
+    ]
+   ]
+  },
+  {
+   "say": "臺北盆地四周有山圍著，中間平坦，住了很多人，是很熱鬧的地方。",
+   "act": [
+    [
+     "wait",
+     2500
+    ],
+    [
+     "label",
+     "臺北 101"
+    ]
+   ]
+  }
+ ]
+}

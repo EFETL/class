@@ -1,0 +1,32 @@
+{
+ "file": "6-3 想像實驗的提醒.mp4",
+ "title": "6-3 想像實驗的提醒",
+ "segments": [
+  {
+   "say": "提醒大家：這只是想像實驗。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ],
+    [
+     "click",
+     "[data-flood=\"1000\"]"
+    ]
+   ]
+  },
+  {
+   "say": "真正的雨水會流進河川、流回大海，不會把山淹掉喔！",
+   "act": [
+    [
+     "click",
+     "#btnDrain"
+    ]
+   ]
+  }
+ ]
+}

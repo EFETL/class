@@ -1,0 +1,35 @@
+{
+ "file": "4-3 地震.mp4",
+ "title": "4-3 地震",
+ "segments": [
+  {
+   "say": "板塊到現在還在擠，所以臺灣常常有地震，山也還在慢慢長高喔！",
+   "act": [
+    [
+     "click",
+     "#btnPlates"
+    ],
+    [
+     "js",
+     "const s=document.getElementById('plateSlider');s.value=100;s.dispatchEvent(new Event('input'))"
+    ],
+    [
+     "wait",
+     2500
+    ],
+    [
+     "click",
+     "#plateQuake"
+    ],
+    [
+     "wait",
+     3000
+    ],
+    [
+     "click",
+     "#plateQuake"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "file": "3-2 臺中到花蓮.mp4",
+ "title": "3-2 臺中到花蓮",
+ "segments": [
+  {
+   "say": "從臺中出發，先是低低的平原和台地，接著越爬越高，到了中央山脈最高；過了山，又往下到花蓮的海邊。",
+   "act": [
+    [
+     "click",
+     "#profBtns [data-prof=\"0\"]"
+    ],
+    [
+     "wait",
+     2500
+    ],
+    [
+     "js",
+     "const s=document.getElementById('profSvg');const r=s.getBoundingClientRect();window.__px=0"
+    ],
+    [
+     "js",
+     "(()=>{const s=document.getElementById('profSvg');const r=s.getBoundingClientRect();s.dispatchEvent(new PointerEvent('pointermove',{clientX:r.left+r.width*0.3,clientY:r.top+r.height/2}))})()"
+    ],
+    [
+     "wait",
+     3000
+    ],
+    [
+     "js",
+     "(()=>{const s=document.getElementById('profSvg');const r=s.getBoundingClientRect();s.dispatchEvent(new PointerEvent('pointermove',{clientX:r.left+r.width*0.6,clientY:r.top+r.height/2}))})()"
+    ],
+    [
+     "wait",
+     3000
+    ],
+    [
+     "js",
+     "(()=>{const s=document.getElementById('profSvg');const r=s.getBoundingClientRect();s.dispatchEvent(new PointerEvent('pointermove',{clientX:r.left+r.width*0.92,clientY:r.top+r.height/2}))})()"
+    ]
+   ]
+  }
+ ]
+}

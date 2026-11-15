@@ -1,0 +1,28 @@
+{
+ "file": "7-4 火山島.mp4",
+ "title": "7-4 火山島",
+ "segments": [
+  {
+   "say": "臺灣附近還有很多小島。宜蘭的龜山島、臺東的綠島和蘭嶼，都是火山形成的島。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=ocean]"
+    ],
+    [
+     "click",
+     "#oceanIslands [data-isl2=guishan]"
+    ]
+   ]
+  },
+  {
+   "say": "蘭嶼住著達悟族，會做漂亮的拼板舟。",
+   "act": [
+    [
+     "click",
+     "#oceanIslands [data-isl2=lanyu]"
+    ]
+   ]
+  }
+ ]
+}

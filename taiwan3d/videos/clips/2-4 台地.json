@@ -1,0 +1,36 @@
+{
+ "file": "2-4 台地.mp4",
+ "title": "2-4 台地",
+ "segments": [
+  {
+   "say": "台地高高的、上面很平，旁邊是陡坡，像一張大桌子。",
+   "act": [
+    [
+     "click",
+     ".legend [data-lf=tableland]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(121.1,24.85,160,1.0)"
+    ]
+   ]
+  },
+  {
+   "say": "桃園台地不容易引水，以前的人挖了很多埤塘來存水，所以桃園又叫千塘之鄉。",
+   "act": [
+    [
+     "wait",
+     2500
+    ],
+    [
+     "label",
+     "桃園埤塘"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "file": "5-2 北部冬天也下雨.mp4",
+ "title": "5-2 北部冬天也下雨",
+ "segments": [
+  {
+   "say": "再看北部的基隆。基隆冬天也很多雨，因為冬天吹東北季風，從海上帶來水氣。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "js",
+     "document.querySelector('.pane[data-pane=rain] .fold').open=true"
+    ],
+    [
+     "js",
+     "const s=document.getElementById('city'); s.value='keelung'; s.dispatchEvent(new Event('change'))"
+    ]
+   ]
+  },
+  {
+   "say": "所以北部是全年有雨，南部是夏雨冬乾。",
+   "act": [
+    [
+     "wait",
+     1000
+    ],
+    [
+     "js",
+     "const s=document.getElementById('city'); s.value='kaohsiung'; s.dispatchEvent(new Event('change'))"
+    ]
+   ]
+  }
+ ]
+}

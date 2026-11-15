@@ -1,0 +1,32 @@
+{
+ "file": "8-4 祭典月曆.mp4",
+ "title": "8-4 祭典月曆",
+ "segments": [
+  {
+   "say": "用祭典月曆點一個月份，就能看到那個月有哪些族在舉行祭典。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#monthStrip [data-fm=\"8\"]"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ]
+   ]
+  },
+  {
+   "say": "有些祭典是很神聖的，參加時要尊重部落的規定喔。",
+   "act": [
+    [
+     "click",
+     "#monthStrip [data-fm=\"11\"]"
+    ]
+   ]
+  }
+ ]
+}

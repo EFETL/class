@@ -1,0 +1,28 @@
+{
+ "file": "8-2 阿美族與達悟族.mp4",
+ "title": "8-2 阿美族與達悟族",
+ "segments": [
+  {
+   "say": "人數最多的阿美族住在花東，夏天舉行豐年祭，大家手牽手唱歌跳舞，感謝祖靈。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#tribeList button[data-t=amis]"
+    ]
+   ]
+  },
+  {
+   "say": "住在蘭嶼的達悟族，會做漂亮的拼板舟，春天有飛魚祭。",
+   "act": [
+    [
+     "click",
+     "#tribeList button[data-t=yami]"
+    ]
+   ]
+  }
+ ]
+}

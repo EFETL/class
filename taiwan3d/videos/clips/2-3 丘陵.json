@@ -1,0 +1,36 @@
+{
+ "file": "2-3 丘陵.mp4",
+ "title": "2-3 丘陵",
+ "segments": [
+  {
+   "say": "丘陵有高有低，但沒有山地那麼高，不到一千公尺。",
+   "act": [
+    [
+     "click",
+     ".legend [data-lf=hill]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(120.85,24.45,200,0.95)"
+    ]
+   ]
+  },
+  {
+   "say": "丘陵常常種茶、種果樹，還會開成一層一層的梯田，像苗栗丘陵、新竹丘陵。",
+   "act": [
+    [
+     "wait",
+     3000
+    ],
+    [
+     "label",
+     "苗栗銅鑼梯田"
+    ]
+   ]
+  }
+ ]
+}

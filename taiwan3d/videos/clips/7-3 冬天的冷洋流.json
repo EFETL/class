@@ -1,0 +1,36 @@
+{
+ "file": "7-3 冬天的冷洋流.mp4",
+ "title": "7-3 冬天的冷洋流",
+ "segments": [
+  {
+   "say": "冬天，藍色的中國沿岸流從北方帶來冰冷的海水，流進臺灣海峽。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=ocean]"
+    ],
+    [
+     "click",
+     "[data-season=winter]"
+    ],
+    [
+     "click",
+     "#curList [data-cur=china]"
+    ]
+   ]
+  },
+  {
+   "say": "夏天它就不見了，換成南海季風流往北流。",
+   "act": [
+    [
+     "click",
+     "[data-season=summer]"
+    ],
+    [
+     "click",
+     "#curList [data-cur=scs]"
+    ]
+   ]
+  }
+ ]
+}

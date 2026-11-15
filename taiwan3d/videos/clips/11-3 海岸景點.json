@@ -1,0 +1,36 @@
+{
+ "file": "11-3 海岸景點.mp4",
+ "title": "11-3 海岸景點",
+ "segments": [
+  {
+   "say": "海岸也有很多特別的地形，像清水斷崖和野柳的女王頭。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=spots]"
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"清水斷崖\"]"
+    ],
+    [
+     "wait",
+     4500
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"野柳地質公園\"]"
+    ]
+   ]
+  },
+  {
+   "say": "下次出去玩，想一想：這個地方是什麼地形呢？",
+   "act": [
+    [
+     "wait",
+     500
+    ]
+   ]
+  }
+ ]
+}

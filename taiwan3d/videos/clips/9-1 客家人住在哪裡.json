@@ -1,0 +1,36 @@
+{
+ "file": "9-1 客家人住在哪裡.mp4",
+ "title": "9-1 客家人住在哪裡",
+ "segments": [
+  {
+   "say": "臺灣大約每五個人裡，就有一個是客家人。",
+   "act": [
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#ethChips [data-eth=hakka]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(121.0,24.3,320,0.8)"
+    ]
+   ]
+  },
+  {
+   "say": "地圖上顏色越深，客家人越多。新竹縣和苗栗縣，超過一半的人是客家人。",
+   "act": [
+    [
+     "wait",
+     1500
+    ]
+   ]
+  }
+ ]
+}
