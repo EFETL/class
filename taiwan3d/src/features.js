@@ -286,25 +286,30 @@ export function initFeatures(ctx) {
   ];
   function applyPlate() {
     const t = plate.t;
-    world.scale.y = Math.max(0.02, state.exag * t);
+    // 抬升更明顯：①動畫時高度放大到至少 ×10 ②一開始島整個沉在海面下，慢慢浮出 ③東西向從寬寬的被「壓窄」
+    const e = t * t * (3 - 2 * t), PEAK = Math.max(10, state.exag);
+    world.scale.y = Math.max(0.02, PEAK * e);
+    world.scale.x = 1 + 0.35 * (1 - e);
+    ctx.mainMesh.position.y = -(1 - e) * 0.9;
     const off = (1 - t) * 60;
     plate.ph.position.x = off * 0.8; plate.ph.position.z = off * 0.6;
     const st = (state.level === 'elem' ? STAGES : STAGES_J).filter(s => s[0] <= t + 1e-6).pop();
     const el = $('#plateStage'); if (el) el.textContent = st[1];
     const sl = $('#plateSlider'); if (sl && !sl.matches(':active')) sl.value = Math.round(t * 100);
-    const yl = $('#plateYear'); if (yl) yl.textContent = t >= 0.999 ? '現在' : t < 0.05 ? '數百萬年前' : `擠壓中…${Math.round(t * 100)}%`;
+    const yl = $('#plateYear'); if (yl) { const top = Math.max(0, Math.round((3952 + 900) * e - 900)); yl.textContent = (t >= 0.999 ? '現在' : t < 0.05 ? '數百萬年前' : `擠壓中…${Math.round(t * 100)}%`) + `｜最高點約 ${top > 0 ? top.toLocaleString() + ' 公尺' : '還在海面下'}`; }
   }
   function openPlates() {
     ctx.mission && ctx.mission('plates');
     clearProfile();
     document.body.classList.add('plates');   // 板塊動畫時隱藏景點等標記
     plate.group.visible = true; setPlateLabels(true); plate.t = 0; plate.playing = true; applyPlate();
-    openInfo(`<div class="tag-lf" style="background:#8e24aa;color:#fff">🌋 板塊運動</div><h3>臺灣是怎麼「擠」出來的？</h3>
+    openInfo(`<div class="plate-card"><div class="tag-lf" style="background:#8e24aa;color:#fff">🌋 板塊運動</div><h3>臺灣是怎麼「擠」出來的？</h3>
       <p id="plateYear" style="font-weight:800;color:#8e24aa"></p>
       <p id="plateStage"></p>
       <input type="range" id="plateSlider" min="0" max="100" value="0" aria-label="時間">
       <div class="row"><button class="btn-sm" id="platePlay">⏸ 暫停</button><button class="btn-sm" id="plateQuake">🫨 地震！</button><button class="btn-sm" id="plateClose">✕ 結束動畫</button></div>
-      <p class="muted">紫色是菲律賓海板塊、綠色是歐亞板塊，紅色虛線是板塊交界（花東縱谷）。課本：臺灣位於兩板塊的接觸帶，板塊擠壓形成「新褶曲山脈」。</p>`);
+      <details class="plate-more"><summary>說明</summary><p class="muted">紫色是菲律賓海板塊、綠色是歐亞板塊，紅色虛線是板塊交界（花東縱谷）。高度在動畫中放大了 ×10，方便看清楚山怎麼長高。課本：臺灣位於兩板塊的接觸帶，板塊擠壓形成「新褶曲山脈」。</p></details></div>`);
+    info.classList.add('plate-mode'); ctx.layout && ctx.layout();
     applyPlate();
     $('#plateSlider').oninput = (e) => { plate.playing = false; $('#platePlay').textContent = '▶ 播放'; plate.t = +e.target.value / 100; applyPlate(); wake(); };
     $('#platePlay').onclick = () => { if (plate.t >= 1) plate.t = 0; plate.playing = !plate.playing; $('#platePlay').textContent = plate.playing ? '⏸ 暫停' : '▶ 播放'; wake(); };
@@ -312,11 +317,12 @@ export function initFeatures(ctx) {
     $('#plateClose').onclick = closePlates;
     viewPlates();
   }
-  function viewPlates() { flyTo(121.1, 23.4, 620, 0.95); }
+  // 從東南方、低角度側看，才看得出山「長高」
+  function viewPlates() { const phone = window.innerWidth <= 900; flyTo(121.0, 23.45, phone ? 520 : 520, 1.2); }
   function closePlates() {
     if (!plate.group.visible) return;
     document.body.classList.remove('plates');
-    plate.group.visible = false; setPlateLabels(false); plate.playing = false; plate.t = 1; world.scale.y = state.exag; info.classList.remove('show'); wake();
+    plate.group.visible = false; setPlateLabels(false); plate.playing = false; plate.t = 1; world.scale.y = state.exag; world.scale.x = 1; ctx.mainMesh.position.y = 0; info.classList.remove('show', 'plate-mode'); wake();
   }
 
   // ========== 每一格動畫 ==========

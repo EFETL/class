@@ -649,6 +649,7 @@ function setMonth(m) { state.month = m; drawRain(); mission('month:' + (m + 1));
 // ================= 資訊卡 =================
 const info = $('#info');
 function openInfo(html) {
+  info.classList.remove('plate-mode');
   info.innerHTML = `<button class="x" aria-label="關閉">✕</button>${html}`; info.classList.add('show'); info.scrollTop = 0;
   info.querySelector('.x').onclick = () => { info.classList.remove('show'); layout(); };
   // 手機：打開說明卡時把下方面板收起來，地圖才看得到
@@ -881,7 +882,7 @@ function panBy(dx, dz) {
 [['panL', -1, 0], ['panR', 1, 0], ['panU', 0, 1], ['panD', 0, -1]].forEach(([id, dx, dz]) => $('#' + id).onclick = () => panBy(dx, dz));
 
 feat = initFeatures({ scene, world, camera, controls, renderer, mainGeo, mainMesh, seaMesh: sea, M, G, px, pz, KX, KZ, heightAt, state, openInfo, info, $, LF_COLOR, CLS, labels, addLabel,
-  wake: (ms) => wake(ms), flyTo: (...a) => flyTo(...a), mission: (e) => mission(e) });
+  wake: (ms) => wake(ms), flyTo: (...a) => flyTo(...a), mission: (e) => mission(e), layout: () => layout() });
 
 // ================= 學生小任務 =================
 function missionDone() { try { return new Set(JSON.parse(localStorage.getItem('tw3d_done') || '[]')); } catch (e) { return new Set(); } }
