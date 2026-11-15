@@ -9,7 +9,7 @@
 <style>
 :root{--ink:#1f2d3d;--muted:#5f7183;--card:#ffffff;--pri:#2f6fd6;--line:#dde6ee}
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;color:var(--ink);overflow:hidden}
+html,body{margin:0;height:100%;overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;color:var(--ink);overflow:hidden}
 #scene{position:fixed;inset:0;touch-action:none}
 #scene canvas{display:block;touch-action:none}
 .labels{position:absolute;inset:0;pointer-events:none}
@@ -67,7 +67,7 @@ figure.ph{margin:-14px -16px 10px;border-radius:16px 16px 0 0;overflow:hidden;ba
 figure.ph img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
 figure.ph figcaption{font-size:10.5px;color:#667;padding:4px 10px;line-height:1.4}
 figure.ph a{color:#2f6fd6}
-@media (max-width:760px){#spotList ul.cards{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){#spotList ul.cards{grid-template-columns:repeat(3,1fr)}}
 #spotList li,.spot-list li{border:1px solid var(--line);border-radius:8px;padding:5px 8px;font-size:13.5px;cursor:pointer;background:#fff}
 .spot-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:5px}
 /* 資訊卡 */
@@ -98,8 +98,10 @@ body.far .lb.spot .nm, body.far .lb.peak small, body.far .lb.ruler-h{display:non
 body[data-level=elem] .junior-only{display:none}
 #loading{position:fixed;inset:0;display:grid;place-items:center;background:#bfe3f7;font-size:20px;z-index:50}
 .viewbar{position:fixed;bottom:12px;right:12px;display:flex;gap:6px;z-index:15}
+.zoombar{position:fixed;right:12px;bottom:64px;display:flex;flex-direction:column;gap:6px;z-index:15}
+.zoombar button{width:44px;height:44px;border:0;border-radius:12px;background:#fff;font-size:24px;font-weight:700;box-shadow:0 3px 12px #0002;cursor:pointer;touch-action:manipulation}
 .viewbar button{border:0;background:#fff;border-radius:10px;padding:9px 12px;font:inherit;font-size:14px;font-weight:700;box-shadow:0 3px 12px #0002;cursor:pointer}
-@media (max-width:760px){
+@media (max-width:900px){
   header.top h1{font-size:15px}
   #panel{top:auto;bottom:0;left:0;right:0;width:auto;max-height:44%;border-radius:16px 16px 0 0;background:#fff;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
   body.panel-min #panel .tabs{margin-bottom:0}
@@ -107,6 +109,8 @@ body[data-level=elem] .junior-only{display:none}
   #info{left:8px;right:8px;width:auto;top:60px;max-height:45%}
   .viewbar{bottom:auto;top:60px;right:8px;flex-direction:column}
   .viewbar button{padding:6px 8px;font-size:12px}
+  .zoombar{top:178px;bottom:auto;right:8px}
+  .zoombar button{width:40px;height:40px}
   .lb.lf{font-size:12px}
 }
 @media print{#panel,.viewbar,header.top{display:none}}
@@ -141,7 +145,7 @@ body[data-level=elem] .junior-only{display:none}
       <button class="chip" data-color="height">高度分層設色</button>
     </div>
     <div id="legend" class="legend"></div>
-    <p class="muted">點一種地形，地圖上只會亮起那種地形；再點一次恢復。電腦：左鍵拖曳轉動、右鍵拖曳移動、滾輪放大縮小。手機：一指移動地圖，兩指捏合放大縮小、兩指轉動旋轉方向。</p>
+    <p class="muted">點一種地形，地圖上只會亮起那種地形；再點一次恢復。電腦：左鍵拖曳轉動、右鍵拖曳移動、滾輪放大縮小。手機／平板：一指拖曳轉動，兩指捏合放大縮小、兩指一起拖曳移動地圖；右邊也有 ＋／－ 按鈕。</p>
     <h4>外島</h4>
     <div class="isl" id="islandBtns"></div>
     <h4>顯示</h4>
@@ -192,12 +196,16 @@ body[data-level=elem] .junior-only{display:none}
 
 <aside id="info"></aside>
 
+<div class="zoombar">
+  <button id="zoomIn" aria-label="放大">＋</button>
+  <button id="zoomOut" aria-label="縮小">－</button>
+</div>
 <div class="viewbar">
   <button id="btnHome">🎥 3D 斜看</button>
   <button id="btnTop">🗺️ 平面圖</button>
   <button id="btnAll">🌏 含外島全圖</button>
 </div>
 
-<script src="app.js"></script>
+<script src="app.js?v=40957a37"></script>
 </body>
 </html>

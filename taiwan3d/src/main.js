@@ -282,9 +282,23 @@ const camera = new THREE.PerspectiveCamera(42, 1, 1, 5000);
 // 手勢要綁在地圖畫布上（標籤層是「點不到」的透明層）
 const controls = new OrbitControls(camera, renderer.domElement);
 renderer.domElement.style.touchAction = 'none';
-// 手機：一指拖曳＝移動地圖、兩指＝縮放＋轉動；電腦：左鍵轉動、右鍵移動、滾輪縮放
-controls.touches = { ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_ROTATE };
+// 手機／平板：一指拖曳＝轉動，兩指捏合＝縮放（同時可拖曳移動）——這是 three.js 預設、在 iPhone／iPad 上最穩定的組合
+// 電腦：左鍵轉動、右鍵移動、滾輪縮放
+controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN };
 controls.screenSpacePanning = false;
+controls.zoomSpeed = 1.2;
+// iPhone／iPad 的 Safari 會用兩指手勢縮放「整個網頁」，搶走地圖的縮放；這裡把它擋掉
+['gesturestart', 'gesturechange', 'gestureend'].forEach(t => document.addEventListener(t, e => e.preventDefault(), { passive: false }));
+document.addEventListener('touchmove', e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+// 放大／縮小按鈕（備用：手指不方便時也能縮放）
+function zoomBy(k) {
+  fly = null;
+  const off = camera.position.clone().sub(controls.target);
+  const d = THREE.MathUtils.clamp(off.length() * k, controls.minDistance, controls.maxDistance);
+  camera.position.copy(controls.target).add(off.setLength(d));
+}
+$('#zoomIn').onclick = () => zoomBy(0.7);
+$('#zoomOut').onclick = () => zoomBy(1 / 0.7);
 controls.rotateSpeed = 0.6;
 controls.addEventListener('start', () => { fly = null; });
 // 標籤不攔截手勢：手指一律交給地圖；「輕點」（幾乎沒移動）時，才看手指下面是哪個標籤
@@ -626,7 +640,7 @@ $('#btnDrain').onclick = () => { state.flood = 0; state.rising = false; updateFl
 document.querySelectorAll('[data-flood]').forEach(b => b.onclick = () => { state.flood = +b.dataset.flood; state.rising = false; updateFlood(); });
 $('#panelToggle').onclick = () => { document.body.classList.toggle('panel-min'); layout(); };
 // 手機：面板一開始收起來，只留分頁列；點分頁就展開
-const isPhone = () => window.innerWidth <= 760;
+const isPhone = () => window.innerWidth <= 900;
 if (isPhone()) document.body.classList.add('panel-min');
 document.querySelectorAll('.tabs [data-mode]').forEach(b => b.addEventListener('click', () => { document.body.classList.remove('panel-min'); layout(); }));
 

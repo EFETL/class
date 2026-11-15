@@ -9,3 +9,7 @@ if [ ! -d "$B/node_modules/three" ]; then
 fi
 NODE_PATH="$B/node_modules" "$B/node_modules/.bin/esbuild" taiwan3d/src/main.js \
   --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outfile=taiwan3d/app.js
+# 版本戳：每次打包後把 index.html 的 app.js 改成 app.js?v=<內容雜湊>，手機就不會沿用舊的快取
+V=$(md5sum taiwan3d/app.js | cut -c1-8)
+sed -i -E "s#src=\"app\.js(\?v=[0-9a-f]+)?\"#src=\"app.js?v=$V\"#" taiwan3d/index.html
+echo "app.js?v=$V"
