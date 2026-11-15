@@ -597,13 +597,30 @@ $('#btnRain').onclick = () => {
 $('#floodSlider').oninput = (e) => { state.flood = +e.target.value; state.rising = false; updateFlood(); };
 $('#btnDrain').onclick = () => { state.flood = 0; state.rising = false; updateFlood(); };
 document.querySelectorAll('[data-flood]').forEach(b => b.onclick = () => { state.flood = +b.dataset.flood; state.rising = false; updateFlood(); });
-$('#panelToggle').onclick = () => document.body.classList.toggle('panel-min');
+$('#panelToggle').onclick = () => { document.body.classList.toggle('panel-min'); layout(); };
+// 手機：面板一開始收起來，只留分頁列；點分頁就展開
+const isPhone = () => window.innerWidth <= 760;
+if (isPhone()) document.body.classList.add('panel-min');
+document.querySelectorAll('.tabs [data-mode]').forEach(b => b.addEventListener('click', () => { document.body.classList.remove('panel-min'); layout(); }));
 
 // ================= 啟動 =================
 function resize() {
   const w = wrap.clientWidth, h = wrap.clientHeight;
-  renderer.setSize(w, h); labelR.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix();
+  renderer.setSize(w, h); labelR.setSize(w, h); camera.aspect = w / h;
+  layout();
 }
+// 讓地圖的中心落在「沒被面板擋住」的地方：手機往上移、電腦往右移
+function layout() {
+  const w = wrap.clientWidth, h = wrap.clientHeight, r = $('#panel').getBoundingClientRect();
+  const top = 52; // 上方標題列
+  let ox = 0, oy = 0;
+  if (isPhone()) oy = Math.round((r.height - top) / 2);
+  else if (!document.body.classList.contains('panel-min')) ox = -Math.round((r.right) / 2);
+  else oy = 0;
+  if (ox || oy) camera.setViewOffset(w, h, ox, oy, w, h); else camera.clearViewOffset();
+  camera.updateProjectionMatrix();
+}
+new ResizeObserver(() => layout()).observe($('#panel'));
 window.addEventListener('resize', resize);
 resize();
 camera.position.set(px(120.2), 330, pz(21.2)); controls.target.set(px(120.95), 0, pz(23.65));
