@@ -98,6 +98,7 @@ CSS 的標題類別已語意化為 `.h-main`（主標）／`.h-sub`（副標）�
 * 內容資料都在 **`taiwan3d/src/data.js`**：地形說明（國小版 `elem`／國中版 `junior`）、山脈、地形區、山峰、外島、景點、雨量。
   標「課本」的雨量是國中地理1上第5課的表格（淡水、高雄、恆春、玉山）；其他城市是氣象署平均值的約略數字，上課前請核對。
 * 地形高度是依課本的五大山脈與地形區「示意建模」，不是精確的測量資料；海岸線來自 Natural Earth（公有領域）。
+* 景點照片在 `taiwan3d/photos/`，全部來自 Wikimedia Commons 的自由授權照片（CC BY / CC BY-SA / CC0 / 公有領域），已縮小為 800 像素寬；每張照片的作者、授權、原始網址都在 `taiwan3d/src/photos.js`，網頁上也會顯示。換照片時請一併更新出處。
 * 改完 `src/` 之後執行 `tools/build-taiwan3d.sh` 重新打包成 `taiwan3d/app.js`（需要 Node.js）。
   打包後是單一檔案，不需網路，可以直接雙擊 `taiwan3d/index.html` 開啟。
 

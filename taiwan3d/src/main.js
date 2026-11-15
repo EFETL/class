@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 import { COAST } from './coast.js';
+import { PHOTOS } from './photos.js';
 import {
   LANDFORMS, RIDGES, HILLBANDS, CONES, ZONES, HILL_LABELS, PEAKS, ISLANDS, SPOTS,
   REGIONS, RAIN, SEASONS, MONTH_RAIN, RAIN_LEVELS,
@@ -278,7 +279,29 @@ const scene = new THREE.Scene();
 scene.background = C('#bfe3f7');
 scene.fog = new THREE.Fog('#bfe3f7', 700, 1700);
 const camera = new THREE.PerspectiveCamera(42, 1, 1, 5000);
-const controls = new OrbitControls(camera, labelR.domElement);
+// 手勢要綁在地圖畫布上（標籤層是「點不到」的透明層）
+const controls = new OrbitControls(camera, renderer.domElement);
+renderer.domElement.style.touchAction = 'none';
+// 手機：一指拖曳＝移動地圖、兩指＝縮放＋轉動；電腦：左鍵轉動、右鍵移動、滾輪縮放
+controls.touches = { ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_ROTATE };
+controls.screenSpacePanning = false;
+controls.rotateSpeed = 0.6;
+controls.addEventListener('start', () => { fly = null; });
+// 標籤不攔截手勢：手指一律交給地圖；「輕點」（幾乎沒移動）時，才看手指下面是哪個標籤
+const tap = { x: 0, y: 0, t: 0, n: 0 };
+renderer.domElement.addEventListener('pointerdown', e => { tap.n++; if (tap.n === 1) { tap.x = e.clientX; tap.y = e.clientY; tap.t = performance.now(); } else tap.t = 0; });
+renderer.domElement.addEventListener('pointerup', e => {
+  tap.n = Math.max(0, tap.n - 1);
+  if (!tap.t || performance.now() - tap.t > 450 || Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > 8) return;
+  tap.t = 0;
+  const order = ['island', 'lf', 'peak', 'city', 'spot'];
+  for (const kind of order) for (const l of labels[kind]) {
+    if (!l.onClick || !l.o.visible || l.el.style.display === 'none' || l.el.classList.contains('hid')) continue;
+    const r = l.el.getBoundingClientRect();
+    if (e.clientX >= r.left - 4 && e.clientX <= r.right + 4 && e.clientY >= r.top - 4 && e.clientY <= r.bottom + 4) { l.onClick(); return; }
+  }
+});
+renderer.domElement.addEventListener('pointercancel', () => { tap.n = 0; tap.t = 0; });
 controls.enableDamping = true; controls.maxPolarAngle = Math.PI * 0.49; controls.minDistance = 8; controls.maxDistance = 1400;
 scene.add(new THREE.HemisphereLight('#ffffff', '#4b6b3a', 1.1));
 const sun = new THREE.DirectionalLight('#fff6e0', 2.2); sun.position.set(-300, 400, 200); scene.add(sun);
@@ -348,9 +371,9 @@ function spotHeight(lon, lat) {
 const labels = { lf: [], peak: [], spot: [], island: [], ruler: [], city: [] };
 function addLabel(kind, html, lon, lat, hM, cls, onClick) {
   const el = document.createElement('div'); el.className = 'lb ' + cls; el.innerHTML = html;
-  if (onClick) { el.addEventListener('pointerdown', ev => ev.stopPropagation()); el.addEventListener('click', ev => { ev.stopPropagation(); onClick(); }); el.classList.add('clickable'); }
+  if (onClick) el.classList.add('clickable');
   const o = new CSS2DObject(el); o.position.set(px(lon), hM / 1000, pz(lat)); world.add(o);
-  labels[kind].push({ o, el, hM }); return { o, el };
+  labels[kind].push({ o, el, hM, onClick }); return { o, el };
 }
 const LF_TYPE_OF_ZONE = { plain: 'plain', basin: 'basin', tableland: 'tableland' };
 RIDGES.forEach(r => addLabel('lf', r.name, r.label[0], r.label[1], (heightAt(...r.label) || 2000) + 400, 'lf lf-mountain', () => showLandform('mountain', r.name)));
@@ -509,8 +532,12 @@ function showLandform(type, name) {
 }
 function lfName(e, lon, lat) { const h = heightAt(lon, lat); if (h == null) return ''; const i = Math.round((G.lat1 - lat) / (G.lat1 - G.lat0) * (M.nz - 1)) * M.nx + Math.round((lon - G.lon0) / (G.lon1 - G.lon0) * (M.nx - 1)); return LANDFORMS[CLS_KEY[M.cls[i]]]?.name || ''; }
 const T_NAME = { mountain: '山地', hill: '丘陵', tableland: '台地', basin: '盆地', plain: '平原', coast: '海岸', volcano: '火山', island: '外島' };
+function photoHTML(n) {
+  const ph = PHOTOS[n]; if (!ph) return '';
+  return `<figure class="ph"><img src="photos/${ph.f}" alt="${n}" loading="lazy"><figcaption>📷 ${ph.a || '佚名'}・${ph.l}・<a href="${ph.u}" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>`;
+}
 function showSpot(s) {
-  openInfo(`<div class="tag-lf" style="background:${LANDFORMS[s.t]?.color || '#7fb3d5'}">${T_NAME[s.t]}</div><h3>${s.i} ${s.n}</h3><p>${s.d}</p>
+  openInfo(`${photoHTML(s.n)}<div class="tag-lf" style="background:${LANDFORMS[s.t]?.color || '#7fb3d5'}">${T_NAME[s.t]}</div><h3>${s.i} ${s.n}</h3><p>${s.d}</p>
     <p class="muted">這裡大約海拔 <b>${Math.round(s.h).toLocaleString()} 公尺</b>（${(s.h / 1000).toFixed(2)} 公里）${lfName(s.h, s.lon, s.lat) ? `，地圖上屬於「${lfName(s.h, s.lon, s.lat)}」` : ''}。</p>`);
 }
 function showPeak(p) {
@@ -560,7 +587,7 @@ function setMode(m) {
 }
 function renderSpotList() {
   const groups = ['mountain', 'hill', 'tableland', 'basin', 'plain', 'volcano', 'coast', 'island'];
-  $('#spotList').innerHTML = groups.map(g => `<h4>${LANDFORMS[g]?.icon || (g === 'coast' ? '🌊' : g === 'volcano' ? '🌋' : '🏝️')} ${T_NAME[g]}</h4><ul>${SPOTS.filter(s => s.t === g).map(s => `<li data-n="${s.n}">${s.i} ${s.n}</li>`).join('')}</ul>`).join('');
+  $('#spotList').innerHTML = groups.map(g => `<h4>${LANDFORMS[g]?.icon || (g === 'coast' ? '🌊' : g === 'volcano' ? '🌋' : '🏝️')} ${T_NAME[g]}</h4><ul class="cards">${SPOTS.filter(s => s.t === g).map(s => `<li data-n="${s.n}">${PHOTOS[s.n] ? `<img src="photos/${PHOTOS[s.n].f}" alt="" loading="lazy">` : `<span class="noimg">${s.i}</span>`}<span>${s.i} ${s.n}</span></li>`).join('')}</ul>`).join('');
   $('#spotList').querySelectorAll('li').forEach(li => li.onclick = () => { const s = SPOTS.find(x => x.n === li.dataset.n); const isl = islandAt(s.lon, s.lat); flyTo(s.lon, s.lat, s.t === 'island' ? 40 : 70); showSpot(s); });
 }
 function applyToggles() {
