@@ -911,7 +911,7 @@ function renderMissions() {
 function openGuide(mode) {
   const g = GUIDES[mode] || GUIDES.terrain;
   $('#guide .gbody').innerHTML = `<div class="gtabs">${Object.entries(GUIDES).map(([k, v]) => `<button data-g="${k}" class="${k === mode ? 'on' : ''}">${v.title}</button>`).join('')}</div>
-    <h2>📘 教學指引：${g.title}</h2>
+    <h2>教學指引：${g.title}</h2>
     <div class="gbook"><b>對應課本：</b>${g.book}</div>
     <h4>🎯 教學目標</h4><p>${g.goal}</p>
     <h4>⏱️ 建議流程（約 ${g.steps.reduce((a, s) => a + s[0], 0)} 分鐘）</h4><ol>${g.steps.map(([m, t]) => `<li><span class="min">${m} 分</span>${t}</li>`).join('')}</ol>
