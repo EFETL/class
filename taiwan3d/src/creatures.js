@@ -1,6 +1,7 @@
 // 生物在地圖上的小動畫。插圖（Gemini 畫的 PNG）放在 taiwan3d/animals/<id>.png，
 // ANIMAL_IMG 裡有登記的就用插圖；還沒有插圖的先用表情符號代替。
-export const ANIMAL_IMG = {};   // 例如 { bear: 'bear.png' }
+// 有插圖的動物（檔案在 taiwan3d/animals/）；插圖都畫成「面向右邊」
+export const ANIMAL_IMG = { bear: 'bear.png', butterfly: 'butterfly.png', fiddler: 'fiddler.png', flyingfish: 'flyingfish.png', gull: 'gull.png' };
 
 export const EMOJI = {
   bear: '🐻', pheasant: '🐓', sambar: '🦌', muntjac: '🦌', salmon: '🐟', macaque: '🐒', magpie: '🐦', leopardcat: '🐆', pangolin: '🦔',
@@ -9,7 +10,7 @@ export const EMOJI = {
 };
 
 export function creatureHTML(c) {
-  const art = ANIMAL_IMG[c.id] ? `<img src="animals/${ANIMAL_IMG[c.id]}" alt="">` : `<span class="emo">${EMOJI[c.id] || '🐾'}</span>`;
+  const art = ANIMAL_IMG[c.id] ? `<span class="flip"><img src="animals/${ANIMAL_IMG[c.id]}" alt=""></span>` : `<span class="emo">${EMOJI[c.id] || '🐾'}</span>`;
   const extra = c.a === 'spout' ? '<span class="spout"></span>' : (c.a === 'leap' || c.a === 'glide') ? '<span class="splash"></span>' : '';
   return `<div class="cr cr-${c.k} an-${c.a || 'still'}"><span class="mover">${art}</span>${extra}</div><div class="crn">${c.n.replace(/（.*）/, '')}</div>`;
 }
@@ -19,7 +20,8 @@ export const CREATURE_CSS = `
 .lb.creature .cr{position:relative;width:64px;height:44px}
 .lb.creature .mover{position:absolute;left:18px;bottom:0;width:30px;height:30px;display:grid;place-items:center}
 .lb.creature .emo{font-size:26px;line-height:1;filter:drop-shadow(0 2px 2px #0006)}
-.lb.creature img{width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 2px 2px #0006)}
+.lb.creature img{width:46px;height:46px;object-fit:contain;filter:drop-shadow(0 2px 2px #0006)}
+.lb.creature .flip{display:block;transform:scaleX(-1)}   /* 插圖面向右，翻成和表情符號一樣面向左，動畫的轉向邏輯就通用 */
 .lb.creature .crn{background:#fffffff0;border-radius:7px;padding:0 6px;font-size:11.5px;font-weight:700;box-shadow:0 1px 3px #0003;white-space:nowrap}
 .lb.creature.cr-plant .crn{background:#e8f5e9}
 body.far .lb.creature .crn{display:none}
