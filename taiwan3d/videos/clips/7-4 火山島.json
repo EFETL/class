@@ -10,6 +10,10 @@
      ".tabs [data-mode=ocean]"
     ],
     [
+     "js",
+     "__tw.feat.showCurrents(false)"
+    ],
+    [
      "click",
      "#oceanIslands [data-isl2=guishan]"
     ]
