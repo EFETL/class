@@ -1,7 +1,7 @@
 // 生物在地圖上的小動畫。插圖（Gemini 畫的 PNG）放在 taiwan3d/animals/<id>.png，
 // ANIMAL_IMG 裡有登記的就用插圖；還沒有插圖的先用表情符號代替。
 // 有插圖的動物（檔案在 taiwan3d/animals/）；插圖都畫成「面向右邊」
-export const ANIMAL_IMG = { bear: 'bear.png', butterfly: 'butterfly.png', fiddler: 'fiddler.png', flyingfish: 'flyingfish.png', gull: 'gull.png', leopardcat: 'leopardcat.png', macaque: 'macaque.png', magpie: 'magpie.png', mahi: 'mahi.png', muntjac: 'muntjac.png', pangolin: 'pangolin.png', salmon: 'salmon.png', sambar: 'sambar.png', sika: 'sika.png', sperm: 'sperm.png', spinner: 'spinner.png', spoonbill: 'spoonbill.png', tuna: 'tuna.png', turtle: 'turtle.png', ventcrab: 'ventcrab.png' };
+export const ANIMAL_IMG = { bear: 'bear.png', bottlenose: 'bottlenose.png', butterfly: 'butterfly.png', fiddler: 'fiddler.png', flyingfish: 'flyingfish.png', gull: 'gull.png', leopardcat: 'leopardcat.png', macaque: 'macaque.png', magpie: 'magpie.png', mahi: 'mahi.png', muntjac: 'muntjac.png', pangolin: 'pangolin.png', pheasant: 'pheasant.png', salmon: 'salmon.png', sambar: 'sambar.png', sika: 'sika.png', sperm: 'sperm.png', spinner: 'spinner.png', spoonbill: 'spoonbill.png', tuna: 'tuna.png', turtle: 'turtle.png', ventcrab: 'ventcrab.png' };
 
 export const EMOJI = {
   bear: '🐻', pheasant: '🐓', sambar: '🦌', muntjac: '🦌', salmon: '🐟', macaque: '🐒', magpie: '🐦', leopardcat: '🐆', pangolin: '🦔',
