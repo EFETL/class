@@ -24,7 +24,7 @@ header.top a.home{text-decoration:none;color:var(--pri);font-weight:700;font-siz
 #panel{position:fixed;top:62px;left:10px;width:350px;max-height:calc(100% - 72px);overflow:auto;background:var(--card);border-radius:16px;box-shadow:0 6px 24px #0002;z-index:15;padding:12px 14px}
 body.panel-min #panel .pane, body.panel-min #panel .tabs~*{display:none}
 .tabs{display:flex;gap:6px;margin-bottom:10px;align-items:center}
-.tabs button{flex:1;border:2px solid var(--line);background:#fff;border-radius:12px;padding:8px 4px;font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.tabs button{flex:1;border:2px solid var(--line);background:#fff;border-radius:12px;padding:8px 2px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap}
 .tabs button.on{border-color:var(--pri);background:#eaf2ff;color:var(--pri)}
 #panelToggle{flex:0 0 34px;font-size:14px}
 h3{margin:6px 0 4px;font-size:18px} h4{margin:12px 0 4px;font-size:15px}
@@ -94,6 +94,14 @@ body.far .lb.spot .nm, body.far .lb.peak small, body.far .lb.ruler-h{display:non
 .lb.ruler small{display:block;font-size:10.5px;color:#b22}
 .lb.ruler-hl{color:#a0410d}
 .lb.ruler-km{transform:translate(-50%,30%)}
+.tribe-list{display:grid;grid-template-columns:1fr;gap:5px;margin:8px 0}
+.tribe-list button{display:grid;grid-template-columns:18px 1fr;column-gap:8px;align-items:center;text-align:left;border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font:inherit;cursor:pointer}
+.tribe-list button small{grid-column:2;color:var(--muted);font-size:12px}
+.tribe-list button.on{outline:3px solid var(--pri)}
+.lb.tribe{display:flex;flex-direction:column;align-items:flex-start;background:#fffffff0;border-radius:8px;padding:2px 7px 2px 20px;position:relative;box-shadow:0 1px 4px #0003;font-size:12.5px}
+.lb.tribe .tdot{position:absolute;left:6px;top:7px;width:10px;height:10px;border-radius:50%;border:1px solid #0004}
+.lb.tribe small{font-size:10.5px;color:#555}
+body.far .lb.tribe small{display:none}
 .lb.city{font-weight:700;background:#e3f0ff;border:1px solid #5a9de0;border-radius:6px;padding:1px 5px}
 body[data-level=elem] .junior-only{display:none}
 #loading{position:fixed;inset:0;display:grid;place-items:center;background:#bfe3f7;font-size:20px;z-index:50}
@@ -105,7 +113,8 @@ body[data-level=elem] .junior-only{display:none}
   header.top h1{font-size:15px}
   #panel{top:auto;bottom:0;left:0;right:0;width:auto;max-height:44%;border-radius:16px 16px 0 0;background:#fff;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
   body.panel-min #panel .tabs{margin-bottom:0}
-  .tabs button{padding:7px 2px;font-size:14px}
+  .tabs button{padding:7px 1px;font-size:13px}
+  .tribe-list{grid-template-columns:1fr 1fr}
   #info{left:8px;right:8px;width:auto;top:60px;max-height:45%}
   .viewbar{bottom:auto;top:60px;right:8px;flex-direction:column}
   .viewbar button{padding:6px 8px;font-size:12px}
@@ -134,6 +143,7 @@ body[data-level=elem] .junior-only{display:none}
     <button data-mode="terrain">⛰️ 地形</button>
     <button data-mode="rain">🌧️ 雨量</button>
     <button data-mode="spots">📍 景點</button>
+    <button data-mode="tribes">🪶 原住民</button>
     <button id="panelToggle" title="收合面板">☰</button>
   </div>
 
@@ -187,6 +197,13 @@ body[data-level=elem] .junior-only{display:none}
     <p class="note">🔎 這是「想像實驗」：真正的雨水會流進河川、流回大海，不會把山淹掉。我們用「水越積越高」來比一比：平原、盆地、台地、丘陵、山地，哪一種地形最低、哪一種最高。</p>
   </section>
 
+  <!-- 原住民族 -->
+  <section class="pane" data-pane="tribes" hidden>
+    <p>臺灣目前有 <b>16 個</b>政府認定的原住民族。地圖上的顏色是各族「主要分布地區」，旗子是代表部落。點一族就會飛過去。</p>
+    <div id="tribeList" class="tribe-list"></div>
+    <p class="muted">分布範圍為示意，參考原住民族委員會資料；現在也有許多族人住在都市。正名順序：阿美、泰雅、排灣、布農、卑南、魯凱、鄒、賽夏、雅美（達悟）、邵、噶瑪蘭、太魯閣、撒奇萊雅、賽德克、拉阿魯哇、卡那卡那富。</p>
+  </section>
+
   <!-- 景點 -->
   <section class="pane" data-pane="spots" hidden>
     <p class="muted">每一種地形附近都有特別的景點。點一下就會飛過去。</p>
@@ -206,6 +223,6 @@ body[data-level=elem] .junior-only{display:none}
   <button id="btnAll">🌏 含外島全圖</button>
 </div>
 
-<script src="app.js?v=40957a37"></script>
+<script src="app.js?v=2a8de038"></script>
 </body>
 </html>
