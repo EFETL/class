@@ -129,6 +129,7 @@ export function initFeatures(ctx) {
     wake(800);
   }
   function selectCurrent(id) {
+    ctx.mission && ctx.mission('current:' + id);
     curSel = curSel === id ? null : id;
     const cu = CURRENTS.find(c => c.id === id);
     if (!cu.seasons.includes(season)) season = cu.seasons[0];
@@ -168,6 +169,7 @@ export function initFeatures(ctx) {
     return { pts: out, dist };
   }
   function drawProfile(a, b, name) {
+    ctx.mission && ctx.mission('profile');
     prof = { a, b, name, ...sampleProfile(a, b) };
     // 3D 線
     profGroup.clear();
@@ -293,6 +295,7 @@ export function initFeatures(ctx) {
     const yl = $('#plateYear'); if (yl) yl.textContent = t >= 0.999 ? '現在' : t < 0.05 ? '數百萬年前' : `擠壓中…${Math.round(t * 100)}%`;
   }
   function openPlates() {
+    ctx.mission && ctx.mission('plates');
     clearProfile();
     plate.group.visible = true; setPlateLabels(true); plate.t = 0; plate.playing = true; applyPlate();
     openInfo(`<div class="tag-lf" style="background:#8e24aa;color:#fff">🌋 板塊運動</div><h3>臺灣是怎麼「擠」出來的？</h3>

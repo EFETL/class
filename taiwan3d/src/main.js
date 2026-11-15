@@ -13,6 +13,7 @@ import {
 import { creatureHTML, CREATURE_CSS } from './creatures.js';
 import { CPHOTOS } from './creaturePhotos.js';
 import { sceneHTML, FEST_CSS } from './festivals.js';
+import { GUIDES, MISSIONS, GUIDE_CSS } from './guide.js';
 import { COUNTIES } from './counties.js';
 import { initFeatures, PROFILES } from './features.js';
 
@@ -489,7 +490,7 @@ function refreshFest() {
 function renderFestUI() {
   const now = new Date().getMonth() + 1;
   $('#monthStrip').innerHTML = Array.from({ length: 12 }, (_, i) => `<button data-fm="${i + 1}" class="${state.festMonth === i + 1 ? 'on' : ''} ${now === i + 1 ? 'now' : ''}">${i + 1}月</button>`).join('');
-  $('#monthStrip').querySelectorAll('[data-fm]').forEach(b => b.onclick = () => { state.festMonth = +b.dataset.fm; state.tribeFocus = null; paint(); renderTribes(); });
+  $('#monthStrip').querySelectorAll('[data-fm]').forEach(b => b.onclick = () => { state.festMonth = +b.dataset.fm; mission('festmonth:' + state.festMonth); state.tribeFocus = null; paint(); renderTribes(); });
   const list = FESTIVALS.filter(f => f.m.includes(state.festMonth));
   $('#festList').innerHTML = list.length ? list.map(f => `<button data-fi="${FESTIVALS.indexOf(f)}"><span class="dot" style="background:${f.tribe.c}"></span><b>${f.tribe.n.replace(/（.*）/, '')}・${f.n}${f.sacred ? ' 🕯️' : ''}</b><small>${monthsText(f.m)}${f.approx ? '（依部落而異）' : ''}</small></button>`).join('') : '<p class="muted">這個月沒有列出的祭典。</p>';
   $('#festList').querySelectorAll('[data-fi]').forEach(b => b.onclick = () => { const f = FESTIVALS[+b.dataset.fi]; showTribe(f.tribe, f); });
@@ -608,6 +609,7 @@ function updateFlood() {
   $('#floodHint').textContent = floodHint(L);
 }
 function floodHint(L) {
+  if (L >= 1000) mission('flood:1000');
   if (L <= 0) return '按「開始下雨」或拖拉水位，看看水會淹到哪裡。';
   if (L < 100) return '平原最先被淹：平原高度大多不到 100 公尺。';
   if (L < 500) return '平原、盆地都淹了，台地和丘陵還露在水面上。';
@@ -642,7 +644,7 @@ function drawRain() {
   $('#monthSel').value = state.month;
   setRainZones();
 }
-function setMonth(m) { state.month = m; drawRain(); }
+function setMonth(m) { state.month = m; drawRain(); mission('month:' + (m + 1)); }
 
 // ================= 資訊卡 =================
 const info = $('#info');
@@ -676,10 +678,12 @@ function photoHTML(n) {
   return `<figure class="ph"><img src="photos/${ph.f}" alt="${n}" loading="lazy"><figcaption>📷 ${ph.a || '佚名'}・${ph.l}・<a href="${ph.u}" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>`;
 }
 function showSpot(s) {
+  mission('spot:' + s.t);
   openInfo(`${photoHTML(s.n)}<div class="tag-lf" style="background:${LANDFORMS[s.t]?.color || '#7fb3d5'}">${T_NAME[s.t]}</div><h3>${s.i} ${s.n}</h3><p>${s.d}</p>
     <p class="muted">這裡大約海拔 <b>${Math.round(s.h).toLocaleString()} 公尺</b>（${(s.h / 1000).toFixed(2)} 公里）${lfName(s.h, s.lon, s.lat) ? `，地圖上屬於「${lfName(s.h, s.lon, s.lat)}」` : ''}。</p>`);
 }
 function showTribe(t, fest) {
+  mission('tribe:' + t.id);
   state.tribeFocus = t.id; paint(); renderTribes();
   const fests = FESTIVALS.filter(f => f.t === t.id);
   if (fest) { FESTIVALS.forEach(f => { f._force = f === fest; }); }
@@ -707,6 +711,7 @@ function showHakka(area) {
   if (area) flyTo(area.lon, area.lat, 160);
 }
 function showCreature(c) {
+  mission('creature:' + c.id); if (c.k === 'sea') mission('creature:sea');
   const ph = CPHOTOS[c.n];
   const photo = ph ? `<figure class="ph"><img src="creatures/${ph.f}" alt="${c.n}" loading="lazy"><figcaption>📷 ${ph.a}・${ph.l}・<a href="${ph.u}" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>` : '';
   const K = { land: '🦌 陸地動物', air: '🐦 天空', sea: '🐬 海洋生物', plant: '🌲 植物' }[c.k];
@@ -720,10 +725,12 @@ function renderLife() {
   $('#vegLegend').innerHTML = VEG_ZONES.map((v, i) => `<div><span class="dot" style="background:${v.c}"></span><span><b>${v.n}</b>（${i ? VEG_ZONES[i - 1].to.toLocaleString() : 0}${v.to > 5000 ? ' 公尺以上' : '～' + v.to.toLocaleString() + ' 公尺'}）<small>${v.d}</small></span></div>`).join('') + '<p class="muted">海拔越高越冷，植物就跟著改變，這叫「植物垂直分布」。各版本課本的分法略有不同。</p>';
 }
 function showPeak(p) {
+  mission('peak:' + p.name);
   openInfo(`<div class="tag-lf" style="background:${LANDFORMS.mountain.color}">⛰️ 山地</div><h3>▲ ${p.name}</h3><p>高度 <b>${p.h.toLocaleString()} 公尺</b>＝ ${(p.h / 1000).toFixed(3)} 公里${p.note ? `，${p.note}` : ''}。</p>
     <p class="muted">${state.level === 'elem' ? '如果一層樓大約 3 公尺，' + p.name + '差不多有 ' + Math.round(p.h / 3).toLocaleString() + ' 層樓那麼高！' : '臺灣面積不大，卻有兩百多座 3,000 公尺以上的高山，是板塊擠壓形成的年輕山脈。'}</p>`);
 }
 function showIsland(i) {
+  if (i.kind === '火山島') mission('volcanic');
   const d = Math.round(Math.hypot(px(i.lon) - px(120.30), pz(i.lat) - pz(22.62)));
   openInfo(`<div class="tag-lf" style="background:${REGIONS[i.region].color}">${i.kind}</div><h3>🏝️ ${i.name}</h3><p>${txt(i)}</p>
     <p class="muted">最高點約 <b>${i.h} 公尺</b>；距離高雄直線約 <b>${d} 公里</b>。</p>`);
@@ -743,7 +750,7 @@ function viewTop() { fly = { t: 0, p0: camera.position.clone(), p1: new THREE.Ve
 function viewAll() { fly = { t: 0, p0: camera.position.clone(), p1: new THREE.Vector3(px(119.4), 1050, pz(23.4) + 260), c0: controls.target.clone(), c1: new THREE.Vector3(px(119.4), 0, pz(23.4)) }; }
 
 // ================= UI =================
-function setFocus(f) { state.focus = state.focus === f ? null : f; document.querySelectorAll('.legend [data-lf]').forEach(b => b.classList.toggle('on', b.dataset.lf === state.focus)); paint(); feat.setFloat(state.color === 'landform' && state.mode === 'terrain' ? state.focus : null); }
+function setFocus(f) { state.focus = state.focus === f ? null : f; if (state.focus) mission('float:' + state.focus); document.querySelectorAll('.legend [data-lf]').forEach(b => b.classList.toggle('on', b.dataset.lf === state.focus)); paint(); feat.setFloat(state.color === 'landform' && state.mode === 'terrain' ? state.focus : null); }
 function setColor(c) {
   state.color = c; document.querySelectorAll('[data-color]').forEach(b => b.classList.toggle('on', b.dataset.color === c)); renderLegend(); paint();
   if (feat) { feat.countyLines.visible = c === 'region' || c === 'hakka'; if (c !== 'landform') feat.setFloat(null); else if (state.focus) feat.setFloat(state.focus); }
@@ -818,7 +825,7 @@ $('#btnHome').onclick = viewHome; $('#btnTop').onclick = viewTop; $('#btnAll').o
 $('#islandBtns').innerHTML = ISLANDS.map(i => `<button data-isl="${i.id}">${i.name}</button>`).join('');
 $('#islandBtns').querySelectorAll('button').forEach(b => b.onclick = () => showIsland(ISLANDS.find(i => i.id === b.dataset.isl)));
 $('#city').innerHTML = RAIN.map(c => `<option value="${c.id}">${c.name}（${REGIONS[c.region].name}）${c.src === 'book' ? '・課本' : ''}</option>`).join('');
-$('#city').value = state.city; $('#city').onchange = (e) => { state.city = e.target.value; drawRain(); };
+$('#city').value = state.city; $('#city').onchange = (e) => { state.city = e.target.value; drawRain(); mission('city:' + RAIN.find(c => c.id === state.city).region); };
 $('#monthSel').innerHTML = MONTH_RAIN.map((_, m) => `<option value="${m}">${m + 1} 月</option>`).join('');
 $('#monthSel').onchange = (e) => setMonth(+e.target.value);
 $('#btnRain').onclick = () => {
@@ -840,6 +847,7 @@ $('#vegToggle').onchange = (e) => { if (e.target.checked) { state.prevColor2 = s
 document.querySelectorAll('[data-life]').forEach(b => b.onclick = () => { state.lifeFilter = b.dataset.life; document.querySelectorAll('[data-life]').forEach(x => x.classList.toggle('on', x === b)); showLife(true); wake(); });
 // 族群：原住民族／客家
 function setEthnic(e) {
+  if (e === 'hakka') mission('hakka');
   state.ethnic = e; state.tribeFocus = null;
   document.querySelectorAll('#ethChips [data-eth]').forEach(b => b.classList.toggle('on', b.dataset.eth === e));
   $('#tribeBox').hidden = e !== 'tribe'; $('#hakkaBox').hidden = e !== 'hakka';
@@ -872,7 +880,55 @@ function panBy(dx, dz) {
 [['panL', -1, 0], ['panR', 1, 0], ['panU', 0, 1], ['panD', 0, -1]].forEach(([id, dx, dz]) => $('#' + id).onclick = () => panBy(dx, dz));
 
 feat = initFeatures({ scene, world, camera, controls, renderer, mainGeo, mainMesh, seaMesh: sea, M, G, px, pz, KX, KZ, heightAt, state, openInfo, info, $, LF_COLOR, CLS, labels, addLabel,
-  wake: (ms) => wake(ms), flyTo: (...a) => flyTo(...a) });
+  wake: (ms) => wake(ms), flyTo: (...a) => flyTo(...a), mission: (e) => mission(e) });
+
+// ================= 學生小任務 =================
+function missionDone() { try { return new Set(JSON.parse(localStorage.getItem('tw3d_done') || '[]')); } catch (e) { return new Set(); } }
+function mission(ev) {
+  const done = missionDone(); let hit = null;
+  for (const [mode, list] of Object.entries(MISSIONS)) for (const m of list) if (m.ev === ev && !done.has(mode + '|' + m.ev)) { done.add(mode + '|' + m.ev); hit = m; }
+  if (!hit) return;
+  try { localStorage.setItem('tw3d_done', JSON.stringify([...done])); } catch (e) {}
+  toast('✅ 任務完成：' + hit.q);
+  renderMissions();
+}
+function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('show'), 2600); }
+function renderMissions() {
+  const done = missionDone();
+  document.querySelectorAll('.pane').forEach(pane => {
+    const mode = pane.dataset.pane, list = MISSIONS[mode]; if (!list) return;
+    let box = pane.querySelector('.mission');
+    const open = box ? box.open : false;
+    if (!box) { box = document.createElement('details'); box.className = 'mission'; pane.prepend(box); }
+    const n = list.filter(m => done.has(mode + '|' + m.ev)).length;
+    box.innerHTML = `<summary>🎯 小任務 ${n}/${list.length}${n === list.length ? ' ⭐ 全部完成！' : ''}</summary><ul>${list.map(m => `<li class="${done.has(mode + '|' + m.ev) ? 'done' : ''}">${done.has(mode + '|' + m.ev) ? '✅' : '⬜'} ${m.q}</li>`).join('')}</ul><button class="reset">重新開始</button>`;
+    box.open = open;
+    box.querySelector('.reset').onclick = () => { const d = missionDone(); list.forEach(m => d.delete(mode + '|' + m.ev)); try { localStorage.setItem('tw3d_done', JSON.stringify([...d])); } catch (e) {} renderMissions(); };
+  });
+}
+// ================= 老師教學指引 =================
+{ const st = document.createElement('style'); st.textContent = GUIDE_CSS; document.head.appendChild(st); }
+function openGuide(mode) {
+  const g = GUIDES[mode] || GUIDES.terrain;
+  $('#guide .gbody').innerHTML = `<div class="gtabs">${Object.entries(GUIDES).map(([k, v]) => `<button data-g="${k}" class="${k === mode ? 'on' : ''}">${v.title}</button>`).join('')}</div>
+    <h2>📘 教學指引：${g.title}</h2>
+    <div class="gbook"><b>對應課本：</b>${g.book}</div>
+    <h4>🎯 教學目標</h4><p>${g.goal}</p>
+    <h4>⏱️ 建議流程（約 ${g.steps.reduce((a, s) => a + s[0], 0)} 分鐘）</h4><ol>${g.steps.map(([m, t]) => `<li><span class="min">${m} 分</span>${t}</li>`).join('')}</ol>
+    <h4>💬 提問與參考答案（點問題看答案）</h4>${g.questions.map(([q, a]) => `<details><summary>${q}</summary><p>👉 ${a}</p></details>`).join('')}
+    <h4>⚠️ 常見迷思與提醒</h4>${g.myths.map(m => `<div class="myth">${m}</div>`).join('')}
+    <h4>🎯 學生小任務（面板上方的綠色框）</h4><ol>${(MISSIONS[mode] || []).map(m => `<li>${m.q}</li>`).join('')}</ol>
+    <div class="gfoot"><button class="btn-sm" id="gGo">▶ 切到這個分頁上課</button><button class="btn-sm" id="gPresent">${document.body.classList.contains('present') ? '結束投影模式' : '📺 投影模式（隱藏面板、放大字）'}</button><button class="btn-sm" id="gPrint">🖨️ 列印這份指引</button></div>`;
+  $('#guide').classList.add('show');
+  $('#guide .gbody').querySelectorAll('[data-g]').forEach(b => b.onclick = () => openGuide(b.dataset.g));
+  $('#gGo').onclick = () => { setMode(mode); $('#guide').classList.remove('show'); };
+  $('#gPresent').onclick = () => { document.body.classList.toggle('present'); $('#guide').classList.remove('show'); layout(); wake(); };
+  $('#gPrint').onclick = () => window.print();
+}
+$('#btnGuide').onclick = () => openGuide(state.mode);
+$('#guide .gx').onclick = () => $('#guide').classList.remove('show');
+$('#guide').onclick = (e) => { if (e.target.id === 'guide') $('#guide').classList.remove('show'); };
+renderMissions();
 
 // ================= 啟動 =================
 function resize() {

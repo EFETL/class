@@ -172,6 +172,7 @@ body.far .lb.hakka-area{display:none}
   .viewbar button{padding:7px 9px}
   .hint{font-size:17px}
 }
+@media (max-width:520px){header.top h1{font-size:0}header.top h1::first-letter{font-size:18px}.seg button{padding:6px 9px;white-space:nowrap}.gtxt{display:none}}
 @media print{#panel,.viewbar,header.top{display:none}}
 </style>
 </head>
@@ -183,6 +184,7 @@ body.far .lb.hakka-area{display:none}
   <a class="home" href="../index.html">← 首頁</a>
   <h1>🗺️ 臺灣 3D 地形教室</h1>
   <span class="spacer"></span>
+  <button class="guidebtn" id="btnGuide">📘 <span class="gtxt">教學指引</span></button>
   <div class="seg" role="group" aria-label="程度">
     <button data-level="elem">國小</button><button data-level="junior">國中</button>
   </div>
@@ -306,6 +308,8 @@ body.far .lb.hakka-area{display:none}
 </aside>
 
 <aside id="info"></aside>
+<div id="guide" role="dialog" aria-label="教學指引"><div class="gbox"><button class="gx" aria-label="關閉">✕</button><div class="gbody"></div></div></div>
+<div id="toast"></div>
 
 <div id="hint" class="hint" hidden><b>怎麼操作地圖？</b><span class="touch-only">👆 一指拖曳：旋轉　✌️ 兩指：放大縮小、移動</span><span class="mouse-only">🖱️ 左鍵拖曳：旋轉　右鍵拖曳（或方向鍵、◀▶▲▼）：移動　滾輪：放大縮小</span><small>點地名、景點可以看說明（點這裡關閉）</small></div>
 <div class="padbar mouse-only"><button id="panU" aria-label="往前">▲</button><div><button id="panL" aria-label="往左">◀</button><button id="panR" aria-label="往右">▶</button></div><button id="panD" aria-label="往後">▼</button></div>
@@ -320,6 +324,6 @@ body.far .lb.hakka-area{display:none}
   <button id="btnAll">🌏 含外島全圖</button>
 </div>
 
-<script src="app.js?v=059cacbd"></script>
+<script src="app.js?v=c9d9b39a"></script>
 </body>
 </html>
