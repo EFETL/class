@@ -1,0 +1,17 @@
+{ "file": "01-認識3D地形教室.mp4", "title": "第 1 集　認識 3D 地形教室：怎麼操作？",
+  "segments": [
+    { "say": "大家好，歡迎來到臺灣 3D 地形教室。今天我們要用一張會動的立體地圖，認識我們生活的臺灣。",
+      "act": [["click", "#btnHome"]] },
+    { "say": "用一根手指拖曳，可以把地圖轉來轉去，從不同方向看臺灣。",
+      "act": [["wait", 800], ["drag", [900, 420, 1100, 400, 2500]], ["wait", 600], ["drag", [1100, 400, 850, 430, 2500]]] },
+    { "say": "用兩根手指張開或捏合，可以放大、縮小；兩根手指一起拖，可以移動地圖。用電腦的話，滾輪是放大縮小，右鍵拖曳是移動。",
+      "act": [["click", "#zoomIn"], ["wait", 1200], ["click", "#zoomIn"], ["wait", 1500], ["click", "#panU"], ["wait", 1200], ["click", "#panD"], ["wait", 1200], ["click", "#zoomOut"], ["wait", 1200], ["click", "#zoomOut"]] },
+    { "say": "右下角的按鈕，可以切換平面圖和 3D 斜看。平面圖就像課本上的地圖，3D 斜看可以看出山有多高。",
+      "act": [["wait", 1500], ["click", "#btnTop"], ["wait", 4500], ["click", "#btnHome"]] },
+    { "say": "上面有好幾個分頁：地形、雨量、海洋、族群、生物和景點。我們會一集一集介紹。",
+      "act": [["wait", 1500], ["click", ".tabs [data-mode=rain]"], ["wait", 1500], ["click", ".tabs [data-mode=ocean]"], ["wait", 1500], ["click", ".tabs [data-mode=tribes]"], ["wait", 1500], ["click", ".tabs [data-mode=life]"], ["wait", 1500], ["click", ".tabs [data-mode=terrain]"]] },
+    { "say": "看到地名、景點，都可以點一下，會跳出說明。",
+      "act": [["wait", 1000], ["label", "玉山主峰"]] },
+    { "say": "每一頁最上面，還有綠色的小任務，做到了會自動打勾。看完影片，記得自己動手試試看！",
+      "act": [["js", "document.getElementById('info').classList.remove('show')"], ["js", "document.querySelector('.pane[data-pane=terrain] .mission').open = true"]] }
+  ] }

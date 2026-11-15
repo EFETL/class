@@ -730,9 +730,10 @@ function showPeak(p) {
     <p class="muted">${state.level === 'elem' ? '如果一層樓大約 3 公尺，' + p.name + '差不多有 ' + Math.round(p.h / 3).toLocaleString() + ' 層樓那麼高！' : '臺灣面積不大，卻有兩百多座 3,000 公尺以上的高山，是板塊擠壓形成的年輕山脈。'}</p>`);
 }
 function showIsland(i) {
+  const more = i.feat ? `<p><b>🏞️ 地景：</b>${i.feat.land}</p><p><b>🎉 人文與活動：</b>${i.feat.culture}</p>${i.feat.food ? `<p><b>🍽️ 特色美食：</b>${i.feat.food}</p>` : ''}` : '';
   if (i.kind === '火山島') mission('volcanic');
   const d = Math.round(Math.hypot(px(i.lon) - px(120.30), pz(i.lat) - pz(22.62)));
-  openInfo(`<div class="tag-lf" style="background:${REGIONS[i.region].color}">${i.kind}</div><h3>🏝️ ${i.name}</h3><p>${txt(i)}</p>
+  openInfo(`<div class="tag-lf" style="background:${REGIONS[i.region].color}">${i.kind}</div><h3>🏝️ ${i.name}</h3><p>${txt(i)}</p>${more}
     <p class="muted">最高點約 <b>${i.h} 公尺</b>；距離高雄直線約 <b>${d} 公里</b>。</p>`);
   flyTo(i.lon, i.lat, Math.max(30, i.id === 'dongsha' ? 60 : i.id === 'penghu' ? 70 : 40));
 }
@@ -1007,4 +1008,6 @@ renderer.setAnimationLoop(() => {
   document.body.classList.toggle('far', dist > 420);
   renderer.render(scene, camera); labelR.render(scene, camera);
 });
-window.__tw = { state, M, SPOTS, camera, controls, setMode, setColor, flyTo, updateFlood, feat, setFocus, setEthnic };
+window.__tw = { state, M, SPOTS, camera, controls, setMode, setColor, flyTo, updateFlood, feat, setFocus, setEthnic,
+  // 錄影用：直接「點」某個標籤（不受標籤重疊隱藏影響）
+  tapLabel: (text) => { for (const k in labels) for (const l of labels[k]) if (l.onClick && l.el.textContent.includes(text)) { l.onClick(); return true; } return false; } };
