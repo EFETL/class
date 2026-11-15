@@ -467,7 +467,7 @@ const monthsText = (m) => {
 FESTIVALS.forEach(f => {
   const t = TRIBES.find(x => x.id === f.t);
   f.tribe = t;
-  f.lbl = addLabel('fest', sceneHTML(f.a, t.c, `${t.n.replace(/（.*）/, '')}・${f.n.replace(/（.*）/, '')}`, f.sacred), t.vlon, t.vlat, spotHeight(t.vlon, t.vlat) + 80, 'fest');
+  f.lbl = addLabel('fest', `<div class="tpic" style="border-color:${t.c}"><img src="tribes/${t.id}.jpg" alt="" loading="lazy"></div><div class="sccap">${f.sacred ? '🕯️ ' : ''}${t.n.replace(/（.*）/, '')}・${f.n.replace(/（.*）/, '')}</div>`, t.vlon, t.vlat, spotHeight(t.vlon, t.vlat) + 80, 'fest', () => showTribe(t, f));
   f.lbl.o.visible = false;
 });
 state.festMonth = new Date().getMonth() + 1;
@@ -687,7 +687,7 @@ function showTribe(t, fest) {
   state.tribeFocus = t.id; paint(); renderTribes();
   const fests = FESTIVALS.filter(f => f.t === t.id);
   if (fest) { FESTIVALS.forEach(f => { f._force = f === fest; }); }
-  openInfo(`<div class="tag-lf" style="background:${t.c};color:#fff">🪶 原住民族</div><h3>${t.n}</h3>
+  openInfo(`<figure class="ph"><img src="tribes/${t.id}.jpg" alt="${t.n}"><figcaption>🎨 插圖由 AI（Gemini）繪製，僅供示意，不代表真實服飾細節</figcaption></figure><div class="tag-lf" style="background:${t.c};color:#fff">🪶 原住民族</div><h3>${t.n}</h3>
     <p><b>住在哪裡：</b>${t.where}</p><p>${txt(t)}</p>
     ${fests.length ? `<p><b>📅 重要祭典：</b></p><ul class="festcard">${fests.map(f => `<li class="${f === fest ? 'hl' : ''}"><b>${f.n}</b>${f.sacred ? ' <em class="sacredtag">🕯️ 神聖祭典</em>' : ''}<br><small>${monthsText(f.m)}${f.approx ? '（依部落而異，以原民會與部落公告為準）' : ''}</small><br>${f.d}</li>`).join('')}</ul>` : ''}
     <p class="muted">地圖上的代表部落：<b>${t.v}</b>。彩色範圍是主要分布地區的示意，不是精確的界線；現在也有很多族人住在城市裡。</p>
@@ -699,7 +699,7 @@ function showTribe(t, fest) {
 }
 function renderTribes() {
   if ($('#monthStrip')) renderFestUI();
-  $('#tribeList').innerHTML = TRIBES.map((t, i) => `<button data-t="${t.id}" class="${state.tribeFocus === t.id ? 'on' : ''}"><span class="dot" style="background:${t.c}"></span><b>${i + 1}. ${t.n}${t.isNew ? ' <em class="new">2026 新核定</em>' : ''}</b><small>${t.where}</small></button>`).join('');
+  $('#tribeList').innerHTML = TRIBES.map((t, i) => `<button data-t="${t.id}" class="${state.tribeFocus === t.id ? 'on' : ''}"><img class="tthumb" src="tribes/${t.id}.jpg" alt="" loading="lazy" style="border-color:${t.c}"><b>${i + 1}. ${t.n}${t.isNew ? ' <em class="new">2026 新核定</em>' : ''}</b><small>${t.where}</small></button>`).join('');
   $('#tribeList').querySelectorAll('button').forEach(b => b.onclick = () => showTribe(TRIBES.find(t => t.id === b.dataset.t)));
 }
 function showHakka(area) {

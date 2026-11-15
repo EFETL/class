@@ -41,6 +41,12 @@ export function sceneHTML(a, c, caption, sacred) {
 }
 
 export const FEST_CSS = `
+.lb.fest .tpic{width:132px;height:99px;border-radius:14px;overflow:hidden;border:3px solid;box-shadow:0 3px 10px #0004;background:#eee}
+.lb.fest .tpic img{width:100%;height:100%;object-fit:cover;animation:kb 12s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.15) translate(-3%,-2%)}}
+.lb.fest{pointer-events:none}
+.tribe-list button{grid-template-columns:44px 1fr!important}
+.tribe-list .tthumb{grid-row:span 2;width:44px;height:33px;object-fit:cover;border-radius:6px;border:2px solid}
 .lb.fest{transform:translate(-50%,-112%);display:flex;flex-direction:column;align-items:center;pointer-events:none}
 .lb.fest .scene{position:relative;width:120px;height:72px;border-radius:14px;background:linear-gradient(#e3f4ff 0 70%,#c5e1a5 70%);box-shadow:0 2px 8px #0003;overflow:hidden}
 .lb.fest .sccap{margin-top:3px;background:#fff;border-radius:8px;padding:1px 7px;font-size:12px;font-weight:700;box-shadow:0 1px 4px #0002;white-space:nowrap}
@@ -97,6 +103,6 @@ export const FEST_CSS = `
 .fest-list{display:flex;flex-direction:column;gap:5px}
 .fest-list button{text-align:left;border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font:inherit;cursor:pointer;display:grid;grid-template-columns:14px 1fr;column-gap:8px;align-items:center}
 .fest-list button small{grid-column:2;color:var(--muted);font-size:12px}
-@media (max-width:900px){.lb.fest .sccap,.month-strip button,.fest-list button small{font-size:16px!important}.lb.fest .scene{transform:scale(1.15);transform-origin:bottom center;margin-bottom:6px}}
+@media (max-width:900px){.lb.fest .tpic{width:120px;height:90px}.lb.fest .sccap,.month-strip button,.fest-list button small{font-size:16px!important}.lb.fest .scene{transform:scale(1.15);transform-origin:bottom center;margin-bottom:6px}}
 @media (prefers-reduced-motion:reduce){.scene *{animation:none!important}}
 `;
