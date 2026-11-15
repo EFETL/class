@@ -1,25 +1,28 @@
 // 原住民族祭典的「剪影動畫」：只用各族代表色的簡單人形，不畫服飾花紋（避免畫錯）
 // 動畫全部用 CSS 完成，地圖不必一直重畫，手機比較省電。
 
-// 人形剪影（viewBox 0 0 20 40）
+// 卡通人物：有臉、頭髮、皮膚色的手腳，衣服用各族代表色（不畫服飾花紋）
+const SKIN = '#f1c27d', HAIR = '#2b1d14', PANTS = '#4e342e';
 function fig(pose, c) {
-  const head = `<circle cx="10" cy="5" r="4" fill="${c}"/>`;
-  const body = `<path d="M10 9 L10 24" stroke="${c}" stroke-width="5" stroke-linecap="round"/>`;
-  const legs = `<path d="M10 24 L6 38 M10 24 L14 38" stroke="${c}" stroke-width="3.6" stroke-linecap="round" fill="none"/>`;
-  const A = (d, w = 3.2) => `<path d="${d}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" fill="none"/>`;
+  const head = `<circle cx="10" cy="5.5" r="4.6" fill="${SKIN}"/><path d="M5.4 5 Q6 0 10 0.6 Q14.2 0.4 14.6 5 Q12.5 2.6 10 2.8 Q7.5 2.6 5.4 5 Z" fill="${HAIR}"/>`
+    + `<circle cx="8.3" cy="6" r=".65" fill="#222"/><circle cx="11.7" cy="6" r=".65" fill="#222"/><path d="M8.4 7.9 Q10 9.2 11.6 7.9" stroke="#a0522d" stroke-width=".7" fill="none" stroke-linecap="round"/>`
+    + `<circle cx="7.2" cy="7.6" r=".8" fill="#f48fb1" opacity=".6"/><circle cx="12.8" cy="7.6" r=".8" fill="#f48fb1" opacity=".6"/>`;
+  const body = `<path d="M5.2 11 Q10 9 14.8 11 L15.8 24 Q10 25.5 4.2 24 Z" fill="${c}"/>`;
+  const legs = `<path d="M8 24 L7 37.5 M12 24 L13 37.5" stroke="${PANTS}" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M5.4 38 L8 38 M12.2 38 L14.8 38" stroke="#222" stroke-width="2" stroke-linecap="round"/>`;
+  const A = (d) => `<path d="${d}" stroke="${SKIN}" stroke-width="2.8" stroke-linecap="round" fill="none"/>`;
   const arms = {
-    dance: A('M10 13 L1 18 M10 13 L19 18'),
-    up: A('M10 12 L3 3 M10 12 L17 3'),
-    down: A('M10 12 L6 23 M10 12 L14 23'),
-    bow: A('M10 13 L18 12 M10 13 L4 13') + `<path d="M17 3 Q24 12 17 21" stroke="${c}" stroke-width="1.6" fill="none"/><path d="M17 3 L17 21" stroke="${c}" stroke-width=".6"/>`,
-    pole: A('M10 12 L14 6 M10 12 L13 9') + `<path d="M17 -14 L9 30" stroke="${c}" stroke-width="1.6"/>`,
-    pestle: A('M10 12 L15 11 M10 14 L15 12') + `<path d="M16 0 L16 30" stroke="${c}" stroke-width="3" stroke-linecap="round"/>`,
-    carry: A('M10 12 L13 22 M10 12 L7 20') + `<path d="M2 9 L8 9 L7 21 L3 21 Z" fill="${c}" opacity=".85"/>`,
-    torch: A('M10 13 L15 6 M10 13 L6 22') + `<path d="M15 6 L16 -2" stroke="${c}" stroke-width="2"/><circle class="flame" cx="16" cy="-4" r="3" fill="#ffb300"/>`,
+    dance: A('M6 13 L0.5 18 M14 13 L19.5 18'),
+    up: A('M6 12.5 L2.5 3.5 M14 12.5 L17.5 3.5'),
+    down: A('M6 13 L4.5 22 M14 13 L15.5 22'),
+    bow: A('M14 13 L19 12.5 M6 13 L3 14') + `<path d="M18 3 Q25 12 18 21" stroke="#6d4c41" stroke-width="1.8" fill="none"/><path d="M18 3 L18 21" stroke="#555" stroke-width=".6"/>`,
+    pole: A('M14 12.5 L16 6 M6 13 L13 9') + `<path d="M18 -14 L10 30" stroke="#8d6e63" stroke-width="1.8"/>`,
+    pestle: A('M14 12.5 L16.5 11 M14 14.5 L16.5 13') + `<path d="M17 0 L17 30" stroke="#8d6e63" stroke-width="3" stroke-linecap="round"/>`,
+    carry: A('M14 13 L15.5 22 M6 13 L4 20') + `<path d="M1 10 L6.5 10 L6 21 L1.5 21 Z" fill="#a1887f" stroke="#6d4c41" stroke-width=".6"/>`,
+    torch: A('M14 13 L16 6 M6 13 L4.5 22') + `<path d="M16 6 L16.5 -2" stroke="#6d4c41" stroke-width="2"/><circle class="flame" cx="16.5" cy="-4" r="2.6" fill="#ffb300"/>`,
   }[pose] || '';
-  return `<svg class="fg" viewBox="0 -16 20 56" width="20" height="56">${head}${body}${legs}${arms}</svg>`;
+  return `<svg class="fg" viewBox="0 -16 20 56" width="22" height="60">${head}${legs}${body}${arms}</svg>`;
 }
-const seated = (c) => `<svg class="fg" viewBox="0 0 20 26" width="18" height="24"><circle cx="10" cy="5" r="4" fill="${c}"/><path d="M10 9 L10 20" stroke="${c}" stroke-width="5" stroke-linecap="round"/><path class="oar" d="M10 13 L20 24" stroke="${c}" stroke-width="2.6" stroke-linecap="round"/></svg>`;
+const seated = (c) => `<svg class="fg" viewBox="0 0 20 26" width="18" height="24"><circle cx="10" cy="5" r="4.2" fill="${SKIN}"/><path d="M6 4.6 Q7 0.6 10 1 Q13.4 0.6 14 4.6 Q12 2.6 10 2.8 Q8 2.6 6 4.6 Z" fill="${HAIR}"/><circle cx="8.6" cy="5.4" r=".6" fill="#222"/><circle cx="11.4" cy="5.4" r=".6" fill="#222"/><path d="M6 10 Q10 8.4 14 10 L14.5 20 L5.5 20 Z" fill="${c}"/><path class="oar" d="M10 13 L20 24" stroke="#8d6e63" stroke-width="2.6" stroke-linecap="round"/></svg>`;
 const fish = `<svg class="fish" viewBox="0 0 20 10" width="16" height="8"><path d="M1 5 Q8 -1 15 5 Q8 11 1 5 Z M15 5 L19 1 L19 9 Z M5 4 L11 0 L10 5 Z" fill="#4fc3f7"/></svg>`;
 
 export function sceneHTML(a, c, caption, sacred) {
@@ -39,12 +42,13 @@ export function sceneHTML(a, c, caption, sacred) {
 
 export const FEST_CSS = `
 .lb.fest{transform:translate(-50%,-112%);display:flex;flex-direction:column;align-items:center;pointer-events:none}
-.lb.fest .scene{position:relative;width:110px;height:66px;border-radius:14px;background:#ffffffe8;box-shadow:0 2px 8px #0003;overflow:hidden}
+.lb.fest .scene{position:relative;width:120px;height:72px;border-radius:14px;background:linear-gradient(#e3f4ff 0 70%,#c5e1a5 70%);box-shadow:0 2px 8px #0003;overflow:hidden}
 .lb.fest .sccap{margin-top:3px;background:#fff;border-radius:8px;padding:1px 7px;font-size:12px;font-weight:700;box-shadow:0 1px 4px #0002;white-space:nowrap}
 .scene .st,.scene .orb,.scene .walker,.scene .carrier,.scene .jump{position:absolute;bottom:4px}
 .sc-dance .orb{left:45px;animation:orbit 6s linear infinite}
 @keyframes orbit{0%{transform:translate(34px,-8px) scale(.72);z-index:1}25%{transform:translate(0,-2px) scale(1);z-index:3}50%{transform:translate(-34px,-8px) scale(.72);z-index:1}75%{transform:translate(0,-15px) scale(.6);z-index:0;opacity:.7}100%{transform:translate(34px,-8px) scale(.72);z-index:1}}
-.sc-boat .sea{position:absolute;left:0;right:0;bottom:0;height:20px;background:#4aa3df}
+.sc-boat .sea{position:absolute;left:0;right:0;bottom:0;height:24px;background:#4aa3df}
+.sc-boat{background:linear-gradient(#e3f4ff,#e3f4ff)!important}
 .sc-boat .boat{position:absolute;left:14px;bottom:10px;width:82px;height:34px;animation:bob 2.4s ease-in-out infinite}
 .sc-boat .boat .fg{position:relative;top:4px;margin-left:6px}
 .sc-boat .hull{position:absolute;left:0;bottom:0}
@@ -63,12 +67,12 @@ export const FEST_CSS = `
 .sc-walk .walker{left:0;animation:march 4s linear infinite}
 @keyframes march{0%{transform:translateX(-10px) translateY(0)}25%{transform:translateX(18px) translateY(-2px)}50%{transform:translateX(46px) translateY(0)}75%{transform:translateX(74px) translateY(-2px)}100%{transform:translateX(102px) translateY(0)}}
 .sc-walk .tree{position:absolute;right:4px;bottom:4px;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:26px solid #2e7d32}
-.sacred .night,.sc-solemn .night{position:absolute;inset:0;background:linear-gradient(#1b2a49,#3b4a6b)}
+.sacred .night,.sc-solemn .night{position:absolute;inset:0;background:linear-gradient(#ffe0b2 0 70%,#d7ccc8 70%)}
 .sc-solemn .sway{animation:sway 3s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:translateX(-1.5px)}50%{transform:translateX(1.5px)}}
 .sc-solemn .flame{animation:flick .6s ease-in-out infinite alternate}
 @keyframes flick{from{opacity:.6}to{opacity:1}}
-.sc-solemn .fg{filter:drop-shadow(0 0 2px #ffe082)}
+.sc-solemn .fg{filter:none}
 .sc-pound .pounder svg{animation:pound .9s ease-in-out infinite}
 .sc-pound .pounder:nth-child(2) svg{animation-delay:.45s}
 @keyframes pound{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
