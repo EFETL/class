@@ -723,6 +723,7 @@ function renderLife() {
   const G2 = [['land', '🦌 陸地動物'], ['air', '🐦 天空'], ['sea', '🐬 海洋生物'], ['plant', '🌲 植物']];
   $('#lifeList').innerHTML = G2.map(([k, t]) => `<h4>${t}</h4><ul class="cards">${CREATURES.filter(c => c.k === k).map(c => `<li data-cr="${c.id}">${CPHOTOS[c.n] ? `<img src="creatures/${CPHOTOS[c.n].f}" alt="" loading="lazy">` : ''}<span>${c.n}</span></li>`).join('')}</ul>`).join('');
   $('#lifeList').querySelectorAll('[data-cr]').forEach(li => li.onclick = () => showCreature(CREATURES.find(c => c.id === li.dataset.cr)));
+  $('#vegStrip').innerHTML = VEG_ZONES.map(v => `<span style="background:${v.c}" title="${v.n}"></span>`).join('');
   $('#vegLegend').innerHTML = VEG_ZONES.map((v, i) => `<div><span class="dot" style="background:${v.c}"></span><span><b>${v.n}</b>（${i ? VEG_ZONES[i - 1].to.toLocaleString() : 0}${v.to > 5000 ? ' 公尺以上' : '～' + v.to.toLocaleString() + ' 公尺'}）<small>${v.d}</small></span></div>`).join('') + '<p class="muted">海拔越高越冷，植物就跟著改變，這叫「植物垂直分布」。各版本課本的分法略有不同。</p>';
 }
 function showPeak(p) {
@@ -931,6 +932,29 @@ $('#btnGuide').onclick = () => openGuide(state.mode);
 $('#guide .gx').onclick = () => $('#guide').classList.remove('show');
 $('#guide').onclick = (e) => { if (e.target.id === 'guide') $('#guide').classList.remove('show'); };
 renderMissions();
+
+// ================= 面板收合：選項一直顯示，說明與長清單收起來（手機預設收起，電腦預設打開）=================
+function fold(sel, title) {
+  const nodes = sel.map(q => typeof q === 'string' ? $(q) : q).filter(Boolean);
+  if (!nodes.length) return;
+  const d = document.createElement('details'); d.className = 'fold'; d.open = !isPhone();
+  d.innerHTML = `<summary>${title}</summary>`;
+  nodes[0].before(d); nodes.forEach(n => d.appendChild(n));
+}
+{
+  const P = (m) => document.querySelector(`.pane[data-pane=${m}]`);
+  const mutedOf = (m) => [...P(m).querySelectorAll(':scope > p.muted, :scope > div > p.muted')];
+  fold(mutedOf('terrain').slice(0, 1), '說明');
+  fold([...P('terrain').querySelectorAll(':scope > h4')].filter(h => h.textContent.includes('顯示') || h.textContent.includes('高度放大')).flatMap(h => [h, h.nextElementSibling]).concat(mutedOf('terrain').slice(-1)), '顯示設定與高度放大');
+  fold(['#rainChart', mutedOf('rain')[0], '#seasonBox', '#monthInfo'], '雨量圖、四季雨量與說明');
+  fold(['#floodStats', P('rain').querySelector('.note')], '淹水統計與說明');
+  fold([P('ocean').querySelector('p.muted')], '說明');
+  fold([...P('tribes').querySelectorAll('#hakkaBox > p')], '說明');
+  { const tb = $('#tribeBox'); fold([tb.querySelector(':scope > p')], '說明'); fold([...tb.querySelectorAll(':scope > p.muted')], '祭典與分布的說明'); fold(['#tribeList'], '17 族清單（點一族看介紹）'); }
+  fold([P('life').querySelector(':scope > p'), '#vegLegend'], '說明與植物分布圖例');
+  fold(['#lifeList', P('life').querySelector(':scope > p.muted')], '生物清單（點一種看照片）');
+  fold([P('spots').querySelector('p.muted')], '說明');
+}
 
 // ================= 啟動 =================
 function resize() {

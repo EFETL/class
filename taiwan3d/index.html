@@ -187,6 +187,13 @@ body.plates .lb.lf,body.plates .lb.island,body.plates .lb.spot,body.plates .lb.p
   #info.plate-mode .btn-sm{padding:4px 8px;font-size:14px!important;white-space:nowrap}
   #info.plate-mode .plate-more summary{font-size:14px!important}
 }
+.fold{border:1px solid var(--line);border-radius:10px;padding:4px 10px;margin:6px 0;background:#fafcfe}
+.fold>summary{cursor:pointer;font-weight:700;color:#2f6fd6;font-size:14px;padding:3px 0;list-style:none}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"▸ ";display:inline-block;transition:transform .2s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.vegstrip{display:flex;gap:2px;margin:4px 0;border-radius:6px;overflow:hidden}.vegstrip span{flex:1;height:14px}
+@media (max-width:900px){.fold>summary{font-size:16px}}
 @media print{#panel,.viewbar,header.top{display:none}}
 </style>
 </head>
@@ -308,6 +315,7 @@ body.plates .lb.lf,body.plates .lb.island,body.plates .lb.spot,body.plates .lb.p
   <section class="pane" data-pane="life" hidden>
     <p>臺灣從海邊到 3,952 公尺的高山，氣候差很多，所以有各種不同的動物和植物。點一種生物看照片和說明。</p>
     <label class="toggles"><input type="checkbox" id="vegToggle" checked> 🌲 地圖改成「植物垂直分布」顏色</label>
+    <div id="vegStrip" class="vegstrip"></div>
     <div id="vegLegend" class="veg-legend"></div>
     <div class="row"><button class="chip on" data-life="all">全部</button><button class="chip" data-life="land">🦌 陸地與天空</button><button class="chip" data-life="sea">🐬 海洋</button><button class="chip" data-life="plant">🌲 植物</button></div>
     <div id="lifeList"></div>
@@ -339,6 +347,6 @@ body.plates .lb.lf,body.plates .lb.island,body.plates .lb.spot,body.plates .lb.p
   <button id="btnAll">🌏 含外島全圖</button>
 </div>
 
-<script src="app.js?v=41436423"></script>
+<script src="app.js?v=751d2831"></script>
 </body>
 </html>
