@@ -1,0 +1,36 @@
+{
+ "file": "國中8-4 祭典月曆與尊重.mp4",
+ "title": "國中8-4 祭典月曆與尊重",
+ "segments": [
+  {
+   "say": "用祭典月曆可以看到各族祭典的季節，例如七、八月阿美族豐年祭，十二月卑南族大獵祭。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#monthStrip [data-fm=\"8\"]"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ]
+   ]
+  },
+  {
+   "say": "矮靈祭、火神祭等是神聖祭儀，參與觀禮要遵守部落規範，尊重多元文化。",
+   "act": [
+    [
+     "click",
+     "#monthStrip [data-fm=\"11\"]"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "file": "國中5-2 東北季風與地形雨.mp4",
+ "title": "國中5-2 東北季風與地形雨",
+ "segments": [
+  {
+   "say": "冬季吹東北季風，從海上帶來水氣，遇到山地被迫抬升、冷卻，在迎風坡降下地形雨。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "click",
+     "#btnRain"
+    ],
+    [
+     "js",
+     "const s=document.getElementById('monthSel'); s.value='11'; s.dispatchEvent(new Event('change'))"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ]
+   ]
+  },
+  {
+   "say": "所以基隆、宜蘭冬天溼冷多雨；而西南部位在背風面，冬天乾燥，容易發生旱災。",
+   "act": [
+    [
+     "wait",
+     5000
+    ],
+    [
+     "click",
+     "#btnRain"
+    ]
+   ]
+  }
+ ]
+}

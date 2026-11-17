@@ -1,0 +1,32 @@
+{
+ "file": "國中8-1 原住民族的分布與環境.mp4",
+ "title": "國中8-1 原住民族的分布與環境",
+ "segments": [
+  {
+   "say": "臺灣有十七個原住民族。泰雅族分布最廣，住在北部山區；布農族居住海拔最高。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#tribeList button[data-t=atayal]"
+    ]
+   ]
+  },
+  {
+   "say": "阿美族住在花東平原和海岸；雅美族，也就是達悟族，是唯一的海洋民族，住在蘭嶼。",
+   "act": [
+    [
+     "click",
+     "#tribeList button[data-t=amis]"
+    ]
+   ]
+  }
+ ]
+}

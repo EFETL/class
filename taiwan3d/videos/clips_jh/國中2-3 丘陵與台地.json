@@ -1,0 +1,48 @@
+{
+ "file": "國中2-3 丘陵與台地.mp4",
+ "title": "國中2-3 丘陵與台地",
+ "segments": [
+  {
+   "say": "丘陵海拔低於一千公尺、起伏和緩，多分布在山地外緣，常開闢種茶和果樹，例如苗栗丘陵。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".legend [data-lf=hill]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(120.9,24.5,220,0.95)"
+    ]
+   ]
+  },
+  {
+   "say": "台地頂部平坦、邊緣陡峭，像林口、桃園、大肚、八卦台地。地勢高、不易引水，所以桃園台地有很多埤塘。",
+   "act": [
+    [
+     "click",
+     ".legend [data-lf=hill]"
+    ],
+    [
+     "click",
+     ".legend [data-lf=tableland]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(120.9,24.5,260,1.0)"
+    ]
+   ]
+  }
+ ]
+}

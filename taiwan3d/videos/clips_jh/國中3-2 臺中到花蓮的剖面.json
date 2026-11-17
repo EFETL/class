@@ -1,0 +1,45 @@
+{
+ "file": "國中3-2 臺中到花蓮的剖面.mp4",
+ "title": "國中3-2 臺中到花蓮的剖面",
+ "segments": [
+  {
+   "say": "從臺中出發，經過大肚台地和臺中盆地，海拔慢慢升高。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     "#profBtns [data-prof=\"0\"]"
+    ],
+    [
+     "wait",
+     2500
+    ],
+    [
+     "js",
+     "(()=>{const s=document.getElementById('profSvg');const r=s.getBoundingClientRect();s.dispatchEvent(new PointerEvent('pointermove',{clientX:r.left+r.width*0.25,clientY:r.top+r.height/2}))})()"
+    ]
+   ]
+  },
+  {
+   "say": "越過中央山脈，到達最高點。",
+   "act": [
+    [
+     "js",
+     "(()=>{const s=document.getElementById('profSvg');const r=s.getBoundingClientRect();s.dispatchEvent(new PointerEvent('pointermove',{clientX:r.left+r.width*0.6,clientY:r.top+r.height/2}))})()"
+    ]
+   ]
+  },
+  {
+   "say": "接著快速下降，抵達花蓮的海岸。",
+   "act": [
+    [
+     "js",
+     "(()=>{const s=document.getElementById('profSvg');const r=s.getBoundingClientRect();s.dispatchEvent(new PointerEvent('pointermove',{clientX:r.left+r.width*0.95,clientY:r.top+r.height/2}))})()"
+    ]
+   ]
+  }
+ ]
+}

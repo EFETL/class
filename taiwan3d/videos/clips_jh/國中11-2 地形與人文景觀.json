@@ -1,0 +1,40 @@
+{
+ "file": "國中11-2 地形與人文景觀.mp4",
+ "title": "國中11-2 地形與人文景觀",
+ "segments": [
+  {
+   "say": "地形影響土地利用：泥岩丘陵受侵蝕形成月世界惡地；嘉南平原有嘉南大圳灌溉，成為臺灣米倉。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=spots]"
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"月世界\"]"
+    ],
+    [
+     "wait",
+     5500
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"烏山頭水庫・嘉南大圳\"]"
+    ]
+   ]
+  },
+  {
+   "say": "觀察景點時，試著說出它屬於哪一種地形，以及地形如何影響人們的生活。",
+   "act": [
+    [
+     "click",
+     "#btnHome"
+    ]
+   ]
+  }
+ ]
+}

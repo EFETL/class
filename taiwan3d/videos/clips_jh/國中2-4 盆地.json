@@ -1,0 +1,36 @@
+{
+ "file": "國中2-4 盆地.mp4",
+ "title": "國中2-4 盆地",
+ "segments": [
+  {
+   "say": "盆地是四周被山地、丘陵圍繞的盆狀地形。課本舉例有臺北、臺中、埔里和泰源盆地。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".legend [data-lf=basin]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(120.95,24.1,330,0.95)"
+    ]
+   ]
+  },
+  {
+   "say": "臺北盆地是全臺人口密度最高的地方，也是政治經濟中心。",
+   "act": [
+    [
+     "label",
+     "臺北盆地"
+    ]
+   ]
+  }
+ ]
+}

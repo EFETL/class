@@ -1,0 +1,40 @@
+{
+ "file": "國中9-1 客家人口分布.mp4",
+ "title": "國中9-1 客家人口分布",
+ "segments": [
+  {
+   "say": "依客家委員會調查，全臺客家人口約四百六十七萬人，約占百分之十九點八。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#ethChips [data-eth=hakka]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(121.0,24.3,330,0.8)"
+    ]
+   ]
+  },
+  {
+   "say": "客家人口比率最高的是新竹縣，其次是苗栗縣、桃園市、花蓮縣和新竹市。",
+   "act": [
+    [
+     "wait",
+     500
+    ]
+   ]
+  }
+ ]
+}

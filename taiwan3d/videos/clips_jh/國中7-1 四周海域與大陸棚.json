@@ -1,0 +1,32 @@
+{
+ "file": "國中7-1 四周海域與大陸棚.mp4",
+ "title": "國中7-1 四周海域與大陸棚",
+ "segments": [
+  {
+   "say": "臺灣東臨太平洋，西隔臺灣海峽，南為巴士海峽，北接東海。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=ocean]"
+    ],
+    [
+     "click",
+     "#btnAll"
+    ]
+   ]
+  },
+  {
+   "say": "臺灣海峽屬於大陸棚，平均水深不到一百公尺；東部大陸棚狹窄，離岸不遠就是深海。",
+   "act": [
+    [
+     "click",
+     "#seaBtns [data-sea=\"2\"]"
+    ]
+   ]
+  }
+ ]
+}

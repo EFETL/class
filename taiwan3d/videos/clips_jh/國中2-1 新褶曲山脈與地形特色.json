@@ -1,0 +1,40 @@
+{
+ "file": "國中2-1 新褶曲山脈與地形特色.mp4",
+ "title": "國中2-1 新褶曲山脈與地形特色",
+ "segments": [
+  {
+   "say": "臺灣位在歐亞板塊和菲律賓海板塊的交界，板塊擠壓形成年輕的新褶曲山脈。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ]
+   ]
+  },
+  {
+   "say": "所以臺灣的地形特色是：山地廣大、地勢高聳、坡度陡峭、地質破碎。東部多山地，西部的平原、丘陵和台地比較多。",
+   "act": [
+    [
+     "click",
+     ".legend [data-lf=mountain]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "wait",
+     5000
+    ],
+    [
+     "click",
+     ".legend [data-lf=mountain]"
+    ]
+   ]
+  }
+ ]
+}

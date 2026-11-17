@@ -1,0 +1,36 @@
+{
+ "file": "國中7-4 離島的成因.mp4",
+ "title": "國中7-4 離島的成因",
+ "segments": [
+  {
+   "say": "臺灣的離島依成因分成三類。火山島最多，像龜山島、綠島、蘭嶼和澎湖群島。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=ocean]"
+    ],
+    [
+     "js",
+     "__tw.feat.showCurrents(false)"
+    ],
+    [
+     "click",
+     "#oceanIslands [data-isl2=penghu]"
+    ]
+   ]
+  },
+  {
+   "say": "金門、馬祖原本是臨海丘陵，因海平面上升成為大陸島；東沙島和小琉球則是珊瑚礁島。",
+   "act": [
+    [
+     "click",
+     "#islandBtns [data-isl=kinmen]"
+    ]
+   ]
+  }
+ ]
+}

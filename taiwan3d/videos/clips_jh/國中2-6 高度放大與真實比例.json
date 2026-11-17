@@ -1,0 +1,40 @@
+{
+ "file": "國中2-6 高度放大與真實比例.mp4",
+ "title": "國中2-6 高度放大與真實比例",
+ "segments": [
+  {
+   "say": "要注意，這張 3D 地圖的高度有放大六倍，山坡看起來比真實陡很多。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ],
+    [
+     "wait",
+     3000
+    ]
+   ]
+  },
+  {
+   "say": "把高度放大調回一倍，就是真實比例：臺灣南北約三百九十四公里，最高卻只有三點九五公里。",
+   "act": [
+    [
+     "js",
+     "const e=document.getElementById('exag');e.value=1;e.dispatchEvent(new Event('input'))"
+    ],
+    [
+     "wait",
+     4500
+    ],
+    [
+     "js",
+     "const e=document.getElementById('exag');e.value=6;e.dispatchEvent(new Event('input'))"
+    ]
+   ]
+  }
+ ]
+}

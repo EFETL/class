@@ -1,0 +1,40 @@
+{
+ "file": "國中10-2 特有種與保育.mp4",
+ "title": "國中10-2 特有種與保育",
+ "segments": [
+  {
+   "say": "臺灣地形複雜、氣候多樣，孕育許多特有種，例如臺灣黑熊和櫻花鉤吻鮭。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=life]"
+    ],
+    [
+     "click",
+     "#lifeList [data-cr=bear]"
+    ]
+   ]
+  },
+  {
+   "say": "櫻花鉤吻鮭是冰河時期留下的孑遺生物；石虎則因路殺和棲地開發，面臨絕種危機。",
+   "act": [
+    [
+     "click",
+     "#lifeList [data-cr=salmon]"
+    ],
+    [
+     "wait",
+     5000
+    ],
+    [
+     "click",
+     "#lifeList [data-cr=leopardcat]"
+    ]
+   ]
+  }
+ ]
+}

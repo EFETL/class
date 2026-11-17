@@ -1,0 +1,48 @@
+{
+ "file": "國中11-1 海岸地形.mp4",
+ "title": "國中11-1 海岸地形",
+ "segments": [
+  {
+   "say": "臺灣的海岸地形多樣：北部鼻頭角是岬灣海岸，東部清水斷崖是斷層海岸。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=spots]"
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"鼻頭角\"]"
+    ],
+    [
+     "wait",
+     5000
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"清水斷崖\"]"
+    ]
+   ]
+  },
+  {
+   "say": "西南部有沙洲圍成的北門潟湖，最南端的墾丁則是珊瑚礁海岸。",
+   "act": [
+    [
+     "click",
+     "#spotList li[data-n=\"北門潟湖\"]"
+    ],
+    [
+     "wait",
+     4000
+    ],
+    [
+     "click",
+     "#spotList li[data-n=\"墾丁國家公園・鵝鑾鼻\"]"
+    ]
+   ]
+  }
+ ]
+}

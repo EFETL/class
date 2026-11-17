@@ -1,0 +1,32 @@
+{
+ "file": "國中7-2 黑潮.mp4",
+ "title": "國中7-2 黑潮",
+ "segments": [
+  {
+   "say": "黑潮源自北赤道洋流，沿臺灣東部海域北上流向日本，是高溫、高鹽的暖流。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=ocean]"
+    ],
+    [
+     "click",
+     "#curList [data-cur=kuroshio]"
+    ]
+   ]
+  },
+  {
+   "say": "黑潮帶來豐富的遠洋魚類，像旗魚、鮪魚和鬼頭刀，造就東部的漁場和賞鯨產業。",
+   "act": [
+    [
+     "wait",
+     500
+    ]
+   ]
+  }
+ ]
+}

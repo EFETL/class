@@ -1,0 +1,36 @@
+{
+ "file": "國中2-2 山地與五大山脈.mp4",
+ "title": "國中2-2 山地與五大山脈",
+ "segments": [
+  {
+   "say": "山地是海拔超過一千公尺、崎嶇起伏的地形。臺灣有五大山脈：中央山脈、雪山山脈、玉山山脈、阿里山山脈和海岸山脈。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".legend [data-lf=mountain]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(121.0,23.6,430,0.95)"
+    ]
+   ]
+  },
+  {
+   "say": "其中中央山脈範圍最大，玉山主峰三千九百五十二公尺，是臺灣最高峰。",
+   "act": [
+    [
+     "label",
+     "玉山主峰"
+    ]
+   ]
+  }
+ ]
+}

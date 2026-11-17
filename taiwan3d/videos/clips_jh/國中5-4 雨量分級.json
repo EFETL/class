@@ -1,0 +1,36 @@
+{
+ "file": "國中5-4 雨量分級.mp4",
+ "title": "國中5-4 雨量分級",
+ "segments": [
+  {
+   "say": "氣象署依二十四小時累積雨量分級：八十毫米是大雨，兩百毫米是豪雨。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "js",
+     "document.querySelector('.pane[data-pane=rain] .fold').open=true"
+    ],
+    [
+     "js",
+     "document.querySelector('#rainChart .bar-m[data-m=\"7\"]').dispatchEvent(new MouseEvent('click'))"
+    ]
+   ]
+  },
+  {
+   "say": "三百五十毫米是大豪雨，五百毫米以上是超大豪雨。圖上的紅色虛線就是分級的參考線。",
+   "act": [
+    [
+     "wait",
+     500
+    ]
+   ]
+  }
+ ]
+}

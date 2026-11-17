@@ -1,0 +1,32 @@
+{
+ "file": "國中5-1 夏雨冬乾與全年有雨.mp4",
+ "title": "國中5-1 夏雨冬乾與全年有雨",
+ "segments": [
+  {
+   "say": "看高雄的雨量圖：雨量集中在五到九月，冬天很少，這是南部的夏雨冬乾。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "js",
+     "document.querySelector('.pane[data-pane=rain] .fold').open=true"
+    ]
+   ]
+  },
+  {
+   "say": "再看基隆：冬天雨量也很多，北部和東北部屬於全年有雨。影響臺灣氣候的三大因素是緯度、地形和季風。",
+   "act": [
+    [
+     "js",
+     "const s=document.getElementById('city'); s.value='keelung'; s.dispatchEvent(new Event('change'))"
+    ]
+   ]
+  }
+ ]
+}

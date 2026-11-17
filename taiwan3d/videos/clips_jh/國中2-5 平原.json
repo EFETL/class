@@ -1,0 +1,36 @@
+{
+ "file": "國中2-5 平原.mp4",
+ "title": "國中2-5 平原",
+ "segments": [
+  {
+   "say": "平原海拔低、地勢平坦。臺中以南平原連綿，是主要的農業生產地帶。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".legend [data-lf=plain]"
+    ],
+    [
+     "js",
+     "document.getElementById('info').classList.remove('show')"
+    ],
+    [
+     "js",
+     "__tw.flyTo(120.4,23.3,300,0.95)"
+    ]
+   ]
+  },
+  {
+   "say": "嘉南平原面積最廣，是西部平原的主體；另外還有濁水溪沖積平原、屏東平原、蘭陽平原和花東縱谷平原。",
+   "act": [
+    [
+     "label",
+     "嘉南平原"
+    ]
+   ]
+  }
+ ]
+}

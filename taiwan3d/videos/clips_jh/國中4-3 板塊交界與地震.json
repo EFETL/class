@@ -1,0 +1,40 @@
+{
+ "file": "國中4-3 板塊交界與地震.mp4",
+ "title": "國中4-3 板塊交界與地震",
+ "segments": [
+  {
+   "say": "海岸山脈原本是菲律賓海板塊上的火山島弧，花東縱谷就是兩個板塊的交界。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     "#btnPlates"
+    ],
+    [
+     "js",
+     "const s=document.getElementById('plateSlider');s.value=100;s.dispatchEvent(new Event('input'))"
+    ]
+   ]
+  },
+  {
+   "say": "造山運動到現在仍在進行，所以臺灣地震頻繁，山脈持續抬升，同時也受到風化侵蝕，這就是內營力和外營力一起作用。",
+   "act": [
+    [
+     "click",
+     "#plateQuake"
+    ],
+    [
+     "wait",
+     3000
+    ],
+    [
+     "click",
+     "#plateQuake"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "file": "國中8-2 祭儀與生活.mp4",
+ "title": "國中8-2 祭儀與生活",
+ "segments": [
+  {
+   "say": "各族的祭儀和生計活動密切相關：小米播種、收穫有祭典，狩獵有布農族的射耳祭。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#tribeList button[data-t=bunun]"
+    ]
+   ]
+  },
+  {
+   "say": "達悟族依循飛魚洄游的季節安排生活，並有嚴格的捕撈禁忌，以維護海洋資源。",
+   "act": [
+    [
+     "click",
+     "#tribeList button[data-t=yami]"
+    ]
+   ]
+  }
+ ]
+}

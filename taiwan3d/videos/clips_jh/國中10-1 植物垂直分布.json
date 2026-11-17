@@ -1,0 +1,36 @@
+{
+ "file": "國中10-1 植物垂直分布.mp4",
+ "title": "國中10-1 植物垂直分布",
+ "segments": [
+  {
+   "say": "海拔每升高約一百公尺，氣溫約下降零點六度，所以植物隨海拔呈現垂直分布。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=life]"
+    ],
+    [
+     "js",
+     "__tw.flyTo(120.95,23.47,280,1.05)"
+    ]
+   ]
+  },
+  {
+   "say": "由低到高依序是熱帶季風林、亞熱帶闊葉林、溫帶針闊葉混合林、寒溫帶針葉林，最高處是高山寒原。",
+   "act": [
+    [
+     "js",
+     "document.querySelector('.pane[data-pane=life] .fold').open=true"
+    ],
+    [
+     "wait",
+     500
+    ]
+   ]
+  }
+ ]
+}

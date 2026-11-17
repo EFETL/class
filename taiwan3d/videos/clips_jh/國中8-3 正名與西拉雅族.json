@@ -1,0 +1,32 @@
+{
+ "file": "國中8-3 正名與西拉雅族.mp4",
+ "title": "國中8-3 正名與西拉雅族",
+ "segments": [
+  {
+   "say": "原住民族的數量會因為正名而增加。二〇二六年七月，行政院核定西拉雅族為第十七族。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#tribeList button[data-t=siraya]"
+    ]
+   ]
+  },
+  {
+   "say": "西拉雅族是平埔族群，傳統分布在嘉南平原到恆春半島，信仰祖靈阿立祖，以公廨為祭祀場所。",
+   "act": [
+    [
+     "wait",
+     500
+    ]
+   ]
+  }
+ ]
+}

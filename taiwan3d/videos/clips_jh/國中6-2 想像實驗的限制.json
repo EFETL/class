@@ -1,0 +1,36 @@
+{
+ "file": "國中6-2 想像實驗的限制.mp4",
+ "title": "國中6-2 想像實驗的限制",
+ "segments": [
+  {
+   "say": "要提醒：這只是用來比較海拔的想像實驗。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ],
+    [
+     "click",
+     "[data-flood=\"1000\"]"
+    ]
+   ]
+  },
+  {
+   "say": "真實的降雨會順著坡度匯入河川、流回海洋。不過豪雨時，低窪的平原與盆地確實比較容易淹水。",
+   "act": [
+    [
+     "click",
+     "#btnDrain"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "file": "國中10-3 海洋生物與洋流.mp4",
+ "title": "國中10-3 海洋生物與洋流",
+ "segments": [
+  {
+   "say": "黑潮帶來溫暖海水，使東部海域魚類豐富，常見飛旋海豚、鬼頭刀等。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=life]"
+    ],
+    [
+     "click",
+     "#lifeList [data-cr=spinner]"
+    ]
+   ]
+  },
+  {
+   "say": "春夏飛魚隨黑潮北上到蘭嶼；冬季黑面琵鷺則從北方到臺南曾文溪口度冬。",
+   "act": [
+    [
+     "click",
+     "#lifeList [data-cr=flyingfish]"
+    ],
+    [
+     "wait",
+     5000
+    ],
+    [
+     "click",
+     "#lifeList [data-cr=spoonbill]"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "file": "國中7-3 中國沿岸流與漁場.mp4",
+ "title": "國中7-3 中國沿岸流與漁場",
+ "segments": [
+  {
+   "say": "冬季，中國沿岸流受東北季風吹送南下，是低溫、低鹽的冷流。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=ocean]"
+    ],
+    [
+     "click",
+     "[data-season=winter]"
+    ],
+    [
+     "click",
+     "#curList [data-cur=china]"
+    ]
+   ]
+  },
+  {
+   "say": "它在臺灣海峽和黑潮支流交會，冷暖水團交會處形成漁場；寒流太強時，澎湖的養殖魚可能發生寒害。",
+   "act": [
+    [
+     "click",
+     "#curList [data-cur=branch]"
+    ]
+   ]
+  }
+ ]
+}

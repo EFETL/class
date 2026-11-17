@@ -1,0 +1,36 @@
+{
+ "file": "國中9-2 客家聚落與文化.mp4",
+ "title": "國中9-2 客家聚落與文化",
+ "segments": [
+  {
+   "say": "客家聚落主要分布在桃竹苗丘陵、高屏六堆、臺中東勢和花東縱谷，早期多居住在丘陵、台地。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=tribes]"
+    ],
+    [
+     "click",
+     "#ethChips [data-eth=hakka]"
+    ],
+    [
+     "click",
+     "#hakkaAreas [data-ha=\"1\"]"
+    ]
+   ]
+  },
+  {
+   "say": "客家文化包括伯公信仰、義民祭、藍衫和擂茶，客語也有四縣、海陸等不同腔調。",
+   "act": [
+    [
+     "click",
+     "#hakkaAreas [data-ha=\"0\"]"
+    ]
+   ]
+  }
+ ]
+}

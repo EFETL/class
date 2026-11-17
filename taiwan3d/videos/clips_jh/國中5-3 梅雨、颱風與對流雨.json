@@ -1,0 +1,48 @@
+{
+ "file": "國中5-3 梅雨、颱風與對流雨.mp4",
+ "title": "國中5-3 梅雨、颱風與對流雨",
+ "segments": [
+  {
+   "say": "五、六月梅雨季，鋒面滯留在臺灣附近，帶來鋒面雨。",
+   "act": [
+    [
+     "click",
+     ".seg [data-level=junior]"
+    ],
+    [
+     "click",
+     ".tabs [data-mode=rain]"
+    ],
+    [
+     "click",
+     "#btnRain"
+    ],
+    [
+     "js",
+     "const s=document.getElementById('monthSel'); s.value='5'; s.dispatchEvent(new Event('change'))"
+    ],
+    [
+     "click",
+     "#btnHome"
+    ]
+   ]
+  },
+  {
+   "say": "夏季午後常有熱對流引起的雷陣雨，稱為對流雨；夏秋兩季還有颱風帶來豪雨。",
+   "act": [
+    [
+     "js",
+     "const s=document.getElementById('monthSel'); s.value='7'; s.dispatchEvent(new Event('change'))"
+    ],
+    [
+     "wait",
+     4000
+    ],
+    [
+     "click",
+     "#btnRain"
+    ]
+   ]
+  }
+ ]
+}
