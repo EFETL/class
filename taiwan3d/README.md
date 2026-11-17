@@ -49,9 +49,12 @@
   （逐格錄製：凍結網頁時間、每格截圖，畫面與旁白保證同步）；全部重錄：`videos/tools/run_all.sh 輸出資料夾`。
 - 需要的網路：`speech.platform.bing.com`（語音）；edge-tts 要加 `--proxy "$HTTPS_PROXY"`。
 
+## 教學影片（國中版）
+- 分段設定：`videos/clips_jh/*.json`（第 2～11 集，33 段；每段第一個動作切到「國中」）；第 1 集操作教學與國小版共用。
+- 成品：`videos/mp4_jh/`。全部重錄：`CLIPDIR=clips_jh videos/tools/run_all.sh 輸出資料夾`。
+
 ## 待辦／可以做的事
 - 老師上傳 YouTube 後，做一頁式影片清單網站。
-- 國中版影片（尚未做）。
 - 讓朋友嵌入：teaching 有密碼鎖，若要給外部嵌入需另放一份無密碼公開版（老師尚未決定）。
 - `class` 分支尚未合併到 main。
 - 「4-3 地震」影片僅 12 秒，可考慮加長。

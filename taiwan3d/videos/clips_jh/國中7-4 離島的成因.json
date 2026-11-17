@@ -27,8 +27,8 @@
    "say": "金門、馬祖原本是臨海丘陵，因海平面上升成為大陸島；東沙島和小琉球則是珊瑚礁島。",
    "act": [
     [
-     "click",
-     "#islandBtns [data-isl=kinmen]"
+     "label",
+     "金門"
     ]
    ]
   }
